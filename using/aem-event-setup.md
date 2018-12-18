@@ -55,7 +55,7 @@ To install the AEM event proxy package:
 
 2. Open AEM Package Manager by selecting the **Tools** icon and then selecting **Deployment** and **Packages**.
 
-   ![Package Manager navigation](../../img/events_aem_02.png "Package Manager navigation")
+   ![Package Manager navigation](../img/events_aem_02.png "Package Manager navigation")
 
 3. In **Package Manager**, select **Upload Package**. Select **Browse** and navigate to the package zip file. Select **OK**.
 
@@ -63,15 +63,15 @@ To install the AEM event proxy package:
 
 4. Select **Install**.
 
-      ![Package Manager UI](../../img/events_aem_03.png "Package Manager UI")
+      ![Package Manager UI](../img/events_aem_03.png "Package Manager UI")
 
 5. On the **Install Package** dialog box, select **Merge** from the **Access Control Handling** drop-down list and select **Install**.
 
-      ![Install the package](../../img/events_aem_04.png "Install the package")
+      ![Install the package](../img/events_aem_04.png "Install the package")
 
 6. Watch the **Activity Log**. If installed, the log reports that the package is imported.
 
-      ![Activity Log](../../img/events_aem_05.png "Activity Log")
+      ![Activity Log](../img/events_aem_05.png "Activity Log")
 
 For more information on installing packages in AEM, see [How to Work with Packages](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/package-manager.html).
 
@@ -136,11 +136,11 @@ To add the certificate into the AEM `eventproxy-service` user&rsquo;s keystore:
 
 1. In AEM, open the **User Management** group by selecting the **Tools** icon and then selecting **Security** and **Users.**
 
-      ![User management navigation](../../img/events_aem_07.png "User management navigation")
+      ![User management navigation](../img/events_aem_07.png "User management navigation")
 
 2. Scroll down and Select **eventproxy-service** to open it.
 
-      ![Selecting the eventproxy service](../../img/events_aem_08.png "Selecting the eventproxy service")
+      ![Selecting the eventproxy service](../img/events_aem_08.png "Selecting the eventproxy service")
  
 3. Select **Create KeyStore**
 
@@ -154,7 +154,7 @@ To add the certificate into the AEM `eventproxy-service` user&rsquo;s keystore:
 
 8. Select **Submit**.
  
-      ![keystore management](../../img/events_aem_10.png)
+      ![keystore management](../img/events_aem_10.png)
 
 #### Configure the AEM Link Externalizer
 
@@ -164,13 +164,13 @@ To configure AEM Link Externalizer:
 
     The AEM Link Externalizer name can be **author** or any other alias specified in the Adobe Experience Manager Web Console.
 
-    ![AEM Web Console](../../img/events_aem_11.png "AEM Web Console")
+    ![AEM Web Console](../img/events_aem_11.png "AEM Web Console")
 
 2. Scroll down the list to find **Day CQ Link Externalizer**, update the domain name, and select **Save** when done.
  
     >**Note:** The base URL that you specify appears on the AEM Web Console. Do not use only the word “localhost” as the default name because others may use it. This will then cause confusion and make it difficult to determine which instance is yours. 
 
-    ![AEM Web Console base URL](../../img/events_aem_12.png  "AEM Web Console base URL")
+    ![AEM Web Console base URL](../img/events_aem_12.png  "AEM Web Console base URL")
 
 ## Use Adobe I/O
 
@@ -189,19 +189,19 @@ To create an [Adobe I/O Console](https://adobe.io/console) integration:
 
 2. Select **Access an API** and then select **Continue**.
 
-      ![Access an API](../../img/events_aem_13.png "Access an API")
+      ![Access an API](../img/events_aem_13.png "Access an API")
 
 3. On the **Create a new integration** page, select **Adobe I/O Events** and then select **Continue**.
 
-      ![I/O Events integration](../../img/events_aem_14.png "I/O Events integration")
+      ![I/O Events integration](../img/events_aem_14.png "I/O Events integration")
 
 4. Select **New integration**.
 
-      ![Create new integration option](../../img/events_aem_15.png "Create new integration option")
+      ![Create new integration option](../img/events_aem_15.png "Create new integration option")
 
 5. In the <strong id="Create-new-integration-box">Create a new integration</strong> dialog box, specify a name for the integration and add a description. To add **Public keys certificates**, select **Select a File** and navigate to your **certificate_pub.crt** to upload it.
 
-      ![Complete the new integration](../../img/events_aem_16.png "Complete the new integration")
+      ![Complete the new integration](../img/events_aem_16.png "Complete the new integration")
 
 6. Select **Create Integration.**
 
@@ -213,13 +213,13 @@ To configure Adobe I/O Events as a cloud service in AEM:
 
 1. Open the Cloud Services console, or select the **Security** icon, and then select **Adobe IMS Configurations**. 
 
-   ![Adobe IMS Configurations UI](../../img/events_aem_adobe-ims-conf-1.png "Adobe IMS Configurations UI")
+   ![Adobe IMS Configurations UI](../img/events_aem_adobe-ims-conf-1.png "Adobe IMS Configurations UI")
    
 2. Click **Create**; 
    **Select `AdobeIOEvents`** in the Cloud Solution drop down; once selected, you should see the certificate you just added to the AEM `eventproxy-service` user's keystore;
    Click **Next** 
    
-    ![Adobe IMS Configuration Creation](../../img/events_aem_adobe-ims-conf-2.png "Adobe IMS Configuration Creation")
+    ![Adobe IMS Configuration Creation](../img/events_aem_adobe-ims-conf-2.png "Adobe IMS Configuration Creation")
 
 3. Fill in the various entries expected to configure the IMS account associated with the integration 
  you just created in the Adobe I/O Console
@@ -233,11 +233,11 @@ To configure Adobe I/O Events as a cloud service in AEM:
 
 4. Click **Create**
 
-    ![Adobe IMS Configuration IMS account form](../../img/events_aem_adobe-ims-conf-3.png "Adobe IMS Configuration IMS account form")
+    ![Adobe IMS Configuration IMS account form](../img/events_aem_adobe-ims-conf-3.png "Adobe IMS Configuration IMS account form")
     
 6. Now you should see this new Adobe IO Events IMS Configuration, and you can select it to check its health.
 
-     ![Adobe IMS Configuration IMS Health Check](../../img/events_aem_adobe-ims-conf-4.png "Adobe IMS Configuration Health Check")
+     ![Adobe IMS Configuration IMS Health Check](../img/events_aem_adobe-ims-conf-4.png "Adobe IMS Configuration Health Check")
 
 
 #### AEM 6.2 and AEM 6.3 Configuration
@@ -246,18 +246,18 @@ To configure Adobe I/O Events as a cloud service in AEM:
 
 1. Open the Cloud Services console, or select the **Tools** icon, then select **Deployment** and **Cloud Services**. 
 
-      ![Cloud Services UI](../../img/events_aem_17.png "Cloud Services UI")
+      ![Cloud Services UI](../img/events_aem_17.png "Cloud Services UI")
 
 2. Under **Adobe Marketing Cloud** on the **Cloud Services** page, select **Configure now** for **Adobe I/O Events**. 
 
-      ![Configure Adobe Events](../../img/events_aem_18.png "Configure Adobe Events")
+      ![Configure Adobe Events](../img/events_aem_18.png "Configure Adobe Events")
 
 3. In the Create Configuration dialog box, enter a title and a name for your integration, and then select Create.
-      ![Create a configuration](../../img/events_aem_19.png "Create a configuration")
+      ![Create a configuration](../img/events_aem_19.png "Create a configuration")
 
 4. Select Edit. Configure the service by specifying each field in the **Edit Component** dialog box. You can copy your credentials from the [Adobe I/O Console](https://adobe.io/console) and paste them into each required field.
 
-      ![Edit the configuration](../../img/events_aem_20.png "Edit the configuration")
+      ![Edit the configuration](../img/events_aem_20.png "Edit the configuration")
 
 *   For **AEM Link externalizer**: specify **author** (or any other alias previously configured in the AEM Link Externalizer).
 *   For **API key**: Provide the key shown on the **Integration Details** page of the Adobe I/O Console. 
@@ -316,11 +316,11 @@ Once you have your webhook ready, use the [Adobe I/O Console](https://adobe.io/c
 
 2. Select **Receive near-real time events** and then select **Continue**.
 
-      ![Receive near real-time events](../../img/events_aem_24.png "Receive near real-time events")
+      ![Receive near real-time events](../img/events_aem_24.png "Receive near real-time events")
 
 3. Select the AEM Link Externalizer base URL that you [previously specified](#configuretheaemlinkexternalizer) and then select **Continue**.
 
-      ![AEM Externalizer base URL on Marketing Cloud](../../img/events_aem_25.png "AEM Externalizer base URL on Marketing Cloud")
+      ![AEM Externalizer base URL on Marketing Cloud](../img/events_aem_25.png "AEM Externalizer base URL on Marketing Cloud")
 
 4. Select **Create new integration** and fill in the **Integration Details** form [similar to your previous integration](#Create-new-integration-box).
 
@@ -328,7 +328,7 @@ Once you have your webhook ready, use the [Adobe I/O Console](https://adobe.io/c
 
 6. Select the events to which you want to subscribe and select **Save**.
 
-      ![Integration health check](../../img/events_aem_26.png "Integration health check")
+      ![Integration health check](../img/events_aem_26.png "Integration health check")
 
 Note: Once you have registered your webhook, responses will include a [status](https://github.com/adobeio/adobeio-events-documentation/blob/master/Webhook_docs_intro.md#org85f36da) field to show if it is ```VERIFIED```.
 
@@ -340,14 +340,14 @@ For asset-related events, create, update or delete an asset in AEM DAM;
 for page-related events, publish or unpublish a page; 
 finally, to test our custom OSGI event type sample, you may use our custom OSGI event health check.
     
-  ![Custom osgi event health check](../../img/events_aem_28.png "Custom osgi event health check")
+  ![Custom osgi event health check](../img/events_aem_28.png "Custom osgi event health check")
 
 If for some reason, your webhook is failing, note that the Adobe I/O console holds a **Debug Tracing** feature:
 It allows you to watch all the events payloads emitted by Adobe I/O towards your webhook and the associated webhook response.
 In the console, select your integration, the `Events` Tabulation, your webhook, then `Debug tracing`,
 see the screenshot below:
 
-![Debug tracing UI](../../img/events_aem_debug-tracing.png "Debug tracing UI")
+![Debug tracing UI](../img/events_aem_debug-tracing.png "Debug tracing UI")
 
    
 <a id="configure-advanced-adobe-i/o-events">&nbsp;</a>
@@ -362,7 +362,7 @@ To verify your configurations:
 
 1. Check that all your configurations load properly by executing the health check tagged with **conf-events**.
 
-      ![Health check for eventproxy,conf](../../img/events_aem_21.png "Health check for conf-events")
+      ![Health check for eventproxy,conf](../img/events_aem_21.png "Health check for conf-events")
 
 If this health check is failing, check the following:
 
@@ -378,7 +378,7 @@ This verifies that your IMS-related configurations are correct and working,
 including the `eventproxy-service` user keystore configuration, the Adobe I/O console&ndash;originated API key, the Technical Account ID, 
 the Organization ID, and the client secret.
 
-      ![Health check for eventproxy,ims](../../img/events_aem_22.png "Health check for ims-events")
+      ![Health check for eventproxy,ims](../img/events_aem_22.png "Health check for ims-events")
 
 If this health check is failing, check the following:
 
@@ -389,7 +389,7 @@ If this health check is failing, check the following:
 3. Check that the event metadata and the provider associated with the AEM instance are registered in Adobe I/O Channel & Subscription Management (CSM) by executing the health check tagged with **csm-events**.
 This verifies that the AEM instance is successfully registered as an event provider with Adobe I/O CSM.
 
-      ![Health check for eventproxy,csm](../../img/events_aem_23.png "Health check for csm-events")
+      ![Health check for eventproxy,csm](../img/events_aem_23.png "Health check for csm-events")
 
 #### Adobe I/O Events OSGI to XDM event mapping configurations
 
@@ -413,11 +413,11 @@ To configure using the panel:
 
 1. Select **Tools** in AEM and then select **Operations** and **Web Console**.
 
-      ![Web Console navigation UI](../../img/events_aem_31.png "Web Console navigation UI")
+      ![Web Console navigation UI](../img/events_aem_31.png "Web Console navigation UI")
 
 2. In the **OSGI** menu, select **Configuration**.
 
-      ![OSGI configuration](../../img/events_aem_32.png "OSGI configuration")  
+      ![OSGI configuration](../img/events_aem_32.png "OSGI configuration")  
       and search for: **Adobe I/O Events CSM Registration**.
 
 3. For **Adobe I/O Events OSGI to XDM Event Mapping Configuration**, select **+**, **Edit**, or **Delete**.
@@ -448,12 +448,12 @@ You can tune this configuration according to your needs: using the `OSGI > confi
 and create there a new `Apache Sling Job Queue Configuration`
 
 
-  ![Apache Sling Job Queue Configuration UI](../../img/events_aem_job-config.png "Apache Sling Job Queue Configuration UI")
+  ![Apache Sling Job Queue Configuration UI](../img/events_aem_job-config.png "Apache Sling Job Queue Configuration UI")
 
 Note that you can use the `Sling > Jobs`  menu of AEM `system console`, 
 to look up the statistics and health of your queues
 
- ![Apache Sling Job UI](../../img/events_aem_job-stat.png "Apache Sling Job UI")
+ ![Apache Sling Job UI](../img/events_aem_job-stat.png "Apache Sling Job UI")
 
 
 Please refer to the Sling documentation:
@@ -470,4 +470,4 @@ Please refer to the Sling documentation:
 
 Please help make this solution as useful as possible. If you find a problem in the documentation or have a suggestion, select the **Issues** tab on this GitHub repository and then select **New issue**. Provide a title and description for your comment and then select  **Submit new issue**.
 
-   ![GitHub: submit new issue](../../img/events_aem_33.png "GitHub: submit new issue")
+   ![GitHub: submit new issue](../img/events_aem_33.png "GitHub: submit new issue")

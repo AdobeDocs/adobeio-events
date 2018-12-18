@@ -427,10 +427,10 @@ Here is a sample:
 **I receive errors trying to access Triggers.**  
 The company/org is entitled for Analytics Triggers but I receive the following errors when trying to set up a Trigger:
 
-![Report Suite null](../../img/events_FAQ_01.png "Report Suite null")
+![Report Suite null](../img/events_FAQ_01.png "Report Suite null")
 
-![Error fetching Report Suites](../../img/events_FAQ_02.png "Error fetching Report Suites")
+![Error fetching Report Suites](../img/events_FAQ_02.png "Error fetching Report Suites")
 
 **To fix:**  Ensure that Triggers is enabled in the Analytics Product Profile in the Admin Console. 
 
-![Enabling Triggers in Admin Console](../../img/events_FAQ_03.png "Enabling Triggers in Admin Console")
+![Enabling Triggers in Admin Console](../img/events_FAQ_03.png "Enabling Triggers in Admin Console")
