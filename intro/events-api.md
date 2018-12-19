@@ -51,7 +51,7 @@ https://api.adobe.io/events/organizations/2316/integrations/5670/registrations/f
 
 To retrieve your `orgId`, `intId`, and API key (which is used for the `x-api-key` parameter), view your integration's details:
 
-![Integration details with key values](../../img/events_api_01.png "Integration details with key values")
+![Integration details with key values](../img/events_api_01.png "Integration details with key values")
 
 The `orgId` and `intId` parameters are shown in the URL for your integration, while the API key is shown on the Overview tab under Client Credentials.
 
