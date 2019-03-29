@@ -2,10 +2,12 @@
 
 # Journaling API
 
-- [Accessing the journaling endpoint](#accessingthejournalingendpoint)
-- [Calling the API](#callingtheapi)
-- [Getting the response](#gettingtheresponse)
-- [Controlling the response](#controllingtheresponse)
+- [Journaling API](#journaling-api)
+  - [Accessing the journaling endpoint](#accessing-the-journaling-endpoint)
+  - [Calling the API](#calling-the-api)
+  - [Getting the response](#getting-the-response)
+  - [Controlling the response](#controlling-the-response)
+    - [Using &ldquo;next&rdquo;](#using-ldquonextrdquo)
 
 For enterprise developers, Adobe offers another way to consume events besides webhooks: journaling. The Adobe I/O Events Journaling API enables enterprise integrations to consume events according to their own cadence and process them in bulk. Unlike webhooks, no additional registration or other configuration is required; every enterprise integration that is registered for events is automatically enabled for journaling. Journaling data is retained for 7 days.
 
@@ -14,21 +16,25 @@ For enterprise developers, Adobe offers another way to consume events besides we
 Rather than webhooks, which are a _push_ model for events, journaling is a _pull_ model, in which the integration issues an API call to pull a list of events from Adobe. As with webhooks, Adobe delivers the event list as a JSON object on the following model: 
 
 ```json
-[
-  {
-    "events": [
-      "string"
-    ],
-    "next": "string"
-  }
-]
+{
+   "events": [{
+      "position": "string",
+      "event": {
+         "key": "value"
+      }
+   }],
+   "_page": {
+      "last": "string",
+      "count": number
+   }
+}
 ```
 
-There is only one API for journaling:
+There is only one API endpoint for journaling:
 
 `/events/organizations/{orgId}/integrations/{intId}/{registrationId}`
 
-This API gets all events for a given event registration.
+This API gets events for a given event registration.
 
 Make sure that the `I/O Management API` is added as a service in your integration (using the `Services` tab in the I/O Console), in order to be able to invoke the journaling API.
 
@@ -48,7 +54,7 @@ Adobe I/O Console makes it easy to use the API by providing you with an endpoint
 
 To issue the API call, you need to provide two additional parameters: 
 
-* Your integration&rsquo;s API key. This is displayed in the Overview tab for your integration in the Adobe I/O Console.
+* Your integration's API key. This is displayed in the Overview tab for your integration in the Adobe I/O Console.
 * A JWT token. See [Authentication: Creating a JWT Token](https://www.adobe.io/apis/cloudplatform/console/authentication/createjwt.html) for how to create a JWT token.
 
 You combine the URL you got from the Journaling section of the event details with your API key and JWT token to make the call
@@ -66,9 +72,9 @@ Your call results in a response containing a JSON object listing all the events 
 {
    "events":[
       {
-         "event_id":"7dd9e3c4-0d3f-42d5-abb4-1776e209b080",
+         "position":"camel:5aeb25cc-1b15-4f26-a082-9c213005dba8:7dd9e3c4-0d3f-42d5-abb4-1776e209b080",
          "event":{
-            "@id":"N/A",
+            "@id":"urn:oeid:aem:f6851819-5fb7-4232-ad25-f523ae44186c",
             "@type":"xdmCreated",
             "activitystreams:published":"2018-03-01T17:54:14-08",
             "activitystreams:to":{
@@ -93,9 +99,9 @@ Your call results in a response containing a JSON object listing all the events 
          }
       },
       {
-         "event_id":"ff244403-ca7c-4993-bbda-3c8915ce0b32",
+         "position":"camel:5aeb25cc-1b15-4f26-a082-9c213005dba8:ff244403-ca7c-4993-bbda-3c8915ce0b32",
          "event":{
-            "@id":"N/A",
+            "@id":"urn:oeid:aem:199e85da-dd54-4966-95ba-13cf544964dc",
             "@type":"xdmCreated",
             "activitystreams:published":"2018-03-06T15:19:03-08",
             "activitystreams:to":{
@@ -120,9 +126,9 @@ Your call results in a response containing a JSON object listing all the events 
          }
       },
       {
-         "event_id":"2159b72c-e284-4899-b572-08da250e3614",
+         "position":"moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614",
          "event":{
-            "@id":"N/A",
+            "@id":"urn:oeid:aem:61930ae6-ff2a-48fb-881d-078e862c3811",
             "@type":"xdmCreated",
             "activitystreams:published":"2018-03-06T15:19:59-08",
             "activitystreams:to":{
@@ -147,7 +153,10 @@ Your call results in a response containing a JSON object listing all the events 
          }
       }
    ],
-   "next":""
+   "_page": {
+      "last": "moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614",
+      "count": 3
+   }
 }
 ```
 
