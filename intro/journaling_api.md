@@ -3,44 +3,50 @@
 # Journaling API
 
 - [Journaling API](#journaling-api)
-  - [Accessing the journaling endpoint](#accessing-the-journaling-endpoint)
-  - [Calling the API](#calling-the-api)
-  - [Getting the response](#getting-the-response)
+  - [What is a Journal](#what-is-a-journal)
+  - [Fetching events from the journaling API](#fetching-events-from-the-journaling-api)
+    - [Finding the journaling endpoint URL](#finding-the-journaling-endpoint-url)
+    - [Obtaining an access token to call the API](#obtaining-an-access-token-to-call-the-api)
+    - [Fetching the first batch of events from the journal](#fetching-the-first-batch-of-events-from-the-journal)
+    - [Fetching the next batch of "newer" events from the journal](#fetching-the-next-batch-of-%22newer%22-events-from-the-journal)
+    - [Fetching events from the end of the journal](#fetching-events-from-the-end-of-the-journal)
   - [Controlling the response](#controlling-the-response)
     - [Using &ldquo;next&rdquo;](#using-ldquonextrdquo)
 
 For enterprise developers, Adobe offers another way to consume events besides webhooks: journaling. The Adobe I/O Events Journaling API enables enterprise integrations to consume events according to their own cadence and process them in bulk. Unlike webhooks, no additional registration or other configuration is required; every enterprise integration that is registered for events is automatically enabled for journaling. Journaling data is retained for 7 days.
 
+## What is a Journal
 
+A Journal, is an ordered list of events - much like a ledger or a log where new entries (events) are added to the end of the ledger and the ledger keeps growing. A client can start reading the ledger from any position and then continue reading "newer" entries (events) in the ledger (much like turning pages forward).
 
-Rather than webhooks, which are a _push_ model for events, journaling is a _pull_ model, in which the integration issues an API call to pull a list of events from Adobe. As with webhooks, Adobe delivers the event list as a JSON object on the following model: 
+Journaling, in contrast to webhooks, is a _pull_ model of consuming events, whereas webhooks are a _push_ model. In journaling the client application issues a series of API calls to pull batches of one or more events from the journal.
+
+Each batch of events not only contains the information about the event but also contains the corresponding unique position of those events in the journal. The position of the last event in the batch needs to be supplied back to the Journaling API in the subsequent API call to return events that are "newer" than the previously fetched events.
+
+A batch of events returned by the Journaling API looks similar to the following JSON object.
 
 ```json
 {
-   "events": [{
-      "position": "string",
-      "event": {
-         "key": "value"
+   "events": [ // an ordered list of events
+      { 
+         "position": "string", // unique position of this event in the journal
+         "event": { 
+            "key": "value" // actual event data
+         }
       }
-   }],
+   ],
    "_page": {
-      "last": "string",
-      "count": number
+      "last": "string", // position corresponding to the last event returned in this batch
+      "count": 1 // number of events returned in this batch
    }
 }
 ```
 
-There is only one API endpoint for journaling:
+## Fetching events from the journaling API
 
-`/events/organizations/{orgId}/integrations/{intId}/{registrationId}`
+### Finding the journaling endpoint URL
 
-This API gets events for a given event registration.
-
-Make sure that the `I/O Management API` is added as a service in your integration (using the `Services` tab in the I/O Console), in order to be able to invoke the journaling API.
-
-## Accessing the journaling endpoint
-
-Adobe I/O Console makes it easy to use the API by providing you with an endpoint URL with the parameters filled in:
+Every event registration has a corresponding unique journaling endpoint URL. This URL is displayed on the I/O Console - 
 
 1. Log into [console.adobe.io](https://console.adobe.io) and open your integration. 
 
@@ -50,54 +56,44 @@ Adobe I/O Console makes it easy to use the API by providing you with an endpoint
 
 4. Find the Journaling section of the event details and copy the URL for the unique endpoint. 
 
-## Calling the API
+5. Be sure to add the `I/O Management API` as a service in your integration (using the `Services` tab in the I/O Console), in order to be able to invoke the journaling API.
+
+### Obtaining an access token to call the API
 
 To issue the API call, you need to provide two additional parameters: 
 
 * Your integration's API key. This is displayed in the Overview tab for your integration in the Adobe I/O Console.
 * A JWT token. See [Authentication: Creating a JWT Token](https://www.adobe.io/apis/cloudplatform/console/authentication/createjwt.html) for how to create a JWT token.
 
-You combine the URL you got from the Journaling section of the event details with your API key and JWT token to make the call
+You combine the URL you got from the Journaling section of the event details with your API key and JWT token to make the call.
 
 ```
-curl -H “Authorization: Bearer $USER_TOKEN” -H “x-api-key: $API_KEY
-https://api.adobe.io/events/organizations/2316/integrations/5670/fa28f4d0-3438-429f-98b8-0a25cb49498b
+curl -X GET \
+  https://api.adobe.io/events/organizations/xxxxx/integrations/xxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+  -H "Authorization: Bearer $JWT_TOKEN" \
+  -H "x-api-key: $API_KEY"
 ```
 
-## Getting the response
-Your call results in a response containing a JSON object listing all the events for that event registration. 
+### Fetching the first batch of events from the journal
 
-**Sample output:**
-```json
+The journaling endpoint URL, when called without any query parameters fetches the batch of ["oldest" available events](//TODO deep link purgining) in the journal. These events are "older" than all other events in the journal. Hence, once a client application starts consuming "newer" events from this position they will eventually consume all events in the journal.
+
+
+For example:
+
+```
+curl -X GET \
+  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
+  -H "Authorization: Bearer $USER_TOKEN" \
+  -H "x-api-key: $API_KEY"
+```
+
+```
+HTTP/1.1 200 OK
+Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614>; rel="next"
+
 {
    "events":[
-      {
-         "position":"camel:5aeb25cc-1b15-4f26-a082-9c213005dba8:7dd9e3c4-0d3f-42d5-abb4-1776e209b080",
-         "event":{
-            "@id":"urn:oeid:aem:f6851819-5fb7-4232-ad25-f523ae44186c",
-            "@type":"xdmCreated",
-            "activitystreams:published":"2018-03-01T17:54:14-08",
-            "activitystreams:to":{
-               "@type":"xdmImsOrg",
-               "xdmImsOrg:id":"01DC1FC45956A5810A494138@AdobeOrg"
-            },
-            "activitystreams:generator":{
-               "@type":"xdmContentRepository",
-               "xdmContentRepository:root":"http://localhost-roberto-aem63:4502"
-            },
-            "activitystreams:actor":{
-               "@id":"healthcheck-user",
-               "@type":"xdmAemUser"
-            },
-            "activitystreams:object":{
-               "@type":"xdmAsset",
-               "xdmAsset:asset_name":"healthcheck.png",
-               "xdmAsset:path":"/content/dam/healthcheck.png",
-               "xdmAsset:format":"image/png"
-            },
-            "xdmEventEnvelope:objectType":"xdmAsset"
-         }
-      },
       {
          "position":"camel:5aeb25cc-1b15-4f26-a082-9c213005dba8:ff244403-ca7c-4993-bbda-3c8915ce0b32",
          "event":{
@@ -155,12 +151,141 @@ Your call results in a response containing a JSON object listing all the events 
    ],
    "_page": {
       "last": "moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614",
-      "count": 3
+      "count": 2
+   }
+}
+```
+
+### Fetching the next batch of "newer" events from the journal
+
+Once the client application has fetched a batch of events from the journal, it can fetch the next batch of "newer" events by supplying the position of the `last` event in the current batch. The position of the `last` event needs to be supplied back in the query parameter `since`. The API call can then be read semantically as: `GET` a batch of events `since` the given `position` in the journal.
+
+Instead of having to construct the URL to the next batch of "newer" events, it is **strongly recommended** that the client application utilize the link provided in the response headers. Every successful response from the journaling API contains a `Link` response header with the relation type `rel=next`. The URL in the `next` link is pre populated with the `since` query parameter to fetch the next batch of "newer" events.
+
+For example:
+
+```
+curl -X GET \
+  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
+  -H "Authorization: Bearer $USER_TOKEN" \
+  -H "x-api-key: $API_KEY"
+```
+
+```
+HTTP/1.1 200 OK
+Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080>; rel="next"
+
+{
+   "events":[
+      {
+         "position":"rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080",
+         "event":{
+            "@id":"urn:oeid:aem:f6851819-5fb7-4232-ad25-f523ae44186c",
+            "@type":"xdmCreated",
+            "activitystreams:published":"2018-03-01T17:54:14-08",
+            "activitystreams:to":{
+               "@type":"xdmImsOrg",
+               "xdmImsOrg:id":"01DC1FC45956A5810A494138@AdobeOrg"
+            },
+            "activitystreams:generator":{
+               "@type":"xdmContentRepository",
+               "xdmContentRepository:root":"http://localhost-roberto-aem63:4502"
+            },
+            "activitystreams:actor":{
+               "@id":"healthcheck-user",
+               "@type":"xdmAemUser"
+            },
+            "activitystreams:object":{
+               "@type":"xdmAsset",
+               "xdmAsset:asset_name":"healthcheck.png",
+               "xdmAsset:path":"/content/dam/healthcheck.png",
+               "xdmAsset:format":"image/png"
+            },
+            "xdmEventEnvelope:objectType":"xdmAsset"
+         }
+      }
+   ],
+   "_page": {
+      "last": "rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080",
+      "count": 1
+   }
+}
+```
+
+### Fetching events from the end of the journal
+
+By continuously iterating through the journal and consuming "newer" events, eventually a client application will reach the "end" of the journal. The "end" of the journal corrsponds to that position of the journal, where there are no "newer" events yet. Hence, if a client application tries to fetch events "newer" than the "end" position, no events will be returned just a `204 No Content` response.
+
+```
+curl -X GET \
+  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
+  -H "Authorization: Bearer $USER_TOKEN" \
+  -H "x-api-key: $API_KEY"
+```
+
+```
+HTTP/1.1 204 No Content
+retry-after: 10
+Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080>; rel="next"
+Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/validate?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080>; rel="validate"
+
+```
+
+However, after some time depending on the frequency of events in your event registration, "newer" events will be added in near real-time to the end of the journal. These events can then be fetched by calling the same URL that earlier returned a `204 No Content` response, but this time it will return a `200 OK` response with a list of events in the response body.
+
+For the benefit of the client application whenever the client tries to fetch events `since` the "end" position in the journal, the `next` link in the `204 No Content` is the same as the current request URL. Hence, the client application can always rely on the `next` link to iterate through the journal and whenever it receives a `204 No Content` response it needs ot just back off by the number of seconds specified in the `retry-after` response header and then continue pulling events from the `next` link.
+
+```
+curl -X GET \
+  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
+  -H "Authorization: Bearer $USER_TOKEN" \
+  -H "x-api-key: $API_KEY"
+```
+
+```
+HTTP/1.1 200 OK
+Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="next"
+
+{
+   "events":[
+      {
+         "position":"penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb",
+         "event":{
+            "@id":"urn:oeid:aem:5492d8d4-6fca-4d6c-a788-043ec4bf32af",
+            "@type":"xdmCreated",
+            "activitystreams:published":"2018-03-01T19:33:11-08",
+            "activitystreams:to":{
+               "@type":"xdmImsOrg",
+               "xdmImsOrg:id":"01DC1FC45956A5810A494138@AdobeOrg"
+            },
+            "activitystreams:generator":{
+               "@type":"xdmContentRepository",
+               "xdmContentRepository:root":"http://localhost-roberto-aem63:4502"
+            },
+            "activitystreams:actor":{
+               "@id":"healthcheck-user",
+               "@type":"xdmAemUser"
+            },
+            "activitystreams:object":{
+               "@type":"xdmAsset",
+               "xdmAsset:asset_name":"healthcheck.png",
+               "xdmAsset:path":"/content/dam/healthcheck.png",
+               "xdmAsset:format":"image/png"
+            },
+            "xdmEventEnvelope:objectType":"xdmAsset"
+         }
+      }
+   ],
+   "_page": {
+      "last": "penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb",
+      "count": 1
    }
 }
 ```
 
 ## Controlling the response
+
+
 By default, every call to the Journaling API returns a list of the latest 100 events, or all events if there are fewer than 100. The Journaling API offers two optional query parameters you can include in your URL for controlling the response:
 
 * **pageSize:** This integer parameter lets you specify how many of the most recent events to retrieve. 
