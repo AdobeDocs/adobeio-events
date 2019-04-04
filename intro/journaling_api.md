@@ -16,8 +16,6 @@
   - [Event expiry](#event-expiry)
     - [Purging policy](#purging-policy)
     - [Positon Validation](#positon-validation)
-    - [Using &ldquo;next&rdquo;](#using-ldquonextrdquo)
-  - [](#)
 
 For enterprise developers, Adobe offers another way to consume events besides webhooks: journaling. The Adobe I/O Events Journaling API enables enterprise integrations to consume events according to their own cadence and process them in bulk. Unlike webhooks, no additional registration or other configuration is required; every enterprise integration that is registered for events is automatically enabled for journaling. Journaling data is retained for 7 days.
 
@@ -459,27 +457,3 @@ NOTE: the `latest=true` query parameter is just a way to jump to the "end" of th
 ### Purging policy
 
 ### Positon Validation
-
-
-By default, every call to the Journaling API returns a list of the latest 100 events, or all events if there are fewer than 100. The Journaling API offers two optional query parameters you can include in your URL for controlling the response:
-
-* **pageSize:** This integer parameter lets you specify how many of the most recent events to retrieve. 
-* **from:** This string parameter lets you provide the ID of the first event you want returned; the rest of events in the response will follow.
-
-Adding these two parameters to the URL:
-
-```
-curl -H “Authorization: Bearer $USER_TOKEN” -H “x-api-key: $API_KEY” 
-https://api.adobe.io/events/organizations/2316/integrations/5670/fa28f4d0-3438-429f-98b8-0a25cb49498b
-?pageSize=25&from=2159b72c-e284-4899-b572-08da250e3614
-```
-
-This would return a list of 25 events, beginning with event ID 2159b72c-e284-4899-b572-08da250e3614.
-
-### Using &ldquo;next&rdquo;
-The `next` parameter is used in conjunction with the `from` parameter to get sequential sets of events. If you specify an event ID in `from` that, together with the number of events you retrieve (either the default 100 or the number specified by `pageSize`), produces a result set that doesn't include the most recent event, then the `next` attribute in the JSON payload gives the event ID of the next event following the set returned. (Conversely: if `next` is empty, you have the latest event.)
-
-You can use the value of `next` to feed the `from` parameter in the next API call you make; by repeating this process, you can get sets of events in perfect sequence until you retrieve the most recent event. This way, you can process events in batches whose size you can control and never miss an event.
-
-
-## 
