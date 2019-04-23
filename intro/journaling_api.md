@@ -16,7 +16,7 @@
   - [Event expiry](#event-expiry)
     - [Oldest available events](#oldest-available-events)
     - [Fetching events from expired positions](#fetching-events-from-expired-positions)
-    - [Positon Validation](#positon-validation)
+    - [Position Validation](#position-validation)
     - [No Events in Journal](#no-events-in-journal)
 
 For enterprise developers, Adobe offers another way to consume events besides webhooks: journaling. The Adobe I/O Events Journaling API enables enterprise integrations to consume events according to their own cadence and process them in bulk. Unlike webhooks, no additional registration or other configuration is required; every enterprise integration that is registered for events is automatically enabled for journaling. Journaling data is retained for 7 days.
@@ -454,9 +454,9 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 
 ```
 
-In most cases, there will not be any events to consume yet and the response will be a `204 No Content` repsonse. In an extremely rare case, there might actually be events that were written in near-real time to the journal after the request was made and in such a case they will be able returned with a `200 OK` response with the same response body structure as above.
+In most cases, there will not be any events to consume yet and the response will be a `204 No Content` response. In an extremely rare case, there might actually be events that were written in near-real time to the journal after the request was made and in such a case they will be able returned with a `200 OK` response with the same response body structure as above.
 
-NOTE: the `latest=true` query parameter is just a way to jump to the "end" of the journal. The client applications should use the `next` links as usual to iterate over the journal from that position onward. In case, the client application continues to make requests with `latest=true`, it is very likely that they will not receive any events - just because doing that is semantically equivalent of asking for "events from now onward". And the definition of "now" changes with every request that is made.
+NOTE: the `latest=true` query parameter is just a way to jump to the "end" of the journal. The client applications should use the `next` links as usual to iterate over the journal from that position onward. In case the client application continues to make requests with `latest=true`, it is very likely that they will not receive any events - just because doing that is semantically equivalent of asking for "events from now onward". And the definition of "now" changes with every request that is made.
 
 ```
 curl -X GET \
@@ -473,14 +473,14 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 
 ```
 
-Note: We picked up the `next` link and made a `GET` request to the link instead of using the `latest=true` query parameter again. Once an event is actually available, the same link would give a `200 OK` repsonse with the event.
+Note: We picked up the `next` link and made a `GET` request to the link instead of using the `latest=true` query parameter again. Once an event is actually available, the same link would give a `200 OK` response with the event.
 
 
 Also note that the `limit` query parameter can be combined with the `latest` query parameter as well. Even though the `limit` query parameter might not be needed for the first request but it is helpful because subsequent `next` links will then come with the `limit` parameter already populated.
 
 ## Event expiry
 
-A journal will retain the events for upto 7 days of them being written. In the running analogy of a ledger, newer entries are added to the "end" whereas entries older than 7 days are removed from the "begining" of the ledger.
+A journal will retain the events for up to 7 days of them being written. In the running analogy of a ledger, newer entries are added to the "end" whereas entries older than 7 days are removed from the "beginning" of the ledger.
 
 ### Oldest available events
 
@@ -559,11 +559,11 @@ Link: <events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209
 
 Notice that we again get a `204 No Content` response, which is not different from the case when the position parameter actually corresponds to the end of the journal. Hence, if the client application keeps trying the `next` link in this scenario, it wouldn't consume any more events, even if there are events in the journal to consume. See the next section for a way out.
 
-### Positon Validation
+### Position Validation
 
 As we saw above, the Journaling API will respond with a `204 No Content` if your application tries to fetch from a position that has expired, and thus your client application will not be able to process further events until its position in the journal is reset.
 
-The dillema in a `204 No Content` response is about whether your client application has reached the end of the journal, where there aren't any new events yet, or whether your application is trying to consume events from an expired/non-existent position. In such a case, to distinguish the two scenarios, your application can issue a `GET` request to the link with the relation type `rel="validate"`.
+The dilemma in a `204 No Content` response is about whether your client application has reached the end of the journal, where there aren't any new events yet, or whether your application is trying to consume events from an expired/non-existent position. In such a case, to distinguish the two scenarios, your application can issue a `GET` request to the link with the relation type `rel="validate"`.
 
 The validate link is provided alongside every `204 No Content` response, and a simple GET request looks like this:
 
@@ -580,7 +580,7 @@ HTTP/1.1 400 Bad Request
 Position moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 may or may not have existed but it surely doesn't exist anymore.
 ```
 
-The above response corresponds to validating a positon that had expired. In case, the positon actually corresponded to the end of the journal, we could get a `204 No Content` or a `200 OK` (with events `since` the position) response back from the validate API. 
+The above response corresponds to validating a position that had expired. In case the position actually corresponded to the end of the journal, we could get a `204 No Content` or a `200 OK` (with events `since` the position) response back from the validate API. 
 
 ```
 curl -X GET \
@@ -595,15 +595,15 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 
 ```
 
-Notice the lack of the validate link in the repsonse. The success http response code signifies the position is valid. `204 No Content` signifies that your application is at the end of the journal.
+Notice the lack of the validate link in the response. The success http response code signifies the position is valid. `204 No Content` signifies that your application is at the end of the journal.
 
 Note: Validating a position is an expensive affair and it should not be a part of regular event consumption. The only place for the validation link to be called is when your client application comes online and tries to read events from a position that was persisted previously. In case the Journaling API returns a `204 No Content` response for a previously persisted position - your application could check whether the position has expired by calling the validate link.
 
-In case, the position has indeed expired, your application now needs to reset the position in the journal. You could chose to start consuming events from the `oldest available position` or the `latest` position depending on your use case.
+In case the position has indeed expired, your application now needs to reset the position in the journal. You could chose to start consuming events from the `oldest available position` or the `latest` position depending on your use case.
 
 ### No Events in Journal
 
-If in case, the Journaling API when called without any query parameters responds with a `204 No Content` response it signifies that there aren't actually any events in the journal. Either there may have been events in the past that have now expired, or, there never were any events in the journal.
+If the Journaling API, when called without any query parameters, responds with a `204 No Content` response it signifies that there aren't actually any events in the journal. Either there may have been events in the past that have now expired, or, there never were any events in the journal.
 
 For example, once all events in our journal expire: 
 ```
