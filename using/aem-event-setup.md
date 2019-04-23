@@ -5,9 +5,9 @@
 These instructions describe how to set up Adobe Experience Manager (AEM) for Adobe I/O Events. You can use Adobe I/O for notification of AEM events, such as page or asset changes.
 
 - [Introduction](#introduction)  
-- [Set up products](#setupproducts)  
-- [Use Adobe I/O](#useadobeio)  
-- [Watch the solution work](#watchthesolutionwork)
+- [Setup products](#setup-products)  
+- [Use Adobe I/O](#use-adobe-io)  
+- [Watch the solution work](#watch-the-solution-work)
 
 **Resources**
 - [Debugging](../help/debug.md)
@@ -26,7 +26,7 @@ Before setting up and using AEM with Adobe I/O, you will need to do the followin
 
 To complete this solution, you will need authorization to use the following services:
 
-*   An AEM instance, version 6.2.x, 6.3.x or 6.4.x, with administrative permissions. (**Note:** AEM screens in this topic are captured from version 6.3.)
+*   An AEM instance, version 6.2.x, 6.3.x, 6.4.x or 6.5.x with administrative permissions. (**Note:** AEM screens in this topic are captured from version 6.3.)
 *   [Adobe I/O Console](https://adobe.io/console) access, with administrative permissions for your enterprise organization. 
 
 
@@ -38,7 +38,7 @@ and reply to a [challenge HTTP request](../intro/webhook_docs_intro.md##thechall
 For more information on understanding and working with webhooks, 
 see the [Introduction to Adobe I/O Events Webhooks](../intro/webhook_docs_intro.md).
 
-## Set up products
+## Setup Products
 
 To set up AEM for Adobe I/O Events:
 
@@ -51,7 +51,7 @@ To install the AEM event proxy package:
 
 1. Download the latest version of the package
    * [version 6.3.16](https://github.com/adobeio/adobeio-documentation/files/2649329/aem-event-proxy-6.3.16.zip) for AEM `6.2.xx` and `6.3.xx` 
-   * [version 6.4.268](https://github.com/adobeio/adobeio-documentation/files/2624686/aem-event-proxy-6.4.268.zip) for AEM `6.4.xx`
+   * [version 6.4.268](https://github.com/adobeio/adobeio-documentation/files/2624686/aem-event-proxy-6.4.268.zip) for AEM `6.4.xx` and `6.5.xx`
 
 2. Open AEM Package Manager by selecting the **Tools** icon and then selecting **Deployment** and **Packages**.
 
@@ -130,7 +130,7 @@ To create a certificate and keystore:
       ```
       >Note: On Windows systems, this command expression may vary. For more information, see the [OpenSSL manpages](https://www.openssl.org/docs/manpages.html).
 
-#### Add the certificate into the AEM `eventproxy-service` user&rquo;s keystore
+#### Add the certificate into the AEM `eventproxy-service` user&rsquo;s keystore
 
 To add the certificate into the AEM `eventproxy-service` user&rsquo;s keystore:
 
@@ -168,7 +168,7 @@ To configure AEM Link Externalizer:
 
 2. Scroll down the list to find **Day CQ Link Externalizer**, update the domain name, and select **Save** when done.
  
-    >**Note:** The base URL that you specify appears on the AEM Web Console. Do not use only the word “localhost” as the default name because others may use it. This will then cause confusion and make it difficult to determine which instance is yours. 
+    >**Note:** The base URL that you specify appears on the AEM Web Console. Do not use only the word “localhost” as the default name because others may use it. This will then cause confusion and make it difficult to determine which instance is yours. for example, for below image you will see "AEM-localhost-ml-sample" in your console as event provider. 
 
     ![AEM Web Console base URL](../img/events_aem_12.png  "AEM Web Console base URL")
 
@@ -207,7 +207,7 @@ To create an [Adobe I/O Console](https://adobe.io/console) integration:
 
 ### AEM Adobe I/O Events configuration
 
-#### AEM 6.4 Configuration
+#### AEM 6.4 and AEM 6.5 Configuration
 
 To configure Adobe I/O Events as a cloud service in AEM:
 
@@ -321,6 +321,8 @@ Once you have your webhook ready, use the [Adobe I/O Console](https://adobe.io/c
 3. Select the AEM Link Externalizer base URL that you [previously specified](#configuretheaemlinkexternalizer) and then select **Continue**.
 
       ![AEM Externalizer base URL on Marketing Cloud](../img/events_aem_25.png "AEM Externalizer base URL on Marketing Cloud")
+      
+      >**Note:** If you do not see your instance, follow the below part: [Perform AEM health check](#perform-aem-health-check)
 
 4. Select **Create new integration** and fill in the **Integration Details** form [similar to your previous integration](#Create-new-integration-box).
 
@@ -390,6 +392,7 @@ If this health check is failing, check the following:
 This verifies that the AEM instance is successfully registered as an event provider with Adobe I/O CSM.
 
       ![Health check for eventproxy,csm](../img/events_aem_23.png "Health check for csm-events")
+4. (Optional) Check that the AEM instance is connected with Engress by executing the health check tagged with **evre-events**
 
 #### Adobe I/O Events OSGI to XDM event mapping configurations
 
