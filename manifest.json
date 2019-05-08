@@ -64,34 +64,34 @@
       "title": "Using Adobe I/O Events"
     },
     {
-      "importedFileName": "help",
+      "importedFileName": "support",
       "pages": [{
           "importedFileName": "debug",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/help/debug.md",
+          "path": "adobedocs/adobeio-events/master/support/debug.md",
           "title": "Debugging"
         },
         {
           "importedFileName": "tracing",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/help/tracing.md",
+          "path": "adobedocs/adobeio-events/master/support/tracing.md",
           "title": "Tracing"
         },
         {
           "importedFileName": "faq",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/help/faq.md",
+          "path": "adobedocs/adobeio-events/master/support/faq.md",
           "title": "Frequently Asked Questions (FAQ)"
         },
         {
           "importedFileName": "release_notes",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/help/release_notes.md",
+          "path": "adobedocs/adobeio-events/master/support/release_notes.md",
           "title": "Release Notes"
         }
       ],
-      "path": "adobedocs/adobeio-events/master/help.md",
-      "title": "Help"
+      "path": "adobedocs/adobeio-events/master/support.md",
+      "title": "Support"
     }
   ]
 }

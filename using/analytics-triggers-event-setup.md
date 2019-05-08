@@ -10,10 +10,10 @@ These instructions describe how to use Adobe Analytics triggers to notify you of
 - [Watch the solution work](#watchthesolutionwork)
 
 **Resources**
-- [Debugging](../help/debug.md)
-- [FAQ](../help/faq.md)
-<!-- - [Debugging](../help/debug.md#analyticstriggersevents) This will work eventually, check DEVEP bugs-->
-<!-- - [FAQ](../help/faq.md#analyticstriggersevents) This will work eventually, check DEVEP bugs -->
+- [Debugging](../support/debug.md)
+- [FAQ](../support/faq.md)
+<!-- - [Debugging](../support/debug.md#analyticstriggersevents) This will work eventually, check DEVEP bugs-->
+<!-- - [FAQ](../support/faq.md#analyticstriggersevents) This will work eventually, check DEVEP bugs -->
 
 ## Introduction
 
@@ -73,11 +73,11 @@ To get access through the Adobe Admin Console:
 
      1. Select **User management** and then select **Users**.
      2. Select the user&rsquo;s name.
-     
+
         ![Selecting the user name](../img/events_atrig_05.png "Selecting the user name")
 
      3. For the user&rsquo;s **Access and rights**, provide **Product Access** and **Admin Rights** from the drop-down for the available products and services.
-     
+
         ![Setting the user access rights](../img/events_atrig_06.png "Setting the user access rights")
 
 #### Specify a new trigger
@@ -91,7 +91,7 @@ To specify a new trigger:
     ![Experience Cloud Admin, selecting Activation](../img/events_atrig_34.png "Experience Cloud Admin, selecting Activation")
 
 2. In the **Web Activation** section, select the **Triggers** option.
-    
+
     ![Launching Triggers](../img/events_atrig_33.png "Launching Triggers")
 
 3. On the **Triggers** page, select the **New Triggers** button, and then choose **Abandonment**.
