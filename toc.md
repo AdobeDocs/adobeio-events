@@ -1,4 +1,4 @@
-<!-- exclude from build 
+<!-- exclude from build
 
 # Adobe I/O Events Developer Guide
 
@@ -29,10 +29,10 @@
   - [Using Events with Runtime - reference into existing runtime entry]()
     - [Using Events with I/O SDK]()
     - [Plain Runtime Webhook]()
-- [Help and Support]()
-  - [Debug Common Issues (tk)](help/debug.md)
-  - [Tracing (tk)](help/tracing.md)
-  - [FAQ](help/faq.md)
+- [Support](support.md)
+  - [Debug Common Issues (tk)](support/debug.md)
+  - [Tracing (tk)](support/tracing.md)
+  - [FAQ](support/faq.md)
   - [Request docs from the Customer Care Support team - see details]()
     - [Initial Triage doc]()
     - [Troubleshooting Tools & Access to these tools]()

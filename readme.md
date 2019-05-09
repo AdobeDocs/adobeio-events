@@ -1,6 +1,6 @@
 # Getting Started with Adobe I/O Events
 
-**Adobe I/O Events** offer you a powerful way to integrate your application with Adobe services and solutions. Starting with Creative Cloud Assets, Adobe Experience Manager, and Adobe Analytics Triggers, we are adding events across our entire range of technologies. 
+**Adobe I/O Events** offer you a powerful way to integrate your application with Adobe services and solutions. Starting with Creative Cloud Assets, Adobe Experience Manager, and Adobe Analytics Triggers, we are adding events across our entire range of technologies.
 
 Adobe I/O Events enables building reactive, event-driven applications, based on events originating from various Adobe services, such as Creative Cloud, Adobe Experience Manager, and Analytics Triggers.
 
@@ -16,7 +16,7 @@ Through the Webhooks API you can create, retrieve, update, or delete webhook reg
 To work with Creative Cloud Events, you would need an active Adobe ID.
 
 **Experience Cloud Events**
-To work with events for Adobe services in Experience Cloud, you would need to have corresponding entitlements for this Adobe service in your organization, and administrative permission for your org to create integrations. 
+To work with events for Adobe services in Experience Cloud, you would need to have corresponding entitlements for this Adobe service in your organization, and administrative permission for your org to create integrations.
 
 ## Key Concepts
 - [Webhook Introduction](intro/webhook_docs_intro.md)
@@ -31,8 +31,8 @@ To work with events for Adobe services in Experience Cloud, you would need to ha
     - [Adobe Experience Manager Events](using/aem-event-setup.md)
     - [Analytics Triggers Events (Private beta)](using/analytics-triggers-event-setup.md)
 
-## Help Using Events
-- [Debugging Common Issues](help/debug.md)  
-- [Tracing](help/tracing.md)  
-- [FAQ](help/faq.md)
-- [Release Notes](help/release_notes.md)
+## Support
+- [Debugging Common Issues](support/debug.md)
+- [Tracing](support/tracing.md)
+- [FAQ](support/faq.md)
+- [Release Notes](support/release_notes.md)

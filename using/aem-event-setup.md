@@ -5,15 +5,15 @@
 These instructions describe how to set up Adobe Experience Manager (AEM) for Adobe I/O Events. You can use Adobe I/O for notification of AEM events, such as page or asset changes.
 
 - [Introduction](#introduction)  
-- [Set up products](#setupproducts)  
-- [Use Adobe I/O](#useadobeio)  
-- [Watch the solution work](#watchthesolutionwork)
+- [Setup products](#setup-products)  
+- [Use Adobe I/O](#use-adobe-io)  
+- [Watch the solution work](#watch-the-solution-work)
 
 **Resources**
-- [Debugging](../help/debug.md)
-- [FAQ](../help/faq.md)
-<!-- - [Debugging](../help/debug.md#aemevents) This will work eventually, check DEVEP bugs-->
-<!-- - [FAQ](../help/faq.md#aemevents) This will work eventually, check DEVEP bugs -->
+- [Debugging](../support/debug.md)
+- [FAQ](../support/faq.md)
+<!-- - [Debugging](../support/debug.md#aemevents) This will work eventually, check DEVEP bugs-->
+<!-- - [FAQ](../support/faq.md#aemevents) This will work eventually, check DEVEP bugs -->
 
 ## Introduction
 
@@ -26,19 +26,19 @@ Before setting up and using AEM with Adobe I/O, you will need to do the followin
 
 To complete this solution, you will need authorization to use the following services:
 
-*   An AEM instance, version 6.2.x, 6.3.x or 6.4.x, with administrative permissions. (**Note:** AEM screens in this topic are captured from version 6.3.)
-*   [Adobe I/O Console](https://adobe.io/console) access, with administrative permissions for your enterprise organization. 
+*   An AEM instance, version 6.2.x, 6.3.x, 6.4.x or 6.5.x with administrative permissions. (**Note:** AEM screens in this topic are captured from version 6.3.)
+*   [Adobe I/O Console](https://adobe.io/console) access, with administrative permissions for your enterprise organization.
 
 
 ### Register an AEM event consumer app
 
-You will need to register an AEM event consumer app, such as a webhook, to see responses to AEM changes. 
-These instructions include steps for setting up a webhook that is able to accept 
-and reply to a [challenge HTTP request](../intro/webhook_docs_intro.md##thechallengerequest) parameter sent by Adobe I/O Events. 
-For more information on understanding and working with webhooks, 
+You will need to register an AEM event consumer app, such as a webhook, to see responses to AEM changes.
+These instructions include steps for setting up a webhook that is able to accept
+and reply to a [challenge HTTP request](../intro/webhook_docs_intro.md##thechallengerequest) parameter sent by Adobe I/O Events.
+For more information on understanding and working with webhooks,
 see the [Introduction to Adobe I/O Events Webhooks](../intro/webhook_docs_intro.md).
 
-## Set up products
+## Setup Products
 
 To set up AEM for Adobe I/O Events:
 
@@ -50,8 +50,8 @@ To set up AEM for Adobe I/O Events:
 To install the AEM event proxy package:
 
 1. Download the latest version of the package
-   * [version 6.3.16](https://github.com/adobeio/adobeio-documentation/files/2649329/aem-event-proxy-6.3.16.zip) for AEM `6.2.xx` and `6.3.xx` 
-   * [version 6.4.268](https://github.com/adobeio/adobeio-documentation/files/2624686/aem-event-proxy-6.4.268.zip) for AEM `6.4.xx`
+   * [version 6.3.16](https://github.com/adobeio/adobeio-documentation/files/2649329/aem-event-proxy-6.3.16.zip) for AEM `6.2.xx` and `6.3.xx`
+   * [version 6.4.268](https://github.com/adobeio/adobeio-documentation/files/2624686/aem-event-proxy-6.4.268.zip) for AEM `6.4.xx` and `6.5.xx`
 
 2. Open AEM Package Manager by selecting the **Tools** icon and then selecting **Deployment** and **Packages**.
 
@@ -79,14 +79,14 @@ For more information on installing packages in AEM, see [How to Work with Packag
 
 1. If you are upgrading the package, delete the previous .jar file from the following location: **`/apps/eventproxy/install`**
 
-2. Verify that the Access Control Handling is properly applied by checking permissions for the `eventproxy-service` user at **/useradmin**. 
+2. Verify that the Access Control Handling is properly applied by checking permissions for the `eventproxy-service` user at **/useradmin**.
 If applied correctly, the `eventproxy-service` user is added to the following:
 
       *   **`/home/users/system/eventproxy/eventproxy-service` with `jcr:read` and `rep:write` authorizations**
       *   **`/content` with `jcr:read` authorization**
       *   **`/etc/cloudservices/eventproxy` with `jcr:read` and `rep:write` authorizations** (for AEM versions prior to 6.4.0)
       *   **`/var/eventproxy` with `jcr:read` and `rep:write` authorizations** (for AEM 6.4.0 and beyond)
-                  
+
 
 For more information, see AEM [User, Group and Access Rights Administration](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/user-group-ac-admin.html).
 
@@ -130,7 +130,7 @@ To create a certificate and keystore:
       ```
       >Note: On Windows systems, this command expression may vary. For more information, see the [OpenSSL manpages](https://www.openssl.org/docs/manpages.html).
 
-#### Add the certificate into the AEM `eventproxy-service` user&rquo;s keystore
+#### Add the certificate into the AEM `eventproxy-service` user&rsquo;s keystore
 
 To add the certificate into the AEM `eventproxy-service` user&rsquo;s keystore:
 
@@ -141,34 +141,34 @@ To add the certificate into the AEM `eventproxy-service` user&rsquo;s keystore:
 2. Scroll down and Select **eventproxy-service** to open it.
 
       ![Selecting the eventproxy service](../img/events_aem_08.png "Selecting the eventproxy service")
- 
+
 3. Select **Create KeyStore**
 
-4. Select **Manage KeyStore** and then expand the section for **Add Private Key from Key Store file.** 
+4. Select **Manage KeyStore** and then expand the section for **Add Private Key from Key Store file.**
 
-5. Add the keystore.p12 file by setting the key pair alias to **eventproxy** or the alias specified previously. 
+5. Add the keystore.p12 file by setting the key pair alias to **eventproxy** or the alias specified previously.
 
 6. Provide the keystore password (the same one provided when generating the key store).
 
 7. Provide the private key password and then provide the private key alias **eventproxy**.
 
 8. Select **Submit**.
- 
+
       ![keystore management](../img/events_aem_10.png)
 
 #### Configure the AEM Link Externalizer
 
 To configure AEM Link Externalizer:
 
-1. Open the Web Console, or select the **Tools** icon, then select **Operations** and **Web Console**. 
+1. Open the Web Console, or select the **Tools** icon, then select **Operations** and **Web Console**.
 
     The AEM Link Externalizer name can be **author** or any other alias specified in the Adobe Experience Manager Web Console.
 
     ![AEM Web Console](../img/events_aem_11.png "AEM Web Console")
 
 2. Scroll down the list to find **Day CQ Link Externalizer**, update the domain name, and select **Save** when done.
- 
-    >**Note:** The base URL that you specify appears on the AEM Web Console. Do not use only the word “localhost” as the default name because others may use it. This will then cause confusion and make it difficult to determine which instance is yours. 
+
+    >**Note:** The base URL that you specify appears on the AEM Web Console. Do not use only the word “localhost” as the default name because others may use it. This will then cause confusion and make it difficult to determine which instance is yours. for example, for below image you will see "AEM-localhost-ml-sample" in your console as event provider.
 
     ![AEM Web Console base URL](../img/events_aem_12.png  "AEM Web Console base URL")
 
@@ -207,34 +207,34 @@ To create an [Adobe I/O Console](https://adobe.io/console) integration:
 
 ### AEM Adobe I/O Events configuration
 
-#### AEM 6.4 Configuration
+#### AEM 6.4 and AEM 6.5 Configuration
 
 To configure Adobe I/O Events as a cloud service in AEM:
 
-1. Open the Cloud Services console, or select the **Security** icon, and then select **Adobe IMS Configurations**. 
+1. Open the Cloud Services console, or select the **Security** icon, and then select **Adobe IMS Configurations**.
 
    ![Adobe IMS Configurations UI](../img/events_aem_adobe-ims-conf-1.png "Adobe IMS Configurations UI")
-   
-2. Click **Create**; 
+
+2. Click **Create**;
    **Select `AdobeIOEvents`** in the Cloud Solution drop down; once selected, you should see the certificate you just added to the AEM `eventproxy-service` user's keystore;
-   Click **Next** 
-   
+   Click **Next**
+
     ![Adobe IMS Configuration Creation](../img/events_aem_adobe-ims-conf-2.png "Adobe IMS Configuration Creation")
 
-3. Fill in the various entries expected to configure the IMS account associated with the integration 
+3. Fill in the various entries expected to configure the IMS account associated with the integration
  you just created in the Adobe I/O Console
 
 *   For **Title**: specify **Adobe IO Events** (or any other title that makes sense to you).
-*   For **Authorization Server**: it should be `https://ims-na1.adobelogin.com` (unless the URL shown in the **JWT** tab of your integration page in the Adobe I/O Console is different), 
-*   For **API key**: Provide the API key shown in the **Overview** tab of your integration page in the Adobe I/O Console. 
-*   For **Technical Account ID**: Provide the Technical Account ID shown in the **Overview** tab of your integration page in the Adobe I/O Console. 
-*   For **Client Secret**: Provide the Client Secret shown in the **Overview** tab of your integration page in the Adobe I/O Console. 
+*   For **Authorization Server**: it should be `https://ims-na1.adobelogin.com` (unless the URL shown in the **JWT** tab of your integration page in the Adobe I/O Console is different),
+*   For **API key**: Provide the API key shown in the **Overview** tab of your integration page in the Adobe I/O Console.
+*   For **Technical Account ID**: Provide the Technical Account ID shown in the **Overview** tab of your integration page in the Adobe I/O Console.
+*   For **Client Secret**: Provide the Client Secret shown in the **Overview** tab of your integration page in the Adobe I/O Console.
 *   For **Payload**: Provide the JWT payload shown in the **JWT** tab of your integration page in the Adobe I/O Console.
 
 4. Click **Create**
 
     ![Adobe IMS Configuration IMS account form](../img/events_aem_adobe-ims-conf-3.png "Adobe IMS Configuration IMS account form")
-    
+
 6. Now you should see this new Adobe IO Events IMS Configuration, and you can select it to check its health.
 
      ![Adobe IMS Configuration IMS Health Check](../img/events_aem_adobe-ims-conf-4.png "Adobe IMS Configuration Health Check")
@@ -244,11 +244,11 @@ To configure Adobe I/O Events as a cloud service in AEM:
 
 To configure Adobe I/O Events as a cloud service in AEM:
 
-1. Open the Cloud Services console, or select the **Tools** icon, then select **Deployment** and **Cloud Services**. 
+1. Open the Cloud Services console, or select the **Tools** icon, then select **Deployment** and **Cloud Services**.
 
       ![Cloud Services UI](../img/events_aem_17.png "Cloud Services UI")
 
-2. Under **Adobe Marketing Cloud** on the **Cloud Services** page, select **Configure now** for **Adobe I/O Events**. 
+2. Under **Adobe Marketing Cloud** on the **Cloud Services** page, select **Configure now** for **Adobe I/O Events**.
 
       ![Configure Adobe Events](../img/events_aem_18.png "Configure Adobe Events")
 
@@ -260,7 +260,7 @@ To configure Adobe I/O Events as a cloud service in AEM:
       ![Edit the configuration](../img/events_aem_20.png "Edit the configuration")
 
 *   For **AEM Link externalizer**: specify **author** (or any other alias previously configured in the AEM Link Externalizer).
-*   For **API key**: Provide the key shown on the **Integration Details** page of the Adobe I/O Console. 
+*   For **API key**: Provide the key shown on the **Integration Details** page of the Adobe I/O Console.
 *   For **Technical Account ID**: Provide the ID shown on the Adobe I/O Console.
 *   For **Organization ID**: Provide the ID shown on the Adobe I/O Console.
 *   For **Client Secret**: AEM will automatically retrieve the value from the Adobe I/O Console.
@@ -291,7 +291,7 @@ app.get('/webhook', function (req, res) {
    res.status(200).send(result)
 });
 
-app.post('/webhook', function (req, res) { 
+app.post('/webhook', function (req, res) {
    console.log(req.body)
    res.writeHead(200, { 'Content-Type': 'application/text' });
    res.end("pong");
@@ -300,7 +300,7 @@ app.post('/webhook', function (req, res) {
 module.exports = Webtask.fromExpress(app);
 ```
 
-## Watch the solution work 
+## Watch the solution work
 
 You can watch the solution work by testing your integration. To do this:
 
@@ -308,7 +308,7 @@ You can watch the solution work by testing your integration. To do this:
 2. [Perform a webhook health check](#performawebhookhealthcheck)
 3. [Optional: Adobe I/O Events OSGI to XDM event mapping configurations](#adobeioeventsosgitoxdmeventmappingconfigurations)
 
-### Register your webhook with the Adobe I/O Console 
+### Register your webhook with the Adobe I/O Console
 
 Once you have your webhook ready, use the [Adobe I/O Console](https://adobe.io/console) to register it:
 
@@ -322,6 +322,8 @@ Once you have your webhook ready, use the [Adobe I/O Console](https://adobe.io/c
 
       ![AEM Externalizer base URL on Marketing Cloud](../img/events_aem_25.png "AEM Externalizer base URL on Marketing Cloud")
 
+      >**Note:** If you do not see your instance, follow the below part: [Perform AEM health check](#perform-aem-health-check)
+
 4. Select **Create new integration** and fill in the **Integration Details** form [similar to your previous integration](#Create-new-integration-box).
 
 5. Select **Add webhook** and complete the **Add a new webhook** form.
@@ -334,12 +336,12 @@ Note: Once you have registered your webhook, responses will include a [status](h
 
 ### Perform a webhook health check
 
-Now you can start testing that your AEM-originated events are emitted by Adobe I/O. 
-To do this, first make sure your webhook is subscribed to the type of event you are testing against. 
-For asset-related events, create, update or delete an asset in AEM DAM; 
-for page-related events, publish or unpublish a page; 
+Now you can start testing that your AEM-originated events are emitted by Adobe I/O.
+To do this, first make sure your webhook is subscribed to the type of event you are testing against.
+For asset-related events, create, update or delete an asset in AEM DAM;
+for page-related events, publish or unpublish a page;
 finally, to test our custom OSGI event type sample, you may use our custom OSGI event health check.
-    
+
   ![Custom osgi event health check](../img/events_aem_28.png "Custom osgi event health check")
 
 If for some reason, your webhook is failing, note that the Adobe I/O console holds a **Debug Tracing** feature:
@@ -349,7 +351,7 @@ see the screenshot below:
 
 ![Debug tracing UI](../img/events_aem_debug-tracing.png "Debug tracing UI")
 
-   
+
 <a id="configure-advanced-adobe-i/o-events">&nbsp;</a>
 
 ### (Optional)
@@ -372,10 +374,10 @@ If this health check is failing, check the following:
 * Check the permissions for your event proxy package.
 * Match your I/O Events configuration to the integration that you've created in the Adobe I/O Console.
 
-2. Check that the AEM instance is able to exchange JWT tokens with Adobe I/O Identity Management System (IMS). 
-To do this, execute the health check tagged with **ims-events**. 
-This verifies that your IMS-related configurations are correct and working, 
-including the `eventproxy-service` user keystore configuration, the Adobe I/O console&ndash;originated API key, the Technical Account ID, 
+2. Check that the AEM instance is able to exchange JWT tokens with Adobe I/O Identity Management System (IMS).
+To do this, execute the health check tagged with **ims-events**.
+This verifies that your IMS-related configurations are correct and working,
+including the `eventproxy-service` user keystore configuration, the Adobe I/O console&ndash;originated API key, the Technical Account ID,
 the Organization ID, and the client secret.
 
       ![Health check for eventproxy,ims](../img/events_aem_22.png "Health check for ims-events")
@@ -390,6 +392,7 @@ If this health check is failing, check the following:
 This verifies that the AEM instance is successfully registered as an event provider with Adobe I/O CSM.
 
       ![Health check for eventproxy,csm](../img/events_aem_23.png "Health check for csm-events")
+4. (Optional) Check that the AEM instance is connected with Engress by executing the health check tagged with **evre-events**
 
 #### Adobe I/O Events OSGI to XDM event mapping configurations
 
@@ -404,7 +407,7 @@ For each of these you can edit:
 * The Adobe I/O XDM Event Type to map to the OSGI event: again, use the default (`com.adobe.xdm.event.OsgiEmittedEvent`) to map your custom OSGI events: `adobeIoXdmEventClassName`
 * The Adobe I/O Event Code (unique to your event provider; in other words, unique to your AEM instance/cluster): `adobeIoEventCode`
 * The Adobe I/O Event Label as it will appear on the Adobe I/O Console: `adobeIoEventLabel`
-  
+
 The various OSGI event handlers will intercept the events according to these values and then map these OSGI events to the Adobe I/O Event Model before forwarding them to Adobe I/O.
 
 The solution leverages the OSGI configuration factory pattern; hence you can not only edit these configurations, but you can also remove and add such configurations.
@@ -430,19 +433,19 @@ When an OSGI event of interest is triggered (i.e an OSGI events that matches one
 This job is persisted in the resource tree (for failover etc.), then the job is distributed to an instance responsible for processing the job; and on that instance the job is put into a processing queue, where eventually a `Sling Job Consumer` will execute it.
 
 Adobe I/O Events `Sling Job Consumer`'s job is to send this event to Adobe I/O.
-* `JobResult.OK` should be returned. If the job has not been processed completely, 
+* `JobResult.OK` should be returned. If the job has not been processed completely,
 * `JobResult.FAILED` should be returned if Adobe I/O fails either to receive or to process it (due to network failure or Adobe I/O failure).
 In that case the job will be rescheduled/retried   
 * if the max number of retries is met, the process will not be rescheduled and treated like the method would have returned `JobResult.CANCEL`.
 
-Note that 
+Note that
 * Adobe I/O Events `Sling Job Consumer` topic is `com/adobe/eventproxy/events`
 * Adobe I/O Events `Sling Job Queue configuration` is the default `Apache Sling Job Default Queue` with
   * a Normal job priority
   * 10 maximum retries
   * 2 seconds retry delay
   * 15 maximum parallel jobs
-    
+
 
 You can tune this configuration according to your needs: using the `OSGI > configuration` menu of AEM's `system console`
 and create there a new `Apache Sling Job Queue Configuration`
@@ -450,7 +453,7 @@ and create there a new `Apache Sling Job Queue Configuration`
 
   ![Apache Sling Job Queue Configuration UI](../img/events_aem_job-config.png "Apache Sling Job Queue Configuration UI")
 
-Note that you can use the `Sling > Jobs`  menu of AEM `system console`, 
+Note that you can use the `Sling > Jobs`  menu of AEM `system console`,
 to look up the statistics and health of your queues
 
  ![Apache Sling Job UI](../img/events_aem_job-stat.png "Apache Sling Job UI")
