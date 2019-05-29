@@ -11,7 +11,7 @@ _**What are I/O Events?**_
 I/O Events make meaningful Adobe Cloud Platform events available to 1st and 3rd party developers.
 
 _**Which events are currently supported via I/O?**_  
-Currently two Adobe solutions are supported via I/O Events:
+Currently, following Adobe solutions are supported via I/O Events:
 
 * Adobe Experience Manager Page, Asset, & Custom Events (create, update, delete)
 * Adobe Analytics Triggers
