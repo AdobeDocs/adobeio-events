@@ -58,6 +58,12 @@
           "pages": [],
           "path": "https://www.adobe.io/apis/experiencecloud/cloud-manager/docs.html#!AdobeDocs/cloudmanager-api-docs/master/create-event-integration.md",
           "title": "Cloud Manager"
+        },
+        {
+          "importedFileName": "gdpr-io-events",
+          "pages": [],
+          "path": "https://www.adobe.io/apis/experienceplatform/gdpr/docs/alldocs.html#!api-specification/markdown/narrative/gdpr/gdpr-io-events.md",
+          "title": "GDPR Events"
         }
       ],
       "path": "adobedocs/adobeio-events/master/using.md",
