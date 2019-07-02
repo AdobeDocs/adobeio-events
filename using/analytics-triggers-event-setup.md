@@ -5,9 +5,9 @@
 These instructions describe how to use Adobe Analytics triggers to notify you of Adobe I/O events, including the behavior of your site&rsquo;s users. Follow the instructions below to try the solution yourself.
 
 - [Introduction](#introduction)
-- [Set up products](#setupproducts)
-- [Use Adobe I/O](#useadobeio)
-- [Watch the solution work](#watchthesolutionwork)
+- [Set up products](#set-up-products)
+- [Use Adobe I/O](#use-adobe-io)
+- [Watch the solution work](#watch-the-solution-work)
 
 **Resources**
 - [Debugging](../support/debug.md)
@@ -24,8 +24,8 @@ For more information on triggers, see the [Triggers Help Page](https://marketing
 
 Before setting up and using Adobe I/O, you will need to do the following:
 
-1. [Obtain product authorization](#obtainproductauthorization)
-2. [Obtain administrative permissions](#obtainadministrativepermissions)
+1. [Obtain product authorization](#obtain-product-authorization)
+2. [Obtain administrative permissions](#obtain-administrative-permissions)
 
 ### Obtain product authorization
 
@@ -48,8 +48,8 @@ If you do not have administrative permissions, please contact your Adobe System 
 
 To set up Analytics Triggers:
 
-1. [Get product access through Adobe Admin Console](#getproductaccessthroughadobeadminconsole)
-2. [Specify a new trigger](#specifyanewtrigger)
+1. [Get product access through Adobe Admin Console](#get-product-access-through-adobe-admin-console)
+2. [Specify a new trigger](#specify-a-new-trigger)
 
 #### Get product access through Adobe Admin Console	 
 
