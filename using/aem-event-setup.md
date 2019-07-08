@@ -19,8 +19,8 @@ These instructions describe how to set up Adobe Experience Manager (AEM) for Ado
 
 Before setting up and using AEM with Adobe I/O, you will need to do the following:
 
-1. [Obtain authorization](#obtainauthorization)
-2. [Register an AEM event consumer app](#registeranaemeventconsumerapp)
+1. [Obtain authorization](#obtain-authorization)
+2. [Register an AEM event consumer app](#register-an-aem-event-consumer-app)
 
 ### Obtain authorization
 
@@ -34,7 +34,7 @@ To complete this solution, you will need authorization to use the following serv
 
 You will need to register an AEM event consumer app, such as a webhook, to see responses to AEM changes.
 These instructions include steps for setting up a webhook that is able to accept
-and reply to a [challenge HTTP request](../intro/webhook_docs_intro.md##thechallengerequest) parameter sent by Adobe I/O Events.
+and reply to a [challenge HTTP request](../intro/webhook_docs_intro.md##the-challenge-request) parameter sent by Adobe I/O Events.
 For more information on understanding and working with webhooks,
 see the [Introduction to Adobe I/O Events Webhooks](../intro/webhook_docs_intro.md).
 
@@ -42,8 +42,8 @@ see the [Introduction to Adobe I/O Events Webhooks](../intro/webhook_docs_intro.
 
 To set up AEM for Adobe I/O Events:
 
-1. [Install the AEM event proxy package](#installtheaemeventproxypackage)
-2. [Configure OAuth and IMS authentication](#configureoauthandimsauthentication)
+1. [Install the AEM event proxy package](#install-the-aem-event-proxy-package)
+   1. [Configure OAuth and IMS authentication](#configure-oauth-and-ims-authentication)
 
 ### Install the AEM event proxy package
 
@@ -94,9 +94,9 @@ For more information, see AEM [User, Group and Access Rights Administration](htt
 
 To configure OAuth and IMS authentication:
 
-1. [Create a certificate and keystore](#createacertificateandkeystore)
-2. [Add the keystore to the AEM eventproxy-service user group](#addthekeystoretotheaemeventproxyserviceusergroup)
-3. [Configure the AEM Link Externalizer](#configuretheaemlinkexternalizer)
+1. [Create a certificate and keystore](#create-a-certificate-and-keystore)
+2. [Add the certificate into the AEM eventproxy-service user's keystore](#Add-the-certificate-into-the-AEM-eventproxy-service-userrsquos-keystore)
+3. [Configure the AEM Link Externalizer](#configure-the-aem-link-externalizer)
 
 #### Create a certificate and keystore
 
@@ -176,10 +176,10 @@ To configure AEM Link Externalizer:
 
 Use Adobe I/O to do the following:
 
-1. [Create an Adobe I/O Console integration](#createanadobeioconsoleintegration)
-2. [Configure Adobe I/O Events as a cloud service in AEM](#configureadobeioeventsasacloudserviceinaem)
-3. [Perform an AEM health and configuration check](#performanaemhealthandconfigurationcheck)
-4. [Register the AEM event consumer app](#registertheaemeventconsumerapp)
+1. [Create an Adobe I/O Console integration](#Create-an-Adobe-IO-Console-integration)
+2. [Configure Adobe I/O Events as a cloud service in AEM](#AEM-Adobe-IO-Events-configuration)
+3. [Perform an AEM health and configuration check](#Perform-AEM-health-check)
+4. [Register the AEM event consumer app](#Register-the-AEM-event-consumer-app)
 
 ### Create an Adobe I/O Console integration
 
@@ -304,9 +304,9 @@ module.exports = Webtask.fromExpress(app);
 
 You can watch the solution work by testing your integration. To do this:
 
-1. [Register your webhook with the Adobe I/O Console](#registeryourwebhookwiththeadobeioconsole)
-2. [Perform a webhook health check](#performawebhookhealthcheck)
-3. [Optional: Adobe I/O Events OSGI to XDM event mapping configurations](#adobeioeventsosgitoxdmeventmappingconfigurations)
+1. [Register your webhook with the Adobe I/O Console](#Register-your-webhook-with-the-Adobe-IO-Console)
+2. [Perform a webhook health check](#Perform-a-webhook-health-check)
+3. [Optional: Adobe I/O Events OSGI to XDM event mapping configurations](#Adobe-IO-Events-OSGI-to-XDM-event-mapping-configurations)
 
 ### Register your webhook with the Adobe I/O Console
 
@@ -318,7 +318,7 @@ Once you have your webhook ready, use the [Adobe I/O Console](https://adobe.io/c
 
       ![Receive near real-time events](../img/events_aem_24.png "Receive near real-time events")
 
-3. Select the AEM Link Externalizer base URL that you [previously specified](#configuretheaemlinkexternalizer) and then select **Continue**.
+3. Select the AEM Link Externalizer base URL that you [previously specified](#Configure-the-AEM-Link-Externalizer) and then select **Continue**.
 
       ![AEM Externalizer base URL on Marketing Cloud](../img/events_aem_25.png "AEM Externalizer base URL on Marketing Cloud")
 
@@ -332,7 +332,6 @@ Once you have your webhook ready, use the [Adobe I/O Console](https://adobe.io/c
 
       ![Integration health check](../img/events_aem_26.png "Integration health check")
 
-Note: Once you have registered your webhook, responses will include a [status](https://github.com/adobeio/adobeio-events-documentation/blob/master/Webhook_docs_intro.md#org85f36da) field to show if it is ```VERIFIED```.
 
 ### Perform a webhook health check
 
