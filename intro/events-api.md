@@ -2,14 +2,14 @@
 
 # Working with Events Using the Adobe I/O Management API
 
-- [Events API calls in the I/O Management API](#eventsapicallsintheadobeiomanagementapi)
-- [Calling APIs](#callingapis)
-- [API Specifications:](#apispecifications)
-    - [GET /events/organizations/{orgId}/integrations/{intId}/registrations](#get-all-regs)
-    - [POST /events/organizations/{orgId}/integrations/{intId}/registrations](#post-reg-webhook)
-    - [GET /events/organizations/{orgId}/integrations/{intId}/registrations/{registrationId}](#get-reg-details)
-    - [GET /events/organizations/{orgId}/integrations/{intId}/tracing/{registrationId}](#get-tracing)
-    - [GET /events/organizations/{orgId}/integrations/{intId}/{registrationId}](#get-journal)
+- [Events API calls in the I/O Management API](#Events-API-calls-in-the-Adobe-IO-Management-API)
+- [Calling APIs](#Calling-APIs)
+- [API Specifications](#API-Specifications)
+    - [`GET /events/organizations/{orgId}/integrations/{intId}/registrations`](#GET-eventsorganizationsorgIdintegrationsintIdregistrations)
+    - [`POST /events/organizations/{orgId}/integrations/{intId}/registrations`](#POST-eventsorganizationsorgIdintegrationsintIdregistrations)
+    - [`GET /events/organizations/{orgId}/integrations/{intId}/registrations/{registrationId}`](#GET-eventsorganizationsorgIdintegrationsintIdregistrationsregistrationId)
+    - [`GET /events/organizations/{orgId}/integrations/{intId}/tracing/{registrationId}`](#GET-eventsorganizationsorgIdintegrationsintIdtracingregistrationId)
+    - [`GET /events/organizations/{orgId}/integrations/{intId}/{registrationId}`](#GET-eventsorganizationsorgIdintegrationsintIdregistrationId)
 
 As an open system, Adobe Cloud Platform allows you access through APIs to just about any functionality you need. This includes events. The Adobe I/O Management API provides several API calls that enable you to manage events programmatically. 
 
