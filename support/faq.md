@@ -2,9 +2,9 @@
 
 # Adobe I/O Events Frequently Asked Questions (FAQ)
 
-* [General questions](#General-questions)
-* [AEM events](#AEM-events)
-* [Analytics Triggers events](#Analytics-Triggers-Events)
+* [General questions](#general-questions)
+* [AEM events](#aem-events)
+* [Analytics Triggers Events](#analytics-triggers-events)
 
 ## General questions
 _**What are I/O Events?**_  
