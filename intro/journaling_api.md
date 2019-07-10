@@ -66,18 +66,20 @@ Every event registration has a corresponding unique journaling endpoint URL. Thi
 
 ### Obtaining an access token to call the API
 
-To issue the API call, you need to provide two additional parameters: 
+To issue the API call, you need to provide 3 additional parameters: 
 
 * Your integration's API key. This is displayed in the Overview tab for your integration in the Adobe I/O Console.
 * A JWT token. See [Authentication: Creating a JWT Token](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md) for how to create a JWT token.
+* Your organization id in the format org_id@AdobeOrg. This is also displayed in the Overview tab for your integration in the Adobe I/O Console.
 
-You combine the URL you got from the Journaling section of the event details with your API key and JWT token to make the call.
+You combine the URL you got from the Journaling section of the event details with your API key, JWT token and organization ID to make the call.
 
 ```
 curl -X GET \
   https://api.adobe.io/events/organizations/xxxxx/integrations/xxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
   -H "Authorization: Bearer $JWT_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: $ORG_ID"
 ```
 
 ### Fetching your first batch of events from the journal
@@ -91,7 +93,8 @@ For example:
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
@@ -177,7 +180,8 @@ For example:
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
@@ -230,7 +234,8 @@ By continuously iterating through the journal and consuming "newer" events, even
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
@@ -249,7 +254,8 @@ For your benefit whenever you're fetching events `since` the "end" position in t
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
@@ -308,7 +314,8 @@ For example, here is the same request as before but with the number of events re
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=1 \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
@@ -361,7 +368,8 @@ For example, our journal above has at least 4 events that we know of, however, e
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=3 \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
@@ -443,7 +451,8 @@ This can be done by specifying the query parameter `latest=true` on the first AP
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?latest=true \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
@@ -462,7 +471,8 @@ NOTE: the `latest=true` query parameter is just a way to jump to the "end" of th
 curl -X GET \
   /events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
@@ -494,7 +504,8 @@ For example, let's assume that the first three events in our journal got older t
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 ```
 HTTP/1.1 200 OK
@@ -547,7 +558,8 @@ For example, now that the first three events in our journal have expired, if we 
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
@@ -571,7 +583,8 @@ The validate link is provided alongside every `204 No Content` response, and a s
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/validate?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
@@ -586,7 +599,8 @@ The above response corresponds to validating a position that had expired. In cas
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/validate?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
@@ -610,7 +624,8 @@ For example, once all events in our journal expire:
 curl -X GET \
   https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
+  -H "x-api-key: $API_KEY" \
+  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg"
 ```
 
 ```
