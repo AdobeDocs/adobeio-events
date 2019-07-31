@@ -34,5 +34,6 @@ To work with events for Adobe services in Experience Cloud, you would need to ha
 ## Support
 - [Debugging Common Issues](support/debug.md)
 - [Tracing](support/tracing.md)
+- [Forums](https://forums.adobe.com/community/adobe-io/adobe-io-events)
 - [FAQ](support/faq.md)
 - [Release Notes](support/release_notes.md)
