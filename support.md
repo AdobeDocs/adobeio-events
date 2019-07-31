@@ -12,6 +12,10 @@ Learn how to debug and troubleshoot the most common scenarios that you may encou
 
 Learn how to use debug tracing to inspect event request and response activity.
 
+## [Forums](https://forums.adobe.com/community/adobe-io/adobe-io-events)
+
+This is the place where you start asking your questions. 
+
 ## [FAQ](support/faq.md)
 
 A knowledge base of frequently asked questions. This is a great starting place to find an answer before asking your question.
