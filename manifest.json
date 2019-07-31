@@ -84,6 +84,12 @@
           "title": "Tracing"
         },
         {
+          "importedFileName": "Forums",
+          "pages": [],
+          "path": "https://forums.adobe.com/community/adobe-io/adobe-io-events",
+          "title": "Forums"
+        },
+        {
           "importedFileName": "faq",
           "pages": [],
           "path": "adobedocs/adobeio-events/master/support/faq.md",
