@@ -178,12 +178,12 @@ To complete the integration, you need to add a webhook.
 2. Give the webhook a name and description. As the webhook URL, fill in the URL provided by ngrok, but change the protocol to `https`; for example,  `https://7971bf3e.ngrok.io`. 
    
    Select the event delivery method -
-   - **One at a time** - Select this option to receieve one event at a time
-   - **Batch** - Select this option to receive multiple events together
+     - **One at a time** - Select this option to receive one event at a time
+     - **Batch** - Select this option to receive multiple events together
   
    Also, check the boxes for the three available event types: Creative Cloud Asset Deleted, Updated, and Created.
-
-  <img src="../img/events_console_06.png" width="1024" alt="Specifying the webhook">
+   
+   <img src="../img/events_console_06.png" width="1024" alt="Specifying the webhook">
 
 3. Select **Save,** complete the CAPTCHA (&ldquo;I'm not a robot&rdquo;), and then select **Create integration.** You should see an acknowledgement that your integration has been created. 
   
