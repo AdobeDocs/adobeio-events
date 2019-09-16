@@ -4,14 +4,14 @@
 
 - [Introduction](#introduction)
 - [Concepts](#concepts)
-    - [An example](#anexample)
-- [Your first webhook](#yourfirstwebhook)
-    - [The challenge request](#thechallengerequest)
-    - [Testing with ngrok](#testingwithngrok)
-- [Create an integration](#creatinganintegration)
-- [Registering the webhook](#registeringthewebhook)
-- [Receiving events](#receivingevents)
-- [Authenticating events](#authenticatingevents)
+    - [An example](#an-example)
+- [Your first webhook](#your-first-webhook)
+    - [The challenge request](#the-challenge-request)
+    - [Testing with ngrok](#testing-with-ngrok)
+- [Creating an integration](#creating-an-integration)
+- [Registering the webhook](#registering-the-webhook)
+- [Receiving events](#receiving-events)
+- [Authenticating events](#authenticating-events)
 
 ## Introduction
 
