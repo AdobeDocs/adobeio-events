@@ -12,6 +12,7 @@ Setting up an integration to subscribe to Adobe I/O Events is straightforward. T
 [Adobe Experience Manager](using/aem-event-setup.md)  
 [Adobe Analytics Triggers](using/analytics-triggers-event-setup.md)  
 [Cloud Manager](https://www.adobe.io/apis/experiencecloud/cloud-manager/docs.html#!AdobeDocs/cloudmanager-api-docs/master/create-event-integration.md)
+[Adobe Experience Platform](using/experience-platform-event-notification.md)
 
 <!-- - [Adobe Stock](using/adobe-stock-event-setup.md) -->
 
