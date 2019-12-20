@@ -39,7 +39,7 @@
           "importedFileName": "aem-event-setup",
           "pages": [],
           "path": "adobedocs/adobeio-events/master/using/aem-event-setup.md",
-          "title": "Setting Up AEM Events"
+          "title": "AEM Events"
         },
         {
           "importedFileName": "analytics-triggers-event-setup",
@@ -51,19 +51,25 @@
           "importedFileName": "cc-asset-event-setup",
           "pages": [],
           "path": "adobedocs/adobeio-events/master/using/cc-asset-event-setup.md",
-          "title": "Setting Up Creative Cloud Asset Events"
+          "title": "Creative Cloud Asset Events"
         },
         {
           "importedFileName": "create-event-integration",
           "pages": [],
           "path": "https://www.adobe.io/apis/experiencecloud/cloud-manager/docs.html#!AdobeDocs/cloudmanager-api-docs/master/create-event-integration.md",
-          "title": "Cloud Manager"
+          "title": "Cloud Manager Events"
         },
         {
-          "importedFileName": "gdpr-io-events",
-          "pages": [],
-          "path": "https://www.adobe.io/apis/experienceplatform/gdpr/docs/alldocs.html#!api-specification/markdown/narrative/gdpr/gdpr-io-events.md",
-          "title": "GDPR Events"
+          "importedFileName": "experience-platform-event-setup",
+          "pages": [ ],
+          "path": "adobedocs/adobeio-events/master/using/experience-platform-event-setup.md",
+          "title": "Adobe Experience Platform Events"
+        },
+        {
+          "importedFileName": "privacy-event-setup",
+          "pages": [ ],
+          "path": "adobedocs/adobeio-events/master/using/privacy-event-setup.md",
+          "title": "Privacy Events"
         }
       ],
       "path": "adobedocs/adobeio-events/master/using.md",
