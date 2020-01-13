@@ -2,20 +2,20 @@
 
 # Adobe I/O Events Frequently Asked Questions (FAQ)
 
-* [General questions](#generalquestions)
-* [AEM events](#aemevents)
-* [Analytics Triggers events](#analyticstriggersevents)
+* [General questions](#general-questions)
+* [AEM events](#aem-events)
+* [Analytics Triggers Events](#analytics-triggers-events)
 
 ## General questions
 _**What are I/O Events?**_  
 I/O Events make meaningful Adobe Cloud Platform events available to 1st and 3rd party developers.
 
 _**Which events are currently supported via I/O?**_  
-Currently two Adobe solutions are supported via I/O Events:
+Currently, following Adobe solutions are supported via I/O Events:
 
 * Adobe Experience Manager Page, Asset, & Custom Events (create, update, delete)
 * Adobe Analytics Triggers
-* We will soon add Creative Cloud Asset Events (create, update, delete)
+* Creative Cloud Asset Events (create, update, delete)
 
 _**What permissions are required to use I/O Events?**_  
 To access the Adobe I/O Console and create or manage integrations for AEM and Analytics Triggers, a user must have Enterprise Administrator permissions.
@@ -24,7 +24,7 @@ _**Which subscription types do I/O Events support?**_
 I/O Events support webhooks for near-real time notifications (push) as well as a Journaling API (pull) to grab groups of events at a time.
 
 _**How far back are I/O Events available via the Journaling API?**_  
-Adobe I/O stores up to 30 days of subscribed events that can be retrieved via the Journaling API.
+Adobe I/O stores 7 days of subscribed events that can be retrieved via the Journaling API.
 
 _**What happens if a webhook is down?**_  
 I/O Events will retry up to five times. A webhook is considered inactive after five unsuccessful retries with either no response or a response other than HTTP 2XX. The Journaling API can be used to retrieve events that were published while the webhook is down.

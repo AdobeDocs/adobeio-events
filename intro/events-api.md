@@ -2,9 +2,9 @@
 
 # Working with Events Using the Adobe I/O Management API
 
-- [Events API calls in the I/O Management API](#eventsapicallsintheadobeiomanagementapi)
-- [Calling APIs](#callingapis)
-- [API Specifications:](#apispecifications)
+- [Events API calls in the I/O Management API](#events-api-calls-in-the-adobe-io-management-api)
+- [Calling APIs](#calling-apis)
+- [API Specifications:](#api-specifications)
     - [GET /events/organizations/{orgId}/integrations/{intId}/registrations](#get-all-regs)
     - [POST /events/organizations/{orgId}/integrations/{intId}/registrations](#post-reg-webhook)
     - [GET /events/organizations/{orgId}/integrations/{intId}/registrations/{registrationId}](#get-reg-details)

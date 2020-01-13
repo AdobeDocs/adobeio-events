@@ -4,9 +4,9 @@
 
 These instructions describe how to set up Adobe Experience Manager (AEM) for Adobe I/O Events. You can use Adobe I/O for notification of AEM events, such as page or asset changes.
 
-- [Introduction](#introduction)  
-- [Setup products](#setup-products)  
-- [Use Adobe I/O](#use-adobe-io)  
+- [Introduction](#introduction)
+- [Setup Products](#setup-products)
+- [Use Adobe I/O](#use-adobe-io)
 - [Watch the solution work](#watch-the-solution-work)
 
 **Resources**
@@ -19,8 +19,8 @@ These instructions describe how to set up Adobe Experience Manager (AEM) for Ado
 
 Before setting up and using AEM with Adobe I/O, you will need to do the following:
 
-1. [Obtain authorization](#obtainauthorization)
-2. [Register an AEM event consumer app](#registeranaemeventconsumerapp)
+1. [Obtain authorization](#obtain-authorization)
+2. [Register an AEM event consumer app](#register-an-aem-event-consumer-app)
 
 ### Obtain authorization
 
@@ -34,7 +34,7 @@ To complete this solution, you will need authorization to use the following serv
 
 You will need to register an AEM event consumer app, such as a webhook, to see responses to AEM changes.
 These instructions include steps for setting up a webhook that is able to accept
-and reply to a [challenge HTTP request](../intro/webhook_docs_intro.md##thechallengerequest) parameter sent by Adobe I/O Events.
+and reply to a [challenge HTTP request](../intro/webhook_docs_intro.md##the-challenge-request) parameter sent by Adobe I/O Events.
 For more information on understanding and working with webhooks,
 see the [Introduction to Adobe I/O Events Webhooks](../intro/webhook_docs_intro.md).
 
@@ -42,8 +42,8 @@ see the [Introduction to Adobe I/O Events Webhooks](../intro/webhook_docs_intro.
 
 To set up AEM for Adobe I/O Events:
 
-1. [Install the AEM event proxy package](#installtheaemeventproxypackage)
-2. [Configure OAuth and IMS authentication](#configureoauthandimsauthentication)
+1. [Install the AEM event proxy package](#install-the-aem-event-proxy-package)
+   1. [Configure OAuth and IMS authentication](#configure-oauth-and-ims-authentication)
 
 ### Install the AEM event proxy package
 
@@ -51,7 +51,8 @@ To install the AEM event proxy package:
 
 1. Download the latest version of the package
    * [version 6.3.16](https://github.com/adobeio/adobeio-documentation/files/2649329/aem-event-proxy-6.3.16.zip) for AEM `6.2.xx` and `6.3.xx`
-   * [version 6.4.268](https://github.com/adobeio/adobeio-documentation/files/2624686/aem-event-proxy-6.4.268.zip) for AEM `6.4.xx` and `6.5.xx`
+   * [version 6.4.268](https://github.com/adobeio/adobeio-documentation/files/2624686/aem-event-proxy-6.4.268.zip) for AEM `6.4.xx`
+   * [version 6.5.6](https://github.com/AdobeDocs/adobeio-events/files/3729022/aem-event-proxy-6.5.6.zip) for AEM `6.5.xx`
 
 2. Open AEM Package Manager by selecting the **Tools** icon and then selecting **Deployment** and **Packages**.
 
@@ -94,9 +95,9 @@ For more information, see AEM [User, Group and Access Rights Administration](htt
 
 To configure OAuth and IMS authentication:
 
-1. [Create a certificate and keystore](#createacertificateandkeystore)
-2. [Add the keystore to the AEM eventproxy-service user group](#addthekeystoretotheaemeventproxyserviceusergroup)
-3. [Configure the AEM Link Externalizer](#configuretheaemlinkexternalizer)
+1. [Create a certificate and keystore](#create-a-certificate-and-keystore)
+2. [Add the certificate into the AEM eventproxy-service user's keystore](#add-the-certificate-into-the-aem-eventproxy-service-userrsquos-keystore)
+3. [Configure the AEM Link Externalizer](#configure-the-aem-link-externalizer)
 
 #### Create a certificate and keystore
 
@@ -176,10 +177,10 @@ To configure AEM Link Externalizer:
 
 Use Adobe I/O to do the following:
 
-1. [Create an Adobe I/O Console integration](#createanadobeioconsoleintegration)
-2. [Configure Adobe I/O Events as a cloud service in AEM](#configureadobeioeventsasacloudserviceinaem)
-3. [Perform an AEM health and configuration check](#performanaemhealthandconfigurationcheck)
-4. [Register the AEM event consumer app](#registertheaemeventconsumerapp)
+1. [Create an Adobe I/O Console integration](#create-an-adobe-io-console-integration)
+2. [Configure Adobe I/O Events as a cloud service in AEM](#aem-adobe-io-events-configuration)
+3. [Perform an AEM health and configuration check](#perform-aem-health-check)
+4. [Register the AEM event consumer app](#register-the-aem-event-consumer-app)
 
 ### Create an Adobe I/O Console integration
 
@@ -304,9 +305,9 @@ module.exports = Webtask.fromExpress(app);
 
 You can watch the solution work by testing your integration. To do this:
 
-1. [Register your webhook with the Adobe I/O Console](#registeryourwebhookwiththeadobeioconsole)
-2. [Perform a webhook health check](#performawebhookhealthcheck)
-3. [Optional: Adobe I/O Events OSGI to XDM event mapping configurations](#adobeioeventsosgitoxdmeventmappingconfigurations)
+1. [Register your webhook with the Adobe I/O Console](#register-your-webhook-with-the-adobe-io-console)
+2. [Perform a webhook health check](#perform-a-webhook-health-check)
+3. [Optional: Adobe I/O Events OSGI to XDM event mapping configurations](#adobe-io-events-osgi-to-xdm-event-mapping-configurations)
 
 ### Register your webhook with the Adobe I/O Console
 
@@ -318,13 +319,13 @@ Once you have your webhook ready, use the [Adobe I/O Console](https://adobe.io/c
 
       ![Receive near real-time events](../img/events_aem_24.png "Receive near real-time events")
 
-3. Select the AEM Link Externalizer base URL that you [previously specified](#configuretheaemlinkexternalizer) and then select **Continue**.
+3. Select the AEM Link Externalizer base URL that you [previously specified](#configure-the-aem-link-externalizer) and then select **Continue**.
 
       ![AEM Externalizer base URL on Marketing Cloud](../img/events_aem_25.png "AEM Externalizer base URL on Marketing Cloud")
 
       >**Note:** If you do not see your instance, follow the below part: [Perform AEM health check](#perform-aem-health-check)
 
-4. Select **Create new integration** and fill in the **Integration Details** form [similar to your previous integration](#Create-new-integration-box).
+4. Select **Create new integration** and fill in the **Integration Details** form [similar to your previous integration](#create-an-adobe-io-console-integration).
 
 5. Select **Add webhook** and complete the **Add a new webhook** form.
 
@@ -332,7 +333,6 @@ Once you have your webhook ready, use the [Adobe I/O Console](https://adobe.io/c
 
       ![Integration health check](../img/events_aem_26.png "Integration health check")
 
-Note: Once you have registered your webhook, responses will include a [status](https://github.com/adobeio/adobeio-events-documentation/blob/master/Webhook_docs_intro.md#org85f36da) field to show if it is ```VERIFIED```.
 
 ### Perform a webhook health check
 
@@ -343,6 +343,12 @@ for page-related events, publish or unpublish a page;
 finally, to test our custom OSGI event type sample, you may use our custom OSGI event health check.
 
   ![Custom osgi event health check](../img/events_aem_28.png "Custom osgi event health check")
+
+>**Note:** In case of [aem-event-proxy-package 6.5.6](https://github.com/AdobeDocs/adobeio-events/files/3729022/aem-event-proxy-6.5.6.zip) for AEM `6.5.xx`, the health checks are disabled by default and can be enabled by the following steps -
+1. Select **Tools** in AEM and then select **Operations** and **Web Console**.
+2. In the **OSGI** menu, select **Configuration** and search for: **Adobe I/O Events Activate Health Check Feature Flag**.
+3. For **Adobe I/O Events Activate Health Check Feature Flag**, select **Edit**, check the **Enabled** checkbox and then click on **Save** button.
+<br>Once you are done with debugging and testing your configuration, we would advise you to disable the health checks again by following the same steps as above but unchecking the **Enabled** checkbox for **Adobe I/O Events Activate Health Check Feature Flag**.
 
 If for some reason, your webhook is failing, note that the Adobe I/O console holds a **Debug Tracing** feature:
 It allows you to watch all the events payloads emitted by Adobe I/O towards your webhook and the associated webhook response.

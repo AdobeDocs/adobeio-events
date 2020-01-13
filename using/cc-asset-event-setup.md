@@ -2,11 +2,11 @@
 
 These instructions describe how to set up Creative Cloud Asset events using Adobe I/O Events. You can use Adobe I/O for notification of CC Asset events. 
 
-- [Introduction](#introduction)  
-- [Access events](#accessevents)  
-- [Create an integration](#createanintegration)  
-- [Receive events](#receiveevents)
-- [Adobe Consent API](#consentapi)
+- [Introduction](#introduction)
+- [Access events](#access-events)
+- [Create an integration](#create-an-integration)
+- [Receive events](#receive-events)
+- [Adobe Consent API](#adobe-consent-api)
 
 ## Introduction
 Creative Cloud Assets provides a simple set of events to which you can subscribe: 
@@ -115,13 +115,13 @@ Now you&rsquo;re ready to configure ngrok to serve your webhook over the interne
 
 
 ## Receive events
- Your integration is now set up, and your webhook is in place; but to receive events, your integration needs to connect to its event provider, Creative Cloud Assets, on behalf of its user. This requires authentication; see [OAuth Integration](https://www.adobe.io/apis/cloudplatform/console/authentication/oauth_workflow.html). 
+ Your integration is now set up, and your webhook is in place; but to receive events, your integration needs to connect to its event provider, Creative Cloud Assets, on behalf of its user. This requires authentication; see [OAuth Integration](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md). 
  
  Start with the Integration Overview. It&rsquo;s the screen you see immediately after selecting **Continue to Integration details**.
 
 ![Integration Overview](../img/events_cca_08.png "Integration Overview")
 
- For authentication setup, you&rsquo;ll need to add the [Creative SDK](https://www.adobe.io/apis/creativecloud/creativesdk/docs/websdk/adobe-creative-sdk-for-web_master/getting-started.html) as a service, and then use the [User Auth UI](https://www.adobe.io/apis/creativecloud/creativesdk/docs/websdk/adobe-creative-sdk-for-web_master/user-auth-ui.html) to build an interface for your user to log into your app and give your app authorization to access Creative Cloud Assets. 
+ For authentication setup, you&rsquo;ll need to add the [Creative SDK](https://www.adobe.io/apis/creativecloud/creativesdk/docs/websdk.html#!getting-started.md) as a service, and then use the [User Auth UI](https://www.adobe.io/apis/creativecloud/creativesdk/docs/websdk.html#!user-auth-ui.md) to build an interface for your user to log into your app and give your app authorization to access Creative Cloud Assets. 
 
  To add Creative SDK as a service:
  

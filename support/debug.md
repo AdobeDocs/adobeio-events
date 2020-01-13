@@ -4,8 +4,8 @@
 
 This page captures the most common troubleshooting scenarios when working with Adobe Events. 
 
-* [AEM Events](#aemevents)
-* [Analytics Triggers Events](#analyticstriggersevents)
+* [AEM Events](#aem-events)
+* [Analytics Triggers Events](#analytics-triggers-events)
 
 ## AEM Events
 

@@ -8,10 +8,12 @@ For your first Adobe I/O event, try using Creative Cloud Assets.
 
 Setting up an integration to subscribe to Adobe I/O Events is straightforward. The following pages guide you through setting up and using Adobe I/O Events with various Adobe solutions.
 
-[Creative Cloud Assets](using/cc-asset-event-setup.md)  
-[Adobe Experience Manager](using/aem-event-setup.md)  
-[Adobe Analytics Triggers](using/analytics-triggers-event-setup.md)  
-[Cloud Manager](https://www.adobe.io/apis/experiencecloud/cloud-manager/docs.html#!AdobeDocs/cloudmanager-api-docs/master/create-event-integration.md)
+* [Adobe Experience Manager (AEM) Events](using/aem-event-setup.md)  
+* [Adobe Analytics Triggers](using/analytics-triggers-event-setup.md)  
+* [Creative Cloud Asset Events](using/cc-asset-event-setup.md) 
+* [Cloud Manager Events](https://www.adobe.io/apis/experiencecloud/cloud-manager/docs.html#!AdobeDocs/cloudmanager-api-docs/master/create-event-integration.md)
+* [Adobe Experience Platform Events](using/experience-platform-event-setup.md)
+* [Privacy Events](using/privacy-event-setup.md)
 
 <!-- - [Adobe Stock](using/adobe-stock-event-setup.md) -->
 
