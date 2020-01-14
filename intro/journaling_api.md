@@ -76,7 +76,7 @@ You combine the URL you got from the Journaling section of the event details wit
 
 ```
 curl -X GET \
-  https://api.adobe.io/events/organizations/xxxxx/integrations/xxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+  https://events.adobe.io/events/organizations/xxxxx/integrations/xxxx/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
   -H "x-ims-org-id: $ORG_ID" \
   -H "Authorization: Bearer $JWT_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -91,7 +91,7 @@ For example:
 
 ```
 curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
+  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -178,7 +178,7 @@ For example:
 
 ```
 curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
+  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -232,7 +232,7 @@ By continuously iterating through the journal and consuming "newer" events, even
 
 ```
 curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
+  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -252,7 +252,7 @@ For your benefit whenever you're fetching events `since` the "end" position in t
 
 ```
 curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
+  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=rabbit:f9645ec8-34f2-4188-bf6e-cea4b2784fda:7dd9e3c4-0d3f-42d5-abb4-1776e209b080 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -312,7 +312,7 @@ For example, here is the same request as before but with the number of events re
 
 ```
 curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=1 \
+  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=1 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -366,7 +366,7 @@ For example, our journal above has at least 4 events that we know of, however, e
 
 ```
 curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=3 \
+  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?limit=3 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -449,7 +449,7 @@ This can be done by specifying the query parameter `latest=true` on the first AP
 
 ```
 curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?latest=true \
+  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?latest=true \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -502,7 +502,7 @@ For example, let's assume that the first three events in our journal got older t
 
 ```
 curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
+  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
@@ -548,72 +548,28 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 }
 ```
 
-### Fetching events from expired positions
+### Fetching expired events
 
-Once an event expires, it cannot be fetched again. This means that a request that previously returned events with a `200 OK` response, after 7 days will stop returning those events, and will instead return a `204 No Content` response.
+Once an event expires, it cannot be fetched again. This means that a request that previously returned events with a `200 OK` response, after 7 days will stop returning those events, and will instead return a `410 Gone` response.
 
-For example, now that the first three events in our journal have expired, if we now try to make the second API request in the documentation above, this is the response we will get:
+For example, now that the first three events in our journal have expired, if we again try to make the second API request in the documentation above, this is the response we will get:
 
 ```
 curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
+  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
 ```
 
 ```
-HTTP/1.1 204 No Content
-Link: <events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614>; rel="next"
-Link: <events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/validate?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614>; rel="validate"
+HTTP/1.1 410 Gone
 
+Events at position moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 have expired.
 ```
 
-Notice that we again get a `204 No Content` response, which is not different from the case when the position parameter actually corresponds to the end of the journal. Hence, if the client application keeps trying the `next` link in this scenario, it wouldn't consume any more events, even if there are events in the journal to consume. See the next section for a way out.
+Once the events at a certain position have expired, that position in the journal can no longer be used to fetch more events. In such a scenario, your application will need to reset its position in the journal. To reset the position you could chose to consume events from the `oldest available position` or the `latest` position depending on your use case.
 
-### Position Validation
-
-As we saw above, the Journaling API will respond with a `204 No Content` if your application tries to fetch from a position that has expired, and thus your client application will not be able to process further events until its position in the journal is reset.
-
-The dilemma in a `204 No Content` response is about whether your client application has reached the end of the journal, where there aren't any new events yet, or whether your application is trying to consume events from an expired/non-existent position. In such a case, to distinguish the two scenarios, your application can issue a `GET` request to the link with the relation type `rel="validate"`.
-
-The validate link is provided alongside every `204 No Content` response, and a simple GET request looks like this:
-
-```
-curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/validate?since=moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 \
-  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
-  -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
-```
-
-```
-HTTP/1.1 400 Bad Request
-
-Position moose:e7ba778b-dace-4994-96e7-da80e7125233:2159b72c-e284-4899-b572-08da250e3614 may or may not have existed but it surely doesn't exist anymore.
-```
-
-The above response corresponds to validating a position that had expired. In case the position actually corresponded to the end of the journal, we could get a `204 No Content` or a `200 OK` (with events `since` the position) response back from the validate API. 
-
-```
-curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb/validate?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb \
-  -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
-  -H "Authorization: Bearer $USER_TOKEN" \
-  -H "x-api-key: $API_KEY"
-```
-
-```
-HTTP/1.1 204 No Content
-Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb?since=penguin:41322b44-c2e9-4b44-8354-ba2173064d24:752f6e67-d7e4-48d3-9f51-452936268fbb>; rel="next"
-
-```
-
-Notice the lack of the validate link in the response. The success http response code signifies the position is valid. `204 No Content` signifies that your application is at the end of the journal.
-
-Note: Validating a position is an expensive affair and it should not be a part of regular event consumption. The only place for the validation link to be called is when your client application comes online and tries to read events from a position that was persisted previously. In case the Journaling API returns a `204 No Content` response for a previously persisted position - your application could check whether the position has expired by calling the validate link.
-
-In case the position has indeed expired, your application now needs to reset the position in the journal. You could chose to start consuming events from the `oldest available position` or the `latest` position depending on your use case.
 
 ### No Events in Journal
 
@@ -622,7 +578,7 @@ If the Journaling API, when called without any query parameters, responds with a
 For example, once all events in our journal expire: 
 ```
 curl -X GET \
-  https://api.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
+  https://events.adobe.io/events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-209d0eacb6eb \
   -H "x-ims-org-id: 4CC7D9704674CFB2138A2C54@AdobeOrg" \
   -H "Authorization: Bearer $USER_TOKEN" \
   -H "x-api-key: $API_KEY"
