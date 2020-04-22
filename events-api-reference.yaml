@@ -187,7 +187,7 @@ paths:
     get:
       tags:
         - Providers
-      summary: List all Adobe I/O Event Providers entitled to the provided Organization ID
+      summary: List all Adobe I/O Events Providers entitled to the provided Organization ID
       description: ''
       operationId: getProvidersByConsumerOrgId
       produces:
@@ -385,16 +385,10 @@ paths:
       parameters:
         - $ref: '#/parameters/consumerOrgId'
         - $ref: '#/parameters/integrationId'
-        - name: registrationId
-          in: path
-          required: true
-          type: string
+        - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - name: x-ims-org-id
-          in: header
-          required: false
-          type: string
+        - $ref: '#/parameters/x-ims-org'
         - name: x-adobe-io-events-url-links
           in: header
           required: false
@@ -419,21 +413,11 @@ paths:
       operationId: getEventsFromJournal
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - name: integrationId
-          in: path
-          description: The integration Id associated with the project/workspace you created your registration in
-          required: true
-          type: string
-        - name: registrationId
-          in: path
-          required: true
-          type: string
+        - $ref: '#/parameters/integrationId'
+        - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - name: x-ims-org-id
-          in: header
-          required: false
-          type: string
+        - $ref: '#/parameters/x-ims-org-id'
         - name: x-adobe-io-events-url-links
           in: header
           required: false
@@ -468,17 +452,10 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - name: integrationId
-          in: path
-          description: The integration Id associated with the project/workspace you created your registration in
-          required: true
-          type: string
+        - $ref: '#/parameters/integrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - name: x-ims-org-id
-          in: header
-          required: false
-          type: string
+        - $ref: '#/parameters/x-ims-org-id'
         - name: delivery_type
           in: query
           required: false
@@ -505,17 +482,10 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - name: integrationId
-          in: path
-          description: The integration Id associated with the project/workspace you created your registration in
-          required: true
-          type: string
+        - $ref: '#/parameters/integrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - name: x-ims-org-id
-          in: header
-          required: false
-          type: string
+        - $ref: '#/parameters/x-ims-org-id'
         - in: body
           name: body
           required: false
@@ -538,21 +508,11 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - name: integrationId
-          in: path
-          description: The integration Id associated with the project/workspace you created your registration in
-          required: true
-          type: string
-        - name: registrationId
-          in: path
-          required: true
-          type: string
+        - $ref: '#/parameters/integrationId'
+        - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - name: x-ims-org-id
-          in: header
-          required: false
-          type: string
+        - $ref: '#/parameters/x-ims-org-id'
       responses:
         '200':
           description: successful operation
@@ -567,21 +527,11 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - name: integrationId
-          in: path
-          description: The integration Id associated with the project/workspace you created your registration in
-          required: true
-          type: string
-        - name: registrationId
-          in: path
-          required: true
-          type: string
+        - $ref: '#/parameters/integrationId'
+        - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - name: x-ims-org-id
-          in: header
-          required: false
-          type: string
+        - $ref: '#/parameters/x-ims-org-id'
       responses:
         '200':
           description: successful operation
@@ -597,21 +547,11 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - name: integrationId
-          in: path
-          description: The integration Id associated with the project/workspace you created your registration in
-          required: true
-          type: string
-        - name: registrationId
-          in: path
-          required: true
-          type: string
+        - $ref: '#/parameters/integrationId'
+        - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - name: x-ims-org-id
-          in: header
-          required: false
-          type: string
+        - $ref: '#/parameters/x-ims-org-id'
       responses:
         '200':
           description: successful operation
@@ -656,6 +596,11 @@ parameters:
     description: The integration Id associated with the project/workspace you created your registration in
     required: true
     type: string
+  registrationId:
+    name: registrationId
+    in: path
+    required: true
+    type: string
   authorization:
     name: Authorization
     description: 'Authorization access token in the format "Bearer {TOKEN}".' 
@@ -668,6 +613,11 @@ parameters:
     required: true
     type: string
     in: header
+  x-ims-org:
+    name: x-ims-org-id
+    in: header
+    required: false
+    type: string
   content-type:
     name: Content-Type
     description: Type of content being sent in the body of the request. Should be 'application/json'.
@@ -814,7 +764,7 @@ definitions:
         properties:
           eventmetadata:
             type: array
-            description: Adobe I/O Event Providers Event Metadata collection.
+            description: Adobe I/O Events Providers Event Metadata collection.
             items:
               $ref: '#/definitions/EventMetadataHalModel'
       _links:
@@ -878,7 +828,7 @@ definitions:
         description: 'The documentation url of this Events Provider, as shown on the Adobe I/O console'
       publisher:
         type: string
-        description: 'The publisher is `Adobe` for Adobe Cloud Solution. In the case of multi-instances or on-premise Adobe solutions:  the publisher will be set to the organization_id owning this solution. In the case of event-providers registered by an organization using Adobe I/O registration API:  the publisher will be set to the organization_id which registered this event providers'
+        description: 'The publisher is `Adobe` for Adobe Cloud Solution. In the case of multi-instances or on-premise Adobe solutions:  the publisher will be set to the organization_id owning this solution. In the case of event-providers registered by an organization using Adobe I/O registration API:  the publisher will be set to the organization_id which registered this events provider'
       _embedded:
         type: object
         properties:
@@ -908,7 +858,7 @@ definitions:
         properties:
           providers:
             type: array
-            description: Adobe I/O Event Providers collection.
+            description: Adobe I/O Events Providers collection.
             items:
               $ref: '#/definitions/ProviderHalModel'
       _links:
