@@ -1,4 +1,4 @@
-# Getting Started with the Events SDK
+# Getting Started with the I/O Events SDK
 
 Intro
 
