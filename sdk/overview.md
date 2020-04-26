@@ -19,7 +19,7 @@ The SDK can be used to perform the following operations:
 
 Use of the SDK can be broken down into two general audiences: 
 
-* Producers: Using APIs primarily to perform CRUD operations on providers and event metadata, and to publish events.
+* Producers: Using APIs perform CRUD operations on providers and event metadata, and to publish events.
 * Consumers: Primarily interested in registering webhooks, getting the journaling observable, fetching events from journaling, and using the API to verify signatures and improve security around listeners.
 
 ## Next Steps
