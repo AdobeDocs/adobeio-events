@@ -244,7 +244,6 @@ paths:
         - $ref: '#/parameters/consumerOrgId'
         - $ref: '#/parameters/projectId'
         - $ref: '#/parameters/workspaceId'
-        - $ref: '#/parameters/providerId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
         - $ref: '#/parameters/accept-hal-json'
