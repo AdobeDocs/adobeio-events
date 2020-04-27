@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: I/O Management API
+  title: Adobe I/O Events API
   version: '2.0'
 host: api-stage.adobe.io
 basePath: /
@@ -388,7 +388,7 @@ paths:
         - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
-        - $ref: '#/parameters/x-ims-org'
+        - $ref: '#/parameters/x-ims-org-id'
         - name: x-adobe-io-events-url-links
           in: header
           required: false
@@ -613,7 +613,7 @@ parameters:
     required: true
     type: string
     in: header
-  x-ims-org:
+  x-ims-org-id:
     name: x-ims-org-id
     in: header
     required: false
