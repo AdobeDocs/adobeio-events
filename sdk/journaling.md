@@ -1,7 +1,16 @@
-# Subscribe to events using Journalling
+# Subscribe to events using journaling
+
+For enterprise developers, Adobe offers another way to consume events besides webhooks: journaling. The Adobe I/O Events Journaling API enables enterprise integrations to consume events according to their own cadence and process them in bulk. Unlike webhooks, no additional registration or other configuration is required; every enterprise integration that is registered for events is automatically enabled for journaling. Journaling data is retained for 7 days.
+
+What is a Journal
+A Journal, is an ordered list of events - much like a ledger or a log where new entries (events) are added to the end of the ledger and the ledger keeps growing. Your application can start reading the ledger from any position and then continue reading "newer" entries (events) in the ledger, much like turning pages forward.
+
+Journaling, in contrast to webhooks, is a pull model of consuming events, whereas webhooks are a push model. In journaling your application will issue a series of API calls to pull batches of one or more events from the journal. The Journaling API response contains event data and the unique position in the journal for every event returned in that batch.
+
+The position of an event in the journal is significant. For your application to continue reading "newer" events in the journal, the position of the last event needs to be supplied back to the Journaling API in order to fetch events "newer" than the last event.
 
 EventsJournalOptions: 
-The following options can be configured while calling the journalling API:
+The following options can be configured while calling the journaling API:
 
 * **`latest`:** By default, the latest is set to false and all events are read from the first valid position in the journal. If set to true, Messages will be read from the latest position. 
 * **`since`:** Provide the position in the journal from where events must be fetched. If not specified and latests=false, messages are fetched from the first valid position in the journal.
@@ -59,13 +68,13 @@ Initializing the SDK
 
 `getEventsObservableFromJournal(journalUrl, [eventsJournalOptions], [eventsJournalPollingOptions]) ⇒ Observable`
 
-Polling journal for events and taking action on each event such as mapping, transformations, filtering are some common functionalities that would be useful for most users of the journalling API. 
+Polling journal for events and taking action on each event such as mapping, transformations, filtering are some common functionalities that would be useful for most users of the journaling API. 
 
 This method encapsulates all the complexities of fetching events by following the link.next and retry-After headers while the users can simply focus on implementing the business logic of taking action on receiving events. 
 
 This method returns an RxJS Observable https://rxjs.dev/guide/observable which users can fetch and subscribe to in order to listen to events. The following code explains how to get started with journaling: 
 
-Getting started with Journalling
+Getting started with journaling
 
 ```javascript
 const sdk = require('@adobe/aio-lib-events')
@@ -73,8 +82,8 @@ const sdk = require('@adobe/aio-lib-events')
 async function sdkTest() {
   // initialize sdk
   const client = await sdk.init('<organization id>', 'x-api-key', '<valid auth token>', '<http options>')
-  // get the journalling observable
-  const journalling = client.getEventsObservableFromJournal('<journal url>', '<journalling options>')
+  // get the journaling observable
+  const journaling = client.getEventsObservableFromJournal('<journal url>', '<journaling options>')
 ```
 
 
@@ -84,10 +93,10 @@ const sdk = require('@adobe/aio-lib-events')
 async function sdkTest() {
   // initialize sdk
   const client = await sdk.init('<organization id>', 'x-api-key', '<valid auth token>', '<http options>')
-  // get the journalling observable
-  const journalling = client.getEventsObservableFromJournal('<journal url>', '<journalling options>')
+  // get the journaling observable
+  const journaling = client.getEventsObservableFromJournal('<journal url>', '<journaling options>')
   // call methods
-  const subscription = journalling.subscribe({
+  const subscription = journaling.subscribe({
     next: (v) => console.log(v), // Action to be taken on event
     error: (e) => console.log(e), // Action to be taken on error
     complete: () => console.log('Complete') // Action to be taken on complete
@@ -103,7 +112,7 @@ The simplest way to subscribe and take action on the next event is as follows:
 
 Simple subscription to observable
 ```
-journalling.subscribe(
+journaling.subscribe(
     x => console.log('onNext: ' + x), // any action onNext event
     e => console.log('onError: ' + e.message), // any action onError
     () => console.log('onCompleted')) //action onComplete
@@ -117,7 +126,7 @@ Simple subscription to observable
 const { filter, map, takeWhile } = require('rxjs/operators')
 
 ...
-const subscription = journalling.pipe(
+const subscription = journaling.pipe(
     filter(e => e.event.header.msgType === '<message_type>'),// any filtering predicate that returns a boolean
     takeWhile(e => e.event.header.msgId !== <message_id>'),// if they wish to read messages from start till a particular position or any other condition
     map(e => e.event.body) // transform the event or any other mapping
@@ -143,7 +152,7 @@ const { filter, map, takeWhile } = require('rxjs/operators')
  
  
 ...
-const subscription1 = journalling.pipe(
+const subscription1 = journaling.pipe(
     filter(e => e.event.header.msgType === '<message_type_1>'),
     map(e => <transformed_event_1>)
   ).subscribe({
@@ -159,7 +168,7 @@ setTimeout(() => {
 }, 10000)
  
  
-const subscription2 = journalling.pipe(
+const subscription2 = journaling.pipe(
     filter(e => e.event.header.msgType === '<message_type_2>',
     map(e => <transformed_event_2>)
   ).subscribe({
