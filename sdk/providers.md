@@ -22,26 +22,26 @@ Returns a list of all providers. This response has been truncated to show only t
 
 ```json
 {
-  _links: {
-    self: {
-      href: 'http://localhost:11111/<consumerOrgId>/providers'
+  "_links": {
+    "self": {
+      "href": "http://localhost:11111/<consumerOrgId>/providers"
     }
   },
-  _embedded: {
-    providers: [
+  "_embedded": {
+    "providers": [
       {
-        _links: {
-          'provider:event_metadata': {
-            href: 'http://localhost:11111/providers/<providerId>/eventmetadata'
+        "_links": {
+          "provider:event_metadata": {
+            "href": "http://localhost:11111/providers/<providerId>/eventmetadata"
           },
-          self: {
-            href: 'http://localhost:11111/providers/<providerId>'
+          "self": {
+            "href": "http://localhost:11111/providers/<providerId>"
           }
         },
-        id: '<providerId>',
-        label: '<label>',
-        source: 'urn:uuid:<providerId>',
-        publisher: '<imsOrgId>'
+        "id": "<providerId>",
+        "label": "<label>",
+        "source": "urn:uuid:<providerId>",
+        "publisher": "<imsOrgId>"
       },
      ...
     ]

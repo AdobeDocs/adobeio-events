@@ -1,8 +1,8 @@
 # Getting Started with the Adobe I/O Events SDK
 
-The Adobe I/O Events SDK is an open-source SDK for the use of third party customers. I/O Events provide a powerful way to integrate your applications with Adobe services and solutions. Events are triggered by an Event Provider, like Adobe Creative Cloud Assets, whenever a certain real-world action occurs, such as creating a new asset.
+The Adobe I/O Events SDK is an open-source SDK for interacting with Events. I/O Events provide a powerful way to integrate your applications with Adobe services and solutions. Events are triggered by an Event Provider, like Adobe Creative Cloud Assets, whenever a certain real-world action occurs, such as creating a new asset.
 
-The guide contains the following sections:
+This guide contains the following information:
 * [Installation](#installation)
 * [Usage](#usage)
 * [Classes](#classes)
@@ -131,9 +131,9 @@ One can configure the following HTTP Options for the SDK. These options will be 
 
 To begin working with `EventsCoreAPI` class methods and calling Adobe I/O Events APIs, please select from the following guides:
 
-* [Providers](providers.md), 
-* [Event Metadata](event-metadata.md), 
-* [Publish Events](publish-events.md), 
-* [Webhooks](webhooks.md), 
-* [Journaling](journaling.md), 
+* [Providers](providers.md)
+* [Event Metadata](event-metadata.md)
+* [Publish Events](publish-events.md) 
+* [Webhooks](webhooks.md) 
+* [Journaling](journaling.md)
 * [Signature verification](signature-verification.md)

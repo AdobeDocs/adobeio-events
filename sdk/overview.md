@@ -1,8 +1,10 @@
 # Adobe I/O Events SDK Overview
 
-The Adobe I/O Events SDK is an open-source SDK for the use of third party customers. Third-party APIs require a bare minimum of information from users so that they can register providers and event metadata with ease, and register a webhook or journaling endpoint to listen to events. Users can then start publishing messages to the event receiver for their organization and listen to those events by either polling via journaling or by allowing the webhook to be notified about events. 
+The Adobe I/O Events SDK is an open-source SDK that can be used to interact with Adobe I/O Events and register providers and event metadata with ease. You can also register a webhook or journaling endpoint to listen to events. 
 
-The Events SDK provides a wrapper over these API calls making it easier for developers to use them as part of their apps and get started with I/O Events more quickly.
+You can then start publishing messages to the event receiver for your organization and listen to those events by either polling via journaling or by allowing the webhook to be notified about events. 
+
+The Events SDK provides a wrapper over these API calls making it easier for you to use them as part of your apps and get started with I/O Events more quickly.
 
 The SDK can be used to perform the following operations:
 
@@ -10,7 +12,7 @@ The SDK can be used to perform the following operations:
 * Get All providers for an organization.
 * Create, Update, Delete event metadata.
 * Get all event metadata for a provider.
-* Create a webhook/ journal registration.
+* Create a webhook or journal registration.
 * Get all registrations for an integration.
 * Publish events to the event receiver.
 * Get events from journaling.
@@ -24,4 +26,4 @@ Use of the SDK can be broken down into two general components:
 
 ## Next Steps
 
-To being working with the I/O Events SDK, read the [getting started guide](getting-started.md).
+To begin working with the I/O Events SDK, read the [getting started guide](getting-started.md).
