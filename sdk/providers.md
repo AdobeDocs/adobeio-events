@@ -1,15 +1,26 @@
 # Providers
 
+For information on installing and using the SDK, please begin by reading the [getting started guide](getting-started.md).
 
-
-`getAllProviders(consumerOrgId) ⇒ Promise.<object>`
+## List All Providers
 
 Get the list of all providers that are applicable to the organization. Here consumerOrgId is the AMS Org Id.
 
-Sample JSON response:
+#### Method
 
-Get All Providers Sample Response
+```javascript
+getAllProviders(consumerOrgId) ⇒ Promise.<object>`
 ```
+
+|Parameters	|Type	|Description|
+|---|---|---|
+|`consumerOrgId`	|string	|Consumer Organization Id from [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).|
+
+#### Sample Response
+
+Returns a list of all providers. This response has been truncated to show only the first provider returned.
+
+```json
 {
   _links: {
     self: {
@@ -38,49 +49,114 @@ Get All Providers Sample Response
 }
 ```
 
-`createProvider(consumerOrgId, projectId, workspaceId, body) ⇒ Promise.<object>`
+## Create a Provider
 
-Creating a provider is very simple. All it needs is a unique label for the provider which will be the name that appears on the console.
+Create a new provider based on the given provider details.
 
-Sample request body:
+#### Method
 
-Request Body for creating a Provider
+```javascript
+createProvider(consumerOrgId, projectId, workspaceId, body) ⇒ Promise.<object>
 ```
+
+|Parameter	|Type	|Description|
+|---|---|---|
+|`consumerOrgId`	|string	|Consumer Organization ID from [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).|
+|`projectId`	|string	|Project ID from [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).|
+|`workspaceId`	|string	|Workspace ID from [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).|
+|`providerId`	|string	|Provider ID for which the event metadata is to be added.|
+| [body](#sample-request-body)	|object	|JSON data that describes the event metadata.|
+
+#### Sample Request Body
+
+Creating a provider requires a unique label for the provider which will be the name that appears in [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).
+
+```json
 {
-    label: 'Test Provider SDK'
+    "label": "Sample Event Provider"
 }
 ```
 
-`getProvider(providerId) ⇒ Promise.<object>`
+#### Response
 
-Get the details of the provider with the specified provider Id. The "source" is URI to be used while publishing events to the event receiver. 
+Returns the details of the newly created provider.
 
-Sample JSON response:
+## Get Provider Details
 
-Get Provider Sample Response
+Get the details of a specific provider by its provider ID.  
 
+#### Method
+
+```javascript
+getProvider(providerId) ⇒ Promise.<object>
 ```
-{ _links:
-    { 'provider:event_metadata': 
+
+|Parameters|Type	|Default	|Description|
+|---|---|---|---|
+|`providerId`	|string		||The ID that uniquely identifies the provider to be fetched.|
+|[fetchEventMetadata]	|boolean	|`false`	|Set this to `true` if you want to fetch the associated eventmetadata of the provider.|
+
+#### Sample Response
+
+Returns the details of the provider specified by the provider ID. The "source" value is the URI to be used while publishing events to the event receiver.
+
+```json
+{ "_links":
+    { "provider:event_metadata": 
         {
-            href:  'http://localhost:11111/providers/<providerId>/event_metadata'
+            "href":  "http://localhost:11111/providers/<providerId>/event_metadata"
         },
-        self:
+        "self":
        {
-            href:  'http://localhost:11111/providers/<providerId>'
+            "href":  "http://localhost:11111/providers/<providerId>"
         }
     },
-    id: '<providerId>',
-    label: '<label>',
-    source: 'urn:uuid:<providerId>',
-    publisher: '<publisher>'
+    "id": "<providerId>",
+    "label": "<label>",
+    "source": "urn:uuid:<providerId>",
+    "publisher": "<publisher>"
 }
 ```
 
-`updateProvider(consumerOrgId, projectId, workspaceId, providerId, body) ⇒ Promise.<object>`
+## Update Provider 
 
-The label of the provider can be updated. 
+Update the label of a provider based on its ID.
 
-`deleteProvider(consumerOrgId, projectId, workspaceId, providerId) ⇒ Promise.<object>`
+#### Method
 
-Returns 204 once the deletion is successful. If the provider does not exist, 404 is returned. 
+```javascript
+updateProvider(consumerOrgId, projectId, workspaceId, providerId, body) ⇒ Promise.<object>
+```
+
+|Parameter	|Type	|Description|
+|---|---|---|
+|`consumerOrgId`	|string	|Consumer Organization ID from [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).|
+|`projectId`	|string	|Project ID from [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).|
+|`workspaceId`	|string	|Workspace ID from [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).|
+|`providerId`	|string	|The ID that identifies the provider to be updated.|
+| [body](#sample-request-body)	|object	|JSON data that describes the provider.|
+
+#### Response
+
+Returns the details of the updated provider.
+
+## Delete a Provider
+
+You can delete a provider by specifying a provider ID.
+
+#### Method
+
+```javascript
+deleteProvider(consumerOrgId, projectId, workspaceId, providerId) ⇒ Promise.<object>
+```
+
+|Parameter	|Type	|Description|
+|---|---|---|
+|`consumerOrgId`	|string	|Consumer Organization ID from [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).|
+|`projectId`	|string	|Project ID from [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).|
+|`workspaceId`	|string	|Workspace ID from [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui).|
+|`providerId`	|string	|The ID that identifies the provider to be deleted.|
+
+#### Response
+
+Returns HTTP Status 204 (No Content) once the deletion is successful. If the provider does not exist, HTTP Status 404 (Not Found) is returned. 

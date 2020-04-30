@@ -1,18 +1,30 @@
 # Publish events
 
-`publishEvent(cloudEvent) ⇒ Promise.<string>`
+Event publishers can publish events to the event receiver using the ADobe I/O Events SDK. 
 
-Event publishers can publish events to the event receiver using this SDK. 
+For information on installing and using the SDK, please begin by reading the [getting started guide](getting-started.md).
 
-The events should follow Cloud Events 1.0 Image result for cloud events specification: https://github.com/cloudevents/spec/blob/v1.0/spec.md. 
+#### Method
 
-As of now, only `application/json` is accepted as the `content-type` for the "data" field of the cloud event. If retries are set, publish events are retried on network issues, 5xx and 429 error response codes. 
-
-### Cloud Events Sample
-
-A sample cloud event accepted by the event receiver:
-
+```shell
+publishEvent(cloudEvent) ⇒ Promise.<string>
 ```
+
+|Parameter	|Type	|Description|
+|---|---|---|
+|`cloudEvent`	|object	|Object to be published to event receiver in cloud event format.|
+
+#### Cloud Events Sample
+
+The events should follow [Cloud Events 1.0](https://github.com/cloudevents/spec/blob/v1.0/spec.md) Image result for cloud events specification. 
+
+As of now, only `application/json` is accepted as the `content-type` for the "data" field of the cloud event. 
+
+If retries are set, publish events are retried on network issues, 5xx and 429 error response codes. 
+
+The following shows a sample cloud event accepted by the event receiver:
+
+```json
 {
     id: '<id>',
     event_id: '<event_id>',
@@ -25,5 +37,10 @@ A sample cloud event accepted by the event receiver:
 }
 ```
 
-The API returns 200 OK if there the event has been processed correctly and there are active registrations for the event and 204 in case there are no registrations for the event. In addition, it returns the appropriate error codes if there was an issue in processing the request. 
+#### Response
+
+The API returns HTTP Status 200 (OK) if the event has been processed correctly and there are active registrations for the event. The API returns HTTP Status 204 (No Content) if there are no registrations for the event. 
+
+In addition, the API returns the appropriate error codes if there was an issue in processing the request. 
+
 

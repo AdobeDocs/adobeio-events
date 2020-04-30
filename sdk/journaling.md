@@ -1,4 +1,4 @@
-# Subscribe to events using Journaling
+# Subscribe to Events Using Journaling
 
 Journaling is a *pull* model of consuming events, unlike [webhooks](webhooks.md) which use a *push* model. In journaling, your application will issue a series of API calls to pull batches of one or more events from the journal. 
 
@@ -28,6 +28,12 @@ The following options can be configured while calling the journaling API:
 
 ## Get Events from a Journal
 
+The `getEventsFromJournal` SDK expects a journal URL as input and `eventsJournalOptions` if required. If no parameters are specified, messages are fetched from the first valid position in the journal, and the `link.next` header in the response provides the position for the next event in the journal. Following the `link.next` link from each response will help fetch all events in order from the journal. 
+
+You can also rewind to start reading from a different position in the journal by providing the `since` query parameter in the options or as part of the journal URL. 
+
+#### Method
+
 ```shell
 getEventsFromJournal(journalUrl, [eventsJournalOptions]) ⇒ Promise
 ```
@@ -37,9 +43,7 @@ getEventsFromJournal(journalUrl, [eventsJournalOptions]) ⇒ Promise
 |`journalUrl`	|string	| ***Required.*** URL of the journal or 'next' link to read from.|
 |[eventsJournalOptions]	|[EventsJournalOptions](#eventsjournaloptions)	|Query options to send with the URL.|
 
-The `getEventsFromJournal` SDK expects a journal URL as input and `eventsJournalOptions` if required. If no parameters are specified, messages are fetched from the first valid position in the journal, and the `link.next` header in the response provides the position for the next event in the journal. Following the `link.next` link from each response will help fetch all events in order from the journal. 
-
-You can also rewind to start reading from a different position in the journal by providing the `since` query parameter in the options or as part of the journal URL. 
+#### Sample Response
 
 The response from the SDK contains the following as part of the json result:
 
@@ -48,8 +52,6 @@ The response from the SDK contains the following as part of the json result:
 |`events`| Array of events retrieved from the journal.|
 |`links`| Links to the next/latest/current position from where the event is to be fetched.|
 |`retryAfter`| If the call to journal returned 204, it means that there are no more events to be read from the journal. The `retryAfter` value extracted from the `retry-after` header in the response specifies the time in seconds after which one can try again to look for more events. *It is recommended to honor this `retryAfter` value.*| 
-
-#### Sample response
 
 ```json
 { "events":
@@ -86,6 +88,12 @@ The response from the SDK contains the following as part of the json result:
 
 ## Get Events Observable from Journal
 
+Polling the journal for events and taking action on each event such as mapping, transformations, and filtering are some common functionalities that are most useful using the Journaling API. 
+
+This method encapsulates all of the complexities of fetching events by following the `link.next` and `retry-After` headers while you can focus on implementing the business logic of taking action on receiving events. 
+
+#### Method
+
 ```shell
 getEventsObservableFromJournal(journalUrl, [eventsJournalOptions], [eventsJournalPollingOptions]) ⇒ Observable
 ```
@@ -96,9 +104,7 @@ getEventsObservableFromJournal(journalUrl, [eventsJournalOptions], [eventsJourna
 |[eventsJournalOptions]	|[EventsJournalOptions](#eventsjournaloptions)	|Query options to send with the URL.|
 |[eventsJournalPollingOptions]|	[EventsJournalPollingOptions](#eventsjournalpollingoptions)	|Journal polling options.|
 
-Polling the journal for events and taking action on each event such as mapping, transformations, and filtering are some common functionalities that are most useful using the Journaling API. 
-
-This method encapsulates all of the complexities of fetching events by following the `link.next` and `retry-After` headers while you can focus on implementing the business logic of taking action on receiving events. 
+#### Sample Code
 
 This method returns an [RxJS Observable](https://rxjs.dev/guide/observable) which you can fetch and subscribe to in order to listen to events. The following code explains how to get started with journaling: 
 
@@ -123,7 +129,7 @@ journaling.subscribe(
 
 RxJS provides a lot of flexibility in handling events. You can compose functions declaratively in sequence to work on the emitted data. 
 
-For more complicated use cases, you can make use of [RxJS operators](https://rxjs.dev/guide/operators) to filter certain events, transform the events, etc. Such an implementation would look something like :
+For more complicated use cases, you can make use of [RxJS operators](https://rxjs.dev/guide/operators) to filter certain events, transform the events, etc. Such an implementation would look something like:
 
 ```javascript
 const { filter, map, takeWhile } = require('rxjs/operators')
