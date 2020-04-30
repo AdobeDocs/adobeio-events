@@ -8,13 +8,15 @@ To learn more about webhooks, read the [Introduction to Adobe I/O Events Webhook
 
 ## Create a webhook or journal registration
 
-`createWebhookRegistration(consumerOrgId, integrationId, body) ⇒ Promise.<object>`
+```shell
+createWebhookRegistration(consumerOrgId, integrationId, body) ⇒ Promise.<object>
+```
 
 |Param	|Type	|Description|
 |---|---|---|
 |consumerOrgId	|string	|Consumer Org Id from the console integration URL|
 |integrationId	|string	|Integration Id from the console integration URL|
-|body	|object	|Json data contains details of the registration|
+|body	|object	|JSON data contains details of the registration|
 
 You can register a webhook endpoint by providing the `webhook_url` as part of the request body. If you want to register only a journal URL, you can set the `delivery_type` to `'JOURNAL'` in the request body and leave the `webhook_url` empty.
 
@@ -37,7 +39,7 @@ The request body includes a name, description, client ID, and delivery type ("JO
   ]
 }
 ```
-For more information on journaling - [journaling](journaling.md).
+For more information on journaling, read the [journaling SDK guide](journaling.md).
 
 ### Sample JSON request body to register a webhook URL
 
@@ -59,9 +61,9 @@ For more information on journaling - [journaling](journaling.md).
 
 ## View webhook registration details
 
-Get details of a webhook registration
-
-`getWebhookRegistration(consumerOrgId, integrationId, registrationId) ⇒ Promise.<object>`
+```shell
+getWebhookRegistration(consumerOrgId, integrationId, registrationId) ⇒ Promise.<object>
+```
 
 |Param	|Type	|Description|
 |---|---|---|

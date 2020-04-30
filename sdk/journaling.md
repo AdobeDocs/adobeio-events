@@ -1,80 +1,106 @@
-# Subscribe to events using journaling
+# Subscribe to events using Journaling
 
-For enterprise developers, Adobe offers another way to consume events besides webhooks: journaling. The Adobe I/O Events Journaling API enables enterprise integrations to consume events according to their own cadence and process them in bulk. Unlike webhooks, no additional registration or other configuration is required; every enterprise integration that is registered for events is automatically enabled for journaling. Journaling data is retained for 7 days.
+Journaling is a *pull* model of consuming events, unlike [webhooks](webhooks.md) which use a *push* model. In journaling, your application will issue a series of API calls to pull batches of one or more events from the journal. 
 
-What is a Journal
-A Journal, is an ordered list of events - much like a ledger or a log where new entries (events) are added to the end of the ledger and the ledger keeps growing. Your application can start reading the ledger from any position and then continue reading "newer" entries (events) in the ledger, much like turning pages forward.
+The Adobe I/O Events Journaling API response contains event data and the unique position in the journal for every event returned in that batch, and enables applications to consume events according to their own cadence and process them in bulk. 
 
-Journaling, in contrast to webhooks, is a pull model of consuming events, whereas webhooks are a push model. In journaling your application will issue a series of API calls to pull batches of one or more events from the journal. The Journaling API response contains event data and the unique position in the journal for every event returned in that batch.
+Unlike webhooks, no additional registration or other configuration is required; every application that is registered for events is automatically enabled for journaling. Journaling data is retained for 7 days.
 
-The position of an event in the journal is significant. For your application to continue reading "newer" events in the journal, the position of the last event needs to be supplied back to the Journaling API in order to fetch events "newer" than the last event.
+For information on installing and using the SDK, please begin by reading the [getting started guide](getting-started.md).
 
-EventsJournalOptions: 
+## Configuration Options
+
+### EventsJournalOptions
+
 The following options can be configured while calling the journaling API:
 
-* **`latest`:** By default, the latest is set to false and all events are read from the first valid position in the journal. If set to true, Messages will be read from the latest position. 
-* **`since`:** Provide the position in the journal from where events must be fetched. If not specified and latests=false, messages are fetched from the first valid position in the journal.
-* **`limit`:** Maximum number of messages that must be returned in the response. The number of messages can be less than the specified limit value but will never exceed this value.
+|Name	|Type	|Description|
+|---|---|---|
+|[latest]	|boolean	|*Optional.* By default, the latest is set to false and all events are read from the first valid position in the journal. If set to true, Messages will be read from the latest position. |
+|[since]	|string	|*Optional.* Provide the position in the journal from where events must be fetched. If not specified and latests=false, messages are fetched from the first valid position in the journal.|
+|[limit]	|number	|Maximum number of events returned in the response. The number of messages can be less than the specified limit value but will never exceed this value.|
 
+### EventsJournalPollingOptions
 
+|Name	|Type	|Description|
+|---|---|---|
+|[interval]	|number	|*Optional.* Interval at which to poll the journal; If not provided, a default value will be used.|
 
-`getEventsFromJournal(journalUrl, [eventsJournalOptions]) ⇒ Promise`
+## Get Events from a Journal
 
-The getEventsFromJournal SDK expects a journal URL as input and eventsJournalOptions if required. If no options ( query param values ) are specified, messages are fetched from the first valid position in the journal, and the link.next header in the response provides the position for the next event in the journal. Following the link.next link from each response will help fetch all events in order from the journal. 
+```shell
+getEventsFromJournal(journalUrl, [eventsJournalOptions]) ⇒ Promise
+```
 
-You can also rewind to start reading from a different position in the journal by providing the "since" query param in the options or as part of the journal URL. 
+|Parameter|	Type	|Description|
+|---|---|---|
+|`journalUrl`	|string	| ***Required.*** URL of the journal or 'next' link to read from.|
+|[eventsJournalOptions]	|[EventsJournalOptions](#eventsjournaloptions)	|Query options to send with the URL.|
+
+The `getEventsFromJournal` SDK expects a journal URL as input and `eventsJournalOptions` if required. If no parameters are specified, messages are fetched from the first valid position in the journal, and the `link.next` header in the response provides the position for the next event in the journal. Following the `link.next` link from each response will help fetch all events in order from the journal. 
+
+You can also rewind to start reading from a different position in the journal by providing the `since` query parameter in the options or as part of the journal URL. 
 
 The response from the SDK contains the following as part of the json result:
 
-events: Array of events retrieved from the journal
+|Property|Description|
+|---|---|
+|`events`| Array of events retrieved from the journal.|
+|`links`| Links to the next/latest/current position from where the event is to be fetched.|
+|`retryAfter`| If the call to journal returned 204, it means that there are no more events to be read from the journal. The `retryAfter` value extracted from the `retry-after` header in the response specifies the time in seconds after which one can try again to look for more events. *It is recommended to honor this `retryAfter` value.*| 
 
-links: Links to the next/latest/current position from where the event is to be fetched
+#### Sample response
 
-retryAfter: If the call to journal returned 204, it means that there are no more events to be read from the journal. The retryAfter value extracted from the retry-after header in the response specifies the time in seconds after which one can try again to look for more events. It is recommended to honor this retryAfter value. 
-
-Initializing the SDK
-
-```
-{ events:
+```json
+{ "events":
    [ {
-       position:'<cursor_position_of_this_event>',
-       event:
+       "position":"<cursor_position_of_this_event>",
+       "event":
         {
-            header: <headers_map>
+            "header": "<headers_map>"
         },
-          body:
-           <json_payload>
+          "body":
+           "<json_payload>"
     } ],
-  _page:
+  "_page":
    {
-      last: '<cursor_position_of_this_event>',
-      count: 1
+      "last": "<cursor_position_of_this_event>",
+      "count": 1
    },
-  link:
-   { events:
-      'https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>',
-     next:
-      'https://events-stage-va6.adobe.io/events-fast/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since=<cursor_to_position_of_next_event>',
-     count:
-      'https://events-stage-va6.adobe.io/count/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since=<cursor_position_of_this_event>',
-     latest:
-      'https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?latest=true',
-     page:
-      'https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since={position}&limit={count}',
-     seek:
-      'https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?seek={duration}&limit={count}' }
+  "link":
+   { "events":
+      "https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>",
+     "next":
+      "https://events-stage-va6.adobe.io/events-fast/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since=<cursor_to_position_of_next_event>",
+     "count":
+      "https://events-stage-va6.adobe.io/count/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since=<cursor_position_of_this_event>",
+     "latest":
+      "https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?latest=true",
+     "page":
+      "https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since={position}&limit={count}",
+     "seek":
+      "https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?seek={duration}&limit={count}" 
+    }
 }
 ```
 
-`getEventsObservableFromJournal(journalUrl, [eventsJournalOptions], [eventsJournalPollingOptions]) ⇒ Observable`
+## Get Events Observable from Journal
 
-Polling journal for events and taking action on each event such as mapping, transformations, filtering are some common functionalities that would be useful for most users of the journaling API. 
+```shell
+getEventsObservableFromJournal(journalUrl, [eventsJournalOptions], [eventsJournalPollingOptions]) ⇒ Observable
+```
 
-This method encapsulates all the complexities of fetching events by following the link.next and retry-After headers while the users can simply focus on implementing the business logic of taking action on receiving events. 
+|Parameter|	Type	|Description|
+|---|---|---|
+|`journalUrl`	|string	| ***Required.*** URL of the journal or 'next' link to read from.|
+|[eventsJournalOptions]	|[EventsJournalOptions](#eventsjournaloptions)	|Query options to send with the URL.|
+|[eventsJournalPollingOptions]|	[EventsJournalPollingOptions](#eventsjournalpollingoptions)	|Journal polling options.|
 
-This method returns an RxJS Observable https://rxjs.dev/guide/observable which users can fetch and subscribe to in order to listen to events. The following code explains how to get started with journaling: 
+Polling the journal for events and taking action on each event such as mapping, transformations, and filtering are some common functionalities that are most useful using the Journaling API. 
 
-Getting started with journaling
+This method encapsulates all of the complexities of fetching events by following the `link.next` and `retry-After` headers while you can focus on implementing the business logic of taking action on receiving events. 
+
+This method returns an [RxJS Observable](https://rxjs.dev/guide/observable) which you can fetch and subscribe to in order to listen to events. The following code explains how to get started with journaling: 
 
 ```javascript
 const sdk = require('@adobe/aio-lib-events')
@@ -86,41 +112,18 @@ async function sdkTest() {
   const journaling = client.getEventsObservableFromJournal('<journal url>', '<journaling options>')
 ```
 
-
-```javascript
-const sdk = require('@adobe/aio-lib-events')
-
-async function sdkTest() {
-  // initialize sdk
-  const client = await sdk.init('<organization id>', 'x-api-key', '<valid auth token>', '<http options>')
-  // get the journaling observable
-  const journaling = client.getEventsObservableFromJournal('<journal url>', '<journaling options>')
-  // call methods
-  const subscription = journaling.subscribe({
-    next: (v) => console.log(v), // Action to be taken on event
-    error: (e) => console.log(e), // Action to be taken on error
-    complete: () => console.log('Complete') // Action to be taken on complete
-  })
-  
-  // To stop receiving events from this subscription based on a timeout
-  setTimeout(() => this.subscription.unsubscribe(), <timeout in ms>)
-}
-```
-
-
 The simplest way to subscribe and take action on the next event is as follows: 
 
-Simple subscription to observable
-```
+```javascript
 journaling.subscribe(
     x => console.log('onNext: ' + x), // any action onNext event
     e => console.log('onError: ' + e.message), // any action onError
     () => console.log('onCompleted')) //action onComplete
 ```
 
-RxJS provides a lot of flexibility in handling events. You can compose functions declaratively in sequence to work on the emitted data. For more complicated use cases, one can make use of RxJS operators https://rxjs.dev/guide/operators to filter certain events, transform the events, etc. Such an implementation would look something like :
+RxJS provides a lot of flexibility in handling events. You can compose functions declaratively in sequence to work on the emitted data. 
 
-Simple subscription to observable
+For more complicated use cases, you can make use of [RxJS operators](https://rxjs.dev/guide/operators) to filter certain events, transform the events, etc. Such an implementation would look something like :
 
 ```javascript
 const { filter, map, takeWhile } = require('rxjs/operators')
@@ -143,9 +146,8 @@ setTimeout(() => {
 }, 10000)
 ```
 
-One can also have multiple subscriptions to a single observable, each transforming and filtering events on different criteria or applying any other operators as follows:
+You can also have multiple subscriptions to a single observable, each transforming and filtering events on different criteria or applying any other operators as follows:
 
-Simple subscription to observable
 
 ```javascript
 const { filter, map, takeWhile } = require('rxjs/operators')
@@ -182,7 +184,6 @@ const subscription2 = journaling.pipe(
 setTimeout(() => {
   subscription2.unsubscribe()
 }, 20000)
- 
  
 ...
 ```
