@@ -7,10 +7,13 @@
 * [Analytics Triggers Events](#analytics-triggers-events)
 
 ## General questions
+
 _**What are I/O Events?**_  
+
 I/O Events make meaningful Adobe Cloud Platform events available to 1st and 3rd party developers.
 
 _**Which events are currently supported via I/O?**_  
+
 Currently, following Adobe solutions are supported via I/O Events:
 
 * Adobe Experience Manager Page, Asset, & Custom Events (create, update, delete)
@@ -18,23 +21,29 @@ Currently, following Adobe solutions are supported via I/O Events:
 * Creative Cloud Asset Events (create, update, delete)
 
 _**What permissions are required to use I/O Events?**_  
+
 To access the Adobe I/O Console and create or manage integrations for AEM and Analytics Triggers, a user must have Enterprise Administrator permissions.
 
 _**Which subscription types do I/O Events support?**_  
+
 I/O Events support webhooks for near-real time notifications (push) as well as a Journaling API (pull) to grab groups of events at a time.
 
 _**How far back are I/O Events available via the Journaling API?**_  
+
 Adobe I/O stores 7 days of subscribed events that can be retrieved via the Journaling API.
 
 _**What happens if a webhook is down?**_  
+
 I/O Events will retry up to five times. A webhook is considered inactive after five unsuccessful retries with either no response or a response other than HTTP 2XX. The Journaling API can be used to retrieve events that were published while the webhook is down.
 
 _**Are there other ways to access I/O Events?**_  
+
 Yes: 
 - [Azuqua](https://www.azuqua.com) provides connectors for both AEM events and Analytics Triggers events.
 - [Microsoft Flow](https://flow.microsoft.com) has a connector for Creative Cloud Asset events.
 
 _**What is JWT and what is it used for?**_  
+
 JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. For more information on JSON Web Tokens, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/) on JWT.io.
 
 To use Adobe I/O Events, you&rsquo;ll need a set of client credentials to authenticate the identity of the caller and authorize access. The type of application you are building determines the type of integration that provides the client credentials you will need.
@@ -44,9 +53,11 @@ A Service Account integration allows your application to call Adobe services on 
 For this type of integration, you&rsquo;ll need to create a JSON Web Token (JWT) that encapsulates your credentials and begin each API session by exchanging the JWT for an access token. The JWT encodes all of the identity and security information required to obtain an access token,  and must be signed with the private key that is associated with a public key certificate specified on your integration.
 
 _**Where can I find documentation on JSON Web Token (JWT) Service accounts and how to set them up?**_  
+
 See the Authentication Guide: [Creating a JSON Web Token](https://www.adobe.io/apis/cloudplatform/console/authentication/createjwt.html).
 
 _**Do you have sample libraries for JWT?**_  
+
 Yes:
 - Python: https://pyjwt.readthedocs.io/en/latest/
 - .Net: https://github.com/jwt-dotnet/jwt
@@ -65,12 +76,15 @@ _**Which versions of AEM is supported for I/O Events?**_
 AEM 6.2.xx, 6.3.xx as well as 6.4.xx, see [Set up AEM Events with Adobe I/O Events](../using/aem-event-setup.md##installtheaemeventproxypackage) 
 
 _**What do I need to leverage AEM events?**_  
+
 A separate package is required to use AEM I/O Events. 
 
 _**Where can I find instructions on setting up AEM I/O Events?**_  
+
 See [Set up AEM Events with Adobe I/O Events](../using/aem-event-setup.md) in this guide.
 
 _**What does the AEM event payload look like?**_  
+
 Here are sample payloads for all AEM events: 
 
 - _Asset events:_
@@ -304,19 +318,24 @@ Here are sample payloads for all AEM events:
         ```
 
 **During installation, my health check is failing. What should I do?**  
+
 One possible solution is to try waiting for two minutes and checking a few more times. 
 Sometimes the first health check fails even though the connection is actually working. 
 
 If your health check consistently fails, check the [AEM Events](debug#aem-events) section of the Debugging Guide: &ldquo;AEM Events not firing&rdquo;.
 
 ## Analytics Triggers Events
+
 **Where can I find instructions on setting up Analytics Triggers for I/O?**  
+
 You'll find it in this guide at [Integrate Analytics Triggers with Adobe I/O Events](../using/analytics-triggers-event-setup.md). 
 
 **Where do I configure Analytics Triggers for I/O?**  
+
 Analytics Triggers are set up and managed via the Experience Cloud Activation UI. Once a Trigger has been created, it will appear in Adobe I/O Console under the available I/O Events list.
 
 **What does an Analytics Triggers payload look like?**  
+
 Here is a sample:
 
 ```json
@@ -425,6 +444,7 @@ Here is a sample:
 ```
   
 **I receive errors trying to access Triggers.**  
+
 The company/org is entitled for Analytics Triggers but I receive the following errors when trying to set up a Trigger:
 
 ![Report Suite null](../img/events_FAQ_01.png "Report Suite null")

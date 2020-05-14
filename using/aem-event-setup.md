@@ -468,15 +468,3 @@ to look up the statistics and health of your queues
 Please refer to the Sling documentation:
 * https://sling.apache.org/apidocs/sling7/org/apache/sling/event/jobs/consumer/JobConsumer.html
 * https://sling.apache.org/documentation/bundles/apache-sling-eventing-and-job-handling.html
-
-
-## Authors
-
-- Sarah Xu [@sarahxxu](https://github.com/sarahxxu).
-- John Wight [@johnwight](https://github.com/johnwight).
-
-## Feedback?
-
-Please help make this solution as useful as possible. If you find a problem in the documentation or have a suggestion, select the **Issues** tab on this GitHub repository and then select **New issue**. Provide a title and description for your comment and then select  **Submit new issue**.
-
-   ![GitHub: submit new issue](../img/events_aem_33.png "GitHub: submit new issue")
