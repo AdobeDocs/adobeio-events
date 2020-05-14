@@ -93,28 +93,10 @@
           "title": "Getting started with Events SDK"
         },
         {
-          "importedFileName": "providers",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/providers.md",
-          "title": "Providers"
-        },
-        {
           "importedFileName": "event-matadata",
           "pages": [],
           "path": "adobedocs/adobeio-events/master/sdk/event-metadata.md",
           "title": "Event Metadata"
-        },
-        {
-          "importedFileName": "webhooks",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/webhooks.md",
-          "title": "Webhooks"
-        },
-        {
-          "importedFileName": "publish-events",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/publish-events.md",
-          "title": "Publish Events"
         },
         {
           "importedFileName": "journaling",
@@ -123,10 +105,28 @@
           "title": "Journaling"
         },
         {
+          "importedFileName": "providers",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/providers.md",
+          "title": "Providers"
+        },
+        {
+          "importedFileName": "publish-events",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/publish-events.md",
+          "title": "Publish Events"
+        },
+        {
           "importedFileName": "signature-verification",
           "pages": [],
           "path": "adobedocs/adobeio-events/master/sdk/signature-verification.md",
           "title": "Signature Verification"
+        },
+        {
+          "importedFileName": "webhooks",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/webhooks.md",
+          "title": "Webhooks"
         },
         {
           "importedFileName": "events-api-overview",
