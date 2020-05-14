@@ -19,34 +19,29 @@ getAllEventMetadataForProvider(providerId) ⇒ Promise.<object>
 #### Sample Response
 
 ```json
-{ 
-  "_links":
+{ "_links":
         { "self":
             {
-                "href":  "http://localhost:11111/providers/<provider-id>/event_metadata"
+                "href": "https://api.adobe.io/events/providers/<provider-id>/eventmetadata"
             }
         },
         "_embedded":
         {
             "event_metadata":  [
-                { "_links":
-                    { "self":
-                        { "href":  "http://localhost:11111/providers/<provider-id>/event_metadata/<event-code>" }
+                {  "_links": {
+                    "rel:sample_event": {
+                         "href": "https://api.adobe.io/events/providers/<provider-id>/eventmetadata/<event-code-1>/sample_event"
                     },
-                    "description": "<description>",
-                    "label": "<label>",
-                    "event_code": "<event-code>",
-                    "sample_event":
-                    {
-                        "id": "<id>",
-                        "event_id": "<event-id>",
-                        "specversion": "1.0",
-                        "type": "<event-code-1>",
-                        "source": "urn:uuid:<provider-id>",
-                        "time": "<datetime>",
-                        "datacontenttype": "application/json",
-                        "data": {}
+                     "rel:update": {
+                        "href": "https://api.adobe.io/events/<consumerId>/<projectId>/<workspaceId>/providers/<provider-id>/eventmetadata/<event-code-1>"
+                    },
+                    "self": {
+                        "href": "https://api.adobe.io/events/providers/<provider-id>/eventmetadata/<event-code-1>"
                     }
+                 },
+                "description": "<description>",
+                "label": "<label>",
+                "event_code": "<event-code-1>",
             },
             ...
          ]
@@ -56,7 +51,7 @@ getAllEventMetadataForProvider(providerId) ⇒ Promise.<object>
 
 ## Get Event Metadata for Given Provider and Event Code
 
-You can return all event data by providing a provider ID and an event code.
+You can return metadata for a single event by providing a provider ID and an event code.
 
 #### Method
 
@@ -72,29 +67,27 @@ getEventMetadataForProvider(providerId, eventCode) ⇒ Promise.<object>
 #### Sample Response
 
 ```json
-{ 
-  "_links":
-    { "self":
-        { "href":  "http://localhost:11111/providers/<provider-id>/event_metadata/<event-code>" }
+{
+  "_links": {
+    "rel:sample_event": {
+      "href": "https://api.adobe.io/events/providers/<provider-id>/eventmetadata/<event-code>/sample_event"
     },
-    "description": "<description>",
-    "label": "<label>",
-    "event_code": "<event-code>",
-    "sample_event":
-    {
-        "id": "<id>",
-        "event_id": "<event_id>",
-        "specversion": "1.0",
-        "type": "<event-code>",
-        "source": "urn:uuid:<provider-id>",
-        "time": "2020-03-06T05:40:34Z",
-        "datacontenttype": "application/json",
-        "data": {}
+    "rel:update": {
+      "href": "https://api.adobe.io/events/<consumerId>/<projectId>/<workspaceId>/providers/<provider-id>/eventmetadata/<event-code>"
+    },
+    "self": {
+      "href": "https://api.adobe.io/events/providers/<provider-id>/eventmetadata/<event-code>"
     }
+  },
+  "description": "<description>",
+  "label": "<label>",
+  "event_code": "<event-code>"
 }
 ```
 
 ## Create Event Metadata for a Provider
+
+This function is used to add various event types for a provider.
 
 #### Method
 
@@ -144,7 +137,8 @@ updateEventMetadataForProvider(consumerOrgId, projectId, workspaceId, providerId
 ```json
 {
     "label": "new-label",
-    "description": "Updated description for SDK 1"
+    "description": "Updated description for SDK 1",
+    "event_code": "event_code_1"
 }
 ```
 

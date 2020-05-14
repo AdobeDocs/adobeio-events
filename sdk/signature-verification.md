@@ -26,7 +26,7 @@ verifySignatureForEvent(event, clientSecret, signatureHeaderValue) ⇒ boolean
 
 #### Sample Headers
 
-Headers received as part POST to webhook URL:
+Headers received as part of POST to webhook URL:
 
 ```http
 Request URL: <webhook_url>

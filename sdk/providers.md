@@ -4,7 +4,7 @@ For information on installing and using the SDK, please begin by reading the [ge
 
 ## List All Providers
 
-Get the list of all providers that are applicable to the organization. Here consumerOrgId is the AMS Org Id.
+Get the list of all providers that are applicable to the organization.
 
 #### Method
 
@@ -24,24 +24,27 @@ Returns a list of all providers. This response has been truncated to show only t
 {
   "_links": {
     "self": {
-      "href": "http://localhost:11111/<consumerOrgId>/providers"
+      "href": "https://api.adobe.io/events/<consumerOrgId>/providers"
     }
   },
   "_embedded": {
     "providers": [
       {
         "_links": {
-          "provider:event_metadata": {
-            "href": "http://localhost:11111/providers/<providerId>/eventmetadata"
+          "rel:event_metadata": {
+            "href": "https://api.adobe.io/events/providers/<providerId>/eventmetadata"
+          },
+          "rel:update": {
+            "href": "https://api.adobe.io/events/<consumerId>/<projectId>/<workspaceId>/providers/<provider_id>"
           },
           "self": {
-            "href": "http://localhost:11111/providers/<providerId>"
+            "href": "https://api.adobe.io/events/providers/<providerId>"
           }
         },
         "id": "<providerId>",
         "label": "<label>",
-        "source": "urn:uuid:<providerId>",
-        "publisher": "<imsOrgId>"
+        "source": "<providerId>",
+        "publisher": "<Publisher_Org>"
       },
      ...
     ]
@@ -73,7 +76,9 @@ Creating a provider requires a unique label for the provider which will be the n
 
 ```json
 {
-    "label": "Sample Event Provider"
+  "label":  "<Label for provider>",
+  "docs_url": "<link to documentation if present>",
+  "description": "<description>"
 }
 ```
 
@@ -83,38 +88,87 @@ Returns the details of the newly created provider.
 
 ## Get Provider Details
 
-Get the details of a specific provider by its provider ID.  
+Get the details of the provider with the specified provider Id. The "source" is the URI to be used while publishing events to the event receiver. There is an optional boolean event metadata parameter that can be set to `true` or `false`. By default it is `false`. If set to `true`, it fetches all the event metadata for the provider.  
 
 #### Method
 
 ```javascript
-getProvider(providerId) ⇒ Promise.<object>
+getProvider(providerId, fetchEventMetadata? :false) ⇒ Promise.<object>
 ```
 
 |Parameters|Type	|Default	|Description|
 |---|---|---|---|
 |`providerId`	|string		||The ID that uniquely identifies the provider to be fetched.|
-|[fetchEventMetadata]	|boolean	|`false`	|Set this to `true` if you want to fetch the associated eventmetadata of the provider.|
+|[fetchEventMetadata]	|boolean	|`false`	|Set this to `true` if you want to fetch the associated event metadata of the provider.|
 
-#### Sample Response
+#### Sample Response without Metadata
 
-Returns the details of the provider specified by the provider ID. The "source" value is the URI to be used while publishing events to the event receiver.
+Returns the details of the provider specified by the provider ID. The "source" value is the URI to be used while publishing events to I/O Events.
 
 ```json
-{ "_links":
-    { "provider:event_metadata": 
-        {
-            "href":  "http://localhost:11111/providers/<providerId>/event_metadata"
-        },
-        "self":
-       {
-            "href":  "http://localhost:11111/providers/<providerId>"
-        }
+{ 
+  "_links":
+    { 
+      "rel:eventmetadata": {
+        "href":  "https://api.adobe.io/events/providers/<providerId>/eventmetadata"
+      },
+      "rel:update": {
+        "href": "https://api.adobe.io/events/<consumerId>/<projectId>/<workspaceId>/providers/<provider_id>"
+      },
+      "self": {
+        "href":  "https://api.adobe.io/events/providers/<providerId>"
+      }
     },
-    "id": "<providerId>",
+    "id": "<provider_id>",
     "label": "<label>",
-    "source": "urn:uuid:<providerId>",
-    "publisher": "<publisher>"
+    "description": "A custom events provider",
+    "source": "urn:uuid:<provider_id>",
+    "publisher": "<Publisher_Org>"
+}
+```
+
+#### Sample Response with Metadata
+
+Returns the details of the provider specified by the provider ID along with event metadata. The "source" value is the URI to be used while publishing events to I/O Events.
+
+```json
+{
+  "_links": {
+    "rel:eventmetadata": {
+      "href": "https://api.adobe.io/events/providers/<provider_id>/eventmetadata"
+    },
+    "rel:update": {
+      "href": "https://api.adobe.io/events/<consumerId>/<projectId>/<workspaceId>/providers/<provider_id>"
+    },
+    "self": {
+      "href": "https://api.adobe.io/events/providers/<provider_id>"
+    }
+  },
+  "_embedded": {
+    "eventmetadata": [
+      {
+        "_links": {
+          "rel:sample_event": {
+            "href": "https://api.adobe.io/events/providers/<provider_id>/eventmetadata/<event_code>/sample_event"
+          },
+          "rel:update": {
+            "href": "https://api.adobe.io/events/<consumerId>/<projectId>/<workspaceId>/providers/<provider_id>/eventmetadata/<event_code>"
+          },
+          "self": {
+            "href": "https://api.adobe.io/events/providers/<provider_id>/eventmetadata/<event_code>"
+          }
+          },
+        "description": "<description of the event code>",
+        "label": "<event code label>",
+        "event_code": "<event_code>"
+      }, ...
+    ]
+  },
+  "id": "<provider_id>",
+  "label": "<label>",
+  "description": "A custom events provider.",
+  "source": "urn:uuid:<provider_id>",
+  "publisher": "<Publisher_Org>"
 }
 ```
 

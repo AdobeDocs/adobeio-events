@@ -77,6 +77,8 @@ async function sdkTest() {
 }
 ```
 
+This returns an [RxJS Observable](https://rxjs.dev/guide/observable). For more information on how to subscribe to an observable and take action on next, on error, and on complete, please refer to the RxJS documentation.
+
 One observable can have multiple subscribers. Each subscription can be handled differently. For more details on using the poller for journaling, check `getEventsObservableFromJournal` in the [journaling documentation](journaling.md).
 
 ## Classes
@@ -111,7 +113,7 @@ One can configure the following HTTP Options for the SDK. These options will be 
 |Name|	Type|	Description|
 |---|---|---|
 |[timeout]	|number	|*Optional.* HTTP request timeout in ms. Timeout resets on redirect. 0 to disable (OS limit applies).|
-|[retries]	|number	|*Optional.* he maximum number of retires that should be attempted for all APIs in case of a network error or 5xx / 429 error. By default, retries are disabled. In other words, retries = 0. Retries can be enabled by setting this option while initializing the SDK.|
+|[retries]	|number	|*Optional.* The maximum number of retires that should be attempted for all APIs in case of a network error or 5xx / 429 error. By default, retries are disabled. In other words, retries = 0. Retries can be enabled by setting this option while initializing the SDK.|
 
 ### EventsJournalOptions
 
@@ -125,7 +127,7 @@ One can configure the following HTTP Options for the SDK. These options will be 
 
 |Name	|Type	|Description|
 |---|---|---|
-|[interval]	|number	|*Optional.* Interval at which to poll the journal; If not provided, a default value will be used.|
+|[interval]	|number	|*Optional.* Interval at which to poll the journal; If not provided, a default value will be used. The default value is 2s and is used only in case there are no new events in the journal or in case of error. Otherwise, the new event is fetched immediately after the previous call.|
 
 ## Next steps
 

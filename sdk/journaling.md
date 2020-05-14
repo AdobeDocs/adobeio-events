@@ -24,7 +24,7 @@ The following options can be configured while calling the journaling API:
 
 |Name	|Type	|Description|
 |---|---|---|
-|[interval]	|number	|*Optional.* Interval at which to poll the journal; If not provided, a default value will be used.|
+|[interval]	|number	|*Optional.* Interval at which to poll the journal; If not provided, a default value will be used. The default value is 2s and is used only in case there are no new events in the journal or in case of error. Otherwise, the new event is fetched immediately after the previous call.|
 
 ## Get Events from a Journal
 
@@ -40,7 +40,7 @@ getEventsFromJournal(journalUrl, [eventsJournalOptions]) ⇒ Promise
 
 |Parameter|	Type	|Description|
 |---|---|---|
-|`journalUrl`	|string	| ***Required.*** URL of the journal or 'next' link to read from.|
+|`journalUrl`	|string	| ***Required.*** URL of the journal or 'next' link to read from. `journalUrl` can be fetched by fetching the registration details. In the response body, it is the `events_url`.|
 |[eventsJournalOptions]	|[EventsJournalOptions](#eventsjournaloptions)	|Query options to send with the URL.|
 
 #### Sample Response
@@ -71,17 +71,17 @@ The response from the SDK contains the following as part of the json result:
    },
   "link":
    { "events":
-      "https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>",
+      "https://events-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>",
      "next":
-      "https://events-stage-va6.adobe.io/events-fast/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since=<cursor_to_position_of_next_event>",
+      "https://events-va6.adobe.io/events-fast/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since=<cursor_to_position_of_next_event>",
      "count":
-      "https://events-stage-va6.adobe.io/count/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since=<cursor_position_of_this_event>",
+      "https://events-va6.adobe.io/count/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since=<cursor_position_of_this_event>",
      "latest":
-      "https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?latest=true",
+      "https://events-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?latest=true",
      "page":
-      "https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since={position}&limit={count}",
+      "https://events-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?since={position}&limit={count}",
      "seek":
-      "https://events-stage-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?seek={duration}&limit={count}" 
+      "https://events-va6.adobe.io/events/organizations/<consumerOrgId>/integrations/<integrationId>/<registrationId>?seek={duration}&limit={count}" 
     }
 }
 ```
@@ -100,7 +100,7 @@ getEventsObservableFromJournal(journalUrl, [eventsJournalOptions], [eventsJourna
 
 |Parameter|	Type	|Description|
 |---|---|---|
-|`journalUrl`	|string	| ***Required.*** URL of the journal or 'next' link to read from.|
+|`journalUrl`	|string	| ***Required.*** URL of the journal or 'next' link to read from. `journalUrl` can be fetched by fetching the registration details. In the response body, it is the `events_url`.|
 |[eventsJournalOptions]	|[EventsJournalOptions](#eventsjournaloptions)	|Query options to send with the URL.|
 |[eventsJournalPollingOptions]|	[EventsJournalPollingOptions](#eventsjournalpollingoptions)	|Journal polling options.|
 
@@ -132,12 +132,12 @@ RxJS provides a lot of flexibility in handling events. You can compose functions
 For more complicated use cases, you can make use of [RxJS operators](https://rxjs.dev/guide/operators) to filter certain events, transform the events, etc. Such an implementation would look something like:
 
 ```javascript
-const { filter, map, takeWhile } = require('rxjs/operators')
+const { filter, map } = require('rxjs/operators')
 
 ...
 const subscription = journaling.pipe(
     filter(e => e.event.header.msgType === '<message_type>'),// any filtering predicate that returns a boolean
-    takeWhile(e => e.event.header.msgId !== <message_id>'),// if they wish to read messages from start till a particular position or any other condition
+    takeWhile(e => e.event.header.msgId !== '<message_id>'),// if they wish to read messages from start till a particular position or any other condition
     map(e => e.event.body) // transform the event or any other mapping
   ).subscribe({
     next: (v) => {
@@ -156,7 +156,7 @@ You can also have multiple subscriptions to a single observable, each transformi
 
 
 ```javascript
-const { filter, map, takeWhile } = require('rxjs/operators')
+const { filter, map } = require('rxjs/operators')
  
  
 ...

@@ -34,17 +34,16 @@ The following is a sample JSON request body to register a journal URL. The reque
 
 ```json
 {
-	"name": "<name>",
-	"description": "<desc>",
-	"client_id": "<client_id>",
-	"delivery_type": "JOURNAL",
-	"events_of_interest": 
-  [
-    {
-		  "event_code": "<event_code>",
-		  "provider_id": "<provider_id>"
-	  }
-  ]
+    "name": "<name>",
+    "description": "<desc>",
+    "client_id": "<client_id>",
+    "delivery_type": "JOURNAL",
+    "events_of_interest": [
+        {
+            "event_code": "<event_code>",
+            "provider_id": "<provider_id>"
+        }
+    ]
 }
 ```
 
@@ -70,7 +69,7 @@ The following is a sample JSON request body to register a webhook URL. You can p
 
 ## Get Webhook Registration Details
 
-You can get the registration details for an registration by providing a specific registration ID.
+You can get the registration details for a registration by providing a specific registration ID.
 
 #### Method
 
@@ -106,7 +105,7 @@ getWebhookRegistration(consumerOrgId, integrationId, registrationId) ⇒ Promise
                 "provider_id": "<provider_id>",
                 "provider": "<provider_name>",
                 "provider_label": "<provider label>",
-                "event_delivery_format": "cloud_events"
+                "event_delivery_format": "<cloud_events or adobe_io>"
             }
         ],
         "registration_id": "<reg_id>",
@@ -190,4 +189,4 @@ deleteWebhookRegistration(consumerOrgId, integrationId, registrationId) ⇒ Prom
 
 #### Response
 
-Returns an empty object when the deletion is successful.
+Returns HTTP Status Code 204 (No Content) when the deletion is successful or 404 (Not Found) if the registration is not present.
