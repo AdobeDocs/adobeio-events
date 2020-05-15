@@ -112,46 +112,27 @@ Once you save the trigger, any event in your report suite that meets the defined
 
 ![Viewing triggers listing](../img/events_atrig_22.png "Viewing triggers listing")
 
-## Use Adobe I/O
+## Use Adobe Developer Console
 
-Use Adobe I/O to create a new integration with the Console. To do this:
+Integrations are created as part of a project within Adobe Developer Console. This requires you to have access to [Console](https://www.adobe.com/go/devs_console_ui) in order to create a project, add events to your project, configure the events, and register your webhook.
 
-1. After signing in to the [Adobe I/O Console](https://adobe.io/console), select **New Integration**.
+For detailed instructions on completing these steps, please begin by reading the [Adobe Developer Console Getting Started guide](https://www.adobe.com/go/devs_console_getting_started). 
 
-    ![The New Integration button](../img/events_atrig_23.png "The New Integration button")
+When you are ready to [add events to your project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) follow the steps provided, making sure to select **Analytics Triggers**.
 
-2. Choose **Receive near real-time events** and continue.
+Once you have completed the event registration, you will be taken to the *Registration Details* page where you will be able to see the details of your new registration. 
 
-    ![Choosing to receive near real-time events](../img/events_atrig_24.png "Choosing to receive near real-time events")
+For more information, read the [Introduction to Webhooks](../intro/webhook_docs_intro.md). 
 
-3. Choose **Analytics Triggers** as an event provider and  continue.
+*The following image shows an example of an event registration using Adobe XD. Results for Adobe Analytics will be similar.*
 
-    ![Selecting the Analytics Triggers provider](../img/events_atrig_25.png "Selecting the Analytics Triggers provider")
+![Event Registration Details tab in Adobe Developer Console](../img/events-registration-details.png)
 
-4. Choose **Continue** again to move on to the next page without making any changes.
-
-5. Provide the **Name** and **Description** for your integration.
-
-    ![Name and describe your integration](../img/events_atrig_26.png "Name and describe your integration")
-
-6. Generate a public certificate. To do this:
-
-    1. Open a terminal and execute the following command:
-
-        `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout private.key -out certificate_pub.crt`
-
-    2. Upload the public certificate by selecting the **Select a File** link and then by uploading the certificate from your computer:
-
-        ![Upload the public certificate file](../img/events_atrig_27.png "Upload the public certificate file")
-
-
-7. Add your event registration (webhook) details and save. For information on creating and registering webhooks, see [Introduction to Webhooks]../intro/webhook_docs_intro.md).
-
-    ![Providing webhook details](../img/events_atrig_28.png "Providing webhook details")
 
 ## Watch the solution work
 
 Your enterprise may have its own tool that you can use to subscribe and listen to webhook events. Alternatively, you can use the following procedure to set up notifications with Slack.
+
 To watch your trigger work on Slack:
 
 1. Clone the repository and follow the setup described on https://github.com/hirenshah111/webhook_server.
@@ -164,13 +145,3 @@ To watch your trigger work on Slack:
 
 
 Trigger messages are received as `POST` requests on this thread.
-
-## Authors
-- Hiren Shah [@hirenoble](https://github.com/hirenoble).
-- John Wight [@johnwight](https://github.com/johnwight).
-
-## Feedback?
-
-Please help make this solution as useful as possible. If you find a problem in the documentation or have a suggestion, select the **Issues** tab on this GiHhub repository, and then the **New issue** button. Provide a title and description for your comment and then select the **Submit new issue** button.
-
-![Submit a new issue](../img/events_atrig_30.png "Submit a new issue")
