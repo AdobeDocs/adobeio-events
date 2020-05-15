@@ -18,6 +18,9 @@ To work with Creative Cloud Events, you would need an active Adobe ID.
 **Experience Cloud Events**
 To work with events for Adobe services in Experience Cloud, you would need to have corresponding entitlements for this Adobe service in your organization, and administrative permission for your org to create integrations.
 
+**Experience Platform Events**
+To work with events for Adobe Experience Platform and related Platform services, as well as to create integrations, you will require the appropriate permissions and access to Experience Platform from your organization.
+
 ## Key Concepts
 - [Webhook Introduction](intro/webhook_docs_intro.md)
     - [Sample Webhook in Node.js](https://github.com/adobeio/io-event-sample-webhook)
@@ -30,6 +33,8 @@ To work with events for Adobe services in Experience Cloud, you would need to ha
 - Experience Cloud Events
     - [Adobe Experience Manager Events](using/aem-event-setup.md)
     - [Analytics Triggers Events (Private beta)](using/analytics-triggers-event-setup.md)
+- [Experience Platform Events](using/experience-platform-event-setup.md)
+    - [Privacy Events](using/privacy-event-setup.md)
 
 ## Support
 - [Debugging Common Issues](support/debug.md)
