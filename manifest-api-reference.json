@@ -1,0 +1,19 @@
+{
+  "name": "Events API Reference",
+  "version": "1.0.0",
+  "description": "Adobe I/O Events API Reference",
+  "author": "Wendy Braun",
+  "view_type": "swaggerbook",
+  "meta_keywords": "Adobe, Adobe I/O Events, Events, API, Swagger, API Reference, developer, data",
+  "meta_description": "Swagger API reference documentation for Adobe I/O Events.",
+  "publish_date": "30/04/2020",
+  "show_edit_github_banner": false,
+  "base_path": "https://raw.githubusercontent.com",
+  "pages": [
+    {
+        "pages": [],
+        "path": "adobedocs/adobeio-events/master/events-api-reference.yaml",
+        "title": "Events API Reference"
+    }
+  ]
+}
