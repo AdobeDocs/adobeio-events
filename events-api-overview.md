@@ -1,3 +1,5 @@
 # Adobe I/O Events API
 
-Kanika to provide content for an overview linking to the Events API Reference swagger.
+Using Adobe I/O Events API will enable you to register your custom providers and associated event metadata and create event based registrations. 
+
+Use the Adobe I/O Events API to start registering your apps as providers. 
