@@ -76,6 +76,67 @@
       "title": "Using Adobe I/O Events"
     },
     {
+      "importedFileName": "custom_events",
+      "path": "adobedocs/adobeio-events/master/custom_events.md",
+      "title": "Custom Events",
+      "pages": [
+        {
+          "importedFileName": "overview",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/overview.md",
+          "title": "Events SDK Overview"
+        },
+        {
+          "importedFileName": "getting-started",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/getting-started.md",
+          "title": "Getting started with Events SDK"
+        },
+        {
+          "importedFileName": "event-matadata",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/event-metadata.md",
+          "title": "Event Metadata"
+        },
+        {
+          "importedFileName": "journaling",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/journaling.md",
+          "title": "Journaling"
+        },
+        {
+          "importedFileName": "providers",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/providers.md",
+          "title": "Providers"
+        },
+        {
+          "importedFileName": "publish-events",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/publish-events.md",
+          "title": "Publish Events"
+        },
+        {
+          "importedFileName": "signature-verification",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/signature-verification.md",
+          "title": "Signature Verification"
+        },
+        {
+          "importedFileName": "webhooks",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/webhooks.md",
+          "title": "Webhooks"
+        },
+        {
+          "importedFileName": "events-api-overview",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/events-api-overview.md",
+          "title": "Adobe I/O Events API"
+        }
+      ]
+    },
+    {
       "importedFileName": "support",
       "pages": [{
           "importedFileName": "debug",

@@ -22,42 +22,14 @@ There are no events for the following activities:
 ## Access events
 Unlike other Cloud Platform event providers, Creative Cloud Assets does not require an enterprise account, or administrative status, to gain access for creating integrations or receiving events. However, the integrations you create will still need to authenticate the same way any other Adobe integrations do. Consider what kind of authentication your integration needs before you start, and follow the correct procedure (see [Adobe Authentication](https://www.adobe.io/apis/cloudplatform/console/authentication/gettingstarted.html)) to get the access rights your integration needs.
 
+## Create a webhook
 
-## Create an integration
-For the purposes of this example, you&rsquo;ll be creating an individual integration using your personal Adobe ID. 
-
-To create an integration for Creative Cloud Assets:
-
-1. Log into [Adobe I/O Console](https://console.adobe.io). You&rsquo;ll see a list of any integrations you&rsquo;ve created so far. If this is your first, you&rsquo;ll see a button for creating an integration.
-
-    ![Create an integration](../img/events_cca_01.png "Create an integration")  
-
-2. Select **New integration.** The &ldquo;Create a new integration" screen appears. 
-
-    ![Choosing a new integration type](../img/events_cca_02.png "Choosing a new integration type")
-
-3. Select **Receive near real-time events** and continue.
-
-4. Select an event provider: Since you&rsquo;re using your personal account, the only provider you&rsquo;ll see is Creative Cloud Assets. Choose **Creative Cloud Assets** and continue.
-
-    ![Selecting the provider](../img/events_cca_03.png "Selecting the provider")
-
-5. You&rsquo;re offered one last chance to update an existing integration, if you have any; select **New integration** and continue.
-
-    ![Choosing a new integration type](../img/events_cca_04.png "Choosing a new integration type")
-
-6. Enter details for the integration. Console needs a name and a description; these can be whatever you want, subject only to length restrictions. Choose **Web** for the platform and provide a redirect URI and a redirect URI pattern.
-
-    ![Entering integration details](../img/events_cca_05.png "Entering integration details")
-
->**Note:** Your integration needs to send a redirect URI to Adobe when it authenticates on behalf of a user, to send them to your integration once authentication is complete. The redirect URI you provide here is a default, to which Adobe I/O will fall back if the redirect URI in your authentication request fails. The redirect URI pattern is used by Adobe I/O to validate the redirect URI you provide with an authentication request. **All** redirect URIs must use HTTPS.
-
-### Add a webhook
-When you select &ldquo;Add Event Registration&rdquo;, the dialog expands to provide fields for you to define a webhook to receive Adobe Events. (For more on webhooks, see [Adobe I/O Events Webhooks](../intro/webhook_docs_intro.md).) The webhook you ultimately use should be part of the app you develop as your integration. For now, however, it&rsquo;s easy to set up a simple webhook to test your integration&rsquo;s connection with Adobe Events. 
+In order to receive events you first need to create a webhook. For more on webhooks, see [Adobe I/O Events Webhooks](../intro/webhook_docs_intro.md). The webhook you ultimately use should be part of the app you develop. For now, however, it&rsquo;s easy to set up a simple webhook to test your integration&rsquo;s connection with Adobe Events. 
 
 Several tools exist on the web that can be used for this purpose: [ngrok](https://ngrok.com/), [Postman](https://www.getpostman.com/), and more. For this example, use ngrok. Ngrok is a utility for enabling secure introspectable tunnels to your localhost. With ngrok, you can securely expose a local web server to the internet and run your own personal web services from your own machine, safely encrypted behind your local NAT or firewall.
 
 First, configure a local web server. There are a number of choices, depending on whether you're Windows, Mac, or Linux.
+
 Next, you'll need a simple function to respond to the Adobe I/O challenge. Try this JavaScript:
 
 ```javascript
@@ -99,45 +71,41 @@ Now you&rsquo;re ready to configure ngrok to serve your webhook over the interne
 
     In the ngrok UI, you can see the URL for viewing the ngrok logs, labeled "Web Interface", plus the public-facing URLs ngrok generates to forward HTTP and HTTPS traffic to your localhost. You can use either of those public-facing URLs to register your Webhook with Adobe I/O, so long as your application is configured to respond on your localhost accordingly. Once your testing phase is complete, you can replace the ngrok URL in your Adobe I/O integration with the public URL for your deployed app.
 
-3. Now you&rsquo;re ready to complete the webhook registration process in Adobe I/O Console. Return to that window and enter the name, URL, and description for the webhook, pasting in the URL you got from ngrok with the path under localhost to your webhook file and the `/webhook` term added. Select all three events to receive: 
-    - Creative Cloud Asset Created (`asset-created`) 
-    - Creative Cloud Asset Updated (`asset-updated`)
-    - Creative Cloud Asset Deleted (`asset-deleted`)
+## Create a project in Adobe Developer Console
 
-    ![Entering webhook details](../img/events_cca_06.png "Entering webhook details")
+Integrations are created as part of a project within Adobe Developer Console. This requires you to have access to [Console](https://www.adobe.com/go/devs_console_ui) in order to create a project, add events to your project, configure the events, and register your webhook.
 
-8. Save and complete the CAPTCHA. Select **Create  integration**. At this point, Adobe Events sends a test event to your webhook&rsquo;s destination URL. If your webhook responds correctly with the contents of the `challenge` parameter, your integration is successfully registered:
+For detailed instructions on completing these steps, please begin by reading the [Adobe Developer Console Getting Started guide](https://www.adobe.com/go/devs_console_getting_started). 
 
-    ![Integration created](../img/events_cca_07.png "Integration created")
+When you are ready to [add events to your project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) follow the steps provided, making sure to select **Creative Cloud Assets**.
 
-    Select **Continue to Integration details** to view and manage your integration.
+In addition to selecting the events you would like to register for, you will be required to specify your webhook URL. Do this by pasting in the URL you got from ngrok with the path under localhost to your webhook file, adding `/webhook` to the end. For example, `https://595ae592.ngrok.io/webhook`. 
 
+Once you have completed the event registration, you will be taken to the *Registration Details* page where you will be able to see the details of your new registration. 
+
+For more information, read the [Introduction to Webhooks](../intro/webhook_docs_intro.md). 
+
+*The following image shows an example of an event registration using Adobe XD. Results for Creative Cloud Assets will be similar.*
+
+![Event Registration Details tab in Adobe Developer Console](../img/events-registration-details.png)
 
 
 ## Receive events
- Your integration is now set up, and your webhook is in place; but to receive events, your integration needs to connect to its event provider, Creative Cloud Assets, on behalf of its user. This requires authentication; see [OAuth Integration](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md). 
+
+Your integration is now set up, and your webhook is in place; but to receive events, your integration needs to connect to its event provider, Creative Cloud Assets, on behalf of its user. This requires authentication; see [OAuth Integration](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md). 
+
+For authentication setup, you&rsquo;ll need to add the Creative SDK as a service, and then use the [OAuth 2.0 protocol](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/OAuth/OAuth.md) to build an interface for your user to log into your app and give your app authorization to access Creative Cloud Assets. 
+
+To add Creative SDK as a service, you will need to follow the steps for [adding an API that uses OAuth to a Console project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-api-oauth.md), being sure to select **Creative SDK** from the list of available APIs.
  
- Start with the Integration Overview. It&rsquo;s the screen you see immediately after selecting **Continue to Integration details**.
-
-![Integration Overview](../img/events_cca_08.png "Integration Overview")
-
- For authentication setup, you&rsquo;ll need to add the [Creative SDK](https://www.adobe.io/apis/creativecloud/creativesdk/docs/websdk.html#!getting-started.md) as a service, and then use the [User Auth UI](https://www.adobe.io/apis/creativecloud/creativesdk/docs/websdk.html#!user-auth-ui.md) to build an interface for your user to log into your app and give your app authorization to access Creative Cloud Assets. 
-
- To add Creative SDK as a service:
- 
- 1. From the Integration Overview, select the Services tab:
-
-    ![Integration Services tab](../img/events_cca_09.png "Integration Services tab")
-
- 2. Under Creative Cloud, select **Creative SDK**, then select **Add service.** You&rsquo;re now ready to implement the User Auth UI.
-
- Adobe&rsquo;s User Auth UI lets you build into your application a login function that takes the user&rsquo;s Adobe ID and lets the user give your app permission to access the assets and Adobe Solutions to which they&rsquo;re subscribed. Once your app is authenticated, Adobe will begin to push events to your integration&rsquo;s webhook via HTTP POST messages.
+Adobe OAuth 2.0 lets you build into your application a login function that takes the user&rsquo;s Adobe ID and lets the user give your app permission to access the assets and Adobe Solutions to which they&rsquo;re subscribed. Once your app is authenticated, Adobe will begin to push events to your integration&rsquo;s webhook via HTTP POST messages.
 
 ## Adobe Consent API
+
 To authenticate your app to receive your users&rsquo; events, you&rsquo;ll need to direct your users to the Adobe Consent API:
 
-`https://ims-na1.adobelogin.com/ims/authorize/v1?response_type=code&client_id=`_`api_key_from_io_console`_`&scope=AdobeID%2Copenid%2Ccreative_sdk`
+`https://ims-na1.adobelogin.com/ims/authorize/v1?response_type=code&client_id=`_`api_key_from_console`_`&scope=AdobeID%2Copenid%2Ccreative_sdk`
 
-You will need to replace api_key_from_io_console with the value from your Adobe I/O Console overview tab API Key (Client ID), for this integration.
+You will need to replace api_key_from_console with the Client ID value provided on the *Credentials* tab of the *Registration Details* in your Console project.
 
 A good utility for testing this process is the [Adobe IMS OAuth Playground](https://runtime.adobe.io/api/v1/web/io-solutions/adobe-oauth-playground/oauth.html). Follow instructions in the FAQ.

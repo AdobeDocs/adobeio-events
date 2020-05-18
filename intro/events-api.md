@@ -2,6 +2,8 @@
 
 # Working with Events Using the Adobe I/O Management API
 
+***Note: This API is now deprecated. Please refer to the [Adobe I/O Events API Reference]() for new endpoints and updated functionality.***
+
 - [Events API calls in the I/O Management API](#events-api-calls-in-the-adobe-io-management-api)
 - [Calling APIs](#calling-apis)
 - [API Specifications:](#api-specifications)
@@ -15,11 +17,10 @@ As an open system, Adobe Cloud Platform allows you access through APIs to just a
 
 Adobe APIs are accessible through HTTP GET and POST methods. The API responds with the appropriate HTTP response code (200 for success) and a JSON object (response content type: `application/json`) containing the information requested.
 
-Make sure that the `I/O Management API` is added as a service in your integration (using the `Services` tab in the I/O Console), in order to be able to invoke the various APIs described here.
+Make sure that the `I/O Management API` is added as a service in your Adobe Developer Console project, in order to be able to invoke the various APIs described here. For more information on creating projects in Console and adding services, please read the [Adobe Developer Console documentation](https://www.adobe.io/apis/experienceplatform/console/docs.html).
 
 ## Events API calls in the Adobe I/O Management API
-The following calls enable Events management in the 
-Adobe I/O Management API:
+The following calls enable Events management in the Adobe I/O Management API:
 
 | Operation | Response | Description |
 |---|---|---|
