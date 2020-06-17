@@ -1,0 +1,328 @@
+# Events Plugin for Adobe I/O CLI
+
+This guide includes step by step instructions for setting up and using the Events Plugin for the Adobe I/O CLI.
+
+In addition to the information provided in this guide, you can also visit the [Events Plugin GitHub repository](https://github.com/adobe/aio-cli-plugin-events) or the [Adobe I/O CLI GitHub repository](https://github.com/adobe/aio-cli) to learn more.
+
+* [Setup and credentials](#setup-and-credentials)
+* [Installing and using the plugin](#installing-and-using-the-plugin)
+* [Commands](#commands)
+
+## Setup and credentials
+
+To begin setting up the Events Plugin, visit [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui) and create a new project in your organization. For detailed instructions, follow the steps outlined in this tutorial for [creating a new project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md).
+
+> **Note:** Creating a project will also create a Production workspace that will be used later in this workflow when setting up credentials.
+
+Once the project has been created, add the *I/O Management API* service to the project. This will add the required scope to the authentication token required by the Events SDK. For a step-by-step guide to adding an API to a project, follow this tutorial for [adding an API to a project using Service Account (JWT) authentication](https://www.adobe.com/go/devs_projects_jwt) (the type of authentication used by the I/O Management API). 
+
+> **Note:** If you plan to use the [Events Templates](template-generator.md), you must also [add the Runtime Service](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-enable-runtime.md) to your project. This will ensure that the auth and namespace for the Runtime actions is added to your configuration.
+
+![](../img/cli-console-setup.png)
+
+### Setting up credentials using `aio console`
+
+After completing the setup within Console, you must then set up the credentials locally in order to run the various CLI commands. This set up will populate the `~/.config/aio` file with the access token, organization ID, workspace, and project details, as well as other credentials, required by the CLI. 
+
+On entering any command, you will be taken to the Adobe I/O CLI Login page. After signing in using your ID, you will be redirected to a page stating that you have successfully logged in to the Adobe I/O CLI. 
+
+![](../img/cli-adobe-io-cli-login.png)
+
+You can now proceed to select the organization, project, and workspace using the following steps:
+
+1. Select the same organization in which you created the project in Adobe Developer Console. You can list the organizations and select one using ***aio console org list***. 
+
+    ![](../img/cli-org-list.png)
+
+    To select an organization, use ***aio console org select <ims_org_id>***.
+
+    ![](../img/cli-org-select.png)
+
+
+2. Select the project you created in Console. You can list the projects using ***aio console project list***.
+
+    ![](../img/cli-project-list.png)
+
+    To select a project, use ***aio console project select <project_id>***.
+
+    ![](../img/cli-project-select.png)
+
+3. Select the workspace from the project you created in Console. By default a Production workspace is created when you create a new project. You can list the workspaces using ***aio console workspace list***.
+
+    ![](../img/cli-workspace-list.png)
+
+    To select a workspace, use ***aio console workspace select <workspace_id>***.
+
+    ![](../img/cli-workspace-select.png)
+
+## Installing and using the plugin
+
+Use the following syntax to install the Events Plugin for the Adobe I/O CLI and issue commands.
+
+```shell
+$ npm install -g @adobe/aio-cli-plugin-events
+$ aio COMMAND
+running command...
+$ aio (-v|--version|version)
+@adobe/aio-cli-plugin-events/1.0.0 darwin-x64 node-v10.18.1
+$ aio [COMMAND] --help
+USAGE
+  $ aio COMMAND
+...
+```
+
+## Commands
+
+There are a number of commands available when using the Events Plugin, please select an area from the following list to learn more: 
+
+* [Common command](#common-command)
+* [Registration commands](#registration-commands)
+* [Provider commands](#provider-commands)
+* [Event Metadata commands](#event-metadata-commands)
+
+### Common command
+
+```shell
+aio event
+```
+
+### Registration commands
+
+* [Manage your Adobe I/O Events Registrations](#manage-your-adobe-io-events-registrations)
+* [Get an Event Registration in your workspace](#get-an-event-registration-in-your-workspace)
+* [List Event Registrations in your workspace](#list-event-registrations-in-your-workspace)
+* [Create an Event Registration](#create-an-event-registration)
+
+#### Manage your Adobe I/O Events Registrations
+
+```shell
+USAGE
+$ aio event:registration
+ 
+OPTIONS
+-v, --verbose Verbose output
+--help Show help
+--version Show version
+```
+
+#### Get an Event Registration in your workspace
+
+```shell
+USAGE
+  $ ./bin/run event:registration:get REGISTRATIONID
+ 
+ARGUMENTS
+  REGISTRATIONID  Id of the registration to get
+ 
+OPTIONS
+  -j, --json     Output json
+  -v, --verbose  Verbose output
+  -y, --yml      Output yml
+  --help         Show help
+  --version      Show version
+ 
+ALIASES
+  $ ./bin/run console:reg:get
+```
+
+#### List Event Registrations in your workspace
+
+```shell
+USAGE
+$ ./bin/run event:registration:list
+ 
+OPTIONS
+-j, --json Output json
+-v, --verbose Verbose output
+-y, --yml Output yml
+--help Show help
+--version Show version
+ 
+ALIASES
+$ ./bin/run console:registration:ls
+$ ./bin/run console:registration:list
+$ ./bin/run console:reg:ls
+```
+
+#### Create an Event Registration
+
+```shell
+USAGE
+  $ ./bin/run event:registration:create
+ 
+OPTIONS
+  -j, --json     Output json
+  -v, --verbose  Verbose output
+  -y, --yml      Output yml
+  --help         Show help
+  --version      Show version
+```
+
+### Provider Commands
+
+* [Manage your Adobe I/O Events Providers](#manage-your-adobe-io-events-providers)
+* [Get details for a Provider by its ID](#get-details-for-a-provider-by-its-id)
+* [List all Providers for the Organization](#list-all-providers-for-the-organization)
+* [Create a new Provider](#create-a-new-provider)
+* [Update an existing Provider](#update-an-existing-provider)
+
+#### Manage your Adobe I/O Events Providers
+
+```shell
+USAGE
+  $ ./bin/run event:provider
+ 
+OPTIONS
+  -v, --verbose  Verbose output
+  --help         Show help
+  --version      Show version
+```
+
+#### Get details for a Provider by its ID
+
+```shell
+USAGE
+  $ ./bin/run event:provider:get PROVIDERID
+ 
+OPTIONS
+  -j, --json            Output json
+  -v, --verbose         Verbose output
+  -y, --yml             Output yml
+  --fetchEventMetadata  Fetch event metadata with provider
+  --help                Show help
+  --version             Show version
+```
+
+#### List all Providers for the Organization
+
+```shell
+USAGE
+  $ ./bin/run event:provider:list
+ 
+OPTIONS
+  -j, --json     Output json
+  -v, --verbose  Verbose output
+  -y, --yml      Output yml
+  --help         Show help
+  --version      Show version
+```
+
+#### Create a new Provider
+
+```shell
+USAGE
+  $ ./bin/run event:provider:create
+ 
+OPTIONS
+  -j, --json     Output json
+  -v, --verbose  Verbose output
+  -y, --yml      Output yml
+  --help         Show help
+  --version      Show version
+```
+
+#### Update an existing Provider
+
+```shell
+USAGE
+  $ ./bin/run event:provider:update PROVIDERID
+ 
+OPTIONS
+  -j, --json     Output json
+  -v, --verbose  Verbose output
+  -y, --yml      Output yml
+  --help         Show help
+  --version      Show version
+```
+
+### Event Metadata Commands
+
+* [Manage Event Metadata for your Adobe I/O Events Providers](#manage-event-metadata-for-your-adobe-io-events-providers)
+* [Get details of an Event Code of a Provider](#get-details-of-an-event-code-of-a-provider)
+* [List all Event Metadata for a Provider](#list-all-event-metadata-for-a-provider)
+* [Create Event Metadata for a Provider](#create-event-metadata-for-a-provider)
+* [Update Event Metadata for a Provider](#update-event-metadata-for-a-provider)
+* [Delete Event Metadata for a Provider](#delete-event-metadata-for-a-provider)
+
+#### Manage Event Metadata for your Adobe I/O Events Providers
+
+```shell
+USAGE
+  $ ./bin/run event:eventmetadata
+ 
+OPTIONS
+  -v, --verbose  Verbose output
+  --help         Show help
+  --version      Show version
+```
+
+#### Get details of an Event Code of a Provider
+
+```shell
+USAGE
+  $ ./bin/run event:eventmetadata:get PROVIDERID EVENTCODE
+ 
+OPTIONS
+  -j, --json     Output json
+  -v, --verbose  Verbose output
+  -y, --yml      Output yml
+  --help         Show help
+  --version      Show version
+```
+
+#### List all Event Metadata for a Provider
+
+```shell
+USAGE
+  $ ./bin/run event:eventmetadata:list PROVIDERID
+ 
+OPTIONS
+  -j, --json     Output json
+  -v, --verbose  Verbose output
+  -y, --yml      Output yml
+  --help         Show help
+  --version      Show version
+```
+
+#### Create Event Metadata for a Provider
+
+```shell
+USAGE
+  $ ./bin/run event:eventmetadata:create PROVIDERID
+ 
+OPTIONS
+  -j, --json     Output json
+  -v, --verbose  Verbose output
+  -y, --yml      Output yml
+  --help         Show help
+  --version      Show version
+```
+
+#### Update Event Metadata for a Provider
+
+```shell
+USAGE
+  $ ./bin/run event:eventmetadata:update PROVIDERID EVENTCODE
+ 
+OPTIONS
+  -j, --json     Output json
+  -v, --verbose  Verbose output
+  -y, --yml      Output yml
+  --help         Show help
+  --version      Show version
+```
+
+#### Delete Event Metadata for a Provider
+
+When deleting event metadata, the `EVENTCODE` value is optional. However, if an Event Code is not provided, all event metadata will be deleted.
+
+```shell
+USAGE
+  $ ./bin/run event:eventmetadata:delete PROVIDERID EVENTCODE
+ 
+OPTIONS
+  -v, --verbose  Verbose output
+  --help         Show help
+  --version      Show version
+```
+
