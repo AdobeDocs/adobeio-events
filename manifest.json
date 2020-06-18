@@ -133,6 +133,17 @@
           "pages": [],
           "path": "adobedocs/adobeio-events/master/events-api-overview.md",
           "title": "Adobe I/O Events API"
+        },
+        {
+          "importedFileName": "events-plugin",
+          "path": "adobedocs/adobeio-events/master/cli/events-plugin.md",
+          "title": "Events CLI Commands",
+          "pages": [{
+            "importedFileName": "template-generator",
+            "path": "adobedocs/adobeio-events/master/cli/template-generator.md",
+            "title": "Events Template Generator",
+            "pages": []
+          }]
         }
       ]
     },
