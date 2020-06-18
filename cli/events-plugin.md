@@ -12,8 +12,6 @@ In addition to the information provided in this guide, you can also visit the [E
 
 To begin setting up the Events Plugin, visit [Adobe Developer Console](https://www.adobe.com/go/devs_console_ui) and create a new project in your organization. For detailed instructions, follow the steps outlined in this tutorial for [creating a new project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md).
 
-> **Note:** Creating a project will also create a Production workspace that will be used later in this workflow when setting up credentials.
-
 Once the project has been created, add the *I/O Management API* service to the project. This will add the required scope to the authentication token required by the Events SDK. For a step-by-step guide to adding an API to a project, follow this tutorial for [adding an API to a project using Service Account (JWT) authentication](https://www.adobe.com/go/devs_projects_jwt) (the type of authentication used by the I/O Management API). 
 
 > **Note:** If you plan to use the [Events Templates](template-generator.md), you must also [add the Runtime Service](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-enable-runtime.md) to your project. This will ensure that the auth and namespace for the Runtime actions is added to your configuration.
@@ -57,7 +55,7 @@ You can now proceed to select the organization, project, and workspace using the
 
 ## Installing and using the plugin
 
-Use the following syntax to install the Events Plugin for the Adobe I/O CLI and issue commands.
+Use the following outlines how to install the Events Plugin for the Adobe I/O CLI and issue commands. These installation instructions are specific to using the Events Plugin alone. You could also choose to install the Adobe I/O CLI that supports the events plugin. See the [section on installing the Adobe I/O CLI](#installing-adobe-io-cli) for installation instructions.
 
 ```shell
 $ npm install -g @adobe/aio-cli-plugin-events
@@ -71,9 +69,37 @@ USAGE
 ...
 ```
 
+### Installing Adobe I/O CLI
+
+Use the following instructions to install the Adobe I/O CLI. For more information, including a complete list of available commands for the Adobe I/O CLI, please visit the [Adobe I/O CLI public GitHub repository](https://github.com/adobe/aio-cli).
+
+```shell
+$ npm install -g @adobe/aio-cli
+$ aio COMMAND
+running command...
+$ aio (-v|--version|version)
+@adobe/aio-cli/3.6.0 darwin-x64 node-v10.16.1
+$ aio --help [COMMAND]
+USAGE
+  $ aio COMMAND
+...
+```
+
 ## Commands
 
-There are a number of commands available when using the Events Plugin, please select an area from the following list to learn more: 
+There are a number of commands available when using the Events Plugin, the following sections outline these commands in more detail.
+
+Throughout the guide, example commands are shown using a colon (`:`) to separate values. These commands can also be written without a colon, using a space to separate values.
+
+**Accepted command syntax:**
+
+```shell
+$ aio event:registration:get REGISTRATIONID
+
+$ aio event registration get REGISTRATIONID
+```
+
+Please select an area from the following list to see available commands: 
 
 * [Common command](#common-command)
 * [Registration commands](#registration-commands)
@@ -92,24 +118,25 @@ aio event
 * [Get an Event Registration in your workspace](#get-an-event-registration-in-your-workspace)
 * [List Event Registrations in your workspace](#list-event-registrations-in-your-workspace)
 * [Create an Event Registration](#create-an-event-registration)
+* [Delete an Event Registration](#delete-an-event-registration)
 
 #### Manage your Adobe I/O Events Registrations
 
 ```shell
 USAGE
-$ aio event:registration
+  $ aio event:registration
  
 OPTIONS
--v, --verbose Verbose output
---help Show help
---version Show version
+  -v, --verbose Verbose output
+  --help Show help
+  --version Show version
 ```
 
 #### Get an Event Registration in your workspace
 
 ```shell
 USAGE
-  $ ./bin/run event:registration:get REGISTRATIONID
+  $ aio event:registration:get REGISTRATIONID
  
 ARGUMENTS
   REGISTRATIONID  Id of the registration to get
@@ -122,33 +149,33 @@ OPTIONS
   --version      Show version
  
 ALIASES
-  $ ./bin/run console:reg:get
+  $ aio event:reg:get
 ```
 
 #### List Event Registrations in your workspace
 
 ```shell
 USAGE
-$ ./bin/run event:registration:list
+  $ aio event:registration:list
  
 OPTIONS
--j, --json Output json
--v, --verbose Verbose output
--y, --yml Output yml
---help Show help
---version Show version
+  -j, --json Output json
+  -v, --verbose Verbose output
+  -y, --yml Output yml
+  --help Show help
+  --version Show version
  
 ALIASES
-$ ./bin/run console:registration:ls
-$ ./bin/run console:registration:list
-$ ./bin/run console:reg:ls
+  $ aio event:registration:ls
+  $ aio event:reg:list
+  $ aio event:reg:ls
 ```
 
 #### Create an Event Registration
 
 ```shell
 USAGE
-  $ ./bin/run event:registration:create
+  $ aio event:registration:create
  
 OPTIONS
   -j, --json     Output json
@@ -158,6 +185,24 @@ OPTIONS
   --version      Show version
 ```
 
+#### Delete an Event Registration
+
+```shell
+USAGE
+  $ aio event:registration:delete REGISTRATIONID
+
+ARGUMENTS
+  REGISTRATIONID  The requested registration ID
+
+OPTIONS
+  -v, --verbose  Verbose output
+  --help         Show help
+  --version      Show version
+
+ALIASES
+  $ aio event:reg:delete
+```
+
 ### Provider Commands
 
 * [Manage your Adobe I/O Events Providers](#manage-your-adobe-io-events-providers)
@@ -165,12 +210,13 @@ OPTIONS
 * [List all Providers for the Organization](#list-all-providers-for-the-organization)
 * [Create a new Provider](#create-a-new-provider)
 * [Update an existing Provider](#update-an-existing-provider)
+* [Delete an existing Provider](#delete-an-existing-provider)
 
 #### Manage your Adobe I/O Events Providers
 
 ```shell
 USAGE
-  $ ./bin/run event:provider
+  $ aio event:provider
  
 OPTIONS
   -v, --verbose  Verbose output
@@ -182,8 +228,11 @@ OPTIONS
 
 ```shell
 USAGE
-  $ ./bin/run event:provider:get PROVIDERID
- 
+  $ aio event:provider:get PROVIDERID
+
+ARGUMENTS
+  PROVIDERID  The requested provider ID
+
 OPTIONS
   -j, --json            Output json
   -v, --verbose         Verbose output
@@ -197,7 +246,7 @@ OPTIONS
 
 ```shell
 USAGE
-  $ ./bin/run event:provider:list
+  $ aio event:provider:list
  
 OPTIONS
   -j, --json     Output json
@@ -205,13 +254,16 @@ OPTIONS
   -y, --yml      Output yml
   --help         Show help
   --version      Show version
+
+ALIASES
+  $ aio event:provider:ls
 ```
 
 #### Create a new Provider
 
 ```shell
 USAGE
-  $ ./bin/run event:provider:create
+  $ aio event:provider:create
  
 OPTIONS
   -j, --json     Output json
@@ -225,12 +277,30 @@ OPTIONS
 
 ```shell
 USAGE
-  $ ./bin/run event:provider:update PROVIDERID
- 
+  $ aio event:provider:update PROVIDERID
+
+ARGUMENTS
+  PROVIDERID  The requested provider ID
+
 OPTIONS
   -j, --json     Output json
   -v, --verbose  Verbose output
   -y, --yml      Output yml
+  --help         Show help
+  --version      Show version
+```
+
+#### Delete an existing Provider
+
+```shell
+USAGE
+  $ aio event:provider:delete PROVIDERID
+
+ARGUMENTS
+  PROVIDERID  The requested provider ID
+
+OPTIONS
+  -v, --verbose  Verbose output
   --help         Show help
   --version      Show version
 ```
@@ -248,7 +318,7 @@ OPTIONS
 
 ```shell
 USAGE
-  $ ./bin/run event:eventmetadata
+  $ aio event:eventmetadata
  
 OPTIONS
   -v, --verbose  Verbose output
@@ -260,7 +330,7 @@ OPTIONS
 
 ```shell
 USAGE
-  $ ./bin/run event:eventmetadata:get PROVIDERID EVENTCODE
+  $ aio event:eventmetadata:get PROVIDERID EVENTCODE
  
 OPTIONS
   -j, --json     Output json
@@ -274,7 +344,7 @@ OPTIONS
 
 ```shell
 USAGE
-  $ ./bin/run event:eventmetadata:list PROVIDERID
+  $ aio event:eventmetadata:list PROVIDERID
  
 OPTIONS
   -j, --json     Output json
@@ -288,7 +358,7 @@ OPTIONS
 
 ```shell
 USAGE
-  $ ./bin/run event:eventmetadata:create PROVIDERID
+  $ aio event:eventmetadata:create PROVIDERID
  
 OPTIONS
   -j, --json     Output json
@@ -302,7 +372,7 @@ OPTIONS
 
 ```shell
 USAGE
-  $ ./bin/run event:eventmetadata:update PROVIDERID EVENTCODE
+  $ aio event:eventmetadata:update PROVIDERID EVENTCODE
  
 OPTIONS
   -j, --json     Output json
@@ -318,7 +388,7 @@ When deleting event metadata, the `EVENTCODE` value is optional. However, if an 
 
 ```shell
 USAGE
-  $ ./bin/run event:eventmetadata:delete PROVIDERID EVENTCODE
+  $ aio event:eventmetadata:delete PROVIDERID EVENTCODE
  
 OPTIONS
   -v, --verbose  Verbose output
