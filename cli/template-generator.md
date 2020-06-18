@@ -93,38 +93,38 @@ To bootstrap the project code, create a directory and run the following commands
 
 5. You can then enter the name of the action you want to use for the events project (by default, `publish-event` will be used) and press enter. This triggers the creation of a project that contains the Events Template to publish cloud events and Web Assets. 
 
-```shell
-You are about to initialize the project '{PROJECT_NAME_FROM_CONSOLE}'
-Generating code in: /{PATH}
-? Which Adobe I/O App features do you want to enable for this project?
-select components to include Events: Publish to Adobe I/O Events, Web Assets: Deploy hosted static assets
-? We are about to create a new sample action that creates messages in cloud events format and publishes to Adobe I/O Events
-how would you like to name this action? (publish-events)
-   create package.json
-   create manifest.yml
-   create .aio
-   create README.md
-   create test/jest.setup.js
-   create .env
-   create .gitignore
-   create actions/publish-events/index.js
-   create test/actions/publish-events.test.js
-   create actions/utils.js
-   create test/actions/utils.test.js
-   create e2e/actions/publish-events.e2e.js
-   create web-src/404.html
-   create web-src/index.html
-   create web-src/src/App.css
-   create web-src/src/App.js
-   create web-src/src/exc-runtime.js
-   create web-src/src/index.js
-   create web-src/src/utils.js
-   create .babelrc
-....
-found 0 vulnerabilities
- 
-✔ App initialization finished!
-```
+    ```shell
+    You are about to initialize the project '{PROJECT_NAME_FROM_CONSOLE}'
+    Generating code in: /{PATH}
+    ? Which Adobe I/O App features do you want to enable for this project?
+    select components to include Events: Publish to Adobe I/O Events, Web Assets: Deploy hosted static assets
+    ? We are about to create a new sample action that creates messages in cloud events format and publishes to Adobe I/O Events
+    how would you like to name this action? (publish-events)
+      create package.json
+      create manifest.yml
+      create .aio
+      create README.md
+      create test/jest.setup.js
+      create .env
+      create .gitignore
+      create actions/publish-events/index.js
+      create test/actions/publish-events.test.js
+      create actions/utils.js
+      create test/actions/utils.test.js
+      create e2e/actions/publish-events.e2e.js
+      create web-src/404.html
+      create web-src/index.html
+      create web-src/src/App.css
+      create web-src/src/App.js
+      create web-src/src/exc-runtime.js
+      create web-src/src/index.js
+      create web-src/src/utils.js
+      create .babelrc
+    ....
+    found 0 vulnerabilities
+    
+    ✔ App initialization finished!
+    ```
 
 ## Sample Project Structure
 
