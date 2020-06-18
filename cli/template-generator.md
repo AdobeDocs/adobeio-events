@@ -226,9 +226,9 @@ You can now invoke the action using the [UI](#user-interface) or a [CuRL command
     * **x-gw-ims-org-id:** The IMS Organization ID which can be obtained from the `config.json` file or within Console. 
 
 * **Parameters:**
-    * **`apiKey`:** The client ID from the integration, found within Console.
-    * **`providerId`:** The ID of the Provider for which the event is being published.
-    * **`eventCode`:** The type of event of the Provider.
+    * **apiKey:** The client ID from the integration, found within Console.
+    * **providerId:** The ID of the Provider for which the event is being published.
+    * **eventCode:** The type of event of the Provider.
     * **payload:** The JSON Payload to be published.
 
 ### User interface
