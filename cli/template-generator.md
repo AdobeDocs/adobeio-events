@@ -130,51 +130,53 @@ found 0 vulnerabilities
 
 The following diagram outlines a sample project structure, showing the files that were previously created and how they relate to other files in the project.
 
+```
 .
 
-|── README.md
+├── README.md
 
-|── node_modules
+├── node_modules
 
-|── actions
+├── actions
 
-│ |── publish-events
+│   ├── publish-events
 
-│ │ └── index.js (Source file that contains a template to create a publish Cloud Events to Adobe I/O Events)
+│   │   └── index.js (Source file that contains a template to create a publish Cloud Events to Adobe I/O Events.)
 
-│ └── utils.js
+│   └── utils.js
 
-|── console.json (Contains Adobe Developer Console credentials that include the org id, workspace id, project id, JWT token credentials, etc.) 
+├── console.json (Contains Adobe Developer Console credentials that include the org id, workspace id, project id, JWT token credentials, etc.) 
 
-|── e2e
+├── e2e
 
-│ └── actions
+│   └── actions
 
-│   └── publish-events.e2e.js
+│       └── publish-events.e2e.js
 
-|── manifest.yml
+├── manifest.yml
 
-|── .env (Contains the environment variables required to deploy your action in Adobe I/O Runtime, and other credentials required in order to invoke the Publish API) 
+├── .env (Contains the environment variables required to deploy your action in Adobe I/O Runtime, and other credentials required in order to invoke the Publish API.) 
 
-|── package-lock.json
+├── package-lock.json
 
-|── package.json
+├── package.json
 
-|── test
+├── test
 
-│ |── actions
+│   ├── actions
 
-│ │ |── publish-events.test.js ( test file for the events sample code )
+│   │   ├── publish-events.test.js (Test file for the events sample code.)
 
-│ │ └── utils.test.js
+│   │   └── utils.test.js
 
-│ └── jest.setup.js
+│   └── jest.setup.js
 
 └── web-src
 
-  |── ........
+    ├── ........
 
-  └── .......
+        └── .......
+```
 
 ## Deploying the Action
 
@@ -212,8 +214,8 @@ To view your deployed application in the Experience Cloud shell:
 
 You will also receive the action URL which can be invoked from your application or via a CuRL command as well as a link to a user interface (UI) in order to invoke your action.
 
-* Action URL: https://XXX.adobeioruntime.net/api/v1/web/{PROJECT_NAME_FROM_CONSOLE}-0.0.1/publish-events
-* UI URL: https://experience.adobe.com/?devMode=true#/custom-apps/?localDevUrl=https://localhost:9080
+* Action URL: https:<span>//XXX.<span>adobeioruntime.<span>net/api/v1/web/{PROJECT_NAME_FROM_CONSOLE}-0.0.1/publish-events
+* UI URL: https:<span>//experience.<span>adobe.<span>com/?devMode=true#/custom-apps/?localDevUrl=https://localhost:9080
 
 ## Invoking the Action
 
