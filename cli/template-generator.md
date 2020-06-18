@@ -4,7 +4,16 @@ The event template generator bootstraps the project code with a template that al
 
 This template can be used in conjunction with other action templates that are supported by the CLI such as Target, Analytics, and Campaign, as well as your own custom code. 
 
-For additional information, visit the [generator app public GitHub repository](https://github.com/adobe/generator-aio-app/tree/master/generators/add-events).
+To learn more, visit the [generator app public GitHub repository](https://github.com/adobe/generator-aio-app/tree/master/generators/add-events).
+
+This guide includes the following information for the event template generator:
+
+* [Installation](#installation)
+* [Getting Started](#getting-started)
+* [Sample Project Structure](#sample-project-structure)
+* [Deploying the Action](#deploying-the-action)
+* [Invoking the Action](#deploying-the-action)
+* [Debugging](#debugging)
 
 ## Installation
 
@@ -129,19 +138,19 @@ The following diagram outlines a sample project structure, showing the files tha
 
 |── actions
 
-│   |── publish-events
+│ |── publish-events
 
-│   │   └── index.js (Source file that contains a template to create a publish Cloud Events to Adobe I/O Events)
+│ │ └── index.js (Source file that contains a template to create a publish Cloud Events to Adobe I/O Events)
 
-│   └── utils.js
+│ └── utils.js
 
 |── console.json (Contains Adobe Developer Console credentials that include the org id, workspace id, project id, JWT token credentials, etc.) 
 
 |── e2e
 
-│   └── actions
+│ └── actions
 
-│       └── publish-events.e2e.js
+│   └── publish-events.e2e.js
 
 |── manifest.yml
 
@@ -153,19 +162,19 @@ The following diagram outlines a sample project structure, showing the files tha
 
 |── test
 
-│   |── actions
+│ |── actions
 
-│   │   |── publish-events.test.js ( test file for the events sample code )
+│ │ |── publish-events.test.js ( test file for the events sample code )
 
-│   │   └── utils.test.js
+│ │ └── utils.test.js
 
-│   └── jest.setup.js
+│ └── jest.setup.js
 
 └── web-src
 
-    |── ........
+  |── ........
 
-        └── .......
+  └── .......
 
 ## Deploying the Action
 
