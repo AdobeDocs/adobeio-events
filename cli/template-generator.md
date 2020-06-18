@@ -287,7 +287,7 @@ aio app logs
 ➜  project aio app logs
 __secured_publish-events:cc02982d23234c5a82982d0d1eab1a3f
 2020-06-12T13:11:47.993Z       stdout: 2020-06-12T13:11:47.992Z [main /XXX-{PROJECT_NAME_FROM_CONSOLE}/{PROJECT_NAME_FROM_CONSOLE}-0.0.1/__secured_publish-events] info: Calling the main action
-2020-06-12T13:11:47.994Z       stdout: 2020-06-12T13:11:47.994Z [main /XXX-{PROJECT_NAME_FROM_CONSOLE}/{PROJECT_NAME_FROM_CONSOLE}-0.0.1/__secured_publish-events] debug: {"statusCode":200,"body":{"message":"validation success"},"payload":{"hello":"world"},"__ow_method":"post",...
+2020-06-12T13:11:47.994Z       stdout: 2020-06-12T13:11:47.994Z [main /XXX-{PROJECT_NAME_FROM_CONSOLE}/{PROJECT_NAME_FROM_CONSOLE}-0.0.1/__secured_publish-events] debug: {"statusCode":200,"body":{"message":"validation success"},"payload":{"hello":"world"},"__ow_method":"post",...}
 2020-06-12T13:11:48.104Z       stdout: 2020-06-12T13:11:48.104Z [main /XXX-{PROJECT_NAME_FROM_CONSOLE}/{PROJECT_NAME_FROM_CONSOLE}-0.0.1/__secured_publish-events] error: [EventsSDK:ERROR_PUBLISH_EVENT] Error: 403 - Forbidden (https://eventsingress.adobe.io/)
 2020-06-12T13:11:48.104Z       stdout: 2020-06-12T13:11:48.104Z [main /XXX-{PROJECT_NAME_FROM_CONSOLE}/{PROJECT_NAME_FROM_CONSOLE}-0.0.1/__secured_publish-events] info: 500: server error
 ```
