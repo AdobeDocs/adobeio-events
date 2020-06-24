@@ -175,7 +175,22 @@ ALIASES
 
 ```shell
 USAGE
-  $ aio event:registration:create
+  $ aio event:registration:create BODYJSONFILE
+ 
+ARGUMENTS
+  BODYJSONFILE
+      Path to a file in JSON format with the information to create a new Event Registration.
+      The JSON should follow the following format:
+      {
+        "name": "<event registration name>",
+        "description": "<event registration description>",
+        "delivery_type": "WEBHOOK|WEBHOOK_BATCH|JOURNAL",
+        "webhook_url": "<webhook URL responding to challenge>"
+        "events_of_interest": [{
+          "provider_id": "<event provider id>"
+          "event_code": "<event provider event_code metadata>"
+        }, { <...more events> }]
+      }
  
 OPTIONS
   -j, --json     Output json
@@ -183,6 +198,9 @@ OPTIONS
   -y, --yml      Output yml
   --help         Show help
   --version      Show version
+ 
+ALIASES
+  $ aio event:reg:create
 ```
 
 #### Delete an Event Registration
@@ -332,6 +350,10 @@ OPTIONS
 USAGE
   $ aio event:eventmetadata:get PROVIDERID EVENTCODE
  
+ARGUMENTS
+  PROVIDERID  The requested provider ID
+  EVENTCODE   The requested eventmetadata event code
+ 
 OPTIONS
   -j, --json     Output json
   -v, --verbose  Verbose output
@@ -346,12 +368,18 @@ OPTIONS
 USAGE
   $ aio event:eventmetadata:list PROVIDERID
  
+ARGUMENTS
+  PROVIDERID  The requested provider ID
+ 
 OPTIONS
   -j, --json     Output json
   -v, --verbose  Verbose output
   -y, --yml      Output yml
   --help         Show help
   --version      Show version
+ 
+ALIASES
+  $ aio event:eventmetadata:ls
 ```
 
 #### Create Event Metadata for a Provider
@@ -359,6 +387,9 @@ OPTIONS
 ```shell
 USAGE
   $ aio event:eventmetadata:create PROVIDERID
+ 
+ARGUMENTS
+  PROVIDERID  The requested eventmetadata event code
  
 OPTIONS
   -j, --json     Output json
@@ -374,6 +405,10 @@ OPTIONS
 USAGE
   $ aio event:eventmetadata:update PROVIDERID EVENTCODE
  
+ARGUMENTS
+  PROVIDERID  The requested provider ID
+  EVENTCODE   The requested eventmetadata event code
+ 
 OPTIONS
   -j, --json     Output json
   -v, --verbose  Verbose output
@@ -388,7 +423,11 @@ When deleting event metadata, the `EVENTCODE` value is optional. However, if an 
 
 ```shell
 USAGE
-  $ aio event:eventmetadata:delete PROVIDERID EVENTCODE
+  $ aio event:eventmetadata:delete PROVIDERID [EVENTCODE]
+ 
+ARGUMENTS
+  PROVIDERID  The requested provider ID
+  EVENTCODE   The requested eventmetadata event code
  
 OPTIONS
   -v, --verbose  Verbose output
