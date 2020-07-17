@@ -76,11 +76,6 @@ To create an [Adobe I/O Console](https://adobe.io/console) integration:
 
 6. Select **Create Integration.**
 
-
-### Register the AEM event consumer app
-
-To register an AEM event consumer app, you can set up a webhook. Your webhook should be able to accept and reply to a challenge HTTP request parameter sent by Adobe I/O CSM.
-
 #### Setting up a webhook: example
 To create a webhook at webtask.io, add the following code to make sure the Challenge is echoed back. This is needed for the verification by Adobe I/O CSM when you register the webhook URL later using the CSM API:
 
@@ -114,10 +109,6 @@ module.exports = Webtask.fromExpress(app);
 ## Watch the solution work
 
 You can watch the solution work by testing your integration. To do this:
-
-1. [Register your webhook with the Adobe I/O Console](#register-your-webhook-with-the-adobe-io-console)
-2. [Perform a webhook health check](#perform-a-webhook-health-check)
-3. [Optional: Adobe I/O Events OSGI to XDM event mapping configurations](#adobe-io-events-osgi-to-xdm-event-mapping-configurations)
 
 ### Register your webhook with the Adobe I/O Console
 
