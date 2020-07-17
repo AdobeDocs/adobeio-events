@@ -1,14 +1,6 @@
 
 ## Integrate with AEM (on premise)
 
-Set up for AEM On Premise 
-
-1. [Install the AEM event proxy package](#install-the-aem-event-proxy-package)
-1. [Configure OAuth and IMS authentication](#configure-oauth-and-ims-authentication)
-1. [Configure Adobe I/O Events](#aem-adobe-io-events-configuration)
-3. [Perform health and configuration check](#perform-a-webhook-health-check)
-4. [Optional configurations](#optional)
-
 ### Install the AEM event proxy package
 
 To install the AEM event proxy package:
@@ -55,13 +47,48 @@ If applied correctly, the `eventproxy-service` user is added to the following:
 
 For more information, see AEM [User, Group and Access Rights Administration](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/user-group-ac-admin.html).
 
-### Configure OAuth and IMS authentication
+### Create an Adobe I/O Console integration
 
-To configure OAuth and IMS authentication:
+To create an [Adobe I/O Console](https://adobe.io/console) integration:
 
-1. [Create a certificate and keystore](#create-a-certificate-and-keystore)
-2. [Add the certificate into the AEM eventproxy-service user's keystore](#add-the-certificate-into-the-aem-eventproxy-service-userrsquos-keystore)
-3. [Configure the AEM Link Externalizer](#configure-the-aem-link-externalizer)
+1. After signing in to the Adobe I/O Console, select **New Integration**.
+
+2. Select **Access an API** and then select **Continue**.
+
+      ![Access an API](../img/events_aem_13.png "Access an API")
+
+3. On the **Create a new integration** page, select **Adobe I/O Events** and then select **Continue**.
+
+      ![I/O Events integration](../img/events_aem_14.png "I/O Events integration")
+
+4. Select **New integration**.
+
+      ![Create new integration option](../img/events_aem_15.png "Create new integration option")
+
+5. In the <strong id="Create-new-integration-box">Create a new integration</strong> dialog box, specify a name for the integration and add a description. To add **Public keys certificates**, select **Select a File** and navigate to your **certificate_pub.crt** to upload it.
+
+      ![Complete the new integration](../img/events_aem_16.png "Complete the new integration")
+
+6. Select **Create Integration.**
+
+
+### Configure the AEM Link Externalizer
+
+To configure AEM Link Externalizer:
+
+1. Open the Web Console, or select the **Tools** icon, then select **Operations** and **Web Console**.
+
+    The AEM Link Externalizer name can be **author** or any other alias specified in the Adobe Experience Manager Web Console.
+
+    ![AEM Web Console](../img/events_aem_11.png "AEM Web Console")
+
+2. Scroll down the list to find **Day CQ Link Externalizer**, update the domain name, and select **Save** when done.
+
+    >**Note:** The base URL that you specify appears on the AEM Web Console. Do not use only the word “localhost” as the default name because others may use it. This will then cause confusion and make it difficult to determine which instance is yours. for example, for below image you will see "AEM-localhost-ml-sample" in your console as event provider.
+
+    ![AEM Web Console base URL](../img/events_aem_12.png  "AEM Web Console base URL")
+
+### Create and Upload Adobe I/O certificate keystore
 
 #### Create a certificate and keystore
 
@@ -120,28 +147,39 @@ To add the certificate into the AEM `eventproxy-service` user&rsquo;s keystore:
 8. Select **Submit**.
 
       ![keystore management](../img/events_aem_10.png)
+      
+      
+      
+      
+      
+### AEM 6.2 and AEM 6.3 Configuration
 
-#### Configure the AEM Link Externalizer
+To configure Adobe I/O Events in AEM:
 
-To configure AEM Link Externalizer:
+1. Open the Cloud Services console, or select the **Tools** icon, then select **Deployment** and **Cloud Services**.
 
-1. Open the Web Console, or select the **Tools** icon, then select **Operations** and **Web Console**.
+      ![Cloud Services UI](../img/events_aem_17.png "Cloud Services UI")
 
-    The AEM Link Externalizer name can be **author** or any other alias specified in the Adobe Experience Manager Web Console.
+2. Under **Adobe Marketing Cloud** on the **Cloud Services** page, select **Configure now** for **Adobe I/O Events**.
 
-    ![AEM Web Console](../img/events_aem_11.png "AEM Web Console")
+      ![Configure Adobe Events](../img/events_aem_18.png "Configure Adobe Events")
 
-2. Scroll down the list to find **Day CQ Link Externalizer**, update the domain name, and select **Save** when done.
+3. In the Create Configuration dialog box, enter a title and a name for your integration, and then select Create.
+      ![Create a configuration](../img/events_aem_19.png "Create a configuration")
 
-    >**Note:** The base URL that you specify appears on the AEM Web Console. Do not use only the word “localhost” as the default name because others may use it. This will then cause confusion and make it difficult to determine which instance is yours. for example, for below image you will see "AEM-localhost-ml-sample" in your console as event provider.
+4. Select Edit. Configure the service by specifying each field in the **Edit Component** dialog box. You can copy your credentials from the [Adobe I/O Console](https://adobe.io/console) and paste them into each required field.
 
-    ![AEM Web Console base URL](../img/events_aem_12.png  "AEM Web Console base URL")
+      ![Edit the configuration](../img/events_aem_20.png "Edit the configuration")
 
-### AEM Adobe I/O Events configuration
+*   For **AEM Link externalizer**: specify **author** (or any other alias previously configured in the AEM Link Externalizer).
+*   For **API key**: Provide the key shown on the **Integration Details** page of the Adobe I/O Console.
+*   For **Technical Account ID**: Provide the ID shown on the Adobe I/O Console.
+*   For **Organization ID**: Provide the ID shown on the Adobe I/O Console.
+*   For **Client Secret**: AEM will automatically retrieve the value from the Adobe I/O Console.
 
-#### AEM 6.4 and AEM 6.5 Configuration
+### AEM 6.4 and AEM 6.5 Configuration
 
-To configure Adobe I/O Events as a cloud service in AEM:
+To configure Adobe I/O Events in AEM:
 
 1. Open the Cloud Services console, or select the **Security** icon, and then select **Adobe IMS Configurations**.
 
@@ -170,34 +208,9 @@ To configure Adobe I/O Events as a cloud service in AEM:
 6. Now you should see this new Adobe IO Events IMS Configuration, and you can select it to check its health.
 
      ![Adobe IMS Configuration IMS Health Check](../img/events_aem_adobe-ims-conf-4.png "Adobe IMS Configuration Health Check")
+      
 
-
-#### AEM 6.2 and AEM 6.3 Configuration
-
-To configure Adobe I/O Events as a cloud service in AEM:
-
-1. Open the Cloud Services console, or select the **Tools** icon, then select **Deployment** and **Cloud Services**.
-
-      ![Cloud Services UI](../img/events_aem_17.png "Cloud Services UI")
-
-2. Under **Adobe Marketing Cloud** on the **Cloud Services** page, select **Configure now** for **Adobe I/O Events**.
-
-      ![Configure Adobe Events](../img/events_aem_18.png "Configure Adobe Events")
-
-3. In the Create Configuration dialog box, enter a title and a name for your integration, and then select Create.
-      ![Create a configuration](../img/events_aem_19.png "Create a configuration")
-
-4. Select Edit. Configure the service by specifying each field in the **Edit Component** dialog box. You can copy your credentials from the [Adobe I/O Console](https://adobe.io/console) and paste them into each required field.
-
-      ![Edit the configuration](../img/events_aem_20.png "Edit the configuration")
-
-*   For **AEM Link externalizer**: specify **author** (or any other alias previously configured in the AEM Link Externalizer).
-*   For **API key**: Provide the key shown on the **Integration Details** page of the Adobe I/O Console.
-*   For **Technical Account ID**: Provide the ID shown on the Adobe I/O Console.
-*   For **Organization ID**: Provide the ID shown on the Adobe I/O Console.
-*   For **Client Secret**: AEM will automatically retrieve the value from the Adobe I/O Console.
-
-### Perform a webhook health check
+### Event emitting health check
 
 Now you can start testing that your AEM-originated events are emitted by Adobe I/O.
 To do this, first make sure your webhook is subscribed to the type of event you are testing against.
@@ -223,9 +236,7 @@ see the screenshot below:
 
 <a id="configure-advanced-adobe-i/o-events">&nbsp;</a>
 
-### Optional
-
-#### Perform AEM health check
+#### Other AEM health check
 
 You can use the AEM Web Console Sling Health Check to verify that your configurations are correct.
 
