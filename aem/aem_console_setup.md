@@ -1,10 +1,10 @@
 
 
-### Create an Adobe I/O Console AEM integration workspace
+### Add the `I/O Events` API to your Adobe developer console project
 
 
 For your AEM to be authorized to emit events against Adobe I/O:
-you do need to add the  API in your Adobe I/O Console project set up in the console (if you are new to this please 
+you do need to add the `I/O Events` API to your project in the Adobe developer console (if you are new to this please 
 refer to the [step-by-step instructions for creating an empty project in Adobe Developer Console](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md) )
 
 1. Click on `Add to Project` > `API`

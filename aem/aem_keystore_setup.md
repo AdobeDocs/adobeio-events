@@ -1,4 +1,4 @@
-### Create and Upload Adobe I/O certificate keystore
+### Create and Upload Adobe I/O Certificate keystore to AEM
 
 #### Create a certificate and keystore
 
