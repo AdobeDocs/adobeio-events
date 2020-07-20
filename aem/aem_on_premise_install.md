@@ -1,6 +1,9 @@
 
 ## Integrate with AEM (on premise)
 
+This documentation is specific to `AEM on premise` set up, to integrate with `AEM as cloud service` 
+please refer to the other associated [documentation](aem_skyline_install.md).
+ 
 ### Install the AEM event proxy package
 
 To install the AEM event proxy package:
@@ -9,6 +12,7 @@ To install the AEM event proxy package:
    * [version 6.3.16](https://github.com/adobeio/adobeio-documentation/files/2649329/aem-event-proxy-6.3.16.zip) for AEM `6.2.xx` and `6.3.xx`
    * [version 6.4.268](https://github.com/adobeio/adobeio-documentation/files/2624686/aem-event-proxy-6.4.268.zip) for AEM `6.4.xx`
    * [version 6.5.6](https://github.com/AdobeDocs/adobeio-events/files/3729022/aem-event-proxy-6.5.6.zip) for AEM `6.5.xx`
+   
 
 2. Open AEM Package Manager by selecting the **Tools** icon and then selecting **Deployment** and **Packages**.
 
@@ -47,30 +51,19 @@ If applied correctly, the `eventproxy-service` user is added to the following:
 
 For more information, see AEM [User, Group and Access Rights Administration](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/user-group-ac-admin.html).
 
-### Create an Adobe I/O Console integration
+### Configure Adobe I/O authentication
 
-To create an [Adobe I/O Console](https://adobe.io/console) integration:
+To secure the calls between Adobe I/O and AEM, we leverage an oAuth JWT exchange token flow.
+This flow uses a certificate to sign the JWT request and requires the prior approval of the client application.
+Please look at the associated documentations:
+* first at the [AEM keystore setup](aem_keystore_setup.md) 
+* then at the [AEM Adobe I/O console setup](aem_console_setup.md)
 
-1. After signing in to the Adobe I/O Console, select **New Integration**.
+Once these 2 setups are done, you should have:
 
-2. Select **Access an API** and then select **Continue**.
-
-      ![Access an API](../img/events_aem_13.png "Access an API")
-
-3. On the **Create a new integration** page, select **Adobe I/O Events** and then select **Continue**.
-
-      ![I/O Events integration](../img/events_aem_14.png "I/O Events integration")
-
-4. Select **New integration**.
-
-      ![Create new integration option](../img/events_aem_15.png "Create new integration option")
-
-5. In the <strong id="Create-new-integration-box">Create a new integration</strong> dialog box, specify a name for the integration and add a description. To add **Public keys certificates**, select **Select a File** and navigate to your **certificate_pub.crt** to upload it.
-
-      ![Complete the new integration](../img/events_aem_16.png "Complete the new integration")
-
-6. Select **Create Integration.**
-
+* created a public/private certificate key and an associated keystore
+* added the keystore into the AEM `eventproxy-service` user&rsquo;s keystores vault.
+* created an Adobe I/O Console integration using the public certificate you put in the AEM user's keystore
 
 ### Configure the AEM Link Externalizer
 
@@ -88,70 +81,6 @@ To configure AEM Link Externalizer:
 
     ![AEM Web Console base URL](../img/events_aem_12.png  "AEM Web Console base URL")
 
-### Create and Upload Adobe I/O certificate keystore
-
-#### Create a certificate and keystore
-
-To create a certificate and keystore:
-
-1. Create an RSA private/public certificate in OpenSSL with the following command:
-
-      ```
-      openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout private.key -out certificate_pub.crt
-      ```
-
-2. Add the private key and signed certificate to a PKCS#12 file with the following command:
-
-      ```
-      openssl pkcs12 -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -export -in certificate_pub.crt -inkey private.key -out author.pfx -name "author"
-      ```
-3. When prompted, create an export password and store it for later use.
-
-4. Create a keystore from the generated keys with the following command:
-
-      ```
-      cat private.key certificate_pub.crt > private-key-crt
-      ```
-
-      >Note: On Windows systems, you may need to concatenate the files manually or provide an alternate command. For more information, see the [OpenSSL manpages](https://www.openssl.org/docs/manpages.html).
-
-5. Set the alias as **eventproxy** and a non-empty keystore password (such as admin), with the following command:
-
-      ```
-      openssl pkcs12 -export -in private-key-crt -out keystore.p12 -name eventproxy -noiter -nomaciter
-      ```
-      >Note: On Windows systems, this command expression may vary. For more information, see the [OpenSSL manpages](https://www.openssl.org/docs/manpages.html).
-
-#### Add the certificate into the AEM `eventproxy-service` user&rsquo;s keystore
-
-To add the certificate into the AEM `eventproxy-service` user&rsquo;s keystore:
-
-1. In AEM, open the **User Management** group by selecting the **Tools** icon and then selecting **Security** and **Users.**
-
-      ![User management navigation](../img/events_aem_07.png "User management navigation")
-
-2. Scroll down and Select **eventproxy-service** to open it.
-
-      ![Selecting the eventproxy service](../img/events_aem_08.png "Selecting the eventproxy service")
-
-3. Select **Create KeyStore**
-
-4. Select **Manage KeyStore** and then expand the section for **Add Private Key from Key Store file.**
-
-5. Add the keystore.p12 file by setting the key pair alias to **eventproxy** or the alias specified previously.
-
-6. Provide the keystore password (the same one provided when generating the key store).
-
-7. Provide the private key password and then provide the private key alias **eventproxy**.
-
-8. Select **Submit**.
-
-      ![keystore management](../img/events_aem_10.png)
-      
-      
-      
-      
-      
 ### AEM 6.2 and AEM 6.3 Configuration
 
 To configure Adobe I/O Events in AEM:
@@ -179,7 +108,7 @@ To configure Adobe I/O Events in AEM:
 
 ### AEM 6.4 and AEM 6.5 Configuration
 
-To configure Adobe I/O Events in AEM:
+You are now ready to finalize the Adobe IMS configuration needed by Adobe I/O Events:
 
 1. Open the Cloud Services console, or select the **Security** icon, and then select **Adobe IMS Configurations**.
 
@@ -192,24 +121,25 @@ To configure Adobe I/O Events in AEM:
     ![Adobe IMS Configuration Creation](../img/events_aem_adobe-ims-conf-2.png "Adobe IMS Configuration Creation")
 
 3. Fill in the various entries expected to configure the IMS account associated with the integration
- you just created in the Adobe I/O Console
-
-*   For **Title**: specify **Adobe IO Events** (or any other title that makes sense to you).
-*   For **Authorization Server**: it should be `https://ims-na1.adobelogin.com` (unless the URL shown in the **JWT** tab of your integration page in the Adobe I/O Console is different),
-*   For **API key**: Provide the API key shown in the **Overview** tab of your integration page in the Adobe I/O Console.
-*   For **Technical Account ID**: Provide the Technical Account ID shown in the **Overview** tab of your integration page in the Adobe I/O Console.
-*   For **Client Secret**: Provide the Client Secret shown in the **Overview** tab of your integration page in the Adobe I/O Console.
-*   For **Payload**: Provide the JWT payload shown in the **JWT** tab of your integration page in the Adobe I/O Console.
+ you just [created in the Adobe I/O Console](aem_console_setup.md):
+     * For **Title**: specify **Adobe IO Events** (or any other title that makes sense to you).
+     * For **Authorization Server**: it should be `https://ims-na1.adobelogin.com` (unless the URL shown in the **JWT** tab of your integration page in the Adobe I/O Console is different),
+     * For **API key**: Provide the API key available in the `Credentials details` tab of your credentials `Service Account (JWT)` page in your Adobe I/O Console workspace
+     * For **Client Secret**: Provide the Client Secret available in the `Credentials details` tab of your credentials `Service Account (JWT)` page in your Adobe I/O Console workspace
+     * For **Payload**: Provide the JWT payload available in the `Generate JWT` tab of your credentials `Service Account (JWT)` page in your Adobe I/O Console workspace
+  
+   ![Adobe I/O Console Generate JWT tab](../img/console_generate_jwt_tab.png "Adobe I/O Console Generate JWT tab")
 
 4. Click **Create**
 
     ![Adobe IMS Configuration IMS account form](../img/events_aem_adobe-ims-conf-3.png "Adobe IMS Configuration IMS account form")
 
-6. Now you should see this new Adobe IO Events IMS Configuration, and you can select it to check its health.
+5. Now you should see this new Adobe IO Events IMS Configuration, and you can select it to check its health.
 
      ![Adobe IMS Configuration IMS Health Check](../img/events_aem_adobe-ims-conf-4.png "Adobe IMS Configuration Health Check")
       
-
+  
+  
 ### Event emitting health check
 
 Now you can start testing that your AEM-originated events are emitted by Adobe I/O.
@@ -274,7 +204,7 @@ This verifies that the AEM instance is successfully registered as an event provi
       ![Health check for eventproxy,csm](../img/events_aem_23.png "Health check for csm-events")
 4. (Optional) Check that the AEM instance is connected with Engress by executing the health check tagged with **evre-events**
 
-#### Adobe I/O Events OSGI to XDM event mapping configurations
+### Adobe I/O Events OSGI to XDM event mapping configurations
 
 For all Adobe I/O event types defined by the Adobe I/O Event Model, there is an **Adobe I/O Events OSGI to XDM event mapping configuration**.
 
@@ -305,8 +235,7 @@ To configure using the panel:
 
 3. For **Adobe I/O Events OSGI to XDM Event Mapping Configuration**, select **+**, **Edit**, or **Delete**.
 
-
-#### Adobe I/O Events queuing and retries
+### Adobe I/O Events queuing and retries
 
 When an OSGI event of interest is triggered (i.e an OSGI events that matches one of your `OSGI to XDM event mapping configurations`), it makes it to a job queue handled by `Sling Job Handler`.
 
