@@ -1,8 +1,9 @@
 
 ## Integrate with AEM (on premise)
 
-This documentation is specific to `AEM on premise` set up, to integrate with `AEM as cloud service` 
-please refer to the other associated [documentation](aem_skyline_install.md).
+This documentation is specific to `AEM on premise` set up.
+
+To integrate with `AEM as cloud service`, please refer to the other associated [documentation](aem_skyline_install.md).
  
 ### Install the AEM event proxy package
 
@@ -51,19 +52,6 @@ If applied correctly, the `eventproxy-service` user is added to the following:
 
 For more information, see AEM [User, Group and Access Rights Administration](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/user-group-ac-admin.html).
 
-### Configure Adobe I/O authentication
-
-To secure the calls between Adobe I/O and AEM, we leverage an oAuth JWT exchange token flow.
-This flow uses a certificate to sign the JWT request and requires the prior approval of the client application.
-Please look at the associated documentations:
-* first at the [AEM keystore setup](aem_keystore_setup.md) 
-* then at the [AEM Adobe I/O console setup](aem_console_setup.md)
-
-Once these 2 setups are done, you should have:
-
-* created a public/private certificate key and an associated keystore
-* added the keystore into the AEM `eventproxy-service` user&rsquo;s keystores vault.
-* created an Adobe I/O Console integration using the public certificate you put in the AEM user's keystore
 
 ### Configure the AEM Link Externalizer
 
@@ -80,6 +68,21 @@ To configure AEM Link Externalizer:
     >**Note:** The base URL that you specify appears on the AEM Web Console. Do not use only the word “localhost” as the default name because others may use it. This will then cause confusion and make it difficult to determine which instance is yours. for example, for below image you will see "AEM-localhost-ml-sample" in your console as event provider.
 
     ![AEM Web Console base URL](../img/events_aem_12.png  "AEM Web Console base URL")
+
+
+### Configure Adobe I/O authentication
+
+To secure the calls between Adobe I/O and AEM, we leverage an oAuth JWT exchange token flow.
+This flow uses a certificate to sign the JWT request and therefore requires certificates configurations
+on both ends. Please look at our documentations:
+* first [set up a keystore on AEM](aem_keystore_setup.md) 
+* then [set up an AEM workspace in Adobe I/O console](aem_console_setup.md)
+
+Once these 2 setups are done, you should have:
+
+* created a public/private certificate key and an associated keystore
+* added the keystore into the AEM `eventproxy-service` user&rsquo;s keystores vault.
+* created an Adobe I/O Console project and workspace using the public certificate
 
 ### AEM 6.2 and AEM 6.3 Configuration
 
@@ -110,7 +113,7 @@ To configure Adobe I/O Events in AEM:
 
 You are now ready to finalize the Adobe IMS configuration needed by Adobe I/O Events:
 
-1. Open the Cloud Services console, or select the **Security** icon, and then select **Adobe IMS Configurations**.
+1. Open your AEM `Tools` menu, or select the `Security` section, and then select `Adobe IMS Configurations` tile.
 
    ![Adobe IMS Configurations UI](../img/events_aem_adobe-ims-conf-1.png "Adobe IMS Configurations UI")
 
@@ -137,8 +140,7 @@ You are now ready to finalize the Adobe IMS configuration needed by Adobe I/O Ev
 5. Now you should see this new Adobe IO Events IMS Configuration, and you can select it to check its health.
 
      ![Adobe IMS Configuration IMS Health Check](../img/events_aem_adobe-ims-conf-4.png "Adobe IMS Configuration Health Check")
-      
-  
+       
   
 ### Event emitting health check
 
