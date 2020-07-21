@@ -37,9 +37,33 @@
       "importedFileName": "using",
       "pages": [{
           "importedFileName": "aem-event-setup",
-          "pages": [],
           "path": "adobedocs/adobeio-events/master/using/aem-event-setup.md",
-          "title": "AEM Events"
+          "title": "AEM Events",
+          "pages": [{
+            "importedFileName": "aem_on_premise_install",
+            "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_install.md",
+            "title": "`AEM on Premise` Events",
+            "pages": []
+            },
+            {
+              "importedFileName": "aem_skyline_install",
+              "path": "adobedocs/adobeio-events/master/aem/aem_skyline_install.md",
+              "title": "`AEM as a Cloud Service` Events",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_keystore_setup",
+              "path": "adobedocs/adobeio-events/master/aem/aem_keystore_setup.md",
+              "title": "Create and Upload Adobe I/O Certificate keystore to AEM",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_console_setup",
+              "path": "adobedocs/adobeio-events/master/aem/aem_console_setup.md",
+              "title": "Add the `I/O Events` API to your Adobe developer console project",
+              "pages": []
+            }
+          ]
         },
         {
           "importedFileName": "analytics-triggers-event-setup",
