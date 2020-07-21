@@ -27,7 +27,7 @@ You are now ready to set up your `AEM as a Cloud Service` environments for them 
 
 As this Adobe I/O events integration is not yet part of the core product, you will have to
 
-1. [Download the code from this repository](https://github.com/AdobeDocs/adobeio-events/releases/download/2020_07_20_13_00/aem-event-proxy-skyline-2020_07_20_13_00.zip),
+1. [Download the code from this repository](https://github.com/AdobeDocs/adobeio-events/releases/download/2020_07_20_13_00/aem-event-proxy-skyline-2020_07_21_16_40.zip),
 2. Unzip this archive, and merge it with your own existing Cloud Manager git repo,
 see [Experience Manager Cloud Manager - Help - Accessing Git ](https://docs.adobe.com/content/help/en/experience-manager-cloud-manager/using/managing-code/accessing-git.html) 
 for further instructions,
