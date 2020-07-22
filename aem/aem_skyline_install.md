@@ -8,9 +8,11 @@ To integrate with `AEM on premise`, please refer to the other associated [docume
 ### Pre-release provisioning
 
 If you are an existing `AEM as a Cloud Service` customer, please contact your Adobe representative
-and provide him with the list of AEM author's public urls you want Adobe I/O to expose as `Events Providers`. 
+and provide him with 
+* your Adobe IMS Organization Id (the id suffixed by `@AdobeOrg` you can find in the `Service Account (JWT)` section of your  [Adobe I/O Developer console](aem_console_setup.md) project),
+* the list of AEM author's public urls you want Adobe I/O to expose as `Events Providers`. 
 
-For that, log-in to [your cloud manager](my.cloudmanager.adobe.com/), look up your AEM environments; 
+For the latter, log-in to [your cloud manager](my.cloudmanager.adobe.com/), look up your AEM environments; 
 from there, copy the urls of the author's environments you want to turn into Adobe I/O `Events Providers`. 
 
   ![Cloud Manager Environments](../img/cloud_manager_environments.png "Cloud Manager Environments")
@@ -40,7 +42,7 @@ To secure the calls between Adobe I/O and AEM, we leverage an oAuth JWT exchange
 This flow uses a certificate to sign the JWT request and therefore requires certificates configurations
 on both ends. Please look at our documentations:
 * first [set up a keystore on AEM](aem_keystore_setup.md) 
-* then [set up an AEM workspace in Adobe I/O console](aem_console_setup.md)
+* then [set up an AEM workspace in Adobe I/O developer console](aem_console_setup.md)
 
 Once these 2 setups are done, you should have:
 
