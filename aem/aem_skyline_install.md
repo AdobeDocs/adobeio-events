@@ -1,33 +1,33 @@
 
 ## Integrate with AEM as a Cloud Service
 
-This documentation is specific to `AEM as a Cloud Service` set up.
+This documentation has intructions to set up integrate I/O Events with `AEM as a Cloud Service` set up.
 
 To integrate with `AEM on premise`, please refer to the other associated [documentation](aem_on_premise_install.md).
 
 ### Pre-release provisioning
 
-If you are an existing `AEM as a Cloud Service` customer, please contact your Adobe representative
-and provide him with 
-* your Adobe IMS Organization Id (the id suffixed by `@AdobeOrg` you can find in the `Service Account (JWT)` section of your  [Adobe I/O Developer console](aem_console_setup.md) project),
-* the list of AEM author's public urls you want Adobe I/O to expose as `Events Providers`. 
+If you are an existing `AEM as a Cloud Service` customer, please contact your Adobe representative and provide them with the following information: 
+* Adobe IMS Organization Id of the org being used (the id suffixed by `@AdobeOrg` you can find in the `Service Account (JWT)` section of your  [Adobe I/O Developer console](aem_console_setup.md) project),
+* List of public urls of the Author instance of the `AEM as a Cloud Service` which will be exposed to Adobe I/O as `Events Providers`. 
 
-For the latter, log-in to [your cloud manager](my.cloudmanager.adobe.com/), look up your AEM environments; 
-from there, copy the urls of the author's environments you want to turn into Adobe I/O `Events Providers`. 
+For the latter, log-in to [your cloud manager](my.cloudmanager.adobe.com/), look up the `AEM as a Cloud Service` environments; 
+from there, copy the urls of the author environments which will be exposing events to Adobe I/O and will be the Adobe I/O `Events Providers`. 
 
   ![Cloud Manager Environments](../img/cloud_manager_environments.png "Cloud Manager Environments")
 
-Once your request is processed and the provisioning is complete, your new `AEM as a Cloud Service` `Events Providers` should appear in the Adobe I/O console.
+Once the provisioning request is processed and completed, the new `AEM as a Cloud Service` `Events Providers` should appear in the Adobe I/O console.
 (please refer to the Developer Console documentation on how to [add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) 
 if you are new to this)
  
   ![An Adobe I/O Console `AEM as a Cloud Service` Events Provider](../img/add_skyline_event_provider.png "An Adobe I/O Console `AEM as a Cloud Service` Events Provider")
  
-You are now ready to set up your `AEM as a Cloud Service` environments for them to start emitting events, see below.
+You are now ready to set up your `AEM as a Cloud Service` environments as an Event provider, which means your `AEM as a Cloud Service` instance will be emitting events. 
+Follow the instructions below to complete the setup: 
 
 ### Deploy Adobe I/O events integration using Cloud Manager
 
-As this Adobe I/O events integration is not yet part of the core product, you will have to
+The Adobe I/O events integration currently is being exposed through an integration package which requires you to follow the below deployment instructions. This configuration will change in future once Adobe I/O Events is exposed as a configuration in `AEM as a Cloud Service`. 
 
 1. [Download the code from this repository](https://github.com/AdobeDocs/adobeio-events/releases/download/2020_07_20_13_00/aem-event-proxy-skyline-2020_07_21_16_40.zip),
 2. Unzip this archive, and merge it with your own existing Cloud Manager git repo,
@@ -41,16 +41,16 @@ for further instructions,
 To secure the calls between Adobe I/O and AEM, we leverage an oAuth JWT exchange token flow.
 This flow uses a certificate to sign the JWT request and therefore requires certificates configurations
 on both ends. Please look at our documentations:
-* first [set up a keystore on AEM](aem_keystore_setup.md) 
-* then [set up an AEM workspace in Adobe I/O developer console](aem_console_setup.md)
+* As a first step, [set up a keystore on AEM](aem_keystore_setup.md) 
+* Once the keystore setup is completed, [set up an AEM workspace in Adobe I/O developer console](aem_console_setup.md)
 
-Once these 2 setups are done, you should have:
+Once you finish configuring the Adobe I/O authentication steps, you will have the following:
 
-* created a public/private certificate key and an associated keystore
-* added the keystore into the AEM `eventproxy-service` user&rsquo;s keystores vault.
-* created an Adobe I/O Console project and workspace using the public certificate
+* A public/private certificate key and an associated keystore
+* The keystore added into the AEM `eventproxy-service` user&rsquo;s keystores vault.
+* An Adobe I/O Console project and workspace is created using the public certificate
 
-You are now ready to finalize the Adobe IMS configuration needed by Adobe I/O Events:
+To execute the final steps for the Adobe IMS configuration needed by Adobe I/O Events, follow instructions below:
 
 1. Open your AEM `Tools` menu, or select the `Security` section, and then select `Adobe IMS Configurations` tile.
 
