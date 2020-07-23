@@ -3,9 +3,7 @@
 ### Add the `I/O Events` API to your Adobe developer console project
 
 
-For your AEM to be authorized to emit events against Adobe I/O:
-you do need to add the `I/O Events` API to your project in the Adobe developer console (if you are new to this please 
-refer to the [step-by-step instructions for creating an empty project in Adobe Developer Console](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md) )
+For your AEM to be authorized to emit events against Adobe I/O, you need to add the `I/O Events` API to your project in the Adobe developer console. If you are new to this, please refer to the [step-by-step instructions for creating an empty project in Adobe Developer Console](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md) )
 
 Before you begin, on the top-right corner of the Adobe Developer Console, 
 verify you are holding a `System Administrator` role
@@ -32,7 +30,7 @@ see our [AEM keystore setup documentation](aem_keystore_setup.md).
 
    ![`I/O Events` in the list of API](../img/list_io_events_api.png "`I/O Events` in the list of API`")
  
-Note you also have a new JWT integration tab, that you will come back to in order to finalize the configuration
+Note: you also have a new JWT integration tab, that you will come back to in order to finalize the configuration
 of your AEM instances.
 You may also refer to the overal [Adobe I/O console documentation](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-api-jwt.md) 
 for more details on this.
