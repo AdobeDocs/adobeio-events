@@ -14,52 +14,52 @@
       "pages": [{
           "importedFileName": "webhook-docs-intro",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/intro/webhook_docs_intro.md",
+          "path": "adobedocs/adobeio-events/master/intro/webhook_docs_intro.md",
           "title": "Introduction to Webhooks"
         },
         {
           "importedFileName": "events-api",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/intro/events-api.md",
+          "path": "adobedocs/adobeio-events/master/intro/events-api.md",
           "title": "Working with Events Using Management API"
         },
         {
           "importedFileName": "journaling_api",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/intro/journaling_api.md",
+          "path": "adobedocs/adobeio-events/master/intro/journaling_api.md",
           "title": "Journaling API"
         }
       ],
-      "path": "adobedocs/adobeio-events/stage/readme.md",
+      "path": "adobedocs/adobeio-events/master/readme.md",
       "title": "Getting Started"
     },
     {
       "importedFileName": "using",
       "pages": [{
           "importedFileName": "aem-event-setup",
-          "path": "adobedocs/adobeio-events/stage/using/aem-event-setup.md",
+          "path": "adobedocs/adobeio-events/master/using/aem-event-setup.md",
           "title": "AEM Events",
           "pages": [{
             "importedFileName": "aem_on_premise_install",
-            "path": "adobedocs/adobeio-events/stage/aem/aem_on_premise_install.md",
+            "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_install.md",
             "title": "'AEM on Premise' Events",
             "pages": []
             },
             {
               "importedFileName": "aem_skyline_install",
-              "path": "adobedocs/adobeio-events/stage/aem/aem_skyline_install.md",
+              "path": "adobedocs/adobeio-events/master/aem/aem_skyline_install.md",
               "title": "'AEM as a Cloud' Service Events",
               "pages": []
             },
             {
               "importedFileName": "aem_keystore_setup",
-              "path": "adobedocs/adobeio-events/stage/aem/aem_keystore_setup.md",
+              "path": "adobedocs/adobeio-events/master/aem/aem_keystore_setup.md",
               "title": "Create and Upload Adobe I/O Certificate keystore to AEM",
               "pages": []
             },
             {
               "importedFileName": "aem_console_setup",
-              "path": "adobedocs/adobeio-events/stage/aem/aem_console_setup.md",
+              "path": "adobedocs/adobeio-events/master/aem/aem_console_setup.md",
               "title": "Add the I/O Events API to your Adobe developer console project",
               "pages": []
             }
@@ -68,13 +68,13 @@
         {
           "importedFileName": "analytics-triggers-event-setup",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/using/analytics-triggers-event-setup.md",
+          "path": "adobedocs/adobeio-events/master/using/analytics-triggers-event-setup.md",
           "title": "Integrate Analytics Triggers"
         },
         {
           "importedFileName": "cc-asset-event-setup",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/using/cc-asset-event-setup.md",
+          "path": "adobedocs/adobeio-events/master/using/cc-asset-event-setup.md",
           "title": "Creative Cloud Asset Events"
         },
         {
@@ -86,52 +86,52 @@
         {
           "importedFileName": "experience-platform-event-setup",
           "pages": [ ],
-          "path": "adobedocs/adobeio-events/stage/using/experience-platform-event-setup.md",
+          "path": "adobedocs/adobeio-events/master/using/experience-platform-event-setup.md",
           "title": "Adobe Experience Platform Events"
         },
         {
           "importedFileName": "privacy-event-setup",
           "pages": [ ],
-          "path": "adobedocs/adobeio-events/stage/using/privacy-event-setup.md",
+          "path": "adobedocs/adobeio-events/master/using/privacy-event-setup.md",
           "title": "Privacy Events"
         },
         {
           "importedFileName": "marketo-user-audit-data-stream-setup",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/using/marketo-user-audit-data-stream-setup.md",
+          "path": "adobedocs/adobeio-events/master/using/marketo-user-audit-data-stream-setup.md",
           "title": "Marketo User Audit Data Stream"
         }
       ],
-      "path": "adobedocs/adobeio-events/stage/using.md",
+      "path": "adobedocs/adobeio-events/master/using.md",
       "title": "Using Adobe I/O Events"
     },
     {
       "importedFileName": "custom_events",
-      "path": "adobedocs/adobeio-events/stage/custom_events.md",
+      "path": "adobedocs/adobeio-events/master/custom_events.md",
       "title": "Custom Events",
       "pages": [
         {
           "importedFileName": "overview",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/sdk/overview.md",
+          "path": "adobedocs/adobeio-events/master/sdk/overview.md",
           "title": "Events SDK Overview"
         },
         {
           "importedFileName": "getting-started",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/sdk/getting-started.md",
+          "path": "adobedocs/adobeio-events/master/sdk/getting-started.md",
           "title": "Getting started with Events SDK"
         },
         {
           "importedFileName": "event-matadata",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/sdk/event-metadata.md",
+          "path": "adobedocs/adobeio-events/master/sdk/event-metadata.md",
           "title": "Event Metadata"
         },
         {
           "importedFileName": "journaling",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/sdk/journaling.md",
+          "path": "adobedocs/adobeio-events/master/sdk/journaling.md",
           "title": "Journaling"
         },
         {
@@ -143,34 +143,34 @@
         {
           "importedFileName": "publish-events",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/sdk/publish-events.md",
+          "path": "adobedocs/adobeio-events/master/sdk/publish-events.md",
           "title": "Publish Events"
         },
         {
           "importedFileName": "signature-verification",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/sdk/signature-verification.md",
+          "path": "adobedocs/adobeio-events/master/sdk/signature-verification.md",
           "title": "Signature Verification"
         },
         {
           "importedFileName": "webhooks",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/sdk/webhooks.md",
+          "path": "adobedocs/adobeio-events/master/sdk/webhooks.md",
           "title": "Webhooks"
         },
         {
           "importedFileName": "events-api-overview",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/events-api-overview.md",
+          "path": "adobedocs/adobeio-events/master/events-api-overview.md",
           "title": "Adobe I/O Events API"
         },
         {
           "importedFileName": "events-plugin",
-          "path": "adobedocs/adobeio-events/stage/cli/events-plugin.md",
+          "path": "adobedocs/adobeio-events/master/cli/events-plugin.md",
           "title": "Events CLI Commands",
           "pages": [{
             "importedFileName": "template-generator",
-            "path": "adobedocs/adobeio-events/stage/cli/template-generator.md",
+            "path": "adobedocs/adobeio-events/master/cli/template-generator.md",
             "title": "Events Template Generator",
             "pages": []
           }]
@@ -182,13 +182,13 @@
       "pages": [{
           "importedFileName": "debug",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/support/debug.md",
+          "path": "adobedocs/adobeio-events/master/support/debug.md",
           "title": "Debugging"
         },
         {
           "importedFileName": "tracing",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/support/tracing.md",
+          "path": "adobedocs/adobeio-events/master/support/tracing.md",
           "title": "Tracing"
         },
         {
@@ -200,7 +200,7 @@
         {
           "importedFileName": "faq",
           "pages": [],
-          "path": "adobedocs/adobeio-events/stage/support/faq.md",
+          "path": "adobedocs/adobeio-events/master/support/faq.md",
           "title": "Frequently Asked Questions (FAQ)"
         },
         {
