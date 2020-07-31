@@ -14,6 +14,8 @@ Setting up an integration to subscribe to Adobe I/O Events is straightforward. T
 * [Cloud Manager Events](https://www.adobe.io/apis/experiencecloud/cloud-manager/docs.html#!AdobeDocs/cloudmanager-api-docs/master/create-event-integration.md)
 * [Adobe Experience Platform Events](using/experience-platform-event-setup.md)
 * [Privacy Events](using/privacy-event-setup.md)
+* [Marketo User Audit Data Stream](using/marketo-user-audit-data-stream-setup.md)
+
 
 <!-- - [Adobe Stock](using/adobe-stock-event-setup.md) -->
 
