@@ -4,7 +4,7 @@ These instructions describe how to set up Creative Cloud Asset events using Adob
 
 - [Introduction](#introduction)
 - [Access events](#access-events)
-- [Create an integration](#create-an-integration)
+- [Create a project in Adobe Developer Console](#create-a-project-in-adobe-developer-console)
 - [Receive events](#receive-events)
 - [Adobe Consent API](#adobe-consent-api)
 
