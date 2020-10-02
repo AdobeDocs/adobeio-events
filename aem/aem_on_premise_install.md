@@ -156,7 +156,7 @@ finally, to test our custom OSGI event type sample, you may use our custom OSGI 
 1. Select **Tools** in AEM and then select **Operations** and **Web Console**.
 2. In the **OSGI** menu, select **Configuration** and search for: **Adobe I/O Events Activate Health Check Feature Flag**.
 3. For **Adobe I/O Events Activate Health Check Feature Flag**, select **Edit**, check the **Enabled** checkbox and then click on **Save** button.
-<br>Once you are done with debugging and testing your configuration, we would advise you to disable the health checks again by following the same steps as above but unchecking the **Enabled** checkbox for **Adobe I/O Events Activate Health Check Feature Flag**.
+<br />Once you are done with debugging and testing your configuration, we would advise you to disable the health checks again by following the same steps as above but unchecking the **Enabled** checkbox for **Adobe I/O Events Activate Health Check Feature Flag**.
 
 If for some reason, your webhook is failing, note that the Adobe I/O console holds a **Debug Tracing** feature:
 It allows you to watch all the events payloads emitted by Adobe I/O towards your webhook and the associated webhook response.
