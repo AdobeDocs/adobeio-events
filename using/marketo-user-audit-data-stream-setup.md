@@ -1,7 +1,5 @@
 ## Setting up Marketo User Audit Data Stream with Adobe I/O Events
 
-*Note: Marketo User Audit Data Stream documentation is pre-Beta release and is subject to change*
-
 These instructions describe how to set up and get started using Adobe I/O Events for Marketo user driven change events.  You can use Adobe I/O for streaming Marketo user driven change events such as the modification of emails, campaigns, and landing pages.
 
 - [Introduction](#introduction)
@@ -197,22 +195,22 @@ user | ID of the user in Marketo who completed the action
 Component | Event Type List
 --- | ---
 Default Program | clone, create, delete, edit channel, export, modify program setup, modify program token, rename
-Email | approve, clone, create, delete, draftCreate, draftDiscard, edit, move, rename, unapprove
-Email Batch Program | abort, approve, childUpdate, clone, create, delete, edit, edit channel, modify program schedule, modify program setup, modify program token, rename, unapprove
+Email | approve, clone, create, delete, draftCreate, edit, move, rename, unapprove
+Email Batch Program | approve, childUpdate, clone, create, delete, edit, edit channel, modify program schedule, modify program setup, modify program token, rename, unapprove
 Email Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove
-Engagement Program | clone, create, delete, edit channel, export, modify program setup, modify program stream, modify program token, rename
-Event Program | clone, create, delete, edit channel, export, modify program schedule, modify program setup, modify program token, rename
+Engagement Program | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename
+Event Program | clone, create, delete, edit channel, modify program schedule, modify program setup, modify program token, rename
 Folder | create, delete, edit
-Form | approve, clone, create, delete, draftCreate, draftDiscard, edit, move, rename
-Landing Page | approve, clone, create, delete, draftCreate, draftDiscard, edit, move, rename, unapprove
+Form | approve, clone, create, delete, draftCreate, edit, move, rename
+Landing Page | approve, clone, create, delete, draftDiscard, edit, move, rename, unapprove
 Landing Page Template | approve, clone, create, delete, draftCreate, draftDiscard, edit, rename, unapprove
-List | clone, create, delete, export, rename
+List | clone, create, delete, rename
 Marketing Folder | create, delete, edit
-Nurture Program | clone, create, create program token, delete, edit, edit channel, modify program setup, modify program stream, modify program token, rename, update program token
-Segment | create, delete
-Segmentation | create, delete, draftCreated, draftDiscarded, rename, unapprove
-Smart Campaign | abort, activate, clone, create, deactivate, delete, edit, export, modify campaign schedule, modify flow step action, modify smart list setup, move, priority override, rename
-Smart List | clone, create, delete, edit, export, modify smartlist setup, rename
+Nurture Program | clone, create, delete, edit channel, modify program setup, modify program stream, modify program token, rename
+Segment | create, delete, edit, rename
+Segmentation | approve, create, delete, draftCreated, draftDiscarded, rename, unapprove
+Smart Campaign | activate, clone, create, deactivate, delete, edit, modify campaign schedule, modify flow step action, modify smart list setup, move, rename
+Smart List | clone, create, delete, edit, modify smartlist setup, rename
 Snippet | approve, approve with no-draft, clone, create, delete, edit, rename, unapprove
 
 ### Debug
