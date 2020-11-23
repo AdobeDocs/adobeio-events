@@ -39,18 +39,7 @@
           "importedFileName": "aem-event-setup",
           "path": "adobedocs/adobeio-events/stage/using/aem-event-setup.md",
           "title": "AEM Events",
-          "pages": [{
-            "importedFileName": "aem_on_premise_install",
-            "path": "adobedocs/adobeio-events/stage/aem/aem_on_premise_install.md",
-            "title": "'AEM on Premise' Events",
-            "pages": []
-            },
-            {
-              "importedFileName": "aem_skyline_install",
-              "path": "adobedocs/adobeio-events/stage/aem/aem_skyline_install.md",
-              "title": "'AEM as a Cloud' Service Events",
-              "pages": []
-            },
+          "pages": [
             {
               "importedFileName": "aem_keystore_setup",
               "path": "adobedocs/adobeio-events/stage/aem/aem_keystore_setup.md",
