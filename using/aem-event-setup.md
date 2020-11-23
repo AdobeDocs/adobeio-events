@@ -2,7 +2,8 @@
 
 # Setting up AEM Events with Adobe I/O Events
 
-These instructions describe how to set up Adobe Experience Manager (AEM) for Adobe I/O Events. You can use Adobe I/O for notification of AEM events, such as page or asset changes.
+These instructions describe how to set up Adobe Experience Manager (AEM) for Adobe I/O Events. 
+You can use Adobe I/O for notification of AEM events, such as page or asset changes.
 
 - [Introduction](#introduction)
 - [Setup Products](#setup-products)
@@ -18,13 +19,16 @@ These instructions describe how to set up Adobe Experience Manager (AEM) for Ado
 
 To complete this solution, you will need authorization to use the following services:
 
-*   An AEM instance, version 6.2.x, 6.3.x, 6.4.x or 6.5.x with administrative permissions. (**Note:** AEM screens in this topic are captured from version 6.3.)
+*   An AEM instance with administrative permissions. 
 *   [Adobe I/O Console](https://adobe.io/console) access, with administrative permissions for your enterprise organization.
 
 
 ## Setup Products
 
-* [Integrate with `AEM On Premise`](../aem/aem_on_premise_install.md) version 6.2.x, 6.3.x, 6.4.x or 6.5.x
+* Integrate with `AEM On Premise`
+  * [AEM version 6.2.x, 6.3.x](../aem/aem_on_premise_install_6.3.md), 
+  * [AEM version 6.4.x](../aem/aem_on_premise_install_6.4.md), 
+  * [AEM version 6.5.x](../aem/aem_on_premise_install_6.5.md)
 * [Integrate with `AEM As a Cloud Service` ](../aem/aem_skyline_install.md)
 
 ## Use Adobe I/O
