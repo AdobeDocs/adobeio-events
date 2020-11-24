@@ -28,7 +28,7 @@ For more information on installing packages in AEM, see [How to Work with Packag
 
 #### Additional package installation notes:
 
-1. If you are upgrading the package, delete the previous .jar file from the following location: **`/apps/eventproxy/install`**
+1. If you are upgrading the package, delete the previous .jar file from the following location: **`/apps/eventproxy`**
 
 2. Verify that the Access Control Handling is properly applied by checking permissions for the `eventproxy-service` user at **/useradmin**.
 If applied correctly, the `eventproxy-service` user is added to the following:
