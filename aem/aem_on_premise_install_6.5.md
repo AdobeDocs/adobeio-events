@@ -4,9 +4,9 @@
 This documentation is specific to `AEM on premise` version 6.5.x, 
 to integrate with `AEM as cloud service`, please refer to our [`AEM as cloud service` documentation](aem_skyline_install.md).
 
-To install and configure the AEM event proxy package on version 6.5.x:
+To install and configure the Adobe I/O Events package on `AEM on premise` version 6.5.x:
 
-1. Download the latest version of the package [version 6.5.6](https://github.com/AdobeDocs/adobeio-events/files/3729022/aem-event-proxy-6.5.6.zip) 
+1. Download the [latest version of the package](https://github.com/AdobeDocs/adobeio-events/releases/tag/2020_07_20_13_00)
 2. [Install this package](aem_on_premise_package_install.md)
 3. Configure the [`AEM Link Externalizer`](aem_on_premise_link_externalizer.md)
 4. Configure Adobe I/O Credentials
