@@ -33,12 +33,13 @@ see our [AEM keystore setup documentation](aem_keystore_setup.md).
    ![Save `I/O Events API`](../img/save_io_events_api.png "Save `I/O Events API`")
 
 6. **Repeat steps 1, 2, 3 and 4,  this time adding the `I/O Management API`.**
-7. 5. You should now see `I/O Events` as well as `I/O Management API` in your API list. 
+7. Done ! You should now see `I/O Events` as well as `I/O Management API` in your API list. 
 
 
 ### Bookmark your workspace
  
-Bookmark this Adobe developer console workspace, as you might need to come back to it more than once, to fine tune or trouble shoot your configurations.
+Bookmark this Adobe I/O developer console workspace, as you might need to come back to it more than once, 
+to fine tune or troubleshoot your configurations.
 
 
 ### Add this Adobe I/O Workspace as AEM OSGI configuration 
