@@ -32,16 +32,21 @@ see our [AEM keystore setup documentation](aem_keystore_setup.md).
 
    ![Save `I/O Events API`](../img/save_io_events_api.png "Save `I/O Events API`")
 
-5. Done ! You should now see `I/O Events` in your API list:
+6. **Repeat steps 1, 2, 3 and 4,  this time adding the `I/O Management API`.**
+7. 5. You should now see `I/O Events` as well as `I/O Management API` in your API list. 
 
 
-**Repeat the same steps in order to add the `I/O Management API`.**
+### Bookmark your workspace
+ 
+Bookmark this Adobe developer console workspace, as you might need to come back to it more than once, to fine tune or trouble shoot your configurations.
 
 
-### Add this Adobe I/O Workspace as AEM OSGI configuration (`on-premise version 6.5.x` and `Cloud Service only ) 
+### Add this Adobe I/O Workspace as AEM OSGI configuration 
 
-This workspace configuration will be used by AEM (on-premise version 6.5.x and Cloud Service) 
-to self-register as Adobe I/O Events provider. So we need to set it in AEM, to do that:
+**These extra configuration steps are needed only for `AEM on-premise version 6.5.x` and `AEM as a Cloud Service`.**
+
+This workspace you just created will indeed be used by AEM to self-register as a new Adobe I/O Events provider. 
+For that we need to set its identifiers in AEM, to do that:
 
 In to the `project overview` tab of  workspace, click on the `Download` button: to get all the various credentials as well as `project`, `org` and `workspace` 
 identifier associated with your project.
@@ -67,10 +72,4 @@ here is a sample file :
       workspaceId="7894566206088344506264"
     >
     </jcr:root>
-
-
-### Bookmark your workspace
- 
-Bookmark this Adobe developer console workspace, as you might need to come back to it more than once, to fine tune or trouble shoot your configurations.
-
 
