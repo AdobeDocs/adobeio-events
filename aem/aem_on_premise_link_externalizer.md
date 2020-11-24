@@ -1,14 +1,13 @@
 
 ### `AEM Link Externalizer` Configuration
 
-The AEM Link Externalizer `author` value is used by default by Adobe I/O Events 
-as a unique identifier of the AEM author host withing an IMS organization.
+The AEM Link Externalizer `author` url is used by default by Adobe I/O Events 
+to create a unique identifier of the associated AEM author instance/cluster within an IMS organization.
 
-For `AEM as a Cloud Service` cluster this configuration is not needed, 
-as the AEM Link Externalizer is already set by for you by the cloud manager.
+For `AEM as a Cloud Service` this configuration is not needed, 
+as the AEM Link Externalizer is already set for you by the Adobe `cloudmanager`.
 
-However for `on premise` AEM, you need to make sure the AEM Link Externalizer is properly configured:
-
+However, for `on premise` version of AEM, you need to make sure the AEM Link Externalizer is properly configured:
 * Open the Web Console, or select the **Tools** icon, then select **Operations** and **Web Console**.
 * Scroll down the list to find **Day CQ Link Externalizer**, update the `author` url, and select **Save** when done.
 
