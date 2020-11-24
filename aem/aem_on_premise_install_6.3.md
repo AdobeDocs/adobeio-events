@@ -8,7 +8,7 @@ Note we strongly recommend you go through an upgrade and instead use either
 This documentation below is specific to `AEM on premise` version 6.3.x (and 6.2.x).
 
 1. Download the latest version of the package [version 6.3.16](https://github.com/adobeio/adobeio-documentation/files/2649329/aem-event-proxy-6.3.16.zip) 
-2. [Install the package](aem_skyline_package_install.md)
+2. [Install this package](aem_on_premise_package_install.md)
 3. Configure the [`AEM Link Externalizer`](aem_on_premise_link_externalizer.md)
 4. Configure Adobe I/O Credentials
    1. [configure the Adobe I/O Events user keystore in AEM](aem_keystore_setup.md) 

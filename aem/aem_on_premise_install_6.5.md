@@ -7,7 +7,7 @@ to integrate with `AEM as cloud service`, please refer to our [`AEM as cloud ser
 To install and configure the AEM event proxy package on version 6.5.x:
 
 1. Download the latest version of the package [version 6.5.6](https://github.com/AdobeDocs/adobeio-events/files/3729022/aem-event-proxy-6.5.6.zip) 
-2. [Install this package](aem_skyline_package_install.md)
+2. [Install this package](aem_on_premise_package_install.md)
 3. Configure the [`AEM Link Externalizer`](aem_on_premise_link_externalizer.md)
 4. Configure Adobe I/O Credentials
    1. [set up your service user keystore in AEM](aem_keystore_setup.md) 
