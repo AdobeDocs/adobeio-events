@@ -13,7 +13,7 @@ For each of these you can edit:
 * The OSGI Event Handler Type (use the default `com.day.cq.dam.eventproxy.service.impl.listener.AdobeIoEventHandler` to map any custom OSGI event): `osgiEventHandlerClassName`
 * The Adobe I/O XDM Event Type to map to the OSGI event: again, use the default (`com.adobe.xdm.event.OsgiEmittedEvent`) to map your custom OSGI events: `adobeIoXdmEventClassName`
 * The Adobe I/O Event Code (unique to your event provider; in other words, unique to your AEM instance/cluster): `adobeIoEventCode`
-* The Adobe I/O Event Label as it will appear on the Adobe I/O Console: `adobeIoEventLabel`
+* The Adobe I/O Event Label as it will appear on the Adobe I/O developer Console: `adobeIoEventLabel`
 
 The various OSGI event handlers will intercept the events according to these values and then map these OSGI events to the Adobe I/O Event Model before forwarding them to Adobe I/O.
 

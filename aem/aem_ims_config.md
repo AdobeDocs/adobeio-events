@@ -24,14 +24,14 @@ Once the above is complete:
     ![Adobe IMS Configuration Creation](../img/events_aem_adobe-ims-conf-2.png "Adobe IMS Configuration Creation")
 
 3. Fill in the various entries expected to configure the IMS account associated with the integration
- you just [created in the Adobe I/O Console](aem_console_setup.md):
+ you just [created in the Adobe I/O developer Console](aem_console_setup.md):
      * For **Title**: specify **Adobe IO Events** (or any other title that makes sense to you).
-     * For **Authorization Server**: it should be `https://ims-na1.adobelogin.com` (unless the URL shown in the **JWT** tab of your integration page in the Adobe I/O Console is different),
-     * For **API key**: Provide the API key available in the `Credentials details` tab of your credentials `Service Account (JWT)` page in your Adobe I/O Console workspace
-     * For **Client Secret**: Provide the Client Secret available in the `Credentials details` tab of your credentials `Service Account (JWT)` page in your Adobe I/O Console workspace
-     * For **Payload**: Provide the JWT payload available in the `Generate JWT` tab of your credentials `Service Account (JWT)` page in your Adobe I/O Console workspace
+     * For **Authorization Server**: it should be `https://ims-na1.adobelogin.com` (unless the URL shown in the **JWT** tab of your integration page in the Adobe I/O developer Console is different),
+     * For **API key**: Provide the API key available in the `Credentials details` tab of your credentials `Service Account (JWT)` page in your Adobe I/O developer Console workspace
+     * For **Client Secret**: Provide the Client Secret available in the `Credentials details` tab of your credentials `Service Account (JWT)` page in your Adobe I/O developer Console workspace
+     * For **Payload**: Provide the JWT payload available in the `Generate JWT` tab of your credentials `Service Account (JWT)` page in your Adobe I/O developer Console workspace
   
-   ![Adobe I/O Console Generate JWT tab](../img/console_generate_jwt_tab.png "Adobe I/O Console Generate JWT tab")
+   ![Adobe I/O developer Console Generate JWT tab](../img/console_generate_jwt_tab.png "Adobe I/O developer Console Generate JWT tab")
 
 4. Click **Create**
 
