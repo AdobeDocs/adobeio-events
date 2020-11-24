@@ -68,6 +68,8 @@ To add the certificate into the AEM `eventproxy-service` user&rsquo;s keystore:
 
       ![keystore management](../img/events_aem_10.png)
       
+8. Click **Save and Close**  on the top right corner of the screen
+      
       
       
       
