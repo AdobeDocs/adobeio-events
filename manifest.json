@@ -9,9 +9,11 @@
   "publish_date": "22/03/2018",
   "show_edit_github_banner": false,
   "base_path": "https://raw.githubusercontent.com",
-  "pages": [{
+  "pages": [
+    {
       "importedFileName": "readme",
-      "pages": [{
+      "pages": [
+        {
           "importedFileName": "webhook-docs-intro",
           "pages": [],
           "path": "adobedocs/adobeio-events/master/intro/webhook_docs_intro.md",
@@ -35,11 +37,36 @@
     },
     {
       "importedFileName": "using",
-      "pages": [{
+      "pages": [
+        {
           "importedFileName": "aem-event-setup",
           "path": "adobedocs/adobeio-events/master/using/aem-event-setup.md",
           "title": "AEM Events",
           "pages": [
+            {
+              "importedFileName": "aem_on_premise_install_6.3",
+              "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_install_6.3.md",
+              "title": "'AEM 6.2.x & 6.3.x on Premise' Events",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_on_premise_install_6.4",
+              "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_install_6.4.md",
+              "title": "'AEM 6.4.x on Premise' Events",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_on_premise_install_6.5",
+              "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_install_6.5.md",
+              "title": "'AEM 6.5.x on Premise' Events",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_skyline_install",
+              "path": "adobedocs/adobeio-events/master/aem/aem_skyline_install.md",
+              "title": "'AEM as a Cloud Service' Events",
+              "pages": []
+            },
             {
               "importedFileName": "aem_keystore_setup",
               "path": "adobedocs/adobeio-events/master/aem/aem_keystore_setup.md",
@@ -50,6 +77,42 @@
               "importedFileName": "aem_console_setup",
               "path": "adobedocs/adobeio-events/master/aem/aem_console_setup.md",
               "title": "Add the I/O Events API to your Adobe developer console project",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_ims_config",
+              "path": "adobedocs/adobeio-events/master/aem/aem_ims_config.md",
+              "title": "AEM (6.4.x and above) Adobe IMS configuration",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_cloud_service_config",
+              "path": "adobedocs/adobeio-events/master/aem/aem_cloud_service_config.md",
+              "title": "AEM 6.3 and prior `Cloud Services` configuration",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_advanced_configurations",
+              "path": "adobedocs/adobeio-events/master/aem/aem_advanced_configurations.md",
+              "title": "AEM - Adobe I/O Events - advanced configurations",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_on_premise_healthcheck",
+              "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_healthcheck.md",
+              "title": "Adobe I/O Events Sling Health Checks",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_on_premise_link_externalizer",
+              "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_link_externalizer.md",
+              "title": "`AEM Link Externalizer` Configuration",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_on_premise_package_install",
+              "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_package_install.md",
+              "title": "Install the AEM (on-premise) event proxy package",
               "pages": []
             }
           ]
@@ -74,13 +137,13 @@
         },
         {
           "importedFileName": "experience-platform-event-setup",
-          "pages": [ ],
+          "pages": [],
           "path": "adobedocs/adobeio-events/master/using/experience-platform-event-setup.md",
           "title": "Adobe Experience Platform Events"
         },
         {
           "importedFileName": "privacy-event-setup",
-          "pages": [ ],
+          "pages": [],
           "path": "adobedocs/adobeio-events/master/using/privacy-event-setup.md",
           "title": "Privacy Events"
         },
@@ -157,18 +220,21 @@
           "importedFileName": "events-plugin",
           "path": "adobedocs/adobeio-events/master/cli/events-plugin.md",
           "title": "Events CLI Commands",
-          "pages": [{
-            "importedFileName": "template-generator",
-            "path": "adobedocs/adobeio-events/master/cli/template-generator.md",
-            "title": "Events Template Generator",
-            "pages": []
-          }]
+          "pages": [
+            {
+              "importedFileName": "template-generator",
+              "path": "adobedocs/adobeio-events/master/cli/template-generator.md",
+              "title": "Events Template Generator",
+              "pages": []
+            }
+          ]
         }
       ]
     },
     {
       "importedFileName": "support",
-      "pages": [{
+      "pages": [
+        {
           "importedFileName": "debug",
           "pages": [],
           "path": "adobedocs/adobeio-events/master/support/debug.md",
