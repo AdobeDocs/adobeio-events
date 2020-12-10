@@ -1,6 +1,6 @@
 
 
-### Install the AEM event proxy package
+### Install the AEM (on-premise) event proxy package
 
 To install the AEM event proxy package:
    
