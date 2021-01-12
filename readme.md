@@ -24,8 +24,14 @@ To work with events for Adobe Experience Platform and related Platform services,
 ## Get Started
 - [Webhook Introduction](intro/webhook_docs_intro.md)
     - [Sample Webhook in Node.js](https://github.com/adobeio/io-event-sample-webhook)
-
 - Discover the [available events](using/using.md)
-- Use our [API](api/api.md)
+- Refer to the Adobe I/O Developer Console documentation on how to [Add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md)
+
+## Go Further
+- Automate your Adobe I/O Events integrations, using 
+  * [Adobe I/O Events API](api/api.md)  
+  * [Adobe I/O Events CLI](cli/cli.md) 
+  * [Adobe I/O Events SDK](sdk/sdk.md) 
+
 - [Ask questions, report bugs, make feature requests, and spark discussions](support/support.md).
 
