@@ -114,6 +114,12 @@
               "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_package_install.md",
               "title": "Install the AEM (on-premise) event proxy package",
               "pages": []
+            },
+            {
+              "importedFileName": "aem_faq",
+              "path": "adobedocs/adobeio-events/master/aem/aem_faq.md",
+              "title": "Frequently Asked Questions (FAQ)",
+              "pages": []
             }
           ]
         },
