@@ -225,12 +225,6 @@
           "title": "Webhooks"
         },
         {
-          "importedFileName": "events-api-overview",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/events-api-overview.md",
-          "title": "Adobe I/O Events API"
-        },
-        {
           "importedFileName": "events-plugin",
           "path": "adobedocs/adobeio-events/master/cli/events-plugin.md",
           "title": "Events CLI Commands",
