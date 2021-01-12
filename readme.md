@@ -26,5 +26,6 @@ To work with events for Adobe Experience Platform and related Platform services,
     - [Sample Webhook in Node.js](https://github.com/adobeio/io-event-sample-webhook)
 
 - Discover the [available events](using.md)
+- Use our [API](api/api.md)
 - [Ask questions, report bugs, make feature requests, and spark discussions](support.md).
 
