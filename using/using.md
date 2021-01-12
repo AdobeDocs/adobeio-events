@@ -9,7 +9,7 @@ Setting up an integration to subscribe to Adobe I/O Events is straightforward. T
 * [Adobe Experience Platform Events](experience-platform-event-setup.md)
 * [Privacy Events](privacy-event-setup.md)
 * [Marketo User Audit Data Stream](marketo-user-audit-data-stream-setup.md)
-
+* [Your Own Custom Events Provider](custom_events.md)
 
 <!-- - [Adobe Stock](using/adobe-stock-event-setup.md) -->
 
