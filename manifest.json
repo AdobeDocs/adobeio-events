@@ -175,6 +175,12 @@
           "title": "Journaling API"
         },
         {
+          "importedFileName": "provider_api",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/api/provider_api.md",
+          "title": "Provider API"
+        },
+        {
           "importedFileName": "registration_api",
           "pages": [],
           "path": "adobedocs/adobeio-events/master/support/registration_api.md",

@@ -1,8 +1,7 @@
 <!--:navorder: 3-->
 
-# Journaling API
+# Adobe I/O Events Journaling API
 
-- [Journaling API](#journaling-api)
   - [What is a Journal](#what-is-a-journal)
   - [Fetching events from the journaling API](#fetching-events-from-the-journaling-api)
     - [Finding the journaling endpoint URL](#finding-the-journaling-endpoint-url)
@@ -19,7 +18,7 @@
     - [No Events in Journal](#no-events-in-journal)
 
 
-## About the Journal
+## What is a Journal
 
 A Journal, is an ordered list of events - much like a ledger or a log where new entries (events) are added to the end of the ledger and the ledger keeps growing. 
 Your application can start reading the ledger from any position and then continue reading "newer" entries (events) in the ledger, much like turning pages forward.
