@@ -12,6 +12,8 @@
   "pages": [
     {
       "importedFileName": "readme",
+      "path": "adobedocs/adobeio-events/master/readme.md",
+      "title": "Getting Started",
       "pages": [
         {
           "importedFileName": "webhook-docs-intro",
@@ -19,12 +21,12 @@
           "path": "adobedocs/adobeio-events/master/intro/webhook_docs_intro.md",
           "title": "Introduction to Webhooks"
         }
-      ],
-      "path": "adobedocs/adobeio-events/master/readme.md",
-      "title": "Getting Started"
+      ]
     },
     {
       "importedFileName": "using",
+      "path": "adobedocs/adobeio-events/master/using/using.md",
+      "title": "Using Adobe I/O Events",
       "pages": [
         {
           "importedFileName": "aem-event-setup",
@@ -147,12 +149,12 @@
           "path": "adobedocs/adobeio-events/master/using/marketo-user-audit-data-stream-setup.md",
           "title": "Marketo User Audit Data Stream"
         }
-      ],
-      "path": "adobedocs/adobeio-events/master/using/using.md",
-      "title": "Using Adobe I/O Events"
+      ]
     },
     {
       "importedFileName": "api",
+      "path": "adobedocs/adobeio-events/master/api/api.md",
+      "title": "API",
       "pages": [
         {
           "importedFileName": "journaling_api",
@@ -166,11 +168,21 @@
           "path": "adobedocs/adobeio-events/master/support/registration_api.md",
           "title": "Registration API"
         }
-      ],
-      "path": "adobedocs/adobeio-events/master/api/api.md",
-      "title": "API"
+      ]
     },
-
+    {
+      "importedFileName": "cli",
+      "path": "adobedocs/adobeio-events/master/cli/cli.md",
+      "title": "CLI",
+      "pages": [
+            {
+              "importedFileName": "template-generator",
+              "path": "adobedocs/adobeio-events/master/cli/template-generator.md",
+              "title": "Events Template Generator",
+              "pages": []
+            }
+          ]
+    },
     {
       "importedFileName": "custom_events",
       "path": "adobedocs/adobeio-events/master/custom_events.md",
@@ -223,24 +235,13 @@
           "pages": [],
           "path": "adobedocs/adobeio-events/master/sdk/webhooks.md",
           "title": "Webhooks"
-        },
-        {
-          "importedFileName": "events-plugin",
-          "path": "adobedocs/adobeio-events/master/cli/events-plugin.md",
-          "title": "Events CLI Commands",
-          "pages": [
-            {
-              "importedFileName": "template-generator",
-              "path": "adobedocs/adobeio-events/master/cli/template-generator.md",
-              "title": "Events Template Generator",
-              "pages": []
-            }
-          ]
         }
       ]
     },
     {
       "importedFileName": "support",
+      "path": "adobedocs/adobeio-events/master/support/support.md",
+      "title": "Support",
       "pages": [
         {
           "importedFileName": "debug",
@@ -266,9 +267,7 @@
           "path": "adobedocs/adobeio-events/master/support/faq.md",
           "title": "Frequently Asked Questions (FAQ)"
         }
-      ],
-      "path": "adobedocs/adobeio-events/master/support/support.md",
-      "title": "Support"
+      ]
     }
   ]
 }
