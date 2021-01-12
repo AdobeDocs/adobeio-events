@@ -27,14 +27,15 @@ To work with events for Adobe Experience Platform and related Platform services,
 - [Adobe I/O Management API for Events](intro/events-api.md)
 - [Journaling API](intro/journaling_api.md)
 
-## Get Started with Available Events
+## Available Events
 - Creative Cloud Events
     - [Creative Cloud Asset Events](using/cc-asset-event-setup.md)
 - Experience Cloud Events
-    - [Adobe Experience Manager Events](using/aem-event-setup.md)
+    - [AEM Events](using/aem-event-setup.md)
     - [Analytics Triggers Events (Private beta)](using/analytics-triggers-event-setup.md)
 - [Experience Platform Events](using/experience-platform-event-setup.md)
     - [Privacy Events](using/privacy-event-setup.md)
+- and more    
 
 ## Support
 - [Debugging Common Issues](support/debug.md)
@@ -42,4 +43,3 @@ To work with events for Adobe Experience Platform and related Platform services,
 - [Forums](https://forums.adobe.com/community/adobe-io/adobe-io-events)
 - [FAQ](support/faq.md)
 - [Forums](https://forums.adobe.com/community/adobe-io/adobe-io-events)
-- [Release Notes](support/release_notes.md)
