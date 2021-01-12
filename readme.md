@@ -21,25 +21,10 @@ To work with events for Adobe services in Experience Cloud, you would need to ha
 **Experience Platform Events**
 To work with events for Adobe Experience Platform and related Platform services, as well as to create integrations, you will require the appropriate permissions and access to Experience Platform from your organization.
 
-## Key Concepts
+## Get Started
 - [Webhook Introduction](intro/webhook_docs_intro.md)
     - [Sample Webhook in Node.js](https://github.com/adobeio/io-event-sample-webhook)
-- [Adobe I/O Management API for Events](intro/events-api.md)
-- [Journaling API](intro/journaling_api.md)
 
-## Available Events
-- Creative Cloud Events
-    - [Creative Cloud Asset Events](using/cc-asset-event-setup.md)
-- Experience Cloud Events
-    - [AEM Events](using/aem-event-setup.md)
-    - [Analytics Triggers Events (Private beta)](using/analytics-triggers-event-setup.md)
-- [Experience Platform Events](using/experience-platform-event-setup.md)
-    - [Privacy Events](using/privacy-event-setup.md)
-- and more    
+- Discover the [available events](using.md)
+- [Ask questions, report bugs, make feature requests, and spark discussions](support.md).
 
-## Support
-- [Debugging Common Issues](support/debug.md)
-- [Tracing](support/tracing.md)
-- [Forums](https://forums.adobe.com/community/adobe-io/adobe-io-events)
-- [FAQ](support/faq.md)
-- [Forums](https://forums.adobe.com/community/adobe-io/adobe-io-events)

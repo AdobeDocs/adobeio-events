@@ -34,6 +34,6 @@ To complete this solution, you will need authorization to use the following serv
 ## Use Adobe I/O
 
 Once the above is done, you are ready to register a new [webhook](../intro/webhook_docs_intro.md) 
-or to start pulling events from this new source using the [journaling API](../intro/journaling_api.md).
+or to start pulling events from this new source using the [journaling API](../api/journaling_api.md).
 
 

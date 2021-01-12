@@ -173,7 +173,7 @@ In general, Adobe I/O Events will always confirm that your webhook received an e
 
 Once five retries are attempted, Adobe sends one last challenge request, and if that fails, Adobe marks the webhook as invalid and stops sending requests. 
 
-To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, you must log into Adobe Developer Console and reactivate the webhook. While your webhook is marked **Disabled**, Adobe will continue to log events, even though it isn&rsquo;t sending them. You can retrieve all of your events for the past 30 days using the [Journaling API](../intro/journaling_api.md) and the Journaling unique API endpoint provided in the Registration Details in Console.
+To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, you must log into Adobe Developer Console and reactivate the webhook. While your webhook is marked **Disabled**, Adobe will continue to log events, even though it isn&rsquo;t sending them. You can retrieve all of your events for the past 30 days using the [Journaling API](../api/journaling_api.md) and the Journaling unique API endpoint provided in the Registration Details in Console.
     
 ## Receiving events
 
