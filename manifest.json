@@ -118,7 +118,7 @@
             {
               "importedFileName": "aem_faq",
               "path": "adobedocs/adobeio-events/master/aem/aem_faq.md",
-              "title": "Frequently Asked Questions (FAQ)",
+              "title": "AEM FAQ",
               "pages": []
             }
           ]
@@ -263,12 +263,6 @@
           "pages": [],
           "path": "adobedocs/adobeio-events/master/support/faq.md",
           "title": "Frequently Asked Questions (FAQ)"
-        },
-        {
-          "importedFileName": "release_notes",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/support/release_notes.md",
-          "title": "Release Notes"
         }
       ],
       "path": "adobedocs/adobeio-events/master/support.md",
