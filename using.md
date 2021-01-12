@@ -1,11 +1,5 @@
 # Using Adobe I/O Events
 
-<!--  commenting out; this is redundant with webhooks intro
-## Trying your first Adobe I/O Event
-For your first Adobe I/O event, try using Creative Cloud Assets. 
-* copy TK *
- -->
-
 Setting up an integration to subscribe to Adobe I/O Events is straightforward. The following pages guide you through setting up and using Adobe I/O Events with various Adobe solutions.
 
 * [Adobe Experience Manager (AEM) Events](using/aem-event-setup.md)  

@@ -164,6 +164,26 @@
       "title": "Using Adobe I/O Events"
     },
     {
+      "importedFileName": "api",
+      "pages": [
+        {
+          "importedFileName": "journaling_api",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/api/journaling_api.md",
+          "title": "Journaling API"
+        },
+        {
+          "importedFileName": "registration_api",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/support/registration_api.md",
+          "title": "Registration API"
+        }
+      ],
+      "path": "adobedocs/adobeio-events/master/api.md",
+      "title": "API"
+    },
+
+    {
       "importedFileName": "custom_events",
       "path": "adobedocs/adobeio-events/master/custom_events.md",
       "title": "Custom Events",
