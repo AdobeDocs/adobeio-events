@@ -18,18 +18,6 @@
           "pages": [],
           "path": "adobedocs/adobeio-events/master/intro/webhook_docs_intro.md",
           "title": "Introduction to Webhooks"
-        },
-        {
-          "importedFileName": "events-api",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/intro/events-api.md",
-          "title": "Working with Events Using Management API"
-        },
-        {
-          "importedFileName": "journaling_api",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/intro/journaling_api.md",
-          "title": "Journaling API"
         }
       ],
       "path": "adobedocs/adobeio-events/master/readme.md",
