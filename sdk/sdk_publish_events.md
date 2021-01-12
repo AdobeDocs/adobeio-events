@@ -2,7 +2,7 @@
 
 Event publishers can publish events to the event receiver using the ADobe I/O Events SDK. 
 
-For information on installing and using the SDK, please begin by reading the [getting started guide](getting-started.md).
+For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
 
 #### Method
 

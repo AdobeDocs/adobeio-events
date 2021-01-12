@@ -26,4 +26,4 @@ Use of the SDK can be broken down into two general components:
 
 ## Next Steps
 
-To begin working with the I/O Events SDK, read the [getting started guide](getting-started.md).
+To begin working with the I/O Events SDK, read the [getting started guide](sdk_getting_started.md).

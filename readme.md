@@ -15,8 +15,8 @@ Whenever a matching event gets triggered, your application is notified.
 * For **Experience Platform Events**: same as above, you will require the appropriate permissions and access to Experience Platform from your organization.
 
 ## Getting Started
-- [Introduction to Webhooks](intro/webhooks.md)
-- [Introduction to Journaling](intro/journaling.md)   
+- [Introduction to Webhooks](intro/webhooks_intro.md)
+- [Introduction to Journaling](intro/journaling_intro.md)   
    
 - Jump to the Adobe I/O Developer Console documentation to learn how to [add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) 
 - Discover the [available events](using/using.md)

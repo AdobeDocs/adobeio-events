@@ -16,14 +16,14 @@
       "title": "Getting Started",
       "pages": [
         {
-          "importedFileName": "webhooks",
-          "path": "adobedocs/adobeio-events/master/intro/webhooks.md",
+          "importedFileName": "webhooks_intro",
+          "path": "adobedocs/adobeio-events/master/intro/webhooks_intro.md",
           "title": "Introduction to Webhooks",
           "pages": []
         },
         {
-          "importedFileName": "journaling",
-          "path": "adobedocs/adobeio-events/master/intro/journaling.md",
+          "importedFileName": "journaling_intro",
+          "path": "adobedocs/adobeio-events/master/intro/journaling_intro.md",
           "title": "Introduction to Journaling",
           "pages": []
         }
@@ -194,8 +194,8 @@
       "title": "CLI",
       "pages": [
             {
-              "importedFileName": "template-generator",
-              "path": "adobedocs/adobeio-events/master/cli/template-generator.md",
+              "importedFileName": "template_generator_cli",
+              "path": "adobedocs/adobeio-events/master/cli/template_generator_cli.md",
               "title": "Events Template Generator",
               "pages": []
             }
@@ -207,45 +207,45 @@
       "title": "SDK",
       "pages": [
         {
-          "importedFileName": "getting-started",
+          "importedFileName": "sdk_getting_started",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/getting-started.md",
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_getting_started.md",
           "title": "Getting started with Events SDK"
         },
         {
-          "importedFileName": "event-matadata",
+          "importedFileName": "sdk_event_matadata",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/event-metadata.md",
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_event_matadata.md",
           "title": "Event Metadata"
         },
         {
-          "importedFileName": "journaling",
+          "importedFileName": "sdk_journaling",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/journaling.md",
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_journaling.md",
           "title": "Journaling"
         },
         {
-          "importedFileName": "providers",
+          "importedFileName": "sdk_providers",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/providers.md",
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_providers.md",
           "title": "Providers"
         },
         {
-          "importedFileName": "publish-events",
+          "importedFileName": "sdk_publish_events",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/publish-events.md",
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_publish_events.md",
           "title": "Publish Events"
         },
         {
-          "importedFileName": "signature-verification",
+          "importedFileName": "sdk_signature_verification",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/signature-verification.md",
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_signature_verification.md",
           "title": "Signature Verification"
         },
         {
-          "importedFileName": "webhooks",
+          "importedFileName": "sdk_webhooks",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/webhooks.md",
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_webhooks.md",
           "title": "Webhooks"
         }
       ]
