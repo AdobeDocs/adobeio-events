@@ -95,6 +95,8 @@ For production, your webhook needs to:
 - Be reachable over HTTPS
 - Correctly respond to a "challenge" request
 
+You may reuse/fork our [Sample Webhook in Node.js](https://github.com/adobeio/io-event-sample-webhook)
+
 ### The challenge request
 
 When registering a webhook, Adobe I/O Events will first try to verify that the URL is valid. To do this, it sends an HTTP GET request, with a `challenge` query parameter. The webhook should respond with a body containing the value of the `challenge` query parameter.
