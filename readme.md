@@ -10,24 +10,18 @@ To start listening for events, register you application, specifying which **Even
 Whenever a matching event gets triggered, your application is notified.
 
 ## Prerequisites
+* For **Creative Cloud Events**: you would need an active Adobe ID.
+* For **Experience Cloud Events**: you would need to have entitlements for Adobe services in Experience Cloud in your organization, and administrative permission for your org to create integrations.
+* For **Experience Platform Events**: same as above, you will require the appropriate permissions and access to Experience Platform from your organization.
 
-**Creative Cloud Events**
-To work with Creative Cloud Events, you would need an active Adobe ID.
-
-**Experience Cloud Events**
-To work with events for Adobe services in Experience Cloud, you would need to have corresponding entitlements for this Adobe service in your organization, and administrative permission for your org to create integrations.
-
-**Experience Platform Events**
-To work with events for Adobe Experience Platform and related Platform services, as well as to create integrations, you will require the appropriate permissions and access to Experience Platform from your organization.
-
-## Get Started
+## Getting Started
 - [Introduction to Webhooks](intro/webhooks.md)
 - [Introduction to Journaling](intro/journaling.md)   
    
 - Jump to the Adobe I/O Developer Console documentation to learn how to [add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) 
 - Discover the [available events](using/using.md)
 
-## Go Further
+## Going Further
 - Automate your Adobe I/O Events integrations, using 
   * [Adobe I/O Events API](api/api.md)  
   * [Adobe I/O Events CLI](cli/cli.md) 
