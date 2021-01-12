@@ -148,6 +148,12 @@
           "pages": [],
           "path": "adobedocs/adobeio-events/master/using/marketo-user-audit-data-stream-setup.md",
           "title": "Marketo User Audit Data Stream"
+        },
+        {
+          "importedFileName": "custom_events",
+          "path": "adobedocs/adobeio-events/master/using/custom_events.md",
+          "title": "Custom Events",
+          "pages": []
         }
       ]
     },
@@ -184,16 +190,10 @@
           ]
     },
     {
-      "importedFileName": "custom_events",
-      "path": "adobedocs/adobeio-events/master/custom_events.md",
-      "title": "Custom Events",
+      "importedFileName": "sdk",
+      "path": "adobedocs/adobeio-events/master/sdk/sdk.md",
+      "title": "SDK",
       "pages": [
-        {
-          "importedFileName": "overview",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/overview.md",
-          "title": "Events SDK Overview"
-        },
         {
           "importedFileName": "getting-started",
           "pages": [],
