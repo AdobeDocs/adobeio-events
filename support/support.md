@@ -4,15 +4,15 @@
 
 Learn where to ask questions, report bugs, make feature requests, and spark discussions.
 
-## [Debugging Common Issues](support/debug.md)
+## [Debugging Common Issues](debug.md)
 
 Learn how to debug and troubleshoot the most common scenarios that you may encounter.
 
-## [Debug Tracing](support/tracing.md)
+## [Debug Tracing](tracing.md)
 
 Learn how to use debug tracing to inspect event request and response activity.
 
-## [FAQ](support/faq.md)
+## [FAQ](faq.md)
 
 A knowledge base of frequently asked questions. This is a great starting place to find an answer before asking your question.
 
