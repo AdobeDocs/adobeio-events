@@ -10,7 +10,7 @@ This SDK method allows you to pass the `x-adobe-signature` header received and t
 
 This can be incorporated as part of any webhook implementation in order to verify the signature for each event received at the webhook endpoint. 
 
-For information on installing and using the SDK, please begin by reading the [getting started guide](getting-started.md).
+For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
 
 #### Method
 

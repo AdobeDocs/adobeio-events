@@ -1,12 +1,12 @@
 # Subscribe to Events Using Journaling
 
-Journaling is a *pull* model of consuming events, unlike [webhooks](webhooks.md) which use a *push* model. In journaling, your application will issue a series of API calls to pull batches of one or more events from the journal. 
+Journaling is a *pull* model of consuming events, unlike [webhooks](sdk_webhooks.md) which use a *push* model. In journaling, your application will issue a series of API calls to pull batches of one or more events from the journal. 
 
 The Adobe I/O Events Journaling API response contains event data and the unique position in the journal for every event returned in that batch, and enables applications to consume events according to their own cadence and process them in bulk. 
 
 Unlike webhooks, no additional registration or other configuration is required; every application that is registered for events is automatically enabled for journaling. Journaling data is retained for 7 days.
 
-For information on installing and using the SDK, please begin by reading the [getting started guide](getting-started.md).
+For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
 
 ## Configuration Options
 

@@ -1,21 +1,15 @@
 # Using Adobe I/O Events
 
-<!--  commenting out; this is redundant with webhooks intro
-## Trying your first Adobe I/O Event
-For your first Adobe I/O event, try using Creative Cloud Assets. 
-* copy TK *
- -->
-
 Setting up an integration to subscribe to Adobe I/O Events is straightforward. The following pages guide you through setting up and using Adobe I/O Events with various Adobe solutions.
 
-* [Adobe Experience Manager (AEM) Events](using/aem-event-setup.md)  
-* [Adobe Analytics Triggers](using/analytics-triggers-event-setup.md)  
-* [Creative Cloud Asset Events](using/cc-asset-event-setup.md) 
+* [Adobe Experience Manager (AEM) Events](aem-event-setup.md)  
+* [Adobe Analytics Triggers](analytics-triggers-event-setup.md)  
+* [Creative Cloud Asset Events](cc-asset-event-setup.md) 
 * [Cloud Manager Events](https://www.adobe.io/apis/experiencecloud/cloud-manager/docs.html#!AdobeDocs/cloudmanager-api-docs/master/create-event-integration.md)
-* [Adobe Experience Platform Events](using/experience-platform-event-setup.md)
-* [Privacy Events](using/privacy-event-setup.md)
-* [Marketo User Audit Data Stream](using/marketo-user-audit-data-stream-setup.md)
-
+* [Adobe Experience Platform Events](experience-platform-event-setup.md)
+* [Privacy Events](privacy-event-setup.md)
+* [Marketo User Audit Data Stream](marketo-user-audit-data-stream-setup.md)
+* [Your Own Custom Events Provider](custom_events.md)
 
 <!-- - [Adobe Stock](using/adobe-stock-event-setup.md) -->
 

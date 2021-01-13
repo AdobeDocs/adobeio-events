@@ -12,31 +12,27 @@
   "pages": [
     {
       "importedFileName": "readme",
+      "path": "adobedocs/adobeio-events/master/readme.md",
+      "title": "Getting Started",
       "pages": [
         {
-          "importedFileName": "webhook-docs-intro",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/intro/webhook_docs_intro.md",
-          "title": "Introduction to Webhooks"
+          "importedFileName": "webhooks_intro",
+          "path": "adobedocs/adobeio-events/master/intro/webhooks_intro.md",
+          "title": "Introduction to Webhooks",
+          "pages": []
         },
         {
-          "importedFileName": "events-api",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/intro/events-api.md",
-          "title": "Working with Events Using Management API"
-        },
-        {
-          "importedFileName": "journaling_api",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/intro/journaling_api.md",
-          "title": "Journaling API"
+          "importedFileName": "journaling_intro",
+          "path": "adobedocs/adobeio-events/master/intro/journaling_intro.md",
+          "title": "Introduction to Journaling",
+          "pages": []
         }
-      ],
-      "path": "adobedocs/adobeio-events/master/readme.md",
-      "title": "Getting Started"
+      ]
     },
     {
       "importedFileName": "using",
+      "path": "adobedocs/adobeio-events/master/using/using.md",
+      "title": "Using Adobe I/O Events",
       "pages": [
         {
           "importedFileName": "aem-event-setup",
@@ -114,6 +110,12 @@
               "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_package_install.md",
               "title": "Install the AEM (on-premise) event proxy package",
               "pages": []
+            },
+            {
+              "importedFileName": "aem_faq",
+              "path": "adobedocs/adobeio-events/master/aem/aem_faq.md",
+              "title": "AEM FAQ",
+              "pages": []
             }
           ]
         },
@@ -152,87 +154,106 @@
           "pages": [],
           "path": "adobedocs/adobeio-events/master/using/marketo-user-audit-data-stream-setup.md",
           "title": "Marketo User Audit Data Stream"
+        },
+        {
+          "importedFileName": "custom_events",
+          "path": "adobedocs/adobeio-events/master/using/custom_events.md",
+          "title": "Custom Events",
+          "pages": []
         }
-      ],
-      "path": "adobedocs/adobeio-events/master/using.md",
-      "title": "Using Adobe I/O Events"
+      ]
     },
     {
-      "importedFileName": "custom_events",
-      "path": "adobedocs/adobeio-events/master/custom_events.md",
-      "title": "Custom Events",
+      "importedFileName": "api",
+      "path": "adobedocs/adobeio-events/master/api/api.md",
+      "title": "API",
       "pages": [
         {
-          "importedFileName": "overview",
+          "importedFileName": "journaling_api",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/overview.md",
-          "title": "Events SDK Overview"
+          "path": "adobedocs/adobeio-events/master/api/journaling_api.md",
+          "title": "Journaling API"
         },
         {
-          "importedFileName": "getting-started",
+          "importedFileName": "provider_api",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/getting-started.md",
-          "title": "Getting started with Events SDK"
+          "path": "adobedocs/adobeio-events/master/api/provider_api.md",
+          "title": "Provider API"
         },
         {
-          "importedFileName": "event-matadata",
+          "importedFileName": "registration_api",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/event-metadata.md",
-          "title": "Event Metadata"
-        },
-        {
-          "importedFileName": "journaling",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/journaling.md",
-          "title": "Journaling"
-        },
-        {
-          "importedFileName": "providers",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/providers.md",
-          "title": "Providers"
-        },
-        {
-          "importedFileName": "publish-events",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/publish-events.md",
-          "title": "Publish Events"
-        },
-        {
-          "importedFileName": "signature-verification",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/signature-verification.md",
-          "title": "Signature Verification"
-        },
-        {
-          "importedFileName": "webhooks",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/sdk/webhooks.md",
-          "title": "Webhooks"
-        },
-        {
-          "importedFileName": "events-api-overview",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/events-api-overview.md",
-          "title": "Adobe I/O Events API"
-        },
-        {
-          "importedFileName": "events-plugin",
-          "path": "adobedocs/adobeio-events/master/cli/events-plugin.md",
-          "title": "Events CLI Commands",
-          "pages": [
+          "path": "adobedocs/adobeio-events/master/support/registration_api.md",
+          "title": "Registration API"
+        }
+      ]
+    },
+    {
+      "importedFileName": "cli",
+      "path": "adobedocs/adobeio-events/master/cli/cli.md",
+      "title": "CLI",
+      "pages": [
             {
-              "importedFileName": "template-generator",
-              "path": "adobedocs/adobeio-events/master/cli/template-generator.md",
+              "importedFileName": "template_generator_cli",
+              "path": "adobedocs/adobeio-events/master/cli/template_generator_cli.md",
               "title": "Events Template Generator",
               "pages": []
             }
           ]
+    },
+    {
+      "importedFileName": "sdk",
+      "path": "adobedocs/adobeio-events/master/sdk/sdk.md",
+      "title": "SDK",
+      "pages": [
+        {
+          "importedFileName": "sdk_getting_started",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_getting_started.md",
+          "title": "Getting started with Events SDK"
+        },
+        {
+          "importedFileName": "sdk_event_matadata",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_event_matadata.md",
+          "title": "Event Metadata"
+        },
+        {
+          "importedFileName": "sdk_journaling",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_journaling.md",
+          "title": "Journaling"
+        },
+        {
+          "importedFileName": "sdk_providers",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_providers.md",
+          "title": "Providers"
+        },
+        {
+          "importedFileName": "sdk_publish_events",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_publish_events.md",
+          "title": "Publish Events"
+        },
+        {
+          "importedFileName": "sdk_signature_verification",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_signature_verification.md",
+          "title": "Signature Verification"
+        },
+        {
+          "importedFileName": "sdk_webhooks",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/sdk/sdk_webhooks.md",
+          "title": "Webhooks"
         }
       ]
     },
     {
       "importedFileName": "support",
+      "path": "adobedocs/adobeio-events/master/support/support.md",
+      "title": "Support",
       "pages": [
         {
           "importedFileName": "debug",
@@ -257,16 +278,8 @@
           "pages": [],
           "path": "adobedocs/adobeio-events/master/support/faq.md",
           "title": "Frequently Asked Questions (FAQ)"
-        },
-        {
-          "importedFileName": "release_notes",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/support/release_notes.md",
-          "title": "Release Notes"
         }
-      ],
-      "path": "adobedocs/adobeio-events/master/support.md",
-      "title": "Support"
+      ]
     }
   ]
 }

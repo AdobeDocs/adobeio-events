@@ -4,20 +4,7 @@
 
 This page captures the most common troubleshooting scenarios when working with Adobe Events. 
 
-* [AEM Events](#aem-events)
 * [Analytics Triggers Events](#analytics-triggers-events)
-
-## AEM Events
-
-If your integration isn't receiving events from your installation of Adobe Experience Manager, 
-you can perform any of several health checks 
-on your setup to see where the communication between AEM and your integration is breaking down. 
-
-For more information on health checks, see:
-
-- [Operations Dashboard](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/operations-dashboard.html) in Adobe Help
-- [Perform an AEM Health and Configuration Check](../using/aem-event-setup.md#performawebhookhealthcheck) in the topic [Setting up AEM Events with Adobe I/O Events](../using/aem-event-setup.md) 
-
 
 ## Analytics Triggers Events
 If your Analytics Triggers events aren't coming through to your integration, a breakdown in communication may have occurred at any step in the events process. You'll need to check each step in order to verify where the breakdown has occurred and then fix your configuration accordingly.
