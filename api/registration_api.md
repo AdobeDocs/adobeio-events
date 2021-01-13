@@ -41,8 +41,6 @@ here is a sample `POST` `curl` query that will create a new Webhook Registration
           --header "x-api-key: $api_key" \
           --header "x-ims-org-id: $ims_org_id" \
           --header "Authorization: Bearer $jwt_token" \
-          --header "x-ams-consumer-id: $consumer_id" \
-          --header "x-ams-application-id: $application_id" \
           --header 'content-type: application/json' \
           --header 'Accept: application/json' \
           --data '{
