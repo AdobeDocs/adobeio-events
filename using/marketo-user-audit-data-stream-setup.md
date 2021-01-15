@@ -18,7 +18,7 @@ User Audit Data Stream is currently a Beta Product and thus cannot be enabled in
 
 ### Setup Adobe I/O
 
-See [Getting Started with Adobe I/O Events](https://www.adobe.io/apis/experienceplatform/events/docs.html)
+See [Getting Started with Adobe I/O Events](../readme.md)
 
 For basic instructions for this use case, starting from [console.adobe.io](https://console.adobe.io/):
 
@@ -72,7 +72,7 @@ For basic instructions for this use case, starting from [console.adobe.io](https
 When setting up a project to subscribe to events, there are three ways to interact with those event subscriptions in order to receive the events.  The first is Journaling, which provides a pull model in which events can be pulled via API and stores up to 7 days of past events.  The second is Webhooks, which can be configured to send events either as single events or batched to a webhook endpoint in near real-time with the event occurrence.  Third is Runtime, where you can set up your own custom function within Adobe that events will automatically run through near-real time.
 
 #### Journaling
-[API Usage Directions](https://www.adobe.io/apis/experienceplatform/events/docs.html#!adobedocs/adobeio-events/master/intro/journaling_api.md)
+[Getting Started with Journaling](../intro/journaling_intro.md)
 
 Important Takeaways:
 
@@ -82,7 +82,7 @@ Important Takeaways:
 - Useful for fetching events that were missed due to webhook issues or for a pulling mechanism instead of webhook push
 
 #### Webhooks
-[Getting Started with Adobe I/O Events Webhooks](https://www.adobe.io/apis/experienceplatform/events/docs.html#!adobedocs/adobeio-events/master/intro/webhook_docs_intro.md)
+[Getting Started with Adobe I/O Events Webhooks](../intro/webhooks_intro.md)
 
 Webhook Endpoint Requirements:
 
@@ -215,6 +215,6 @@ Snippet | approve, approve with no-draft, clone, create, delete, edit, rename, u
 
 ### Debug
 
-[Debug Tracing](https://www.adobe.io/apis/experienceplatform/events/docs.html#!adobedocs/adobeio-events/master/support/tracing.md)
+[Debug Tracing](../support/tracing.md)
 
 Once you have successfully completed your setup and event subscription registration, events should start being stored in the journal.  In addition, if you have webhooks or runtime set up, the events will go through those flows.  From the project's page in the event registration details, you should see a tab for Debug Tracing.  For webhooks, this will show a record of failed and successful challenge attempts as well as webhook attempts.  Each request includes the request/response details to help debug.

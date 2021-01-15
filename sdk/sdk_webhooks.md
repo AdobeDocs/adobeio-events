@@ -6,11 +6,11 @@ To start receiving events, you register a webhook, specifying a webhook URL and 
 
 There are two ways to consume events. 1. webhooks 2. journaling. 
 
-To learn more about webhooks, read the [Introduction to Adobe I/O Events Webhooks](intro/webhook_docs_intro.md).
+To learn more about webhooks, read the [Introduction to Adobe I/O Events Webhooks](intro/webhooks.md).
 
-For more information on journaling, read the [Subscribe to Events Using Journaling guide](journaling.md).
+For more information on journaling, read the [Subscribe to Events Using Journaling guide](sdk_journaling.md).
 
-For information on installing and using the SDK, please begin by reading the [getting started guide](getting-started.md).
+For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
 
 ## Create a Webhook or Journal Registration
 

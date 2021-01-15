@@ -1,6 +1,6 @@
 # Event Metadata
 
-For information on installing and using the SDK, please begin by reading the [getting started guide](getting-started.md).
+For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
 
 ## Get All Event Metadata for Provider
 

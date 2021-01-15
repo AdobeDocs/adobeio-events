@@ -2,7 +2,6 @@
 
 # Working with Events Using the Adobe I/O Management API
 
-***Note: This API is now deprecated. Please refer to the [Adobe I/O Events API Reference](https://www.adobe.io/apis/experienceplatform/events/ioeventsapi.html#!adobedocs/adobeio-events/master/events-api-reference.yaml) for new endpoints and updated functionality.***
 
 - [Events API calls in the I/O Management API](#events-api-calls-in-the-adobe-io-management-api)
 - [Calling APIs](#calling-apis)
