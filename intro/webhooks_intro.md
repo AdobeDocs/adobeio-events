@@ -15,10 +15,9 @@ To start receiving events, you register a webhook, specifying a webhook URL and 
 - [Your first webhook](#your-first-webhook)
     - [The challenge request](#the-challenge-request)
     - [Testing with ngrok](#testing-with-ngrok)
-- [Creating a project](#create-a-project)
-- [Registering a webhook](#register-a-webhook)
-- [Receiving events](#receive-events)
-- [Authenticating events](#authenticate-events)
+- [Creating a project](#create-a-project-in-adobe-developer-console)
+- [Receiving events](#receiving-events)
+- [Authenticating events](#authenticating-events)
 
 ## Getting started
 
