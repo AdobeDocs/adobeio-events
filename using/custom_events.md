@@ -22,6 +22,6 @@ Build custom apps that interact with core Adobe services, and automate processes
 
 Register your custom Adobe I/O Events providers and associated event metadata, create event based registrations, 
 and then  start registering your apps as providers, using either
-* [Adobe I/O Events API](api/api.md)  
-* [Adobe I/O Events CLI](cli/cli.md) 
-* [Adobe I/O Events SDK](sdk/sdk.md) 
+* [Adobe I/O Events API](../api/api.md)  
+* [Adobe I/O Events CLI](../cli/cli.md) 
+* [Adobe I/O Events SDK](../sdk/sdk.md) 
