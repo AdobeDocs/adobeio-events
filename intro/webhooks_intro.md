@@ -15,10 +15,11 @@ To start receiving events, you register a webhook, specifying a webhook URL and 
 - [Your first webhook](#your-first-webhook)
     - [The challenge request](#the-challenge-request)
     - [Testing with ngrok](#testing-with-ngrok)
-- [Creating a project](#create-a-project)
-- [Registering a webhook](#register-a-webhook)
-- [Receiving events](#receive-events)
-- [Authenticating events](#authenticate-events)
+- [Creating a project](#create-a-project-in-adobe-developer-console)
+    - [Troubleshooting](#troubleshooting-a-disabled-registration-status)
+- [Receiving events](#receiving-events)
+    - [Receiving events for users](#receiving-events-for-users)
+- [Authenticating events](#authenticating-events)
 
 ## Getting started
 
@@ -163,7 +164,7 @@ Once you have completed the event registration, check the ngrok log. You should 
 
 In Adobe Developer Console, you will be taken to the *Registration Details* page once the event registration is complete. 
 
-The *Status* of the registration should show as **Active**. If the registration shows as **Disabled** please see the [troubleshooting](#troublshooting) section that follows.
+The *Status* of the registration should show as **Active**. If the registration shows as **Disabled** please see the [troubleshooting](#troubleshooting-a-disabled-registration-status) section that follows.
 
 ![Event Registration Details tab in Adobe Developer Console](../img/events-registration-details.png)
 
