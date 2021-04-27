@@ -174,9 +174,9 @@ If you made an error transcribing the webhook URL, Adobe Events&rsquo; test of y
 
 In general, Adobe I/O Events will always confirm that your webhook received an event by means of the response code your webhook sends to each HTTP POST request. If Adobe fails to receive a 200 OK response code within 10 seconds, it retries the request, including a special header: `x-adobe-retry-count`. The value of this header begins at 1. If the first retry request fails as well, Adobe waits, then retries again, incrementing the value of `x-adobe-retry-count` with each retry until it reaches 5. Each wait interval is the square of the previous interval. 
 
-Once five retries are attempted, Adobe sends one last challenge request, and if that fails, Adobe marks the webhook as invalid and stops sending requests. 
+Once five retries are attempted and the last attempt also fails, Adobe marks the webhook as invalid and stops sending requests. 
 
-To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, you must log into Adobe Developer Console and reactivate the webhook. While your webhook is marked **Disabled**, Adobe will continue to log events, even though it isn&rsquo;t sending them. You can retrieve all of your events for the past 30 days using the [Journaling API](../api/journaling_api.md) and the Journaling unique API endpoint provided in the Registration Details in Console.
+To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, you must log into Adobe Developer Console and reactivate the webhook. While your webhook is marked **Disabled**, Adobe will continue to log events, even though it isn&rsquo;t sending them. You can retrieve all of your events for the past 7 days using the [Journaling API](../api/journaling_api.md) and the Journaling unique API endpoint provided in the Registration Details in Console.
     
 ## Receiving events
 
