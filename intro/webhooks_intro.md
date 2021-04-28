@@ -15,10 +15,11 @@ To start receiving events, you register a webhook, specifying a webhook URL and 
 - [Your first webhook](#your-first-webhook)
     - [The challenge request](#the-challenge-request)
     - [Testing with ngrok](#testing-with-ngrok)
-- [Creating a project](#create-a-project)
-- [Registering a webhook](#register-a-webhook)
-- [Receiving events](#receive-events)
-- [Authenticating events](#authenticate-events)
+- [Creating a project](#create-a-project-in-adobe-developer-console)
+    - [Troubleshooting](#troubleshooting-a-disabled-registration-status)
+- [Receiving events](#receiving-events)
+    - [Receiving events for users](#receiving-events-for-users)
+- [Authenticating events](#authenticating-events)
 
 ## Getting started
 
@@ -101,7 +102,7 @@ You may reuse/fork our [Sample Webhook in Node.js](https://github.com/adobeio/io
 
 When registering a webhook, Adobe I/O Events will first try to verify that the URL is valid. To do this, it sends an HTTP GET request, with a `challenge` query parameter. The webhook should respond with a body containing the value of the `challenge` query parameter.
 
-### Request
+#### Request
 
 ```http
 GET https://acme.example.com?challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7
@@ -163,7 +164,7 @@ Once you have completed the event registration, check the ngrok log. You should 
 
 In Adobe Developer Console, you will be taken to the *Registration Details* page once the event registration is complete. 
 
-The *Status* of the registration should show as **Active**. If the registration shows as **Disabled** please see the [troubleshooting](#troublshooting) section that follows.
+The *Status* of the registration should show as **Active**. If the registration shows as **Disabled** please see the [troubleshooting](#troubleshooting-a-disabled-registration-status) section that follows.
 
 ![Event Registration Details tab in Adobe Developer Console](../img/events-registration-details.png)
 
@@ -173,9 +174,9 @@ If you made an error transcribing the webhook URL, Adobe Events&rsquo; test of y
 
 In general, Adobe I/O Events will always confirm that your webhook received an event by means of the response code your webhook sends to each HTTP POST request. If Adobe fails to receive a 200 OK response code within 10 seconds, it retries the request, including a special header: `x-adobe-retry-count`. The value of this header begins at 1. If the first retry request fails as well, Adobe waits, then retries again, incrementing the value of `x-adobe-retry-count` with each retry until it reaches 5. Each wait interval is the square of the previous interval. 
 
-Once five retries are attempted, Adobe sends one last challenge request, and if that fails, Adobe marks the webhook as invalid and stops sending requests. 
+Once five retries are attempted and the last attempt also fails, Adobe marks the webhook as invalid and stops sending requests. 
 
-To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, you must log into Adobe Developer Console and reactivate the webhook. While your webhook is marked **Disabled**, Adobe will continue to log events, even though it isn&rsquo;t sending them. You can retrieve all of your events for the past 30 days using the [Journaling API](../api/journaling_api.md) and the Journaling unique API endpoint provided in the Registration Details in Console.
+To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, you must log into Adobe Developer Console and reactivate the webhook. While your webhook is marked **Disabled**, Adobe will continue to log events, even though it isn&rsquo;t sending them. You can retrieve all of your events for the past 7 days using the [Journaling API](../api/journaling_api.md) and the Journaling unique API endpoint provided in the Registration Details in Console.
     
 ## Receiving events
 
@@ -195,7 +196,7 @@ Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.ad
 
 In a real-world application, you would use the credentials of an authenticated user to register a webhook through the API. This way you will receive events related to that user. Depending on your scenario and the Adobe service you&rsquo;re targeting, you may have to enable different types of authentication; see the [Adobe I/O Authentication Overview](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/AuthenticationGuide.md) for more information on how to set up your app for authentication with your users.
 
-For Creative Cloud Asset events, you&rsquo;ll need to add the Creative Cloud SDK service to your integration and implement the User Auth UI; see [Setting Up Creative Cloud Asset Events](../using/cc-asset-event-setup.md) for details. 
+For Creative Cloud Asset events, you&rsquo;ll need to add the Creative Cloud Libraries to your integration and implement the User Auth UI; see [Setting Up Creative Cloud Asset Events](../using/cc-asset-event-setup.md) for details. 
 
 ## Authenticating events
 
