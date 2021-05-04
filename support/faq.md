@@ -11,6 +11,7 @@
     - [How far back are I/O Events available via the Journaling API?](#how-far-back-are-io-events-available-via-the-journaling-api)
     - [What happens if a webhook is down?](#what-happens-if-a-webhook-is-down)
     - [Do Adobe I/O Events notifications come from a range of static IPs?](#do-adobe-io-events-notifications-come-from-a-range-of-static-ips)
+    - [What is the size of notifications when in batch delivery style?](#what-is-the-size-of-notifications-when-in-batch-delivery-style)
 - [About JWT](#about-jwt)    
     - [What is JWT and what is it used for?](#what-is-jwt-and-what-is-it-used-for)
     - [Where can I find documentation on JWT Service accounts and how to set them up?](#where-can-i-find-documentation-on-json-web-token-jwt-service-accounts-and-how-to-set-them-up)
@@ -97,6 +98,14 @@ which allows you to verify that the request was really made by Adobe I/O Events;
 however this is a non-negotiable requirement, you may choose to use the pull model instead, 
 and leverage our [Journaling API](../intro/journaling_intro.md).          
 
+#### What is the size of notifications when in batch delivery style?
+     
+When registering a webhook to receive Adobe I/O Events notifications, you can select the delivery style:
+* either receiving one event at a time ("Single"): each event resulting in an HTTP request to the webhook URL
+* or multiple events together ("Batch"): in this case, HTTP requests will still remain near-real time,  
+the batch size will vary according to the load of events in the associated queue 
+and the batch size will be at max 2MB bytes and will contain a maximum of 100 events.
+     
 ## About JWT
 
 #### What is JWT and what is it used for? 
