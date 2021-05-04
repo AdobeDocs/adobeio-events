@@ -7,9 +7,11 @@
     - [Which events are currently supported via I/O?](#which-events-are-currently-supported-via-io)
     - [What permissions are required to use I/O Events?](#what-permissions-are-required-to-use-io-events)
     - [Which subscription types do I/O Events support ?](#which-subscription-types-do-io-events-support)
+    - [Are there other ways to access I/O Events?](#are-there-other-ways-to-access-io-events)    
     - [How far back are I/O Events available via the Journaling API?](#how-far-back-are-io-events-available-via-the-journaling-api)
     - [What happens if a webhook is down?](#what-happens-if-a-webhook-is-down)
-    - [Are there other ways to access I/O Events?](#are-there-other-ways-to-access-io-events)
+    - [Do Adobe I/O Events notifications come from a range of static IPs?](#do-adobe-io-events-notifications-come-from-a-range-of-static-ips)
+- [About JWT](#about-jwt)    
     - [What is JWT and what is it used for?](#what-is-jwt-and-what-is-it-used-for)
     - [Where can I find documentation on JWT Service accounts and how to set them up?](#where-can-i-find-documentation-on-json-web-token-jwt-service-accounts-and-how-to-set-them-up)
     - [Do you have sample libraries for JWT?](#do-you-have-sample-libraries-for-jwt)
@@ -60,6 +62,12 @@ Some of these events providers will required licensing other will be available t
 I/O Events supports [webhooks](../intro/webhooks_intro.md) for near-real time notifications (push) 
 as well as [a Journaling API](../intro/journaling_intro.md) (pull) to grab groups of events at a time.
 
+#### Are there other ways to access I/O Events?
+
+Yes: 
+- [Azuqua](https://www.azuqua.com) provides connectors for both AEM events and Analytics Triggers events.
+- [Microsoft Flow](https://flow.microsoft.com) has a connector for Creative Cloud Asset events.
+
 #### How far back are I/O Events available via the Journaling API?
 
 Adobe I/O stores 7 days of subscribed events that can be retrieved via the Journaling API.
@@ -75,11 +83,21 @@ Adobe I/O Events will mark it as invalid and stops sending requests.
 
 Note you can then use the Journaling API to retrieve events that were published while your webhook was down.
 
-#### Are there other ways to access I/O Events?
+#### Do Adobe I/O Events notifications come from a range of static IPs? 
 
-Yes: 
-- [Azuqua](https://www.azuqua.com) provides connectors for both AEM events and Analytics Triggers events.
-- [Microsoft Flow](https://flow.microsoft.com) has a connector for Creative Cloud Asset events.
+We had a few customers asking this in the context of securing their endpoint; 
+their requirement: accepting traffic only from a range of static IPs.
+
+The answer is no. Adobe I/O Events notifications services are hosted on AWS and Azure,
+their IPs change over time.
+
+Reminder: every Adobe I/O Events POST request 
+holds an  [`x-adobe-signature`](../intro/webhooks_intro.md#authenticating-events) header, 
+which allows you to verify that the request was really made by Adobe I/O Events;
+however this is a non-negotiable requirement, you may choose to use the pull model instead, 
+and leverage our [Journaling API](../intro/journaling_intro.md).          
+
+## About JWT
 
 #### What is JWT and what is it used for? 
 
