@@ -8,12 +8,18 @@
     - [What permissions are required to use I/O Events?](#what-permissions-are-required-to-use-io-events)
     - [Which subscription types do I/O Events support ?](#which-subscription-types-do-io-events-support)
     - [Are there other ways to access I/O Events?](#are-there-other-ways-to-access-io-events)    
-    - [How far back are I/O Events available via the Journaling API?](#how-far-back-are-io-events-available-via-the-journaling-api)
+
+- [Webhook FAQ](#webhook-faq)  
     - [What happens if a webhook is down?](#what-happens-if-a-webhook-is-down)
     - [Does every Adobe I/O Events webhook http requests come with a signature?](#does-every-adobe-io-events-webhook-http-requests-come-with-a-signature)
     - [Do Adobe I/O Events notifications come from a range of static IPs?](#do-adobe-io-events-notifications-come-from-a-range-of-static-ips)
     - [What is the size of notifications when in batch delivery style?](#what-is-the-size-of-notifications-when-in-batch-delivery-style)
-- [About JWT](#about-jwt)    
+
+- [Journaling FAQ](#journaling-faq)      
+    - [How far back are I/O Events available via the Journaling API?](#how-far-back-are-io-events-available-via-the-journaling-api)
+    - [Why do I only receive one event, irrespective of the limit I use?](#why-do-i-only-receive-one-event-irrespective-of-the-limit-i-use)
+
+- [JWT FAQ](#jwt-faq)    
     - [What is JWT and what is it used for?](#what-is-jwt-and-what-is-it-used-for)
     - [Where can I find documentation on JWT Service accounts and how to set them up?](#where-can-i-find-documentation-on-json-web-token-jwt-service-accounts-and-how-to-set-them-up)
     - [Do you have sample libraries for JWT?](#do-you-have-sample-libraries-for-jwt)
@@ -70,9 +76,7 @@ Yes:
 - [Azuqua](https://www.azuqua.com) provides connectors for both AEM events and Analytics Triggers events.
 - [Microsoft Flow](https://flow.microsoft.com) has a connector for Creative Cloud Asset events.
 
-#### How far back are I/O Events available via the Journaling API?
-
-Adobe I/O stores 7 days of subscribed events that can be retrieved via the Journaling API.
+## Webhook FAQ
 
 #### What happens if a webhook is down? 
 
@@ -111,10 +115,27 @@ and leverage our [Journaling API](../intro/journaling_intro.md).
 When registering a webhook to receive Adobe I/O Events notifications, you can select the delivery style:
 * either receiving one event at a time ("Single"): each event resulting in an HTTP request to the webhook URL
 * or multiple events together ("Batch"): in this case, HTTP requests will still remain near-real time,  
-the batch size will vary according to the load of events in the associated queue 
+the batch size will vary depending on the incoming traffic 
 and the batch size will be at max 2MB bytes and will contain a maximum of 100 events.
+
+
+## Journaling FAQ
+
+#### How far back are I/O Events available via the Journaling API?
+
+Adobe I/O stores 7 days of subscribed events that can be retrieved via the Journaling API.
+
+#### Why do I only receive one event, irrespective of the limit I use?
+
+Our Journaling API `limit` parameter is used to specify the “maximum” number of events 
+that may be returned by the API.
+It is used to specify an upper bound to the number of events to ensure that the consumer 
+can handle the response gracefully. The behavior you observe is expected. 
+It is perfectly ok to get 1 event when you specify a limit greater than 1 . 
+The number of events that gets returned in a response 
+can vary depending on the incoming traffic (upper bound being equal to the limit parameter).
      
-## About JWT
+## JWT FAQ
 
 #### What is JWT and what is it used for? 
 
