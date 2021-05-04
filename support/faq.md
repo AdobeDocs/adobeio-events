@@ -10,6 +10,7 @@
     - [Are there other ways to access I/O Events?](#are-there-other-ways-to-access-io-events)    
     - [How far back are I/O Events available via the Journaling API?](#how-far-back-are-io-events-available-via-the-journaling-api)
     - [What happens if a webhook is down?](#what-happens-if-a-webhook-is-down)
+    - [Does every Adobe I/O Events webhook http requests come with a signature?](#does-every-adobe-io-events-webhook-http-requests-come-with-a-signature)
     - [Do Adobe I/O Events notifications come from a range of static IPs?](#do-adobe-io-events-notifications-come-from-a-range-of-static-ips)
     - [What is the size of notifications when in batch delivery style?](#what-is-the-size-of-notifications-when-in-batch-delivery-style)
 - [About JWT](#about-jwt)    
@@ -84,6 +85,12 @@ Adobe I/O Events will mark it as invalid and stops sending requests.
 
 Note you can then use the Journaling API to retrieve events that were published while your webhook was down.
 
+#### Does every Adobe I/O Events webhook http requests come with a signature? 
+     
+Yes, to allow your webhook to reject forged requests, 
+Adobe I/O Events adds a  [`x-adobe-signature`](../intro/webhooks_intro.md#authenticating-events) 
+header to every single Http request it does to your webhook URL (even the first `challenge` GET request)
+      
 #### Do Adobe I/O Events notifications come from a range of static IPs? 
 
 We had a few customers asking this in the context of securing their endpoint; 
@@ -92,11 +99,12 @@ their requirement: accepting traffic only from a range of static IPs.
 The answer is no. Adobe I/O Events notifications services are hosted on AWS and Azure,
 their IPs change over time.
 
-Reminder: every Adobe I/O Events POST request 
-holds an  [`x-adobe-signature`](../intro/webhooks_intro.md#authenticating-events) header, 
-which allows you to verify that the request was really made by Adobe I/O Events;
-however this is a non-negotiable requirement, you may choose to use the pull model instead, 
+Reminder: each Adobe I/O Events http request
+holds an signature header (see the previous question), however if this is not enough 
+and if the above is a non-negotiable requirement, 
+you may choose to use the pull model instead, 
 and leverage our [Journaling API](../intro/journaling_intro.md).          
+
 
 #### What is the size of notifications when in batch delivery style?
      
