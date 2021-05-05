@@ -20,15 +20,21 @@
     - [Why do I only get one event, irrespective of the limit I use?](#why-do-i-only-get-one-event-irrespective-of-the-limit-i-use)
     - [Is there a way to get the list of events all together at once?](#is-there-a-way-to-get-the-list-of-events-all-together-at-once)
 
+- [Custom Events FAQ](#custom-events-faq)
+    - [I created a custom Adobe I/O Events Provider, why is it no showing up in the developer console?](#i-created-a-custom-adobe-io-events-provider-why-is-it-no-showing-up-in-the-developer-console)
+
 - [JWT FAQ](#jwt-faq)    
     - [What is JWT and what is it used for?](#what-is-jwt-and-what-is-it-used-for)
     - [Where can I find documentation on JWT Service accounts and how to set them up?](#where-can-i-find-documentation-on-json-web-token-jwt-service-accounts-and-how-to-set-them-up)
     - [Do you have sample libraries for JWT?](#do-you-have-sample-libraries-for-jwt)
+
     
-* [Analytics Triggers Events](#analytics-triggers-events)
+- [Analytics Triggers Events](#analytics-triggers-events)
     - [Where can I find instructions on setting up Analytics Triggers for I/O?](#where-can-i-find-instructions-on-setting-up-analytics-triggers-for-io)
     - [Where do I configure Analytics Triggers for I/O?](#where-do-i-configure-analytics-triggers-for-io)
     - [What does an Analytics Triggers payload look like?](#what-does-an-analytics-triggers-payload-look-like)
+
+
 
 ## General questions
 
@@ -142,6 +148,18 @@ No, this query is not supported in our journaling API,
 however, using the `since` parameter you can to follow the journal
  [`rel=next` `Link`]((../api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal)) 
  response header till the end.     
+     
+## Custom Events FAQ
+
+#### I created a custom Adobe I/O Events Provider, why is it no showing up in the developer console?
+
+If you successfully create a custom Events Provider using our [Management API](../api/provider_api.md),
+it will only appear in the `Adobe I/O Developer Console` once you create at least one event metadata associated with it.
+
+Once associated with its event metadata, your custom events provider will be ready to be used:
+it will appear in your (refreshed) `Adobe I/O Developer Console` project,
+you will be able to register against it 
+and to start emitting events on its behalf using our [Publishing API](../api/eventsingress_api.md).
      
 ## JWT FAQ
 
