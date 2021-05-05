@@ -1,6 +1,6 @@
 <!--:nav_order:2-->
 
-# Adobe I/O Events Provider API
+# Adobe I/O Events Management API
 
 ## Prerequisites
 
@@ -24,22 +24,72 @@
 ## Test Drive
 
 Once the above are defined (and stuffed as environment variables),
-you are ready to user the [Provider API](https://www.adobe.io/apis/experienceplatform/events/ioeventsapi.html#/Providers/getProvidersByConsumerOrgId)
+you are ready to use API, confer its [`swagger`/`OpenApi` documentation](https://www.adobe.io/apis/experienceplatform/events/ioeventsapi.html)
 
-To help you further, here is below a sample `curl` query that will `GET` the list of all the event providers you are entitled to use.
+To help you further, here are a few sample `curl` commands.
+ 
+The one below will `GET` the list of all the event providers you are entitled to use.
 
        curl -v --request GET \
-        --url ${api_url}/events/${consumerId}/providers \
+        --url https://api.adobe.io/events/${consumerId}/providers \
         --header "x-api-key: $api_key" \
         --header "Authorization: Bearer $jwt_token" \
         --header "Accept: application/hal+json"
         
-once you have the provider id of interest, you can list of the events (and event codes) 
-it supports by using another endpoint: [getProvidersById](https://www.adobe.io/apis/experienceplatform/events/ioeventsapi.html#/Providers/getProvidersById):  
-Here is the associated sample `curl` query 
+Now you have the provider ids, you can list their events metadata: 
 
       curl -v --request GET \
-        --url ${api_url}/events/providers/${providerId}?eventmetadata=true \
+        --url https://api.adobe.io/events/providers/${providerId}?eventmetadata=true \
         --header "x-api-key: $api_key" \
         --header "Authorization: Bearer $jwt_token" \
         --header "Accept: application/hal+json" 
+        
+To create your own [custom events provider](../using/custom_events.md) :
+
+    curl -v --request POST \
+      --url https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers \
+      --header "x-api-key: $api_key" \
+      --header "Authorization: Bearer $jwt_token" \
+      --header 'content-type: application/json' \
+      --header 'Accept: application/hal+json' \
+      --data '{
+          "label": "a label of your choice for you custom events provider",
+          "description": "a description of your custom events Provider",
+          "docs_url": "https://yourdocumentation.url.if.any"
+        }'
+        
+To associate event metadata with the above:
+
+    curl -v --request POST \
+      --url  https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId}/eventmetadata \
+      --header "x-api-key: $api_key" \
+      --header "Authorization: Bearer $jwt_token" \
+      --header 'content-type: application/json' \
+      --header 'Accept: application/hal+json' \
+       --data '{
+      "event_code": "your.reverse.dns.event_code",
+      "label": "a label for your event type",
+      "description": "a description for your event type"
+       }'
+
+With the 2 commands above, your custom events provider is ready to be used, 
+you can register [webhooks](../intro/webhooks_intro.md) against it;
+to start emitting events on its behalf use our [Publishing API](eventsingress_api.md).
+
+To delete your custom event provider:
+
+    curl -v --request DELETE \
+     --url https://api-stage.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId} \
+     --header "x-api-key: $api_key" \
+     --header "Authorization: Bearer $jwt_token" \
+     --header "Accept: application/hal+json" 
+
+
+The environment variables used in this `curl` commands are computed from the prerequisites documented above:
+* `api_key` is the api-key associated with your workspace in the `Adobe I/O Developer console`
+* `jwt_token` is a jwt token generated using the set up from the same workspace
+* `projectId` is the `project.id` found the `json` model of your `Adobe I/O Developer console` project (see above) 
+* `consumerId` is the `project.org.id` found the `json` model of your `Adobe I/O Developer console` project (see above) 
+
+ 
+ 
