@@ -22,8 +22,7 @@
     - [Is there a way to get the list of events all together at once?](#is-there-a-way-to-get-the-list-of-events-all-together-at-once)
 
 - [Custom Events FAQ](#custom-events-faq)
-    - [I created a custom Adobe I/O Events Provider, why is it no showing up in the developer console?](#i-created-a-custom-adobe-io-events-provider-why-is-it-no-showing-up-in-the-developer-console)
-
+    - [I created a custom Adobe I/O Events Provider, why is it not showing up in the developer console?](#i-created-a-custom-adobe-io-events-provider-why-is-it-not-showing-up-in-the-developer-console)
 - [JWT FAQ](#jwt-faq)    
     - [What is JWT and what is it used for?](#what-is-jwt-and-what-is-it-used-for)
     - [Where can I find documentation on JWT Service accounts and how to set them up?](#where-can-i-find-documentation-on-json-web-token-jwt-service-accounts-and-how-to-set-them-up)
@@ -163,7 +162,7 @@ however, using the `since` parameter you can to follow the journal
      
 ## Custom Events FAQ
 
-#### I created a custom Adobe I/O Events Provider, why is it no showing up in the developer console?
+#### I created a custom Adobe I/O Events Provider, why is it not showing up in the developer console?
 
 If you successfully create a custom Events Provider using our [Management API](../api/provider_api.md),
 it will only appear in the `Adobe I/O Developer Console` once you create at least one event metadata associated with it.
