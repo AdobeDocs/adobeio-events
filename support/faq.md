@@ -17,7 +17,8 @@
 
 - [Journaling FAQ](#journaling-faq)      
     - [How far back are I/O Events available via the Journaling API?](#how-far-back-are-io-events-available-via-the-journaling-api)
-    - [Why do I only receive one event, irrespective of the limit I use?](#why-do-i-only-receive-one-event-irrespective-of-the-limit-i-use)
+    - [Why do I only get one event, irrespective of the limit I use?](#why-do-i-only-get-one-event-irrespective-of-the-limit-i-use)
+    - [Is there a way to get the list of events all together at once?](#is-there-a-way-to-get-the-list-of-events-all-together-at-once)
 
 - [JWT FAQ](#jwt-faq)    
     - [What is JWT and what is it used for?](#what-is-jwt-and-what-is-it-used-for)
@@ -125,7 +126,7 @@ and the batch size will be at max 2MB bytes and will contain a maximum of 100 ev
 
 Adobe I/O stores 7 days of subscribed events that can be retrieved via the Journaling API.
 
-#### Why do I only receive one event, irrespective of the limit I use?
+#### Why do I only get one event, irrespective of the `limit` I use?
 
 Our Journaling API `limit` parameter is used to specify the “maximum” number of events 
 that may be returned by the API.
@@ -134,6 +135,11 @@ can handle the response gracefully. The behavior you observe is expected.
 It is perfectly ok to get 1 event when you specify a limit greater than 1 . 
 The number of events that gets returned in a response 
 can vary depending on the incoming traffic (upper bound being equal to the limit parameter).
+     
+#### Is there a way to get the list of events all together at once?
+     
+No. It is not possible to get ALL the events at once. 
+However, using the `since` parameter you can to follow the journal links till the end.     
      
 ## JWT FAQ
 
