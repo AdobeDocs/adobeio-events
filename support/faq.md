@@ -3,8 +3,9 @@
 # Adobe I/O Events Frequently Asked Questions (FAQ)
 
 - [General questions](#general-questions)
-    - [What are Adobe I/O Events?](#what-are-adobe-io-events)
-    - [Which events are currently supported via I/O?](#which-events-are-currently-supported-via-io)
+    - [Which events are currently supported via I/O?](#which-events-are-currently-supported-by-adobe-io-events)
+    - [What is the guarantee of events delivery](#what-is-the-guarantee-of-events-delivery)
+    - [Do you guarantee the order of events delivery?](#do-you-guarantee-the-order-of-events-delivery)
     - [What permissions are required to use I/O Events?](#what-permissions-are-required-to-use-io-events)
     - [Which subscription types do I/O Events support ?](#which-subscription-types-do-io-events-support)
     - [Are there other ways to access I/O Events?](#are-there-other-ways-to-access-io-events)    
@@ -38,11 +39,7 @@
 
 ## General questions
 
-#### What are Adobe I/O Events?
-
-Adobe I/O Events make meaningful Adobe Cloud Platform events available to 1st and 3rd party developers.
-
-#### Which events are currently supported via I/O?
+#### Which events are currently supported by `Adobe I/O Events`?
 
 We are adding new events providers regularly,
 at the time of writing, the following Adobe solutions are supported via I/O Events:
@@ -65,6 +62,21 @@ at the time of writing, the following Adobe solutions are supported via I/O Even
 
 You can also register [your own Custom I/O Events Provider](../using/custom_events.md)
 
+#### What is the guarantee of events delivery? 
+
+`Adobe I/O Events` provides durable delivery. **It delivers each event at least once for each registration**. 
+If the webhook endpoint doesn't acknowledge receipt of an event, `Adobe I/O Events` retries the delivery of the event.
+(see the [webhook FAQ](#webhook-faq) section below)
+
+Note that `Adobe I/O Events` 
+* doesn't guarantee the order of events delivery, so subscribers may receive them out of order (this applies to our Journal API as well).
+* may send the same events more than once 
+* is adding a unique event uuid in the event payload 
+* is passing the same uuid in the `x-adobe-event-id` header of the webhook request
+
+#### Do you guarantee the order of events delivery? 
+
+No, see the paragraph above for details.
 
 #### What permissions are required to use I/O Events?  
 
@@ -87,7 +99,7 @@ Yes:
 
 #### What happens if a webhook is down? 
 
-If Adobe I/O Events fails to receive a successful response code from your webhook within 10 seconds, 
+If `Adobe I/O Events` fails to receive a successful response code from your webhook within 10 seconds, 
 it retries the request, including a special header: `x-adobe-retry-count`.
 Adobe I/O Events will retry up to five times using an exponential backoff strategy
 (it will retry up to (1 + 2 + 4 + 8 + 16 =) 31 minutes). 
