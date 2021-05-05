@@ -1,6 +1,6 @@
 <!--:nav_order:2-->
 
-# Adobe I/O Events Cloud Events Publishing API
+# Events Publishing API
 
 ## Prerequisites
 

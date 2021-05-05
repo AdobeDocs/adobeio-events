@@ -8,3 +8,4 @@ We also provide additional documentation on:
 * our [Journaling API](journaling_api.md)
 * our [Registration API](registration_api.md)
 * our [Management API](provider_api.md)
+* our [Events Publishing API](eventsingress_api.md)
