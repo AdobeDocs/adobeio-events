@@ -16,5 +16,7 @@ Important Takeaways on Journaling:
 - Useful for fetching events that were missed due to webhook issues or for a pulling mechanism instead of webhook push
 
 Journaling, in contrast to webhooks, is a _pull_ model of consuming events, whereas webhooks are a _push_ model. 
-In journaling your application will issue a series of API calls to pull batches of one or more events from the journal: 
-[get started with the Journaling API](../api/journaling_api.md)
+In journaling your application will issue a series of API calls to pull batches of one or more events from the journal.
+
+* [Get started with the Journaling API](../api/journaling_api.md)
+* [Journaling FAQ](../support/faq.md#journaling-faq)

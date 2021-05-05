@@ -20,6 +20,7 @@ To start receiving events, you register a webhook, specifying a webhook URL and 
 - [Receiving events](#receiving-events)
     - [Receiving events for users](#receiving-events-for-users)
 - [Authenticating events](#authenticating-events)
+- [Webhook FAQ](../support/faq.md#webhook-faq)
 
 ## Getting started
 

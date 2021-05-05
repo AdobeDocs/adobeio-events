@@ -138,8 +138,10 @@ can vary depending on the incoming traffic (upper bound being equal to the limit
      
 #### Is there a way to get the list of events all together at once?
      
-No. It is not possible to get ALL the events at once. 
-However, using the `since` parameter you can to follow the journal links till the end.     
+No, this query is not supported in our journaling API,
+however, using the `since` parameter you can to follow the journal
+ [`rel=next` `Link`]((../api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal)) 
+ response header till the end.     
      
 ## JWT FAQ
 

@@ -7,7 +7,7 @@
     - [Finding the journaling endpoint URL](#finding-the-journaling-endpoint-url)
     - [Obtaining an access token to call the API](#obtaining-an-access-token-to-call-the-api)
     - [Fetching your first batch of events from the journal](#fetching-your-first-batch-of-events-from-the-journal)
-    - [Fetching the next batch of "newer" events from the journal](#fetching-the-next-batch-of-%22newer%22-events-from-the-journal)
+    - [Fetching the next batch of "newer" events from the journal](#fetching-the-next-batch-of-newer-events-from-the-journal)
     - [Fetching events from the end of the journal](#fetching-events-from-the-end-of-the-journal)
   - [Controlling the response](#controlling-the-response)
     - [Limiting the size of the batch](#limiting-the-size-of-the-batch)
@@ -16,7 +16,7 @@
     - [Oldest available events](#oldest-available-events)
     - [Fetching expired events](#fetching-expired-events)
     - [No Events in Journal](#no-events-in-journal)
-
+  - [Journaling FAQ](../support/faq.md#journaling-faq)  
 
 ## What is a Journal
 
