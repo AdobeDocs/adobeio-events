@@ -23,18 +23,17 @@
 
 - [Custom Events FAQ](#custom-events-faq)
     - [I created a custom Adobe I/O Events Provider, why is it not showing up in the developer console?](#i-created-a-custom-adobe-io-events-provider-why-is-it-not-showing-up-in-the-developer-console)
+
 - [JWT FAQ](#jwt-faq)    
     - [What is JWT and what is it used for?](#what-is-jwt-and-what-is-it-used-for)
-    - [Where can I find documentation on JWT Service accounts and how to set them up?](#where-can-i-find-documentation-on-json-web-token-jwt-service-accounts-and-how-to-set-them-up)
+    - [What are the metascopes my JWT token should claim? What are the access token authorization scopes expected by `Adobe I/O Events` APIs?](#what-are-the-metascopes-my-jwt-token-should-claim-what-are-the-access-token-authorization-scopes-expected-by-adobe-io-events-apis)
+    - [Where can I find documentation on JWT Service accounts and how to set them up?](#where-can-i-find-more-documentation-on-jwt-service-accounts-and-how-to-set-them-up)
     - [Do you have sample libraries for JWT?](#do-you-have-sample-libraries-for-jwt)
-
     
 - [Analytics Triggers Events](#analytics-triggers-events)
     - [Where can I find instructions on setting up Analytics Triggers for I/O?](#where-can-i-find-instructions-on-setting-up-analytics-triggers-for-io)
     - [Where do I configure Analytics Triggers for I/O?](#where-do-i-configure-analytics-triggers-for-io)
     - [What does an Analytics Triggers payload look like?](#what-does-an-analytics-triggers-payload-look-like)
-
-
 
 ## General questions
 
@@ -176,17 +175,36 @@ and to start emitting events on its behalf using our [Publishing API](../api/eve
 
 #### What is JWT and what is it used for? 
 
-JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. For more information on JSON Web Tokens, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/) on JWT.io.
+JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way 
+for securely transmitting information between parties as a JSON object. 
+For more information on JSON Web Tokens, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/) on JWT.io.
 
-To use Adobe I/O Events, you&rsquo;ll need a set of client credentials to authenticate the identity of the caller and authorize access. The type of application you are building determines the type of integration that provides the client credentials you will need.
+To establish a secure service-to-service session with the `Adobe I/O Events` API, 
+you must create a JSON Web Token (JWT) that encapsulates the identity of your integration, and then exchange it for an access token.
 
-A Service Account integration allows your application to call Adobe services on behalf of the application itself, or on behalf of an enterprise organization.
+Every request to an `Adobe I/O Events` API must then include this (JWT exchange originated) access token in the Authorization header, 
+along with the API Key that was generated when you created the Service Account Integration in the Adobe Developer Console
+(see our [JWT Service Account Authentication](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md)
+ documentation for more details).
 
-For this type of integration, you&rsquo;ll need to create a JSON Web Token (JWT) that encapsulates your credentials and begin each API session by exchanging the JWT for an access token. The JWT encodes all of the identity and security information required to obtain an access token,  and must be signed with the private key that is associated with a public key certificate specified on your integration.
+Note that you should pay a special attention to your [JWT Metascopes](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/Scopes.md) 
+describing the set of authorization scopes you want to claim with this jwt token (see next question for details)
 
-#### Where can I find documentation on JSON Web Token (JWT) Service accounts and how to set them up? 
+#### What are the metascopes my JWT token should claim? What are the access token authorization scopes expected by `Adobe I/O Events` APIs?
 
-See the Authentication Guide: [Creating a JSON Web Token](https://www.adobe.io/apis/cloudplatform/console/authentication/createjwt.html).
+* our [AEM](../using/aem-event-setup.md) connector leverages an API 
+that requires your access token to hold a `event_receiver_api` scope; 
+for this you need to add the `I/O Events` API in your Adobe I/O Developer console workspace
+adding `/s/event_receiver_api` metascope to your JWT claim (see the [AEM console setup documentation](../aem/aem_console_setup.md))
+* for all the others [`Adobe I/O Events` APIs](../api/api.md) 
+they require your access token to hold a `adobeio_api` scope 
+coming with the `I/O Management API`,
+adding a `s/ent_adobeio_sdk` metascope to the JWT claim.
+
+
+#### Where can I find more documentation on JWT Service accounts and how to set them up? 
+
+See our [JWT (Service Account) Authentication](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md) documentation.
 
 #### Do you have sample libraries for JWT? 
 
