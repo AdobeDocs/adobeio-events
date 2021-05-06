@@ -12,6 +12,7 @@
 
 - [Webhook FAQ](#webhook-faq)  
     - [What happens if a webhook is down?](#what-happens-if-a-webhook-is-down)
+    - [How can I re-enabled my webhook (disabled after a downtime)? How can I retrieve the events I missed?](#how-can-i-re-enabled-my-webhook-disabled-after-a-downtime-how-can-i-retrieve-the-events-i-missed)
     - [Does every Adobe I/O Events webhook http requests come with a signature?](#does-every-adobe-io-events-webhook-http-requests-come-with-a-signature)
     - [Do Adobe I/O Events notifications come from a range of static IPs?](#do-adobe-io-events-notifications-come-from-a-range-of-static-ips)
     - [What is the size of notifications when in batch delivery style?](#what-is-the-size-of-notifications-when-in-batch-delivery-style)
@@ -105,6 +106,16 @@ After that time, if your webhook is still failing (with either no response or a 
 Adobe I/O Events will mark it as invalid and stops sending requests.
 
 Note you can then use the Journaling API to retrieve events that were published while your webhook was down.
+and once the webhook is back up, you can re-enable it, see the question below,
+
+#### How can I re-enabled my webhook (disabled after a downtime)? How can I retrieve the events I missed?
+
+To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, 
+you must log into Adobe I/O Developer Console, edit your events registration,
+it will re-trigger a webhook challenge request,and eventually a webhook re-activation.
+
+While your webhook is marked Disabled, Adobe will continue to log events a Journal, 
+you can retrieve all of your events for the past 7 days using [Journaling](../intro/journaling_intro.md).
 
 #### Does every Adobe I/O Events webhook http requests come with a signature? 
      

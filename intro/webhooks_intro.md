@@ -182,7 +182,12 @@ Each wait interval is the square of the previous interval.
 Once five retries are attempted (after 31 minutes) and the last attempt also fails, 
 Adobe marks the webhook as invalid and stops sending requests. 
 
-To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, you must log into Adobe Developer Console and reactivate the webhook. While your webhook is marked **Disabled**, Adobe will continue to log events, even though it isn&rsquo;t sending them. You can retrieve all of your events for the past 7 days using the [Journaling API](../api/journaling_api.md) and the Journaling unique API endpoint provided in the Registration Details in Console.
+To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, 
+you must log into Adobe I/O Developer Console, edit your events registration, 
+it will re-trigger a webhook challenge request, and eventually a webhook re-activation.
+
+While your webhook is marked **Disabled**, Adobe will continue to log events a Journal, 
+you can retrieve all of your events for the past 7 days using [Journaling](../intro/journaling_intro.md).
     
 ## Receiving events
 
