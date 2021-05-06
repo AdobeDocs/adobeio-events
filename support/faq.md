@@ -151,6 +151,7 @@ can handle the response gracefully. The behavior you observe is expected.
 It is perfectly ok to get 1 event when you specify a limit greater than 1 . 
 The number of events that gets returned in a response 
 can vary depending on the incoming traffic (upper bound being equal to the limit parameter).
+See our [Journaling API documentation](../api/journaling_api.md#limiting-the-size-of-the-batch) for more details.
      
 #### Is there a way to get the list of events all together at once?
      

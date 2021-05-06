@@ -2,7 +2,7 @@
 
 # Adobe I/O Events Journaling API
 
-  - [What is a Journal](#what-is-a-journal)
+  - [What is a Journal?](#what-is-a-journal)
   - [Fetching events from the journaling API](#fetching-events-from-the-journaling-api)
     - [Finding the journaling endpoint URL](#finding-the-journaling-endpoint-url)
     - [Obtaining an access token to call the API](#obtaining-an-access-token-to-call-the-api)
@@ -18,7 +18,7 @@
     - [No Events in Journal](#no-events-in-journal)
   - [Journaling FAQ](../support/faq.md#journaling-faq)  
 
-## What is a Journal
+## What is a Journal?
 
 A Journal, is an ordered list of events - much like a ledger or a log where new entries (events) are added to the end of the ledger and the ledger keeps growing. 
 Your application can start reading the ledger from any position and then continue reading "newer" entries (events) in the ledger, much like turning pages forward.
@@ -303,12 +303,19 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 
 ### Limiting the size of the batch
 
-Depending on the frequency of the events in your registration, the number of events returned in a single response batch varies. A batch of events will always have one event but there is no upper limit to the number of events that can be returned in a single batch. In case you wish to set an upper bound, you can supply the `limit` query parameter with the maximum number of events that may be returned by the API.
+When events are created at a high frequency, Journal persists groups of events in its storages; 
+when events are created at a lower rate, this Journal persistent storages will contain only one event. 
+
+Hence, depending on the traffic of the events associated with your registration, 
+the number of events returned in a single response batch varies:
+a batch of events contains at least one event but there is no pre-defined upper limit. 
+
+In case you wish to set an upper bound, you can supply the `limit` query parameter with the maximum number 
+of events that may be returned by the API.
 
 Once a `limit` query parameter is supplied, the value of the parameter is retained in the `next` link as well. Hence, you can continue using the `next` link as-is, without needing to construct it. The `limit` query parameter can also be combined with any other query parameter, just make sure that you pass a positive integer as the value.
 
 For example, here is the same request as before but with the number of events returned limited to just one:
-
 
 ```
 curl -X GET \
@@ -359,7 +366,10 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 }
 ```
 
-NOTE: The `limit` query parameter DOES NOT guarantee that the number of events returned will always be equal to the value supplied. This is true even if there are more events to be consumed in the journal. The `limit` query parameter only serves as a way to specify an upper bound on the count of events.
+NOTE: The `limit` query parameter DOES NOT guarantee that the number of events returned will always be equal to the value supplied.
+ This is true even if there are more events to be consumed in the journal. 
+ The `limit` query parameter only serves as a way to specify an upper bound on the count of events.
+ 
 
 For example, our journal above has at least 4 events that we know of, however, even when the `limit` parameter is supplied with the value `3`, we do not get that many events in the respsonse.
 

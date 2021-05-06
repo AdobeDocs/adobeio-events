@@ -6,19 +6,22 @@ The Adobe I/O Events Journaling API response contains event data and the unique 
 
 Unlike webhooks, no additional registration or other configuration is required; every application that is registered for events is automatically enabled for journaling. Journaling data is retained for 7 days.
 
-For information on installing and using the SDK, please begin by reading the [getting started guide](sdk_getting_started.md).
+For information on installing and using the SDK, see
+* our [getting started guide](sdk_getting_started.md)
+* our [Journaling API](../api/journaling_api.md) documentation
+* our [Journaling API FAQ](../support/faq.md#journaling-faq)
+
 
 ## Configuration Options
 
-### EventsJournalOptions
 
-The following options can be configured while calling the journaling API:
+### EventsJournalOptions
 
 |Name	|Type	|Description|
 |---|---|---|
 |[latest]	|boolean	|*Optional.* By default, the latest is set to false and all events are read from the first valid position in the journal. If set to true, Messages will be read from the latest position. |
 |[since]	|string	|*Optional.* Provide the position in the journal from where events must be fetched. If not specified and latests=false, messages are fetched from the first valid position in the journal.|
-|[limit]	|number	|Maximum number of events returned in the response. The number of messages can be less than the specified limit value but will never exceed this value.|
+|[limit]	|number	|Maximum number of events returned in the response. Note: unless the events are created at a high frequency, chances are the number of messages will be less than the specified limit value (see our [Journaling API](../api/journaling_api.md#limiting-the-size-of-the-batch) for more details)|
 
 ### EventsJournalPollingOptions
 
@@ -88,9 +91,13 @@ The response from the SDK contains the following as part of the json result:
 
 ## Get Events Observable from Journal
 
-Polling the journal for events and taking action on each event such as mapping, transformations, and filtering are some common functionalities that are most useful using the Journaling API. 
+Polling the journal for events and taking action on each event such as mapping, transformations, 
+and filtering are some common functionalities that are most useful using the Journaling API. 
 
-This method encapsulates all of the complexities of fetching events by following the `link.next` and `retry-After` headers while you can focus on implementing the business logic of taking action on receiving events. 
+This method encapsulates all of the complexities of fetching events by following the `link.next` and `retry-After` headers 
+while you can focus on implementing the business logic of taking action on receiving events 
+(and as mentioned in our [Journaling API documentation](../api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal), 
+utilizing this link it is **strongly recommended**).
 
 #### Method
 
