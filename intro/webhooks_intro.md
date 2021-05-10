@@ -6,7 +6,7 @@ With Adobe I/O Events webhooks, your application can sign up to be notified when
 For example, when a user uploads a asset, this action generates an event. 
 With the right webhook in place, your application is instantly notified that this event happened.
 
-Please refer to the Developer Console documentation on how to [Add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md)
+Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md)
 
 To start receiving events, you register a webhook, specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks, including:
 
@@ -153,17 +153,17 @@ ngrok http 80
 
 In the ngrok UI, you can see the URL for viewing the ngrok logs, labeled "Web Interface", plus the public-facing URLs ngrok generates to forward HTTP and HTTPS traffic to your localhost. You can use either of those public-facing URLs to register your Webhook with Adobe I/O, so long as your application is configured to respond on your localhost accordingly. Once your testing phase is complete, you can replace the ngrok URL in your Adobe I/O integration with the public URL for your deployed app.
 
-## Create a project in Adobe Developer Console
+## Create a project in the `Adobe Developer Console`
 
-Integrations are now created as part of a project within Adobe Developer Console. This requires you to have access to [Console](https://www.adobe.com/go/devs_console_ui) in order to create a project, add events to your project, configure the events, and register your webhook.
+Integrations are now created as part of a project within the `Adobe Developer Console`. This requires you to have access to the [Console](https://www.adobe.com/go/devs_console_ui) in order to create a project, add events to your project, configure the events, and register your webhook.
 
-For detailed instructions on completing these steps, please begin by reading the [Adobe Developer Console Getting Started guide](https://www.adobe.com/go/devs_console_getting_started).
+For detailed instructions on completing these steps, please begin by reading the [`Adobe Developer Console` Getting Started guide](https://www.adobe.com/go/devs_console_getting_started).
 
 Once you have completed the event registration, check the ngrok log. You should see a `GET` request, including the `challenge` that was passed along in the URL.  
   
   ![The challenge GET request received in ngrok](../img/ngrok_2.png "The challenge GET request received in ngrok")  
 
-In Adobe Developer Console, you will be taken to the *Registration Details* page once the event registration is complete. 
+In the `Adobe Developer Console`, you will be taken to the *Registration Details* page once the event registration is complete. 
 
 The *Status* of the registration should show as **Active**. If the registration shows as **Disabled** please see the [troubleshooting](#troubleshooting-a-disabled-registration-status) section that follows.
 
@@ -183,7 +183,7 @@ Once five retries are attempted (after 31 minutes) and the last attempt also fai
 Adobe marks the webhook as invalid and stops sending requests. 
 
 To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, 
-you must log into Adobe I/O Developer Console, edit your events registration, 
+you must log into the `Adobe Developer Console`, edit your events registration, 
 it will re-trigger a webhook challenge request, and eventually a webhook re-activation.
 
 While your webhook is marked **Disabled**, Adobe will continue to log events a Journal, 
@@ -199,7 +199,7 @@ https://ims-na1.adobelogin.com/ims/authorize/v1?response_type=code&client_id=api
 
 You will replace `api_key_from_console` with the **Client ID** value from the *Credentials* tab for the event registration details in Console.
 
-Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.adobe.com). Use the same Adobe ID as the one you used in the Adobe I/O Console. Now upload a file and check the ngrok logs again. If all went well, then an `asset_created` event was just delivered to your webhook. 
+Log in to [Creative Cloud Assets (<https://assets.adobe.com>)](https://assets.adobe.com). Use the same Adobe ID as the one you used in the `Adobe Developer Console`. Now upload a file and check the ngrok logs again. If all went well, then an `asset_created` event was just delivered to your webhook. 
 
 ![The POST request received in ngrok](../img/ngrok_2.png "The POST request received in ngrok")  
 
@@ -215,7 +215,7 @@ Your webhook URL must by necessity be accessible from the open internet. This me
  
 To prevent this from happening, Adobe I/O Events will add a `x-adobe-signature` header to each Http request it does to your webhook URL, which allows you to verify that the request was really made by Adobe I/O Events.
  
-This signature or &ldquo;message authentication code&rdquo; is computed using a cryptographic hash function and a secret key applied to the body of the HTTP request. In particular, a SHA256 [HMAC](https://en.wikipedia.org/wiki/HMAC) is computed of the JSON payload, using the **Client Secret** provided in Console as a secret key, and then turned into a Base64 digest. You can find your client secret in the *Credentials* tab for your event registration in Console.
+This signature or &ldquo;message authentication code&rdquo; is computed using a cryptographic hash function and a secret key applied to the body of the HTTP request. In particular, a SHA256 [HMAC](https://en.wikipedia.org/wiki/HMAC) is computed of the JSON payload, using the **Client Secret** provided in the `Adobe Developer Console` as a secret key, and then turned into a Base64 digest. You can find your client secret in the *Credentials* tab for your event registration in Console.
  
 Upon receiving a request, you should repeat this calculation and compare the result to the value in the `x-adobe-signature` header, and reject the request unless they match. Since the client secret is known only by you and Adobe I/O Events, this is a reliable way to verify the authenticity of the request.
  

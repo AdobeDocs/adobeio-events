@@ -25,13 +25,13 @@ Once the above is complete, to configure Adobe I/O Events `Cloud Services in AEM
 3. In the Create Configuration dialog box, enter a title and a name for your integration, and then select Create.
       ![Create a configuration](../img/events_aem_19.png "Create a configuration")
 
-4. Select Edit. Configure the service by specifying each field in the **Edit Component** dialog box. You can copy your credentials from the [Adobe I/O developer Console](https://adobe.io/console) and paste them into each required field.
+4. Select Edit. Configure the service by specifying each field in the **Edit Component** dialog box. You can copy your credentials from the [`Adobe Developer Console`](https://adobe.io/console) and paste them into each required field.
 
       ![Edit the configuration](../img/events_aem_20.png "Edit the configuration")
 
 *   For **AEM Link externalizer**: specify **author** (or any other alias previously configured in the AEM Link Externalizer).
-*   For **API key**: Provide the key shown on the **Integration Details** page of the Adobe I/O developer Console.
-*   For **Technical Account ID**: Provide the ID shown on the Adobe I/O developer Console.
-*   For **Organization ID**: Provide the ID shown on the Adobe I/O developer Console.
-*   For **Client Secret**: AEM will automatically retrieve the value from the Adobe I/O developer Console.
+*   For **API key**: Provide the key shown on the **Integration Details** page of the `Adobe Developer Console`.
+*   For **Technical Account ID**: Provide the ID shown on the `Adobe Developer Console`.
+*   For **Organization ID**: Provide the ID shown on the `Adobe Developer Console`.
+*   For **Client Secret**: AEM will automatically retrieve the value from the `Adobe Developer Console`.
 

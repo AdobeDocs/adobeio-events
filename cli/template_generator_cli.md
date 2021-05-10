@@ -222,11 +222,11 @@ You will also receive the action URL which can be invoked from your application 
 You can now invoke the action using the [UI](#user-interface) or a [CuRL command](#curl-command) by providing the following required headers and parameters:
 
 * **Headers:**
-    * **Authorization:**  JWT Token that contains the `adobeio_api` scope which can be obtained by adding the I/O Management API in Adobe Developer Console. This token should be prepended with the word "Bearer". For more information, see the [service account integration documentation](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/ServiceAccountIntegration.md).
-    * **x-gw-ims-org-id:** The IMS Organization ID which can be obtained from the `config.json` file or within Console. 
+    * **Authorization:**  JWT Token that contains the `adobeio_api` scope which can be obtained by adding the I/O Management API in the `Adobe Developer Console`. This token should be prepended with the word "Bearer". For more information, see the [service account integration documentation](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/ServiceAccountIntegration.md).
+    * **x-gw-ims-org-id:** The IMS Organization ID which can be obtained from the `config.json` file or in the `Adobe Developer Console`. 
 
 * **Parameters:**
-    * **apiKey:** The client ID from the integration, found within Console.
+    * **apiKey:** The client ID from the integration, found in the `Adobe Developer Console`.
     * **providerId:** The ID of the Provider for which the event is being published.
     * **eventCode:** The type of event of the Provider.
     * **payload:** The JSON Payload to be published.

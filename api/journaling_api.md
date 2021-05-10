@@ -54,7 +54,7 @@ A batch of events returned by the Journaling API looks similar to the following 
 
 Every event registration has a corresponding unique journaling endpoint URL. This URL is displayed on the I/O Console - 
 
-1. Log into [console.adobe.io](https://console.adobe.io) and open your integration. 
+1. Log into the [`Adobe Developer Console`](https://console.adobe.io) and open your integration. 
 
 2. Select the Events tab. 
 
@@ -62,15 +62,15 @@ Every event registration has a corresponding unique journaling endpoint URL. Thi
 
 4. Find the Journaling section of the event details and copy the URL for the unique endpoint. 
 
-5. Be sure to add the `I/O Management API` as a service in your integration (using the `Services` tab in the I/O Console), in order to be able to invoke the journaling API.
+5. Be sure to add the `I/O Management API` as a service in your integration (using the `API` menu in the `Adobe Developer Console`), in order to be able to invoke the journaling API.
 
 ### Obtaining an access token to call the API
 
 To issue the API call, you need to provide three additional parameters: 
 
-* Your integration's API key. This is displayed in the Overview tab for your integration in the Adobe I/O Console.
+* Your integration's API key. This is displayed in the Overview tab for your integration in the `Adobe Developer Console`.
 * A JWT token. See [Authentication: Creating a JWT Token](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md) for how to create a JWT token.
-* Your organization id in the format org_id@AdobeOrg. This is also displayed in the Overview tab for your integration in the Adobe I/O Console.
+* Your organization id in the format org_id@AdobeOrg. This is also displayed in the Overview tab for your integration in the `Adobe Developer Console`.
 
 You combine the URL you got from the Journaling section of the event details with your API key, JWT token and organization ID to make the call.
 

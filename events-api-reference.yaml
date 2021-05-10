@@ -694,10 +694,10 @@ definitions:
     properties:
       description:
         type: string
-        description: 'The description of this Event, as shown on the Adobe I/O console'
+        description: 'The description of this Event, as shown on the Adobe Developer Console'
       label:
         type: string
-        description: 'The label of this Event, as shown on the Adobe I/O console'
+        description: 'The label of this Event, as shown on the Adobe Developer Console'
       event_code:
         type: string
         description: 'This event_code describes the type of event. Ideally it should be prefixed with a reverse-DNS name  (dictating the organization which defines the semantics of this event type) It is equivalent to the CloudEvents'' type. See https://github.com/cloudevents/spec/blob/master/spec.md#type'
@@ -783,13 +783,13 @@ definitions:
     properties:
       description:
         type: string
-        description: 'The description of this Event Metadata, as shown on the Adobe I/O console'
+        description: 'The description of this Event Metadata, as shown on the Adobe Developer Console'
         minLength: 1
         maxLength: 255
         pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
       label:
         type: string
-        description: 'The label of this Event Metadata, as shown on the Adobe I/O console'
+        description: 'The label of this Event Metadata, as shown on the Adobe Developer Console'
         minLength: 1
         maxLength: 255
         pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
@@ -814,17 +814,17 @@ definitions:
         description: The Id of this Events Provider
       label:
         type: string
-        description: 'The label of this Events Provider, as shown on the Adobe I/O console'
+        description: 'The label of this Events Provider, as shown on the Adobe Developer Console'
       description:
         type: string
-        description: 'The description of this Events Provider, as shown on the Adobe I/O console'
+        description: 'The description of this Events Provider, as shown on the Adobe Developer Console'
       source:
         type: string
         description: 'A URI-reference (this provider id prefixed with `urn:uuid:`), identifying the context in which an event happened. Producers MUST ensure that source + event.id is unique for each distinct event. See https://github.com/cloudevents/spec/blob/master/spec.md#source-1'
         readOnly: true
       docs_url:
         type: string
-        description: 'The documentation url of this Events Provider, as shown on the Adobe I/O console'
+        description: 'The documentation url of this Events Provider, as shown on the Adobe Developer Console'
       publisher:
         type: string
         description: 'The publisher is `Adobe` for Adobe Cloud Solution. In the case of multi-instances or on-premise Adobe solutions:  the publisher will be set to the organization_id owning this solution. In the case of event-providers registered by an organization using Adobe I/O registration API:  the publisher will be set to the organization_id which registered this events provider'
@@ -873,19 +873,19 @@ definitions:
     properties:
       label:
         type: string
-        description: 'The label of this Events Provider, as shown on the Adobe I/O console'
+        description: 'The label of this Events Provider, as shown on the Adobe Developer Console'
         minLength: 1
         maxLength: 255
         pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
       description:
         type: string
-        description: 'The description of this Events Provider, as shown on the Adobe I/O console'
+        description: 'The description of this Events Provider, as shown on the Adobe Developer Console'
         minLength: 0
         maxLength: 255
         pattern: '[\w\s-_\.\(\)\,\@:''`?#!]+'
       docs_url:
         type: string
-        description: 'The documentation url of this Events Provider, as shown on the Adobe I/O console'
+        description: 'The documentation url of this Events Provider, as shown on the Adobe Developer Console'
         minLength: 0
         maxLength: 255
         pattern: 'https?://(([^/:.\s]+(\.[^/:.\s]+)*)|([0-9](\.[0-9]{3})))(:[0-9]+)?((/[^?#\s]+)(\?[^#\s]+)?(#.+)?)?/?'

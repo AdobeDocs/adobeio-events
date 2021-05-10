@@ -99,7 +99,7 @@ A global function that returns a Promise that resolves with a new `EventsCoreAPI
 
 |Parameters	|Type	|Description|
 |---|---|---|
-|`organizationId`	|string	|The IMS Organization Id for which the provider, event metadata, etc are to be created which can be obtained using the Console or Transporter API. |
+|`organizationId`	|string	|The IMS Organization Id for which the provider, event metadata, etc are to be created which can be obtained using the `Adobe Developer Console` or Transporter API. |
 |`apiKey`	|string	|The API Key (Client ID) for the project or workspace.|
 |`accessToken`	|string	|A JSON Web Token (JWT). I/O Management Service needs to be enabled for the project or workspace. Must be created with `adobeio_api` scope, which is required for all the API calls.|
 |[httpOptions]	|[EventsCoreAPIOptions](#eventscoreapioptions)	|Options to configure API calls, as shown in the table below.| 

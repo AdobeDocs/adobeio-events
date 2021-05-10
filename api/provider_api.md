@@ -4,8 +4,8 @@
 
 ## Prerequisites
 
-1. Create a project in the [`Adobe I/O Developer console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
-2. Add the `I/O Management API` in your `Adobe I/O Developer console` project 
+1. Create a project in the [`Adobe Developer Console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
+2. Add the `I/O Management API` in your `Adobe Developer Console` project 
   2.1 Click on Add to Project > Service > API > Add an API to Project
   2.2 Select `I/O Management API`, Click Next
   2.3 Create a new service account (JWT) credential screen, 
@@ -13,7 +13,7 @@
   2.5 Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
   2.6 Once done, note you have a JWT credentials defined
 3. Note all your project Ids
-  3.1 Browse to your `Adobe I/O Developer console` > `Project overview`
+  3.1 Browse to your `Adobe Developer Console` > `Project overview`
   3.2 Find your `IMS Org Id`, and `api-key` 
   3.2 Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find :
         * your project Id (at `project.id`) 
@@ -86,10 +86,10 @@ To delete your custom event provider:
 
 
 The environment variables used in this `curl` commands are computed from the prerequisites documented above:
-* `api_key` is the api-key associated with your workspace in the `Adobe I/O Developer console`
+* `api_key` is the api-key associated with your workspace in the`Adobe Developer Console`
 * `jwt_token` is a jwt token generated using the set up from the same workspace
-* `projectId` is the `project.id` found the `json` model of your `Adobe I/O Developer console` project (see above) 
-* `consumerId` is the `project.org.id` found the `json` model of your `Adobe I/O Developer console` project (see above) 
+* `projectId` is the `project.id` found the `json` model of your `Adobe Developer Console` project (see above) 
+* `consumerId` is the `project.org.id` found the `json` model of your `Adobe Developer Console` project (see above) 
 
  
  

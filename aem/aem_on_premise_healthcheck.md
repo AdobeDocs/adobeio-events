@@ -39,5 +39,5 @@ In order to check that the AEM instance is able to emit events:
   * your webhook registration endpoint
 
 
-If for some reason, your webhook is failing, note that the Adobe I/O developer console holds a `Debug Tracing` feature:
+If for some reason, your webhook is failing, note that the `Adobe Developer Console` holds a `Debug Tracing` feature:
 It allows you to watch all the events payloads emitted by Adobe I/O towards your webhook and the associated webhook response.

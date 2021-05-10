@@ -111,7 +111,7 @@ and once the webhook is back up, you can re-enable it, see the question below,
 #### How can I re-enabled my webhook (disabled after a downtime)? How can I retrieve the events I missed?
 
 To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, 
-you must log into Adobe I/O Developer Console, edit your events registration,
+you must log into the `Adobe Developer Console`, edit your events registration,
 it will re-trigger a webhook challenge request,and eventually a webhook re-activation.
 
 While your webhook is marked Disabled, Adobe will continue to log events a Journal, 
@@ -176,10 +176,10 @@ however, using the `since` parameter you can to follow the journal
 #### I created a custom Adobe I/O Events Provider, why is it not showing up in the developer console?
 
 If you successfully create a custom Events Provider using our [Management API](../api/provider_api.md),
-it will only appear in the `Adobe I/O Developer Console` once you create at least one event metadata associated with it.
+it will only appear in the `Adobe Developer Console` once you create at least one event metadata associated with it.
 
 Once associated with its event metadata, your custom events provider will be ready to be used:
-it will appear in your (refreshed) `Adobe I/O Developer Console` project,
+it will appear in your (refreshed) `Adobe Developer Console` project,
 you will be able to register against it 
 and to start emitting events on its behalf using our [Publishing API](../api/eventsingress_api.md).
      
@@ -206,7 +206,7 @@ describing the set of authorization scopes you want to claim with this jwt token
 
 * our [AEM](../using/aem-event-setup.md) connector leverages an API 
 that requires your access token to hold a `event_receiver_api` scope; 
-for this you need to add the `I/O Events` API in your Adobe I/O Developer console workspace
+for this you need to add the `I/O Events` API in your `Adobe Developer Console` workspace
 adding `/s/event_receiver_api` metascope to your JWT claim (see the [AEM console setup documentation](../aem/aem_console_setup.md))
 * for all the others [`Adobe I/O Events` APIs](../api/api.md) 
 they require your access token to hold a `adobeio_api` scope 
@@ -239,7 +239,7 @@ You'll find it in this guide at [Integrate Analytics Triggers with Adobe I/O Eve
 
 #### Where do I configure Analytics Triggers for I/O? 
 
-Analytics Triggers are set up and managed via the Experience Cloud Activation UI. Once a Trigger has been created, it will appear in Adobe I/O Console under the available I/O Events list.
+Analytics Triggers are set up and managed via the Experience Cloud Activation UI. Once a Trigger has been created, it will appear in the `Adobe Developer Console` under the available I/O Events list.
 
 #### What does an Analytics Triggers payload look like?
 
