@@ -121,7 +121,7 @@ Returns the details of the provider specified by the provider ID. The "source" v
     },
     "id": "<provider_id>",
     "label": "<label>",
-    "description": "A custom events provider",
+    "description": "A Custom Events Provider",
     "source": "urn:uuid:<provider_id>",
     "publisher": "<Publisher_Org>"
 }

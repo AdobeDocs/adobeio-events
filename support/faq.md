@@ -23,8 +23,8 @@
     - [Is there a way to get the list of events all together at once?](#is-there-a-way-to-get-the-list-of-events-all-together-at-once)
 
 - [Custom Events FAQ](#custom-events-faq)
-    - [I created a custom Adobe I/O Events Provider, why is it not showing up in the developer console?](#i-created-a-custom-adobe-io-events-provider-why-is-it-not-showing-up-in-the-developer-console)
-
+    - [I created a `Custom Events Provider`, why is it not showing up in the `Adobe Developer console`?](#i-created-a-custom-events-provider-why-is-it-not-showing-up-in-the-adobe-developer-console)
+    
 - [JWT FAQ](#jwt-faq)    
     - [What is JWT and what is it used for?](#what-is-jwt-and-what-is-it-used-for)
     - [What are the metascopes my JWT token should claim? What are the access token authorization scopes expected by `Adobe I/O Events` APIs?](#what-are-the-metascopes-my-jwt-token-should-claim-what-are-the-access-token-authorization-scopes-expected-by-adobe-io-events-apis)
@@ -59,7 +59,7 @@ at the time of writing, the following Adobe solutions are supported via I/O Even
 * [AEM authors](../using/aem-event-setup.md) 
 * Adobe Campaign Standard  
 
-You can also register [your own Custom I/O Events Provider](../using/custom_events.md)
+You can also register [your own `Custom Events Provider`](../using/custom_events.md)
 
 #### What is the guarantee of events delivery? 
 
@@ -173,7 +173,7 @@ however, using the `since` parameter you can to follow the journal
      
 ## Custom Events FAQ
 
-#### I created a custom Adobe I/O Events Provider, why is it not showing up in the developer console?
+#### I created a `Custom Events Provider`, why is it not showing up in the `Adobe Developer Console`?
 
 If you successfully create a `Custom Events Provider` using our [Provider API](../api/provider_api.md),
 it will only appear in the `Adobe Developer Console` once you create at least one `Event Metadata` associated with it.

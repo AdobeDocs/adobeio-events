@@ -27,8 +27,7 @@ which comes with the ability to publish/consume Custom I/O Events.
 
 ## Get Started
 
-Register your `Custom Adobe I/O Events providers` and associated `Event Metadata`, 
-create event based registrations, 
+Register your `Custom Events Providers`, create event based registrations against these, 
 and then start publishing events from your apps, using either
 * [Adobe I/O Events API](../api/api.md)  
 * [Adobe I/O Events CLI](../cli/cli.md) 
