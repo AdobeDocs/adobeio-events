@@ -13,7 +13,7 @@
 
 ## Test Drive
 
-Once its metadata persisted in Adobe I/O Events (see above prerequisites)
+Once its metadata is persisted in Adobe I/O Events (see above prerequisites),
 your custom Adobe I/O Events provider can start publishing its 
 [Cloud Events]( https://cloudevents.io) to Adobe I/O Events publishing endpoint.
 
