@@ -68,7 +68,7 @@ If the webhook endpoint doesn't acknowledge receipt of an event, `Adobe I/O Even
 (see the [webhook FAQ](#webhook-faq) section below)
 
 Note that `Adobe I/O Events` 
-* doesn't guarantee the order of events delivery, so subscribers may receive them out of order (this applies to our Journal API as well).
+* currently doesn't guarantee the order of events delivery, so subscribers may receive them out of order (this applies to our Journal API as well).
 * may send the same events more than once 
 * is adding a unique event uuid in the event payload 
 * is passing the same uuid in the `x-adobe-event-id` header of the webhook request
@@ -81,7 +81,8 @@ No, see the paragraph above for details.
 
 The various required permissions and entitlements vary according to the events provider,
 (see the list above) some are opened to all Adobe customers, others to enterprise developers or administrators only.
-Some of these events providers will require licensing, while others will be available to all.
+Some of these events providers will require licensing, while others will be available to all. 
+Please reach out to your Adobe account manager for licensing related questions.
 
 #### Which subscription types do I/O Events support?  
 
