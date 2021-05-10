@@ -186,8 +186,9 @@ To restart the flow of requests, once you have fixed the problem preventing your
 you must log into the `Adobe Developer Console`, edit your events registration, 
 it will re-trigger a webhook challenge request, and eventually a webhook re-activation.
 
-While your webhook is marked **Disabled**, Adobe will continue to log events a Journal, 
-you can retrieve all of your events for the past 7 days using [Journaling](../intro/journaling_intro.md).
+While your webhook is marked **Disabled**, Adobe will continue to log events in your Journal, 
+allowing you to retrieve all of your events for the past 7 days 
+(see our [Journaling](../intro/journaling_intro.md) documentation).
     
 ## Receiving events
 
