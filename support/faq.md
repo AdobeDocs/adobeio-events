@@ -13,7 +13,7 @@
 - [Webhook FAQ](#webhook-faq)  
     - [What happens if a webhook is down?](#what-happens-if-a-webhook-is-down)
     - [How can I re-enabled my webhook (disabled after a downtime)? How can I retrieve the events I missed?](#how-can-i-re-enabled-my-webhook-disabled-after-a-downtime-how-can-i-retrieve-the-events-i-missed)
-    - [Does every Adobe I/O Events webhook http requests come with a signature?](#does-every-adobe-io-events-webhook-http-requests-come-with-a-signature)
+    - [Does every Adobe I/O Events webhook HTTP requests come with a signature?](#does-every-adobe-io-events-webhook-http-requests-come-with-a-signature)
     - [Do Adobe I/O Events notifications come from a range of static IPs?](#do-adobe-io-events-notifications-come-from-a-range-of-static-ips)
     - [What is the size of notifications when in batch delivery style?](#what-is-the-size-of-notifications-when-in-batch-delivery-style)
 
@@ -117,11 +117,11 @@ it will re-trigger a webhook challenge request,and eventually a webhook re-activ
 While your webhook is marked Disabled, Adobe will continue to log events a Journal, 
 you can retrieve all of your events for the past 7 days using [Journaling](../intro/journaling_intro.md).
 
-#### Does every Adobe I/O Events webhook http requests come with a signature? 
+#### Does every Adobe I/O Events webhook HTTP requests come with a signature? 
      
 Yes, to allow your webhook to reject forged requests, 
 Adobe I/O Events adds a  [`x-adobe-signature`](../intro/webhooks_intro.md#authenticating-events) 
-header to every single Http request it does to your webhook URL (even the first `challenge` GET request)
+header to every single HTTP request it does to your webhook URL (even the first `challenge` GET request)
       
 #### Do Adobe I/O Events notifications come from a range of static IPs? 
 
@@ -131,7 +131,7 @@ their requirement: accepting traffic only from a range of static IPs.
 The answer is no. Adobe I/O Events notifications services are hosted on AWS and Azure,
 their IPs change over time.
 
-Reminder: each Adobe I/O Events http request
+Reminder: each Adobe I/O Events HTTP request
 holds an signature header (see the previous question), however if this is not enough 
 and if the above is a non-negotiable requirement, 
 you may choose to use the pull model instead, 

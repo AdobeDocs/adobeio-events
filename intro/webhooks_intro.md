@@ -214,7 +214,7 @@ For Creative Cloud Asset events, you&rsquo;ll need to add the Creative Cloud Lib
 
 Your webhook URL must by necessity be accessible from the open internet. This means third-party actors can send forged requests to it, tricking your application into handling fake events.
  
-To prevent this from happening, Adobe I/O Events will add a `x-adobe-signature` header to each Http request it does to your webhook URL, which allows you to verify that the request was really made by Adobe I/O Events.
+To prevent this from happening, Adobe I/O Events will add a `x-adobe-signature` header to each HTTP request it sends to your webhook URL, which allows you to verify that the request was really made by Adobe I/O Events.
  
 This signature or &ldquo;message authentication code&rdquo; is computed using a cryptographic hash function and a secret key applied to the body of the HTTP request. In particular, a SHA256 [HMAC](https://en.wikipedia.org/wiki/HMAC) is computed of the JSON payload, using the **Client Secret** provided in the `Adobe Developer Console` as a secret key, and then turned into a Base64 digest. You can find your client secret in the *Credentials* tab for your event registration in Console.
  
