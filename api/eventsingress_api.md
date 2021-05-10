@@ -4,10 +4,10 @@
 
 ## Prerequisites
 
-1. Create a project and a workspace in the [`Adobe Developer Console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
-2. Add the `I/O Management API` in your `Adobe Developer Console` project 
-3. [Generate a JWT token](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/credentials.md)
-4. Using [Adobe I/O Events Provider API](provider_api.md) 
+* Create a project and a workspace in the [`Adobe Developer Console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
+* Add the `I/O Management API` in this `Adobe Developer Console` workspace 
+* [Generate a JWT token](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/credentials.md)
+* Using [Adobe I/O Events Provider API](provider_api.md) 
    * create your own `Custom Events Provider`
    * create at least one `Event Metadata` associated with the above
 

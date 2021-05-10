@@ -8,22 +8,22 @@ Our `Adobe I/O Events Management API` contains endpoints allowing you to manage 
 
 ## Prerequisites
 
-1. Create a project in the [`Adobe Developer Console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
-2. Add the `I/O Management API` in your `Adobe Developer Console` project 
-  2.1 Click on Add to Project > Service > API > Add an API to Project
-  2.2 Select `I/O Management API`, Click Next
-  2.3 Create a new service account (JWT) credential screen, 
-  2.4 Click on Save configured API
-  2.5 Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
-  2.6 Once done, note you have a JWT credentials defined
-3. Note all your project Ids
-  3.1 Browse to your `Adobe Developer Console` > `Project overview`
-  3.2 Find your `IMS Org Id`, and `api-key` 
-  3.2 Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find :
+* Create a project in the [`Adobe Developer Console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
+* Add the `I/O Management API` in your `Adobe Developer Console` project 
+  * Click on `Add to Project` > `API`
+  * Select `I/O Management API`
+  * Create a new service account (JWT) credential screen, 
+  * Save
+  * Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
+  * Once done, note you have a JWT credentials defined
+* Note all your project Ids
+  * Browse to your `Adobe Developer Console` > `Project overview`
+  * Find your `IMS Org Id`, and `api-key` 
+  * Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find :
         * your project Id (at `project.id`) 
         * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
         * your workspace Id (at `project.workspace.id`)           
-5. [Generate a JWT token](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/credentials.md)
+* [Generate a JWT token](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/credentials.md)
 
 ## Test Drive
 
