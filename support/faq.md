@@ -182,7 +182,7 @@ it will only appear in the `Adobe Developer Console` once you create at least on
 Once associated with its `Event Metadata`, your `Custom Events Provider` will be ready to be used:
 it will appear in your (refreshed) `Adobe Developer Console` project,
 you will be able to register against it 
-and to start emitting events on its behalf using our [Publishing API](../api/eventsingress_api.md).
+and to start emitting events on its behalf using our [Events Publishing API](../api/eventsingress_api.md).
      
 ## JWT FAQ
 

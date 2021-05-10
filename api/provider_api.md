@@ -34,7 +34,7 @@ To help you further, here are a few sample `curl` commands.
  
 The one below will `GET` the list of all the `Events Providers` you are entitled to use.
 
-       curl -v --request GET \
+       curl -i -v --request GET \
         --url https://api.adobe.io/events/${consumerId}/providers \
         --header "x-api-key: $api_key" \
         --header "Authorization: Bearer $jwt_token" \
@@ -42,7 +42,7 @@ The one below will `GET` the list of all the `Events Providers` you are entitled
         
 Now you have the `Events Providers` IDs, you can list their `Event Metadata`: 
 
-      curl -v --request GET \
+      curl -i -v --request GET \
         --url https://api.adobe.io/events/providers/${providerId}?eventmetadata=true \
         --header "x-api-key: $api_key" \
         --header "Authorization: Bearer $jwt_token" \
@@ -50,7 +50,7 @@ Now you have the `Events Providers` IDs, you can list their `Event Metadata`:
         
 To create your own [`Custom Events Provider`](../using/custom_events.md) :
 
-    curl -v --request POST \
+    curl -i -v --request POST \
       --url https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers \
       --header "x-api-key: $api_key" \
       --header "Authorization: Bearer $jwt_token" \
@@ -64,7 +64,7 @@ To create your own [`Custom Events Provider`](../using/custom_events.md) :
         
 To associate `Event Metadata` with the above:
 
-    curl -v --request POST \
+    curl -i -v --request POST \
       --url  https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId}/eventmetadata \
       --header "x-api-key: $api_key" \
       --header "Authorization: Bearer $jwt_token" \
@@ -78,11 +78,11 @@ To associate `Event Metadata` with the above:
 
 With the 2 commands above, your `Custom Events Provider` is ready to be used, 
 you can register [webhooks](../intro/webhooks_intro.md) against it;
-to start emitting events on its behalf use our [Publishing API](eventsingress_api.md).
+to start emitting events on its behalf use our [Events Publishing API](eventsingress_api.md).
 
 To delete your `Custom Events Provider`:
 
-    curl -v --request DELETE \
+    curl -i -v --request DELETE \
      --url https://api-stage.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId} \
      --header "x-api-key: $api_key" \
      --header "Authorization: Bearer $jwt_token" \
@@ -94,6 +94,6 @@ The environment variables used in this `curl` commands are computed from the pre
 * `jwt_token` is a jwt token generated using the set up from the same workspace
 * `projectId` is the `project.id` found the `json` model of your `Adobe Developer Console` project (see above) 
 * `consumerId` is the `project.org.id` found the `json` model of your `Adobe Developer Console` project (see above) 
+* `workspaceId` is the `project.workspace.id` found the `json` model of your `Adobe Developer Console` project (see above)          
 
- 
  

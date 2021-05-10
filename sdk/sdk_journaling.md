@@ -14,6 +14,7 @@ For information on installing and using the SDK, see
 
 ## Configuration Options
 
+The following options can be configured while calling the journaling API:
 
 ### EventsJournalOptions
 
@@ -97,7 +98,7 @@ and filtering are some common functionalities that are most useful using the Jou
 This method encapsulates all of the complexities of fetching events by following the `link.next` and `retry-After` headers 
 while you can focus on implementing the business logic of taking action on receiving events 
 (and as mentioned in our [Journaling API documentation](../api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal), 
-utilizing this link it is **strongly recommended**).
+utilizing this link is **strongly recommended**).
 
 #### Method
 
