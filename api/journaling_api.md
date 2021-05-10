@@ -303,8 +303,8 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 
 ### Limiting the size of the batch
 
-When events are created at a high frequency, Journal persists groups of events in its storages; 
-when events are created at a lower rate, this Journal persistent storages will contain only one event. 
+When events are created at a high frequency, Journal persists groups of events in its storage units; 
+when events are created at a lower rate, these Journal persistent storage units will contain only one event. 
 
 Hence, depending on the traffic of the events associated with your registration, 
 the number of events returned in a single response batch varies:
