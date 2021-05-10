@@ -10,7 +10,7 @@ Custom I/O Events will enable users to emit custom events from their application
 **Benefits of Custom Events** 
 
 - **Simple Event Delivery**: 
-`Adobe I/O Events` co-ordinates the delivery of an event from an Event Producer to an Event Consumer. 
+`Adobe I/O Events` coordinates the delivery of an event from an event producer to an event consumer. 
 Producers are decoupled from consumers — a producer doesn't know which consumers are listening. Consumers are also decoupled from each other, and every consumer sees all of the events.
 
 - **Open Events Specification**:
