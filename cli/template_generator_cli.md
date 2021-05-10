@@ -91,7 +91,7 @@ To bootstrap the project code, create a directory and run the following commands
       ◯ CI/CD: Include GitHub Actions based workflows for Build, Test and Deploy
     ```
 
-5. You can then enter the name of the action you want to use for the events project (by default, `publish-event` will be used) and press enter. This triggers the creation of a project that contains the Events Template to publish cloud events and Web Assets. 
+5. You can then enter the name of the action you want to use for the events project (by default, `publish-event` will be used) and press enter. This triggers the creation of a project that contains the Events Template to publish [CloudEvents]( https://cloudevents.io) and Web Assets. 
 
     ```shell
     You are about to initialize the project '{PROJECT_NAME_FROM_CONSOLE}'

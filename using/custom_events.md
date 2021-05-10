@@ -14,7 +14,7 @@ Custom I/O Events will enable users to emit custom events from their application
 Producers are decoupled from consumers — a producer doesn't know which consumers are listening. Consumers are also decoupled from each other, and every consumer sees all of the events.
 
 - **Open Events Specification**:
-`Adobe I/O Events` leverages the Open [Cloud Events Specification](https://cloudevents.io/), 
+`Adobe I/O Events` leverages the Open [CloudEvents Specification](https://cloudevents.io/), 
 allowing you to leverage its [many sdks](https://github.com/cloudevents/spec#sdks)
 
 - **Near Real-time responses**: 
