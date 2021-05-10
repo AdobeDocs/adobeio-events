@@ -28,7 +28,7 @@ Our `Adobe I/O Events Management API` contains endpoints allowing you to manage 
 ## Test Drive
 
 Once the above are defined (and stuffed as environment variables),
-you are ready to use API, confer its [`swagger`/`OpenApi` documentation](https://www.adobe.io/apis/experienceplatform/events/ioeventsapi.html)
+you are ready to use the API, refer to its [`swagger`/`OpenApi` documentation](https://www.adobe.io/apis/experienceplatform/events/ioeventsapi.html).
 
 To help you further, here are a few sample `curl` commands.
  
