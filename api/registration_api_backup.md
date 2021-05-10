@@ -12,7 +12,7 @@
     - [GET /events/organizations/{orgId}/integrations/{intId}/tracing/{registrationId}](#get-tracing)
     - [GET /events/organizations/{orgId}/integrations/{intId}/{registrationId}](#get-journal)
 
-As an open system, Adobe Cloud Platform allows you access through APIs to just about any functionality you need. This includes events. The Adobe I/O Management API provides several API calls that enable you to manage events programmatically. 
+As an open system, Adobe Cloud Platform allows you access through APIs to just about any functionality you need. This includes events. The `Adobe I/O Management API` provides several API calls that enable you to manage events programmatically. 
 
 Adobe APIs are accessible through HTTP GET and POST methods. The API responds with the appropriate HTTP response code (200 for success) and a JSON object (response content type: `application/json`) containing the information requested.
 

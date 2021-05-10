@@ -175,10 +175,10 @@ however, using the `since` parameter you can to follow the journal
 
 #### I created a custom Adobe I/O Events Provider, why is it not showing up in the developer console?
 
-If you successfully create a custom Events Provider using our [Management API](../api/provider_api.md),
-it will only appear in the `Adobe Developer Console` once you create at least one event metadata associated with it.
+If you successfully create a `Custom Events Provider` using our [Provider API](../api/provider_api.md),
+it will only appear in the `Adobe Developer Console` once you create at least one `Event Metadata` associated with it.
 
-Once associated with its event metadata, your custom events provider will be ready to be used:
+Once associated with its `Event Metadata`, your `Custom Events Provider` will be ready to be used:
 it will appear in your (refreshed) `Adobe Developer Console` project,
 you will be able to register against it 
 and to start emitting events on its behalf using our [Publishing API](../api/eventsingress_api.md).

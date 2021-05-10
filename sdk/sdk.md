@@ -1,6 +1,6 @@
 # Adobe I/O Events SDK Overview
 
-The Adobe I/O Events SDK is an open-source SDK that can be used to interact with Adobe I/O Events and register providers and event metadata with ease. You can also register a webhook or journaling endpoint to listen to events. 
+The Adobe I/O Events SDK is an open-source SDK that can be used to interact with Adobe I/O Events and register `Events Providers` and `Event Metadata` with ease. You can also register a webhook or journaling endpoint to listen to events. 
 
 You can then start publishing messages to the event receiver for your organization and listen to those events by either polling via journaling or by allowing the webhook to be notified about events. 
 

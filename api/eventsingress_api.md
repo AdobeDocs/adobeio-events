@@ -7,14 +7,14 @@
 1. Create a project and a workspace in the [`Adobe Developer Console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
 2. Add the `I/O Management API` in your `Adobe Developer Console` project 
 3. [Generate a JWT token](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/credentials.md)
-4. Using [Adobe I/O Events Management API](provider_api.md) 
-   * create your own custom Adobe I/O Events provider
-   * create at least one event metadata associated with the above
+4. Using [Adobe I/O Events Provider API](provider_api.md) 
+   * create your own `Custom Adobe I/O Events Provider`
+   * create at least one `Event Metadata` associated with the above
 
 ## Test Drive
 
-Once its metadata is persisted in Adobe I/O Events (see above prerequisites),
-your custom Adobe I/O Events provider can start publishing its 
+Once its `Event Metadata` is persisted in Adobe I/O Events (see above prerequisites),
+your `Custom Adobe I/O Events Provider` can start publishing its 
 [CloudEvents]( https://cloudevents.io) to Adobe I/O Events publishing endpoint.
 
 Please follow [CloudEvents v1.0 specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md), 

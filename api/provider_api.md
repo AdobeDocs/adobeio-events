@@ -1,6 +1,10 @@
 <!--:nav_order:2-->
 
-# Adobe I/O Events Management API
+# Adobe I/O Events Provider API
+
+Our `Adobe I/O Events Management API` contains endpoints allowing you to manage your `Events Providers` and their associated `Event Metadata`: 
+* `GET` the list of the Adobe I/O Events Providers you are entitled to,
+* `POST`, `PUT`, `PATCH`, `DELETE` your [Custom Adobe I/O Events Provider](../using/custom_events.md)
 
 ## Prerequisites
 
@@ -28,7 +32,7 @@ you are ready to use API, confer its [`swagger`/`OpenApi` documentation](https:/
 
 To help you further, here are a few sample `curl` commands.
  
-The one below will `GET` the list of all the event providers you are entitled to use.
+The one below will `GET` the list of all the `Events Providers` you are entitled to use.
 
        curl -v --request GET \
         --url https://api.adobe.io/events/${consumerId}/providers \
@@ -36,7 +40,7 @@ The one below will `GET` the list of all the event providers you are entitled to
         --header "Authorization: Bearer $jwt_token" \
         --header "Accept: application/hal+json"
         
-Now you have the provider ids, you can list their events metadata: 
+Now you have the provider ids, you can list their `Event Metadata`: 
 
       curl -v --request GET \
         --url https://api.adobe.io/events/providers/${providerId}?eventmetadata=true \
@@ -44,7 +48,7 @@ Now you have the provider ids, you can list their events metadata:
         --header "Authorization: Bearer $jwt_token" \
         --header "Accept: application/hal+json" 
         
-To create your own [custom events provider](../using/custom_events.md) :
+To create your own [Custom Adobe I/O Events Provider](../using/custom_events.md) :
 
     curl -v --request POST \
       --url https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers \
@@ -58,7 +62,7 @@ To create your own [custom events provider](../using/custom_events.md) :
           "docs_url": "https://yourdocumentation.url.if.any"
         }'
         
-To associate event metadata with the above:
+To associate `Event Metadata` with the above:
 
     curl -v --request POST \
       --url  https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId}/eventmetadata \
@@ -72,7 +76,7 @@ To associate event metadata with the above:
       "description": "a description for your event type"
        }'
 
-With the 2 commands above, your custom events provider is ready to be used, 
+With the 2 commands above, your Custom Adobe I/O Events Provider is ready to be used, 
 you can register [webhooks](../intro/webhooks_intro.md) against it;
 to start emitting events on its behalf use our [Publishing API](eventsingress_api.md).
 
