@@ -304,11 +304,12 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 ### Limiting the size of the batch
 
 When events are created at a high frequency, Journal persists groups of events in its storage units; 
-when events are created at a lower rate, these Journal persistent storage units will contain only one event. 
+when events are created at a lower rate, these storage units will contain only one event. 
 
 Hence, depending on the traffic of the events associated with your registration, 
 the number of events returned in a single response batch varies:
-a batch of events contains at least one event but there is no pre-defined upper limit. 
+a batch of events contains at least one event (if you are not already at the end of the journal),
+but there is no pre-defined upper limit. 
 
 In case you wish to set an upper bound, you can supply the `limit` query parameter with the maximum number 
 of events that may be returned by the API.
