@@ -1,7 +1,7 @@
 
 ## Runtime Actions as Webhook
 
-The integration between Adobe I/O Runtime and I/O Events lets you create Runtime actions to be set up as webhook endpoints on the `Developer Console` for receiving events, so that every time an event fires, your Runtime action is executed. We recommend setting up your runtime action as webhook if you have short-running action.
+The integration between Adobe I/O Runtime and I/O Events lets you create Runtime actions to be set up as webhook endpoints on the `Developer Console` for receiving events, so that every time an event fires, your Runtime action is executed. We recommend setting up your runtime action as webhook if you have short-running action (that responds within 10 sec).
 
 For long-running (async) actions and guaranteed event handling you should consider using the [journaling approach](https://adobeio-codelabs-journaling-events-adobedocs.hlx.page/?src=/README.html) for consuming events.
 
@@ -22,8 +22,6 @@ The Runtime cli will let you create a runtime action and hook it up with an inte
 
 - [Built In Signature Verification](#built-in-signature-verification)
 - [Tracing Actions with Activation Ids](#tracing-actions-with-activation-ids)
-
-
 
 ### Built In Signature Verification
 
