@@ -24,8 +24,8 @@ createWebhookRegistration(consumerOrgId, integrationId, body) ⇒ Promise.<objec
 
 |Parameter	|Type	|Description|
 |---|---|---|
-|`consumerOrgId`	|string	|Consumer Org Id from the console integration URL.|
-|`integrationId`	|string	|Integration Id from the console integration URL.|
+|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` integration URL.|
+|`integrationId`	|string	|Integration Id from the `Adobe Developer Console` integration URL.|
 |`body`	|object	|JSON data contains details of the registration. See the sample JSON body for registering a [Journal URL](#sample-json-body-to-register-a-journal-url) or a [Webhook URL](#sample-json-body-to-register-a-webhook-url) for details.|
 
 ### Sample JSON Body to Register a Journal URL
@@ -79,9 +79,9 @@ getWebhookRegistration(consumerOrgId, integrationId, registrationId) ⇒ Promise
 
 |Parameter	|Type	|Description|
 |---|---|---|
-|`consumerOrgId`	|string	|Consumer Org Id from the console integration URL.|
-|`integrationId`	|string	|Integration Id from the console integration URL.|
-|`registrationId`	|string	|Registration id whose details are to be fetched.|
+|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` integration URL.|
+|`integrationId`	|string	|Integration Id from the `Adobe Developer Console` integration URL.|
+|`registrationId`	|string	|Registration id whose `Adobe Developer Console` are to be fetched.|
 
 #### Sample Response
 
@@ -129,8 +129,8 @@ getAllWebhookRegistrations(consumerOrgId, integrationId) ⇒ Promise.<object>
 
 |Parameter	|Type	|Description|
 |---|---|---|
-|`consumerOrgId`	|string	|Consumer Org Id from the console integration URL.|
-|`integrationId`	|string	|Integration Id from the console integration URL.|
+|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` integration URL.|
+|`integrationId`	|string	|Integration Id from the `Adobe Developer Console` integration URL.|
 
 #### Sample Response
 
@@ -173,7 +173,7 @@ The response array contains an object providing the details for each webhook reg
 
 ## Delete a Webhook Registration
 
-You can delete a webhook registration by providing the ID of the registration to be deleted along with the associated Consumer Org ID and Integration ID from Console.
+You can delete a webhook registration by providing the ID of the registration to be deleted along with the associated Consumer Org ID and Integration ID from `Adobe Developer Console`.
 
 #### Method
 
@@ -183,8 +183,8 @@ deleteWebhookRegistration(consumerOrgId, integrationId, registrationId) ⇒ Prom
 
 |Parameter|	Type	|Description|
 |---|---|---|
-|`consumerOrgId`	|string	|Consumer Org Id from Console.|
-|`integrationId`	|string	|Integration Id from the Console.|
+|`consumerOrgId`	|string	|Consumer Org Id from `Adobe Developer Console`.|
+|`integrationId`	|string	|Integration Id from the `Adobe Developer Console`.|
 |`registrationId`	|string	|ID of the registration to be deleted.|
 
 #### Response

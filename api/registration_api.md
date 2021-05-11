@@ -4,25 +4,25 @@
 
 ## Prerequisites
 
-1. Create a project in the [`Adobe I/O Developer console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
-2. Add the `I/O Management API` in your `Adobe I/O Developer console` project 
-  2.1 Click on Add to Project > Service > API > Add an API to Project
-  2.2 Select `I/O Management API`, Click Next
-  2.3 Create a new service account (JWT) credential screen, 
-  2.4 Click on Save configured API
-  2.5 Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
-  2.6 Once done, note you have a JWT credentials defined
-3. Note all your org, api-key and other contextual Ids
-  3.1 Browse to your `Adobe I/O Developer console` > `Project overview`
-  3.2 Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find :
-        * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
-        * your IMS Org Id (at `project.org.ims_org_id`)
-        * your credential Id (also called `application id`) (at `project.workspace.details.credentials[0].id`, note that `credentials` is an array, 
-        if you have more than one, pick the one where you defined your jwt
-        * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].jwt.client_id`                
-4. Define your webhook registration you will need :
+* Create a project in the [`Adobe Developer Console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
+* Add the `I/O Management API` in your `Adobe Developer Console` project 
+  * Click on `Add to Project` > `API`
+  * Select `I/O Management API`
+  * Create a new service account (JWT) credential screen, 
+  * Save
+  * Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
+  * Once done, note you have a JWT credentials defined
+* Note all your org, api-key and other contextual Ids
+  * Browse to your `Adobe Developer Console`` > `Project overview`
+  * Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find:
+    * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
+    * your IMS Org Id (at `project.org.ims_org_id`)
+    * your credential Id (also called `application id`) (at `project.workspace.details.credentials[0].id`, note that `credentials` is an array, 
+       if you have more than one, pick the one where you defined your jwt
+    * your client_id (also called `x-api-key`) (at `project.workspace.details.credentials[0].jwt.client_id`                
+* Define your webhook registration you will need :
   * a webhook url (accessible from the internet, reachable over HTTPS and that correctly respond to a "challenge" request) see https://www.adobe.io/apis/experienceplatform/events/docs.html#!adobedocs/adobeio-events/master/intro/webhook_docs_intro.md
-  * a name (a friendly user nae for you and that will used for display in the console)
+  * a name (a user friendly name, used for display in the `Adobe Developer Console`)
   * an array of events of interests, that are defined with 2 ids
     * a `provider_id`: defining one of the events source system (the events provider) your organization is entitled to,
     * a `event_code`: defining a type of the events the above system (the events provider) is emitting.
