@@ -11,7 +11,7 @@ To install and configure the Adobe I/O Events package on `AEM on premise` versio
 3. Configure the [`AEM Link Externalizer`](aem_on_premise_link_externalizer.md)
 4. Configure Adobe I/O Credentials
    1. [set up your service user keystore in AEM](aem_keystore_setup.md) 
-   2. [set up your workspace in Adobe I/O Developer console, and as OSGI configuration](aem_console_setup.md)
+   2. [set up your workspace in the `Adobe Developer Console`, and as OSGI configuration](aem_console_setup.md)
    3. [Finalize the Adobe IMS configuration in AEM](aem_ims_config.md)
 5. Optionally you may
    1. perform a few [health checks](aem_on_premise_healthcheck.md)

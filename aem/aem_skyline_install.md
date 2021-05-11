@@ -14,20 +14,20 @@ The Adobe I/O Events integration is currently being exposed through an integrati
 2. Unzip this archive, and merge it with your own existing Cloud Manager git repo, see [Experience Manager Cloud Manager - Help - Accessing Git ](https://docs.adobe.com/content/help/en/experience-manager-cloud-manager/using/managing-code/accessing-git.html) for further instructions
 
 3. [prepare the Adobe I/O Events service user keystore](aem_keystore_setup.md) 
-4. [set up your workspace in Adobe I/O Developer console, and as OSGI configuration](aem_console_setup.md)
+4. [set up your workspace in the `Adobe Developer Console`, and as OSGI configuration](aem_console_setup.md)
 
 
 3. [Deploy the code](https://docs.adobe.com/content/help/en/experience-manager-cloud-manager/using/how-to-use/deploying-code.html) 
 3. [Finalize the Adobe IMS configuration in AEM](aem_ims_config.md)
    
-### Verify your AEM Cloud Service is showing in the Adobe I/O Developer console
+### Verify your AEM Cloud Service is showing in the `Adobe Developer Console`
    
-Once the previous steps are completed, a new AEM as a Cloud Service provider should appear in the Events Providers list in the Adobe I/O developer console.
-Please refer to the Developer Console documentation on how to [add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) 
+Once the previous steps are completed, a new AEM as a Cloud Service provider should appear in the Events Providers list in the `Adobe Developer Console`.
+Please refer to the `Adobe Developer Console` documentation on how to [add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) 
 if you are new to this.
  
 
-  ![Adobe I/O developer Console showing an AEM Events Provider](../img/add_skyline_event_provider.png "Adobe I/O developer Console showing an AEM Events Provider")
+  ![Adobe Developer Console showing an AEM Events Provider](../img/add_skyline_event_provider.png "Adobe Developer Console showing an AEM Events Provider")
  
 
 ### Verify Events are being emitted from 'AEM as a Cloud Service'
