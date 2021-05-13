@@ -5,8 +5,8 @@
 
 - [Setting up Webhook Integration with Runtime Action](#setting-up-webhook-integration-with-runtime-action)
 - [Benefits of using Runtime Action as Webhook](#benefits-of-using-runtime-action-as-webhook)
-  - [Built In Signature Verification](#built-in-signature-verification)
-  - [Tracing Actions with Activation Ids](#tracing-actions-with-activation-ids)
+    - [Built In Signature Verification](#built-in-signature-verification)
+    - [Tracing Actions with Activation Ids](#tracing-actions-with-activation-ids)
 
 <!-- /TOC -->
 
@@ -48,8 +48,8 @@ However, in case of any failed invocation to your webhook, you will get an error
 
 - This activation id you can use in the `aio cli` to trace the actual error occurred in your invocation by doing `aio rt activation logs <failed_activation_id>`
  - You may now get activation ids for two types of failed activations - 
-   - Signature Validator Action 
-   - Your Runtime Action  
+   	- Signature Validator Action 
+   	- Your Runtime Action  
  - In case of failure in the signature verification step, this is how you will get the error response and the failed activation id for the same.
 
     ![Activation Id for Failed Signature Verification](../img/activation_id_for_failed_signature.png)
