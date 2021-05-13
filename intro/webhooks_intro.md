@@ -11,19 +11,18 @@ Please refer to the `Adobe Developer Console` documentation on how to [Add Event
 
 To start receiving events, you register a webhook, specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks, including:
 
-- [Introduction to Adobe I/O Events Webhooks](#introduction-to-adobe-io-events-webhooks)
-  - [Getting started](#getting-started)
+- [Getting started](#getting-started)
     - [Webhook example](#webhook-example)
-  - [Your first webhook](#your-first-webhook)
+    - [Runtime Actions As Webhook](../webhook/runtime_webhooks.md)
+- [Your first webhook](#your-first-webhook)
     - [The challenge request](#the-challenge-request)
-      - [Request](#request)
-      - [Response](#response)
     - [Testing with ngrok](#testing-with-ngrok)
-  - [Create a project in the `Adobe Developer Console`](#create-a-project-in-the-adobe-developer-console)
-    - [Troubleshooting a Disabled Registration Status](#troubleshooting-a-disabled-registration-status)
-  - [Receiving events](#receiving-events)
+- [Creating a project](#create-a-project-in-adobe-developer-console)
+    - [Troubleshooting](#troubleshooting-a-disabled-registration-status)
+- [Receiving events](#receiving-events)
     - [Receiving events for users](#receiving-events-for-users)
-  - [Authenticating events](#authenticating-events)
+- [Authenticating events](#authenticating-events)
+- [Webhook FAQ](../support/faq.md#webhook-faq)
 
 ## Getting started
 
