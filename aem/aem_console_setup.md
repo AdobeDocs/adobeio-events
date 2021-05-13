@@ -1,19 +1,19 @@
 
 
-### Add the `I/O Events` and `I/O Management API` API to your Adobe developer console workspace
+### Add the `I/O Events` and `I/O Management API` API to your `Adobe Developer Console` workspace
 
-Before you begin, on the top-right corner of the Adobe Developer Console, 
+Before you begin, on the top-right corner of the `Adobe Developer Console`, 
 verify you are holding a `System Administrator` role
  
  !["System Administrator shown in the console](../img/console_role_system_admin.png "System Administrator shown in the console") 
 
 Then, if you have no project nor workspace created yet (or if you are new to this,
-please refer to the [step-by-step instructions for creating an empty project in Adobe Developer Console](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)),
+please refer to the [step-by-step instructions for creating an empty project in `Adobe Developer Console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)),
 and create your project's workspace.
 
 For your AEM to be authorized to emit events against Adobe I/O, 
 you need to add the `I/O Events` as well as `I/O Management API` to your project's workspace 
-in the Adobe developer console. 
+in the `Adobe Developer Console`. 
 
 
 1. Click on `Add to Project` > `Service` > API`
@@ -38,7 +38,7 @@ see our [AEM keystore setup documentation](aem_keystore_setup.md).
 
 ### Bookmark your workspace
  
-Bookmark this Adobe I/O developer console workspace, as you might need to come back to it more than once, 
+Bookmark this `Adobe Developer Console` workspace, as you might need to come back to it more than once, 
 to fine tune or troubleshoot your configurations.
 
 

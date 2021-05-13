@@ -112,11 +112,11 @@ Once you save the trigger, any event in your report suite that meets the defined
 
 ![Viewing triggers listing](../img/events_atrig_22.png "Viewing triggers listing")
 
-## Use Adobe Developer Console
+## Use `Adobe Developer Console`
 
-Integrations are created as part of a project within Adobe Developer Console. This requires you to have access to [Console](https://www.adobe.com/go/devs_console_ui) in order to create a project, add events to your project, configure the events, and register your webhook.
+Integrations are created as part of a project within `Adobe Developer Console`. This requires you to have access to [Console](https://www.adobe.com/go/devs_console_ui) in order to create a project, add events to your project, configure the events, and register your webhook.
 
-For detailed instructions on completing these steps, please begin by reading the [Adobe Developer Console Getting Started guide](https://www.adobe.com/go/devs_console_getting_started). 
+For detailed instructions on completing these steps, please begin by reading the [`Adobe Developer Console` Getting Started guide](https://www.adobe.com/go/devs_console_getting_started). 
 
 When you are ready to [add events to your project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md) follow the steps provided, making sure to select **Analytics Triggers**.
 

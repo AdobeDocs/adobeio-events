@@ -12,11 +12,11 @@
     - [GET /events/organizations/{orgId}/integrations/{intId}/tracing/{registrationId}](#get-tracing)
     - [GET /events/organizations/{orgId}/integrations/{intId}/{registrationId}](#get-journal)
 
-As an open system, Adobe Cloud Platform allows you access through APIs to just about any functionality you need. This includes events. The Adobe I/O Management API provides several API calls that enable you to manage events programmatically. 
+As an open system, Adobe Cloud Platform allows you access through APIs to just about any functionality you need. This includes events. The `Adobe I/O Management API` provides several API calls that enable you to manage events programmatically. 
 
 Adobe APIs are accessible through HTTP GET and POST methods. The API responds with the appropriate HTTP response code (200 for success) and a JSON object (response content type: `application/json`) containing the information requested.
 
-Make sure that the `I/O Management API` is added as a service in your Adobe Developer Console project, in order to be able to invoke the various APIs described here. For more information on creating projects in Console and adding services, please read the [Adobe Developer Console documentation](https://www.adobe.io/apis/experienceplatform/console/docs.html).
+Make sure that the `I/O Management API` is added as an `API` in your `Adobe Developer Console` project, in order to be able to invoke the various APIs described here. For more information on creating projects in Console and adding services, please read the [Adobe Developer Console documentation](https://www.adobe.io/apis/experienceplatform/console/docs.html).
 
 ## Events API calls in the Adobe I/O Management API
 The following calls enable Events management in the Adobe I/O Management API:
@@ -39,7 +39,7 @@ The APIs for events management have several parameters in common, as shown in th
 | `intId` | path | string | The ID for your integration. |  
 | `registrationId` | path | string | A GUID identifying a single registration for an event provider associated with your integration. |
 | `Authorization` | path | string | A JWT token; see [Authentication: Creating a JWT Token](https://www.adobe.io/apis/cloudplatform/console/authentication/createjwt.html) for how to create a JWT token.  |
-| `x-api-key` | path | string | Your integration&rsquo;s API key. This is displayed in the Overview tab for your integration in the Adobe I/O Console. |
+| `x-api-key` | path | string | Your integration&rsquo;s API key. This is displayed in the Overview tab for your integration in the `Adobe Developer Console`. |
 
 ## Calling APIs
 To call an API, you simply need to issue the appropriate GET or POST method with all the parameters in place. Here is a sample, issued as a curl command:

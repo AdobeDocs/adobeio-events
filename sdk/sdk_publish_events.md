@@ -14,11 +14,11 @@ publishEvent(cloudEvent) ⇒ Promise.<string>
 |---|---|---|
 |`cloudEvent`	|object	|Object to be published to event receiver in cloud event format.|
 
-#### Cloud Events Sample
+#### CloudEvents Sample
 
-The events should follow [Cloud Events 1.0](https://github.com/cloudevents/spec/blob/v1.0/spec.md) Image result for cloud events specification. 
+The events should follow [CloudEvents 1.0](https://github.com/cloudevents/spec/blob/v1.0/spec.md) Image result for CloudEvents specification. 
 
-As of now, only `application/json` is accepted as the `content-type` for the "data" field of the cloud event. 
+As of now, only `application/json` is accepted as the `content-type` for the "data" field of the CloudEvent. 
 
 If retries are set, publish events are retried on network issues, 5xx and 429 error response codes. 
 

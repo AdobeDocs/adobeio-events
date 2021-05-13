@@ -2,44 +2,98 @@
 
 # Adobe I/O Events Provider API
 
+Our `Adobe I/O Events Management API` contains endpoints allowing you to manage your `Events Providers` and their associated `Event Metadata`: 
+* `GET` the list of the `Events Providers` you are entitled to,
+* `POST`, `PUT`, `PATCH`, `DELETE` your [`Custom Events Providers`](../using/custom_events.md)
+
 ## Prerequisites
 
-1. Create a project in the [`Adobe I/O Developer console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
-2. Add the `I/O Management API` in your `Adobe I/O Developer console` project 
-  2.1 Click on Add to Project > Service > API > Add an API to Project
-  2.2 Select `I/O Management API`, Click Next
-  2.3 Create a new service account (JWT) credential screen, 
-  2.4 Click on Save configured API
-  2.5 Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
-  2.6 Once done, note you have a JWT credentials defined
-3. Note all your project Ids
-  3.1 Browse to your `Adobe I/O Developer console` > `Project overview`
-  3.2 Find your `IMS Org Id`, and `api-key` 
-  3.2 Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find :
+* Create a project in the [`Adobe Developer Console`](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/projects-empty.md)
+* Add the `I/O Management API` in your `Adobe Developer Console` project 
+  * Click on `Add to Project` > `API`
+  * Select `I/O Management API`
+  * Create a new service account (JWT) credential screen, 
+  * Save
+  * Bookmark your workspace, as you might need to come back to it more than once, to fine tune or troubleshoot your configurations.
+  * Once done, note you have a JWT credentials defined
+* Note all your project Ids
+  * Browse to your `Adobe Developer Console` > `Project overview`
+  * Find your `IMS Org Id`, and `api-key` 
+  * Click on `Download`, open the downloaded `json` file with your favorite editor, in there you'll find :
         * your project Id (at `project.id`) 
         * your consumer Org Id (also called `consumer id`) (at `project.org.id`)
         * your workspace Id (at `project.workspace.id`)           
-5. [Generate a JWT token](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/credentials.md)
+* [Generate a JWT token](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/credentials.md)
 
 ## Test Drive
 
 Once the above are defined (and stuffed as environment variables),
-you are ready to user the [Provider API](https://www.adobe.io/apis/experienceplatform/events/ioeventsapi.html#/Providers/getProvidersByConsumerOrgId)
+you are ready to use the API, refer to its [`swagger`/`OpenApi` documentation](https://www.adobe.io/apis/experienceplatform/events/ioeventsapi.html).
 
-To help you further, here is below a sample `curl` query that will `GET` the list of all the event providers you are entitled to use.
+To help you further, here are a few sample `curl` commands.
+ 
+The one below will `GET` the list of all the `Events Providers` you are entitled to use.
 
-       curl -v --request GET \
-        --url ${api_url}/events/${consumerId}/providers \
+       curl -i -v --request GET \
+        --url https://api.adobe.io/events/${consumerId}/providers \
         --header "x-api-key: $api_key" \
         --header "Authorization: Bearer $jwt_token" \
         --header "Accept: application/hal+json"
         
-once you have the provider id of interest, you can list of the events (and event codes) 
-it supports by using another endpoint: [getProvidersById](https://www.adobe.io/apis/experienceplatform/events/ioeventsapi.html#/Providers/getProvidersById):  
-Here is the associated sample `curl` query 
+Now you have the `Events Providers` IDs, you can list their `Event Metadata`: 
 
-      curl -v --request GET \
-        --url ${api_url}/events/providers/${providerId}?eventmetadata=true \
+      curl -i -v --request GET \
+        --url https://api.adobe.io/events/providers/${providerId}?eventmetadata=true \
         --header "x-api-key: $api_key" \
         --header "Authorization: Bearer $jwt_token" \
         --header "Accept: application/hal+json" 
+        
+To create your own [`Custom Events Provider`](../using/custom_events.md) :
+
+    curl -i -v --request POST \
+      --url https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers \
+      --header "x-api-key: $api_key" \
+      --header "Authorization: Bearer $jwt_token" \
+      --header 'content-type: application/json' \
+      --header 'Accept: application/hal+json' \
+      --data '{
+          "label": "a label of your choice for you Custom Events Provider",
+          "description": "a description of your Custom Events Provider",
+          "docs_url": "https://yourdocumentation.url.if.any"
+        }'
+        
+To associate `Event Metadata` with the above:
+
+    curl -i -v --request POST \
+      --url  https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId}/eventmetadata \
+      --header "x-api-key: $api_key" \
+      --header "Authorization: Bearer $jwt_token" \
+      --header 'content-type: application/json' \
+      --header 'Accept: application/hal+json' \
+       --data '{
+      "event_code": "your.reverse.dns.event_code",
+      "label": "a label for your event type",
+      "description": "a description for your event type"
+       }'
+
+With the 2 commands above, your `Custom Events Provider` is ready to be used, 
+you can register [webhooks](../intro/webhooks_intro.md) against it;
+to start emitting events on its behalf use our [Events Publishing API](eventsingress_api.md).
+
+To delete your `Custom Events Provider`:
+
+    curl -i -v --request DELETE \
+     --url https://api-stage.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId} \
+     --header "x-api-key: $api_key" \
+     --header "Authorization: Bearer $jwt_token" \
+     --header "Accept: application/hal+json" 
+
+
+The environment variables used in this `curl` commands are computed from the prerequisites documented above:
+* `api_key` is the api-key associated with your workspace in the`Adobe Developer Console`
+* `jwt_token` is a jwt token generated using the set up from the same workspace
+* `projectId` is the `project.id` found the `json` model of your `Adobe Developer Console` project (see above) 
+* `consumerId` is the `project.org.id` found the `json` model of your `Adobe Developer Console` project (see above) 
+* `workspaceId` is the `project.workspace.id` found the `json` model of your `Adobe Developer Console` project (see above)          
+
+ 

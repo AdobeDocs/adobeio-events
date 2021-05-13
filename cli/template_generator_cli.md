@@ -91,7 +91,7 @@ To bootstrap the project code, create a directory and run the following commands
       ◯ CI/CD: Include GitHub Actions based workflows for Build, Test and Deploy
     ```
 
-5. You can then enter the name of the action you want to use for the events project (by default, `publish-event` will be used) and press enter. This triggers the creation of a project that contains the Events Template to publish cloud events and Web Assets. 
+5. You can then enter the name of the action you want to use for the events project (by default, `publish-event` will be used) and press enter. This triggers the creation of a project that contains the Events Template to publish [CloudEvents]( https://cloudevents.io) and Web Assets. 
 
     ```shell
     You are about to initialize the project '{PROJECT_NAME_FROM_CONSOLE}'
@@ -222,11 +222,11 @@ You will also receive the action URL which can be invoked from your application 
 You can now invoke the action using the [UI](#user-interface) or a [CuRL command](#curl-command) by providing the following required headers and parameters:
 
 * **Headers:**
-    * **Authorization:**  JWT Token that contains the `adobeio_api` scope which can be obtained by adding the I/O Management API in Adobe Developer Console. This token should be prepended with the word "Bearer". For more information, see the [service account integration documentation](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/ServiceAccountIntegration.md).
-    * **x-gw-ims-org-id:** The IMS Organization ID which can be obtained from the `config.json` file or within Console. 
+    * **Authorization:**  JWT Token that contains the `adobeio_api` scope which can be obtained by adding the I/O Management API in the `Adobe Developer Console`. This token should be prepended with the word "Bearer". For more information, see the [service account integration documentation](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/ServiceAccountIntegration.md).
+    * **x-gw-ims-org-id:** The IMS Organization ID which can be obtained from the `config.json` file or in the `Adobe Developer Console`. 
 
 * **Parameters:**
-    * **apiKey:** The client ID from the integration, found within Console.
+    * **apiKey:** The client ID from the integration, found in the `Adobe Developer Console`.
     * **providerId:** The ID of the Provider for which the event is being published.
     * **eventCode:** The type of event of the Provider.
     * **payload:** The JSON Payload to be published.

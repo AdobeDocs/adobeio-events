@@ -2,12 +2,12 @@
 
 # Adobe I/O Events Journaling API
 
-  - [What is a Journal](#what-is-a-journal)
+  - [What is a Journal?](#what-is-a-journal)
   - [Fetching events from the journaling API](#fetching-events-from-the-journaling-api)
     - [Finding the journaling endpoint URL](#finding-the-journaling-endpoint-url)
     - [Obtaining an access token to call the API](#obtaining-an-access-token-to-call-the-api)
     - [Fetching your first batch of events from the journal](#fetching-your-first-batch-of-events-from-the-journal)
-    - [Fetching the next batch of "newer" events from the journal](#fetching-the-next-batch-of-%22newer%22-events-from-the-journal)
+    - [Fetching the next batch of "newer" events from the journal](#fetching-the-next-batch-of-newer-events-from-the-journal)
     - [Fetching events from the end of the journal](#fetching-events-from-the-end-of-the-journal)
   - [Controlling the response](#controlling-the-response)
     - [Limiting the size of the batch](#limiting-the-size-of-the-batch)
@@ -16,9 +16,9 @@
     - [Oldest available events](#oldest-available-events)
     - [Fetching expired events](#fetching-expired-events)
     - [No Events in Journal](#no-events-in-journal)
+  - [Journaling FAQ](../support/faq.md#journaling-faq)  
 
-
-## What is a Journal
+## What is a Journal?
 
 A Journal, is an ordered list of events - much like a ledger or a log where new entries (events) are added to the end of the ledger and the ledger keeps growing. 
 Your application can start reading the ledger from any position and then continue reading "newer" entries (events) in the ledger, much like turning pages forward.
@@ -54,7 +54,7 @@ A batch of events returned by the Journaling API looks similar to the following 
 
 Every event registration has a corresponding unique journaling endpoint URL. This URL is displayed on the I/O Console - 
 
-1. Log into [console.adobe.io](https://console.adobe.io) and open your integration. 
+1. Log into the [`Adobe Developer Console`](https://console.adobe.io) and open your integration. 
 
 2. Select the Events tab. 
 
@@ -62,15 +62,15 @@ Every event registration has a corresponding unique journaling endpoint URL. Thi
 
 4. Find the Journaling section of the event details and copy the URL for the unique endpoint. 
 
-5. Be sure to add the `I/O Management API` as a service in your integration (using the `Services` tab in the I/O Console), in order to be able to invoke the journaling API.
+5. Be sure to add the `I/O Management API` as a service in your integration (using the `API` menu in the `Adobe Developer Console`), in order to be able to invoke the journaling API.
 
 ### Obtaining an access token to call the API
 
 To issue the API call, you need to provide three additional parameters: 
 
-* Your integration's API key. This is displayed in the Overview tab for your integration in the Adobe I/O Console.
+* Your integration's API key. This is displayed in the Overview tab for your integration in the `Adobe Developer Console`.
 * A JWT token. See [Authentication: Creating a JWT Token](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md) for how to create a JWT token.
-* Your organization id in the format org_id@AdobeOrg. This is also displayed in the Overview tab for your integration in the Adobe I/O Console.
+* Your organization id in the format `some_id@AdobeOrg`. This is also displayed in the Overview tab for your integration in the `Adobe Developer Console`.
 
 You combine the URL you got from the Journaling section of the event details with your API key, JWT token and organization ID to make the call.
 
@@ -303,12 +303,20 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 
 ### Limiting the size of the batch
 
-Depending on the frequency of the events in your registration, the number of events returned in a single response batch varies. A batch of events will always have one event but there is no upper limit to the number of events that can be returned in a single batch. In case you wish to set an upper bound, you can supply the `limit` query parameter with the maximum number of events that may be returned by the API.
+When events are created at a high frequency, Journal persists groups of events in its storage units; 
+when events are created at a lower rate, these storage units will contain only one event. 
+
+Hence, depending on the traffic of the events associated with your registration, 
+the number of events returned in a single response batch varies:
+a batch of events contains at least one event (if you are not already at the end of the journal),
+but there is no pre-defined upper limit. 
+
+In case you wish to set an upper bound, you can supply the `limit` query parameter with the maximum number 
+of events that may be returned by the API.
 
 Once a `limit` query parameter is supplied, the value of the parameter is retained in the `next` link as well. Hence, you can continue using the `next` link as-is, without needing to construct it. The `limit` query parameter can also be combined with any other query parameter, just make sure that you pass a positive integer as the value.
 
 For example, here is the same request as before but with the number of events returned limited to just one:
-
 
 ```
 curl -X GET \
@@ -359,7 +367,10 @@ Link: </events/organizations/23294/integrations/54108/f89067f2-0d50-4bb2-bf78-20
 }
 ```
 
-NOTE: The `limit` query parameter DOES NOT guarantee that the number of events returned will always be equal to the value supplied. This is true even if there are more events to be consumed in the journal. The `limit` query parameter only serves as a way to specify an upper bound on the count of events.
+NOTE: The `limit` query parameter DOES NOT guarantee that the number of events returned will always be equal to the value supplied.
+ This is true even if there are more events to be consumed in the journal. 
+ The `limit` query parameter only serves as a way to specify an upper bound on the count of events.
+ 
 
 For example, our journal above has at least 4 events that we know of, however, even when the `limit` parameter is supplied with the value `3`, we do not get that many events in the respsonse.
 

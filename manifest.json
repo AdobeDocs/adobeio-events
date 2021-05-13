@@ -182,16 +182,22 @@
           "title": "Journaling API"
         },
         {
+          "importedFileName": "registration_api",
+          "pages": [],
+          "path": "adobedocs/adobeio-events/master/api/registration_api.md",
+          "title": "Registration API"
+        },
+        {
           "importedFileName": "provider_api",
           "pages": [],
           "path": "adobedocs/adobeio-events/master/api/provider_api.md",
           "title": "Provider API"
         },
         {
-          "importedFileName": "registration_api",
+          "importedFileName": "eventsingress_api",
           "pages": [],
-          "path": "adobedocs/adobeio-events/master/api/registration_api.md",
-          "title": "Registration API"
+          "path": "adobedocs/adobeio-events/master/api/eventsingress_api.md",
+          "title": "Events Publishing API"
         }
       ]
     },
