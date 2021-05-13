@@ -1,5 +1,15 @@
 <!--:navorder: 2-->
 
+<!-- TOC -->
+
+- [Runtime Actions as Webhook](#runtime-actions-as-webhook)
+- [Setting up Webhook Integration with Runtime Action](#setting-up-webhook-integration-with-runtime-action)
+- [Benefits of using Runtime Action as Webhook](#benefits-of-using-runtime-action-as-webhook)
+  - [Built In Signature Verification](#built-in-signature-verification)
+  - [Tracing Actions with Activation Ids](#tracing-actions-with-activation-ids)
+
+<!-- /TOC -->
+
 ## Runtime Actions as Webhook
 
 The integration between Adobe I/O Runtime and I/O Events lets you create Runtime actions to be set up as webhook endpoints on the `Developer Console` for receiving events, so that every time an event fires, your Runtime action is executed. We recommend setting up your runtime action as webhook if you have short-running action (that responds within 10 sec).
@@ -21,16 +31,16 @@ The Runtime cli will let you create a runtime action and hook it up with an inte
 
 ## Benefits of using Runtime Action as Webhook
 
-- [Built In Signature Verification](#built-in-signature-verification)
-- [Tracing Actions with Activation Ids](#tracing-actions-with-activation-ids)
+  - [Built In Signature Verification](#built-in-signature-verification)
+  - [Tracing Actions with Activation Ids](#tracing-actions-with-activation-ids)
 
 ### Built In Signature Verification
 
-With integration between I/O Events and Adobe I/O Runtime, your runtime actions as webhooks are made secure by being provided with an OOTB signature verification implementation that's working under the hood. So, basically whatever runtime action you use to create an event registration the handler webhook created due to that will place a signature validator action along with your action as in a [sequence](#https://github.com/AdobeDocs/adobeio-runtime/blob/master/reference/sequences_compositions.md). I/O Events signs the event payload with client's secret signature and pass them in request header to webhook. Whatever requests will come to your handler webhook will only invoke your business logic runtime action when the validator action successfully verifies that the correct signature has been passed to invoke your webhook.
+With integration between I/O Events and Adobe I/O Runtime, you don't need to worry about security as your runtime actions configured as webhooks are secured with an out-of-the-box signature verification implementation. So, basically whatever runtime action you use to create an event registration, the handler webhook created due to that will place a signature validator action along with your action as in a [sequence](https://github.com/AdobeDocs/adobeio-runtime/blob/master/reference/sequences_compositions.md). I/O Events signs the event payload with the client's secret signature and passes the signature as a request header while invoking your webhook. Your business logic runtime action will only be invoked once the validator action successfully verifies that the correct signature has been passed to invoke your webhook.
 
 ### Tracing Actions with Activation Ids
 
-[Debug Tracing](#https://www.adobe.io/apis/experienceplatform/events/docs.html#!adobedocs/adobeio-events/master/support/tracing.md) is a pretty important tool on Developer Console for users who want to be informed whether their runtime action invocation is successful or not or what it responds.
+[Debug Tracing](../support/tracing.md) is a pretty important tool on Developer Console for users who want to be informed whether their runtime action invocation is successful or not or what it responds.
 
 After setting up a runtime action as webhook, upon its successful invocation, you can see custom response returned from your own runtime action in the `Debug Tracing` webhook response section as below.
 
