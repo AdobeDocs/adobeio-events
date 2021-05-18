@@ -83,7 +83,7 @@ to start emitting events on its behalf use our [Events Publishing API](eventsing
 To delete your `Custom Events Provider`:
 
     curl -i -v --request DELETE \
-     --url https://api-stage.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId} \
+     --url https://api.adobe.io/events/${consumerId}/${projectId}/${workspaceId}/providers/${providerId} \
      --header "x-api-key: $api_key" \
      --header "Authorization: Bearer $jwt_token" \
      --header "Accept: application/hal+json" 
