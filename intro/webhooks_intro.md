@@ -17,7 +17,7 @@ To start receiving events, you register a webhook, specifying a webhook URL and 
 - [Your first webhook](#your-first-webhook)
     - [The challenge request](#the-challenge-request)
     - [Testing with ngrok](#testing-with-ngrok)
-- [Creating a project](#create-a-project-in-adobe-developer-console)
+- [Creating a project](#create-a-project-in-the-adobe-developer-console)
     - [Troubleshooting](#troubleshooting-a-disabled-registration-status)
 - [Receiving events](#receiving-events)
     - [Receiving events for users](#receiving-events-for-users)
@@ -151,6 +151,10 @@ content-type: application/json
 
 {"validationUrl": "https://csm.adobe.io/csm/webhooks/validate?id=95ff060e-9870-45ae-b564-4a27ffe173b9&challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7"}
 ```
+
+`Adobe Developer Console` has a [Debug Tracing](../support/tracing.md) tab where you can view the validation URL by expanding the trace. Refer to the following section to [create a project](#create-a-project-in-the-adobe-developer-console) in `Adobe Developer Console`.
+
+![Debug Tracing Webhook Validation URL](../img/debug_tracing_webhook_validation_url.png)
 
 To complete verification, you need to send a GET request to it using a web browser or a REST client.
 
