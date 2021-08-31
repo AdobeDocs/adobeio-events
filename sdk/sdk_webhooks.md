@@ -129,7 +129,7 @@ getAllWebhookRegistrations(consumerOrgId, credentialId) ⇒ Promise.<object>
 
 |Parameter	|Type	|Description|
 |---|---|---|
-|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` integration URL.|
+|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` which can be obtained from the URL of the form: `https://developer.adobe.com/console/projects/{consumerOrgId}/{projectId}/overview`.|
 |`credentialId`	|string	|Credential Id from the `Adobe Developer Console` which can be obtained from credential URL of the form: `https://developer.adobe.com/console/projects/{consumerOrgId}/{projectId}/credentials/{credentialId}/details` by selecting the credential.|
 
 #### Sample Response
