@@ -19,13 +19,13 @@ You can register a webhook endpoint by providing the `webhook_url` as part of th
 #### Method
 
 ```shell
-createWebhookRegistration(consumerOrgId, integrationId, body) ⇒ Promise.<object>
+createWebhookRegistration(consumerOrgId, credentialId, body) ⇒ Promise.<object>
 ```
 
 |Parameter	|Type	|Description|
 |---|---|---|
-|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` integration URL.|
-|`integrationId`	|string	|Integration Id from the `Adobe Developer Console` integration URL.|
+|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` which can be obtained from the URL of the form: `https://developer.adobe.com/console/projects/{consumerOrgId}/{projectId}/overview`.|
+|`credentialId`	|string	|Credential Id from the `Adobe Developer Console` which can be obtained from credential URL of the form: `https://developer.adobe.com/console/projects/{consumerOrgId}/{projectId}/credentials/{credentialId}/details` by selecting the credential.|
 |`body`	|object	|JSON data contains details of the registration. See the sample JSON body for registering a [Journal URL](#sample-json-body-to-register-a-journal-url) or a [Webhook URL](#sample-json-body-to-register-a-webhook-url) for details.|
 
 ### Sample JSON Body to Register a Journal URL
@@ -74,13 +74,13 @@ You can get the registration details for a registration by providing a specific 
 #### Method
 
 ```shell
-getWebhookRegistration(consumerOrgId, integrationId, registrationId) ⇒ Promise.<object>
+getWebhookRegistration(consumerOrgId, credentialId, registrationId) ⇒ Promise.<object>
 ```
 
 |Parameter	|Type	|Description|
 |---|---|---|
-|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` integration URL.|
-|`integrationId`	|string	|Integration Id from the `Adobe Developer Console` integration URL.|
+|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` which can be obtained from the URL of the form: `https://developer.adobe.com/console/projects/{consumerOrgId}/{projectId}/overview`.|
+|`credentialId`	|string	|Credential Id from the `Adobe Developer Console` which can be obtained from credential URL of the form: `https://developer.adobe.com/console/projects/{consumerOrgId}/{projectId}/credentials/{credentialId}/details` by selecting the credential.|
 |`registrationId`	|string	|Registration id whose `Adobe Developer Console` are to be fetched.|
 
 #### Sample Response
@@ -119,18 +119,18 @@ getWebhookRegistration(consumerOrgId, integrationId, registrationId) ⇒ Promise
 
 ## List all webhook registrations
 
-Get the list of all registrations for the provided organization ID (`consumerOrgId`) and integration ID (`integrationId`). 
+Get the list of all registrations for the provided organization ID (`consumerOrgId`) and credential ID (`credentialId`). 
 
 #### Method
 
 ```shell
-getAllWebhookRegistrations(consumerOrgId, integrationId) ⇒ Promise.<object>
+getAllWebhookRegistrations(consumerOrgId, credentialId) ⇒ Promise.<object>
 ```
 
 |Parameter	|Type	|Description|
 |---|---|---|
-|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` integration URL.|
-|`integrationId`	|string	|Integration Id from the `Adobe Developer Console` integration URL.|
+|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` which can be obtained from the URL of the form: `https://developer.adobe.com/console/projects/{consumerOrgId}/{projectId}/overview`.|
+|`credentialId`	|string	|Credential Id from the `Adobe Developer Console` which can be obtained from credential URL of the form: `https://developer.adobe.com/console/projects/{consumerOrgId}/{projectId}/credentials/{credentialId}/details` by selecting the credential.|
 
 #### Sample Response
 
@@ -173,18 +173,18 @@ The response array contains an object providing the details for each webhook reg
 
 ## Delete a Webhook Registration
 
-You can delete a webhook registration by providing the ID of the registration to be deleted along with the associated Consumer Org ID and Integration ID from `Adobe Developer Console`.
+You can delete a webhook registration by providing the ID of the registration to be deleted along with the associated Consumer Org ID and Credential ID from `Adobe Developer Console`.
 
 #### Method
 
 ```shell
-deleteWebhookRegistration(consumerOrgId, integrationId, registrationId) ⇒ Promise.<object>
+deleteWebhookRegistration(consumerOrgId, credentialId, registrationId) ⇒ Promise.<object>
 ```
 
 |Parameter|	Type	|Description|
 |---|---|---|
-|`consumerOrgId`	|string	|Consumer Org Id from `Adobe Developer Console`.|
-|`integrationId`	|string	|Integration Id from the `Adobe Developer Console`.|
+|`consumerOrgId`	|string	|Consumer Org Id from the `Adobe Developer Console` which can be obtained from the URL of the form: `https://developer.adobe.com/console/projects/{consumerOrgId}/{projectId}/overview`.|
+|`credentialId`	|string	|Credential Id from the `Adobe Developer Console` which can be obtained from credential URL of the form: `https://developer.adobe.com/console/projects/{consumerOrgId}/{projectId}/credentials/{credentialId}/details` by selecting the credential.|
 |`registrationId`	|string	|ID of the registration to be deleted.|
 
 #### Response
