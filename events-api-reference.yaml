@@ -375,7 +375,7 @@ paths:
           description: If a sample event is available
         '404':
           description: If no sample event is available
-  '/events/organizations/{consumerOrgId}/integrations/{integrationId}/{registrationId}/validate':
+  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/{registrationId}/validate':
     get:
       tags:
         - Journaling
@@ -383,7 +383,7 @@ paths:
       operationId: getValidateEventsFromJournal
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - $ref: '#/parameters/integrationId'
+        - $ref: '#/parameters/credentialId'
         - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
@@ -404,7 +404,7 @@ paths:
       responses:
         default:
           description: successful operation
-  '/events/organizations/{consumerOrgId}/integrations/{integrationId}/{registrationId}':
+  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/{registrationId}':
     get:
       tags:
         - Journaling
@@ -412,7 +412,7 @@ paths:
       operationId: getEventsFromJournal
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - $ref: '#/parameters/integrationId'
+        - $ref: '#/parameters/credentialId'
         - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
@@ -441,7 +441,7 @@ paths:
       responses:
         default:
           description: successful operation
-  '/events/organizations/{consumerOrgId}/integrations/{integrationId}/registrations':
+  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/registrations':
     get:
       tags:
         - Registrations
@@ -451,7 +451,7 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - $ref: '#/parameters/integrationId'
+        - $ref: '#/parameters/credentialId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
         - $ref: '#/parameters/x-ims-org-id'
@@ -481,7 +481,7 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - $ref: '#/parameters/integrationId'
+        - $ref: '#/parameters/credentialId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
         - $ref: '#/parameters/x-ims-org-id'
@@ -497,7 +497,7 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Registration'
-  '/events/organizations/{consumerOrgId}/integrations/{integrationId}/registrations/{registrationId}':
+  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/registrations/{registrationId}':
     get:
       tags:
         - Registrations
@@ -507,7 +507,7 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - $ref: '#/parameters/integrationId'
+        - $ref: '#/parameters/credentialId'
         - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
@@ -526,7 +526,7 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - $ref: '#/parameters/integrationId'
+        - $ref: '#/parameters/credentialId'
         - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
@@ -536,7 +536,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/Registration'
-  '/events/organizations/{consumerOrgId}/integrations/{integrationId}/tracing/{registrationId}':
+  '/events/organizations/{consumerOrgId}/integrations/{credentialId}/tracing/{registrationId}':
     get:
       tags:
         - Tracing
@@ -546,7 +546,7 @@ paths:
         - application/json
       parameters:
         - $ref: '#/parameters/consumerOrgId'
-        - $ref: '#/parameters/integrationId'
+        - $ref: '#/parameters/credentialId'
         - $ref: '#/parameters/registrationId'
         - $ref: '#/parameters/authorization'
         - $ref: '#/parameters/x-api-key'
@@ -589,10 +589,10 @@ parameters:
     description: The requested eventmetadata event code
     required: true
     type: string
-  integrationId:
-    name: integrationId
+  credentialId:
+    name: credentialId
     in: path
-    description: The integration Id associated with the project/workspace you created your registration in
+    description: The credential Id associated with the credential in the project/workspace you created your registration in
     required: true
     type: string
   registrationId:
