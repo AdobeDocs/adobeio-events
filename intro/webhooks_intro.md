@@ -16,7 +16,7 @@ To start receiving events, you register a webhook, specifying a webhook URL and 
 - [Your first webhook](#your-first-webhook)
     - [The challenge request](#the-challenge-request)
     - [Testing with ngrok](#testing-with-ngrok)
-- [Creating a project](#create-a-project-in-adobe-developer-console)
+- [Creating a project](#create-a-project-in-the-adobe-developer-console)
     - [Troubleshooting](#troubleshooting-a-disabled-registration-status)
 - [Receiving events](#receiving-events)
     - [Receiving events for users](#receiving-events-for-users)
@@ -47,7 +47,7 @@ Acme Inc. wants to be notified when a new file is uploaded to Adobe Creative Clo
 
 Now when a file is uploaded, Adobe I/O Events performs the following HTTP request:
 
-```json
+```http
 POST https://acme.example.com/webhook HTTP/1.1
 content-type: application/json
 
@@ -102,15 +102,17 @@ You may reuse/fork our [Sample Webhook in Node.js](https://github.com/adobeio/io
 
 ### The challenge request
 
+#### Synchronous validation
+
 When registering a webhook, Adobe I/O Events will first try to verify that the URL is valid. To do this, it sends an HTTP GET request, with a `challenge` query parameter. The webhook should respond with a body containing the value of the `challenge` query parameter.
 
-#### Request
+##### Request
 
 ```http
-GET https://acme.example.com?challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7
+GET https://acme.example.com/webhook?challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7
 ```
 
-#### Response
+##### Response
 
 You can either respond by placing the challenge value directly in the response body:
 
@@ -139,6 +141,27 @@ Typically, you would build your webhook to respond to the Adobe challenge in a m
 ```
 
 **Note:** Make sure your response is given in the correct content type. If your webhook script places the challenge value directly in the response body, make sure it's returned as plain text (`text/plain`). For a JSON response, make sure it's `application/json`. Returning a response in the incorrect content type may cause extraneous code to be returned, which will not validate with Adobe I/O Events.
+
+#### Asynchronous validation
+
+When the webhook fails to respond appropriately to the challenge request, Adobe I/O Events sends an HTTP POST request with a body containing a custom URL for manual validation. 
+
+```http
+POST https://acme.example.com/webhook HTTP/1.1
+content-type: application/json
+
+{"validationUrl": "https://csm.adobe.io/csm/webhooks/validate?id=95ff060e-9870-45ae-b564-4a27ffe173b9&challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7"}
+```
+
+To complete verification, you need to send a GET request to it using a web browser or a REST client.
+
+```http
+GET https://csm.adobe.io/csm/webhooks/validate?id=95ff060e-9870-45ae-b564-4a27ffe173b9&challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7
+```
+
+The custom URL is valid for **5 minutes**. If the validation is not completed within 5 minutes, your webhook is marked `Disabled`.
+
+Your webhook must respond to the POST request with an HTTP status code of 200 before it can be put in the asynchronous validation mode. In other words, if the webhook responds with a 200 but doesn't respond with a body containing the challenge, it is switched to asynchronous validation mode. If there is a GET request on the validation URL within 5 minutes, the webhook is marked `Active`.
 
 ### Testing with ngrok
 
