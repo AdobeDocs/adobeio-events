@@ -22,7 +22,7 @@ To start receiving events, you register a webhook, specifying a webhook URL and 
     - [Troubleshooting Unstable/Disabled Registration Status](#troubleshooting-unstabledisabled-registration-status)
 - [Receiving events](#receiving-events)
     - [Receiving events for users](#receiving-events-for-users)
-- [Authenticating events](#authenticating-events)
+- [Security Considerations](#security-considerations)
 - [Webhook FAQ](../support/faq.md#webhook-faq)
 
 ## Getting started
@@ -239,16 +239,18 @@ In a real-world application, you would use the credentials of an authenticated u
 
 For Creative Cloud Asset events, you&rsquo;ll need to add the Creative Cloud Libraries to your integration and implement the User Auth UI; see [Setting Up Creative Cloud Asset Events](../using/cc-asset-event-setup.md) for details. 
 
-## Authenticating events
+## Security Considerations
 
 Your webhook URL must by necessity be accessible from the open internet. This means third-party actors can send forged requests to it, tricking your application into handling fake events.
  
 To prevent this from happening, Adobe I/O Events will add a `x-adobe-signature` header to each HTTP request it sends to your webhook URL, which allows you to verify that the request was really made by Adobe I/O Events.
  
-This signature or &ldquo;message authentication code&rdquo; is computed using a cryptographic hash function and a secret key applied to the body of the HTTP request. In particular, a SHA256 [HMAC](https://en.wikipedia.org/wiki/HMAC) is computed of the JSON payload, using the **Client Secret** provided in the `Adobe Developer Console` as a secret key, and then turned into a Base64 digest. You can find your client secret in the *Credentials* tab for your event registration in Console.
+This signature or "message authentication code" is computed using a cryptographic hash function and a secret key applied to the body of the HTTP request. In particular, a SHA256 [HMAC](https://en.wikipedia.org/wiki/HMAC) is computed of the JSON payload, using the **Client Secret** provided in the `Adobe Developer Console` as a secret key, and then turned into a Base64 digest. You can find your client secret in the *Credentials* tab for your event registration in Console.
  
 Upon receiving a request, you should repeat this calculation and compare the result to the value in the `x-adobe-signature` header, and reject the request unless they match. Since the client secret is known only by you and Adobe I/O Events, this is a reliable way to verify the authenticity of the request.
- 
+
+> Adobe strongly encourages validating your webhook deliveries using this mechanism to avoid processing "events" received from malicious third-party actors.
+
 **HMAC check implementation in JavaScript (pseudo-code):**
  
 ```javascript
