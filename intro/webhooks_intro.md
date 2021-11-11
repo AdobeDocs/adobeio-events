@@ -15,6 +15,8 @@ To start receiving events, you register a webhook, specifying a webhook URL and 
     - [Runtime Actions As Webhook](../webhook/runtime_webhooks.md)
 - [Your first webhook](#your-first-webhook)
     - [The challenge request](#the-challenge-request)
+      - [Synchronous validation](#synchronous-validation)
+      - [Asynchronous validation](#asynchronous-validation)
     - [Testing with ngrok](#testing-with-ngrok)
 - [Creating a project](#create-a-project-in-the-adobe-developer-console)
     - [Troubleshooting Unstable/Disabled Registration Status](#troubleshooting-unstabledisabled-registration-status)
