@@ -17,7 +17,7 @@ To start receiving events, you register a webhook, specifying a webhook URL and 
     - [The challenge request](#the-challenge-request)
     - [Testing with ngrok](#testing-with-ngrok)
 - [Creating a project](#create-a-project-in-the-adobe-developer-console)
-    - [Troubleshooting](#troubleshooting-a-disabled-registration-status)
+    - [Troubleshooting Unstable/Disabled Registration Status](#troubleshooting-unstabledisabled-registration-status)
 - [Receiving events](#receiving-events)
     - [Receiving events for users](#receiving-events-for-users)
 - [Authenticating events](#authenticating-events)
@@ -193,27 +193,30 @@ The *Status* of the registration should show as **Active**. If the registration 
 
 ![Event Registration Details tab in Adobe Developer Console](../img/events-registration-details.png)
 
-### Troubleshooting a Disabled Registration Status
+### Troubleshooting Unstable/Disabled Registration Status
 
-If you made an error transcribing the webhook URL, Adobe Events&rsquo; test of your webhook would have failed, resulting a **Disabled** status.
+If you made an error transcribing the webhook URL, Adobe I/O Events' test of your webhook would have failed, resulting in a **Disabled** status.
 
-In general, Adobe I/O Events will always confirm that your webhook received an event by means of the response code your webhook sends to each HTTP POST request. 
+In general, `Adobe I/O Events` will always confirm that your webhook received an event by means of the response code your webhook sends to each HTTP POST request. 
 
-If Adobe fails to receive a 200 OK response code within 10 seconds, it retries the request, including a special header: `x-adobe-retry-count`. 
-The value of this header begins at 1. 
-If the first retry request fails as well, Adobe waits, then retries again, incrementing the value of `x-adobe-retry-count` with each retry until it reaches 5. 
-Each wait interval is the square of the previous interval. 
-Once five retries are attempted (after 31 minutes) and the last attempt also fails, 
-Adobe marks the webhook as invalid and stops sending requests. 
+If `Adobe I/O Events` fails to receive a successful response code from your webhook within 10 seconds, it retries the request, including a special header `x-adobe-retry-count` (this header indicates how many times the delivery of an event or a batch of events has been attempted).
 
-To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, 
-you must log into the `Adobe Developer Console`, edit your events registration, 
-it will re-trigger a webhook challenge request, and eventually a webhook re-activation.
+`Adobe I/O Events` will keep on retrying delivery to your webhook for **24 hours** using exponential and fixed backoff strategies. The first retry is attempted after 1 minute and the period between retries doubles after each attempt (second retry is after 2m, etc.), but is at most 15 minutes.
 
-While your webhook is marked `Disabled`, Adobe will continue to log events in your Journal, 
-allowing you to retrieve all events for the past 7 days 
-(see our [Journaling](../intro/journaling_intro.md) documentation).
-    
+If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the webhook as **Unstable**, but still keeps on attempting delivery. This gives sufficient time to fix whatever problems your are facing and avoid your webhook from getting marked as Disabled.
+
+If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response), `Adobe I/O Events` drops the events, marks the webhook as **Disabled**, and stops sending any further events.
+
+To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a webhook re-activation.
+
+Note: While your webhook is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](../intro/journaling_intro.md)).
+
+*Unstable Webhook Registration*
+![Unstable Status](../img/unstable-status.png "Example of an Unstable webhook registration")
+
+*Disabled Webhook Registration*
+![Disabled Status](../img/disabled-status.png "Example of a Disabled webhook registration")
+
 ## Receiving events
 
 For development, you must first provide consent for yourself, using the following:

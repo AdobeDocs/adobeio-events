@@ -93,19 +93,27 @@ Yes:
 
 ## Webhook FAQ
 
-#### What happens if a webhook is down? 
+#### What happens if my webhook is down? Why is my events registration marked as `Unstable`?
 
-If `Adobe I/O Events` fails to receive a successful response code from your webhook within 10 seconds, it retries the request, including a special header: `x-adobe-retry-count`.
-Adobe I/O Events will retry up to five times using an exponential backoff strategy (it will retry up to (1 + 2 + 4 + 8 + 16 =) 31 minutes).
-After that time, if your webhook is still failing (with either no response or a response other than HTTP 2XX), Adobe I/O Events will mark it as invalid and stop sending requests.
+If `Adobe I/O Events` fails to receive a successful response code from your webhook within 10 seconds, it retries the request, including a special header `x-adobe-retry-count`. This header indicates how many times the delivery of an event or a batch of events has been attempted.
 
-Note you can then use the Journaling API to **retrieve** events that were published while your webhook was down and once the webhook is back up, you can re-enable it, see the question below.
+`Adobe I/O Events` will keep on retrying delivery to your webhook for **24 hours** using exponential and fixed backoff strategies. The first retry is attempted after 1 minute and the period between retries doubles after each attempt, but is at most 15 minutes (see below table outlining the retry pattern).
+
+| Retry Attempt        | 1  | 2  | 3  | 4  | 5   | 6   | 7   | ... |
+|----------------------|----|----|----|----|-----|-----|-----|-----|
+| Retry After Interval | 1m | 2m | 4m | 8m | 15m | 15m | 15m | ... |
+
+If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the webhook as **Unstable**, but still keeps on attempting delivery. This gives sufficient time to fix whatever problems your are facing and avoid your webhook from getting marked as Disabled.
+
+If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response), `Adobe I/O Events` drops the events, marks the webhook as **Disabled**, and stops sending any further events.
+
+Note: You can then use the [Journaling API](../intro/journaling_intro.md) to **retrieve** events that were published while your webhook was down and once the webhook is back up, you can re-enable it (see the question below).
 
 #### How can I re-enable my webhook (disabled after a downtime)? How can I retrieve the events I missed?
 
-To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, you must log into the `Adobe Developer Console`, edit your events registration, it will re-trigger a webhook challenge request, and eventually a webhook re-activation.
+To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a webhook re-activation.
 
-While your webhook is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling](../intro/journaling_intro.md) documentation).
+While your webhook is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](../intro/journaling_intro.md)).
 
 #### Does every Adobe I/O Events webhook HTTP requests come with a signature? 
      
