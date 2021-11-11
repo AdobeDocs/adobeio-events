@@ -115,6 +115,11 @@ To restart the flow of requests, fix the problem preventing your webhook from re
 
 While your webhook is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](../intro/journaling_intro.md)).
 
+#### What happens if my webhook is unable to handle a specific event but handles all other events gracefully?
+
+In this case, we will continue to retry the event delivery for 24 hours, but if all retry attempts get exhausted and the event still isn't delivered, then the event will be dropped.
+However, do note that the webhook registration will remain as **Active** and shall continue to process events.
+
 #### Does every Adobe I/O Events webhook HTTP requests come with a signature? 
      
 Yes, to allow your webhook to reject forged requests, Adobe I/O Events adds a  [`x-adobe-signature`](../intro/webhooks_intro.md#authenticating-events) header to every single HTTP request it makes to your webhook URL (even the first `challenge` GET request).
