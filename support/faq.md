@@ -93,7 +93,7 @@ Yes:
 
 ## Webhook FAQ
 
-#### What happens if my webhook is down? Why is my events registration marked as `Unstable`?
+#### What happens if my webhook is down? Why is my event registration marked as `Unstable`?
 
 If `Adobe I/O Events` fails to receive a successful response code from your webhook within 10 seconds, it retries the request, including a special header `x-adobe-retry-count`. This header indicates how many times the delivery of an event or a batch of events has been attempted.
 
@@ -103,22 +103,22 @@ If `Adobe I/O Events` fails to receive a successful response code from your webh
 |----------------------|----|----|----|----|-----|-----|-----|-----|
 | Retry After Interval | 1m | 2m | 4m | 8m | 15m | 15m | 15m | ... |
 
-If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the webhook as **Unstable**, but still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
+If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the event registration as **Unstable**, but still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid your event registration from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
 
-If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response), `Adobe I/O Events` drops the events, marks the webhook as **Disabled**, and stops sending any further events.
+If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response), `Adobe I/O Events` drops the events, marks the event registration as **Disabled**, and stops sending any further events.
 
-Note: You can then use the [Journaling API](../intro/journaling_intro.md) to **retrieve** events that were published while your webhook was down and once the webhook is back up, you can re-enable it (see the question below).
+Note: You can then use the [Journaling API](../intro/journaling_intro.md) to **retrieve** events that were published while your webhook was down. Once your webhook gets restored, you can re-enable your event registration (see the question below).
 
-#### How can I re-enable my webhook (disabled after a downtime)? How can I retrieve the events I missed?
+#### How can I re-enable my event registration (disabled after a downtime)? How can I retrieve the events I missed?
 
-To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a webhook re-activation.
+To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your event registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
 
-While your webhook is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](../intro/journaling_intro.md)).
+While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](../intro/journaling_intro.md)).
 
 #### What happens if my webhook is unable to handle a specific event but handles all other events gracefully?
 
 In this case, we will continue to retry the event delivery for 24 hours, but if all retry attempts get exhausted and the event still isn't delivered, then the event will be dropped.
-However, do note that the webhook registration will remain as **Active** and shall continue to process events.
+However, do note that the event registration will remain as **Active** and shall continue to process events.
 
 #### Does every Adobe I/O Events webhook HTTP requests come with a signature? 
      

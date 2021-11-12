@@ -8,7 +8,7 @@ With the right webhook in place, your application is instantly notified that thi
 
 Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md)
 
-To start receiving events, you register a webhook, specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks, including:
+To start receiving events, you register an event registration, specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks, including:
 
 - [Getting started](#getting-started)
     - [Webhook example](#webhook-example)
@@ -27,11 +27,11 @@ To start receiving events, you register a webhook, specifying a webhook URL and 
 
 ## Getting started
 
-An **Event** is a JSON object that describes something that happened. Events originate from **Event Providers**. Each event provider publishes specific types of events, identified by an **Event Code**. A **Webhook URL** receives event JSON objects as HTTP POST requests. You start receiving events by creating a **Webhook Registration**, providing a name, description, webhook URL, and a list of **Event Types** you are interested in.
+An **Event** is a JSON object that describes something that happened. Events originate from **Event Providers**. Each event provider publishes specific types of events, identified by an **Event Code**. A **Webhook URL** receives event JSON objects as HTTP POST requests. You start receiving events by creating an **Event Registration**, providing a name, description, webhook URL, and a list of **Event Types** you are interested in.
 
 ### Webhook example
 
-Acme Inc. wants to be notified when a new file is uploaded to Adobe Creative Cloud Assets, so it creates the following webhook registration:
+Acme Inc. wants to be notified when a new file is uploaded to Adobe Creative Cloud Assets, so it creates the following event registration:
 
 ```json
 {
@@ -92,7 +92,7 @@ content-type: application/json
 
 ## Your first webhook
 
-Before you can register a webhook, the webhook needs to be online and operational. If not, then the registration will fail. So you need to take care of setting that up first. Your webhook must be hosted on a server. For development, you may use localhost along with a tool like ngrok (see below).
+Before you can register a webhook, the webhook needs to be online and operational. If not, then the event registration will fail. So you need to take care of setting that up first. Your webhook must be hosted on a server. For development, you may use localhost along with a tool like ngrok (see below).
 
 For production, your webhook needs to:
 
@@ -161,9 +161,9 @@ To complete verification, you need to send a GET request to it using a web brows
 GET https://csm.adobe.io/csm/webhooks/validate?id=95ff060e-9870-45ae-b564-4a27ffe173b9&challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7
 ```
 
-The custom URL is valid for **5 minutes**. If the validation is not completed within 5 minutes, your webhook is marked `Disabled`.
+The custom URL is valid for **5 minutes**. If the validation is not completed within 5 minutes, your event registration is marked `Disabled`.
 
-Your webhook must respond to the POST request with an HTTP status code of 200 before it can be put in the asynchronous validation mode. In other words, if the webhook responds with a 200 but doesn't respond with a body containing the challenge, it is switched to asynchronous validation mode. If there is a GET request on the validation URL within 5 minutes, the webhook is marked `Active`.
+Your webhook must respond to the POST request with an HTTP status code of 200 before it can be put in the asynchronous validation mode. In other words, if the webhook responds with a 200 but doesn't respond with a body containing the challenge, it is switched to asynchronous validation mode. If there is a GET request on the validation URL within 5 minutes, the event registration is marked `Active`.
 
 ### Testing with ngrok
 
@@ -205,19 +205,19 @@ If `Adobe I/O Events` fails to receive a successful response code from your webh
 
 `Adobe I/O Events` will keep on retrying delivery to your webhook for **24 hours** using exponential and fixed backoff strategies. The first retry is attempted after 1 minute and the period between retries doubles after each attempt (second retry is after 2m, etc.), but is at most 15 minutes.
 
-If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the webhook as **Unstable**, but still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
+If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the event registration as **Unstable**, but still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
 
-If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response), `Adobe I/O Events` drops the events, marks the webhook as **Disabled**, and stops sending any further events.
+If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response), `Adobe I/O Events` drops the events, marks the event registration as **Disabled**, and stops sending any further events.
 
-To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a webhook re-activation.
+To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your events registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
 
-Note: While your webhook is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](../intro/journaling_intro.md)).
+Note: While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](../intro/journaling_intro.md)).
 
-*Unstable Webhook Registration*
-![Unstable Status](../img/unstable-status.png "Example of an Unstable webhook registration")
+*Unstable Event Registration*
+![Unstable Status](../img/unstable-status.png "Example of an Unstable event registration")
 
-*Disabled Webhook Registration*
-![Disabled Status](../img/disabled-status.png "Example of a Disabled webhook registration")
+*Disabled Event Registration*
+![Disabled Status](../img/disabled-status.png "Example of a Disabled event registration")
 
 ## Receiving events
 
