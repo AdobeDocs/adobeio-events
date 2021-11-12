@@ -120,9 +120,9 @@ While your event registration is marked `Disabled`, Adobe will continue to log e
 In this case, we will continue to retry the event delivery for 24 hours, but if all retry attempts get exhausted and the event still isn't delivered, then the event will be dropped.
 However, do note that the event registration will remain as **Active** and shall continue to process events.
 
-#### Does every Adobe I/O Events webhook HTTP requests come with a signature? 
+#### Does every Adobe I/O Events webhook HTTP request come with a signature? 
      
-Yes, to allow your webhook to reject forged requests, Adobe I/O Events adds a  [`x-adobe-signature`](../intro/webhooks_intro.md#authenticating-events) header to every single HTTP request it makes to your webhook URL (even the first `challenge` GET request).
+Yes, to allow your webhook to reject forged requests, Adobe I/O Events adds a [`x-adobe-signature`](../intro/webhooks_intro.md#security-considerations) header to every single HTTP request it makes to your webhook URL (even the first `challenge` GET request).
       
 #### Do Adobe I/O Events notifications come from a range of static IPs? 
 
@@ -135,7 +135,7 @@ The answer is **no**. Adobe I/O Events notifications services are hosted on AWS 
 #### What is the size of notifications when in batch delivery style?
      
 When registering a webhook to receive Adobe I/O Events notifications, you can select the delivery style:
-* Either receiving one event at a time ("Single"): each event resulting in an HTTP request to the webhook URL
+* Either receiving one event at a time ("Single"): each event resulting in an HTTP request to the webhook URL.
 * Or multiple events together ("Batch"): in this case, HTTP requests will still remain near-real time, the batch size will vary depending on the incoming traffic and the batch size will be at max 2MB bytes and will contain a maximum of 100 events.
 
 ## Journaling FAQ
