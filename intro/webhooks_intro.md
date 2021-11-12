@@ -8,7 +8,7 @@ With the right webhook in place, your application is instantly notified that thi
 
 Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md)
 
-To start receiving events, you register an event registration, specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks, including:
+To start receiving events, you create an event registration, specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks, including:
 
 - [Getting started](#getting-started)
     - [Webhook example](#webhook-example)
@@ -106,7 +106,7 @@ You may reuse/fork our [Sample Webhook in Node.js](https://github.com/adobeio/io
 
 #### Synchronous validation
 
-When registering a webhook, Adobe I/O Events will first try to verify that the URL is valid. To do this, it sends an HTTP GET request, with a `challenge` query parameter. The webhook should respond with a body containing the value of the `challenge` query parameter.
+When creating an event registration using a webhook, Adobe I/O Events will first try to verify that the URL is valid. To do this, it sends an HTTP GET request, with a `challenge` query parameter. The webhook should respond with a body containing the value of the `challenge` query parameter.
 
 ##### Request
 
