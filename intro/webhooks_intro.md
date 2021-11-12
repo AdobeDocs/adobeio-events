@@ -8,7 +8,7 @@ With the right webhook in place, your application is instantly notified that thi
 
 Please refer to the `Adobe Developer Console` documentation on how to [Add Events to a project](https://www.adobe.io/apis/experienceplatform/console/docs.html#!AdobeDocs/adobeio-console/master/services-add-event.md)
 
-To start receiving events, you create an event registration, specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks, including:
+To start receiving events, you create an event registration specifying a webhook URL and the types of events you want to receive. Each event will result in a HTTP request to the given URL, notifying your application. This guide provides an introduction to webhooks, including:
 
 - [Getting started](#getting-started)
     - [Webhook example](#webhook-example)

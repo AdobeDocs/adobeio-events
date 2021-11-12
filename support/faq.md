@@ -131,7 +131,7 @@ We had a few customers asking this in the context of securing their endpoint;  t
 
 The answer is **no**. Adobe I/O Events notifications services are hosted on AWS and Azure, their IPs change over time.
 
-*Reminder*: Each Adobe I/O Events HTTP request holds an signature header (see the previous question), however if this is not enough and if the above is a non-negotiable requirement, you may choose to use the pull model instead, and leverage our [Journaling API](../intro/journaling_intro.md).
+*Reminder*: Each Adobe I/O Events HTTP request holds a signature header (see the previous question), however if this is not enough and if the above is a non-negotiable requirement, you may choose to use the pull model instead, and leverage our [Journaling API](../intro/journaling_intro.md).
 
 #### What is the size of notifications when in batch delivery style?
      
