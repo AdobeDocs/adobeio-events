@@ -152,13 +152,13 @@ When the webhook fails to respond appropriately to the challenge request, Adobe 
 POST https://acme.example.com/webhook HTTP/1.1
 content-type: application/json
 
-{"validationUrl": "https://csm.adobe.io/csm/webhooks/validate?id=95ff060e-9870-45ae-b564-4a27ffe173b9&challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7"}
+{"validationUrl": "https://csm.adobe.io/csm/registrations/validate?id=95ff060e-9870-45ae-b564-4a27ffe173b9&challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7"}
 ```
 
 To complete verification, you need to send a GET request to it using a web browser or a REST client.
 
 ```http
-GET https://csm.adobe.io/csm/webhooks/validate?id=95ff060e-9870-45ae-b564-4a27ffe173b9&challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7
+GET https://csm.adobe.io/csm/registrations/validate?id=95ff060e-9870-45ae-b564-4a27ffe173b9&challenge=8ec8d794-e0ab-42df-9017-e3dada8e84f7
 ```
 
 The custom URL is valid for **5 minutes**. If the validation is not completed within 5 minutes, your event registration is marked `Disabled`.
