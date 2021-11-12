@@ -103,7 +103,7 @@ If `Adobe I/O Events` fails to receive a successful response code from your webh
 |----------------------|----|----|----|----|-----|-----|-----|-----|
 | Retry After Interval | 1m | 2m | 4m | 8m | 15m | 15m | 15m | ... |
 
-If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the webhook as **Unstable**, but still keeps on attempting delivery. This gives sufficient time to fix whatever problems your are facing and avoid your webhook from getting marked as Disabled.
+If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the webhook as **Unstable**, but still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid it from getting marked as Disabled.
 
 If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response), `Adobe I/O Events` drops the events, marks the webhook as **Disabled**, and stops sending any further events.
 
