@@ -3,34 +3,35 @@
 # Adobe I/O Events Frequently Asked Questions (FAQ)
 
 - [General questions](#general-questions)
-    - [Which events are currently supported via I/O?](#which-events-are-currently-supported-by-adobe-io-events)
-    - [What is the guarantee of events delivery](#what-is-the-guarantee-of-events-delivery)
+    - [Which events are currently supported by `Adobe I/O Events`?](#which-events-are-currently-supported-by-adobe-io-events)
+    - [What is the guarantee of events delivery?](#what-is-the-guarantee-of-events-delivery)
     - [Do you guarantee the order of events delivery?](#do-you-guarantee-the-order-of-events-delivery)
     - [What permissions are required to use I/O Events?](#what-permissions-are-required-to-use-io-events)
-    - [Which subscription types do I/O Events support ?](#which-subscription-types-do-io-events-support)
-    - [Are there other ways to access I/O Events?](#are-there-other-ways-to-access-io-events)    
+    - [Which subscription types do I/O Events support?](#which-subscription-types-do-io-events-support)
+    - [Are there other ways to access I/O Events?](#are-there-other-ways-to-access-io-events)
 
-- [Webhook FAQ](#webhook-faq)  
-    - [What happens if a webhook is down?](#what-happens-if-a-webhook-is-down)
-    - [How can I re-enable my webhook (disabled after a downtime)? How can I retrieve the events I missed?](#how-can-i-re-enable-my-webhook-disabled-after-a-downtime-how-can-i-retrieve-the-events-i-missed)
-    - [Does every Adobe I/O Events webhook HTTP requests come with a signature?](#does-every-adobe-io-events-webhook-http-requests-come-with-a-signature)
+- [Webhook FAQ](#webhook-faq)
+    - [What happens if my webhook is down? Why is my event registration marked as `Unstable`?](#what-happens-if-my-webhook-is-down-why-is-my-event-registration-marked-as-unstable)
+    - [How can I re-enable my event registration (disabled after a downtime)? How can I retrieve the events I missed?](#how-can-i-re-enable-my-event-registration-disabled-after-a-downtime-how-can-i-retrieve-the-events-i-missed)
+    - [What happens if my webhook is unable to handle a specific event but handles all other events gracefully?](#what-happens-if-my-webhook-is-unable-to-handle-a-specific-event-but-handles-all-other-events-gracefully)
+    - [Does every Adobe I/O Events webhook HTTP request come with a signature?](#does-every-adobe-io-events-webhook-http-request-come-with-a-signature)
     - [Do Adobe I/O Events notifications come from a range of static IPs?](#do-adobe-io-events-notifications-come-from-a-range-of-static-ips)
     - [What is the size of notifications when in batch delivery style?](#what-is-the-size-of-notifications-when-in-batch-delivery-style)
 
-- [Journaling FAQ](#journaling-faq)      
+- [Journaling FAQ](#journaling-faq)
     - [How far back are I/O Events available via the Journaling API?](#how-far-back-are-io-events-available-via-the-journaling-api)
-    - [Why do I only get one event, irrespective of the limit I use?](#why-do-i-only-get-one-event-irrespective-of-the-limit-i-use)
+    - [Why do I only get one event, irrespective of the `limit` I use?](#why-do-i-only-get-one-event-irrespective-of-the-limit-i-use)
     - [Is there a way to get the list of events all together at once?](#is-there-a-way-to-get-the-list-of-events-all-together-at-once)
 
 - [Custom Events FAQ](#custom-events-faq)
-    - [I created a `Custom Events Provider`, why is it not showing up in the `Adobe Developer console`?](#i-created-a-custom-events-provider-why-is-it-not-showing-up-in-the-adobe-developer-console)
-    
-- [JWT FAQ](#jwt-faq)    
+    - [I created a `Custom Events Provider`, why is it not showing up in the `Adobe Developer Console`?](#i-created-a-custom-events-provider-why-is-it-not-showing-up-in-the-adobe-developer-console)
+
+- [JWT FAQ](#jwt-faq)
     - [What is JWT and what is it used for?](#what-is-jwt-and-what-is-it-used-for)
     - [What are the metascopes my JWT token should claim? What are the access token authorization scopes expected by `Adobe I/O Events` APIs?](#what-are-the-metascopes-my-jwt-token-should-claim-what-are-the-access-token-authorization-scopes-expected-by-adobe-io-events-apis)
-    - [Where can I find documentation on JWT Service accounts and how to set them up?](#where-can-i-find-more-documentation-on-jwt-service-accounts-and-how-to-set-them-up)
+    - [Where can I find more documentation on JWT Service accounts and how to set them up?](#where-can-i-find-more-documentation-on-jwt-service-accounts-and-how-to-set-them-up)
     - [Do you have sample libraries for JWT?](#do-you-have-sample-libraries-for-jwt)
-    
+
 - [Analytics Triggers Events](#analytics-triggers-events)
     - [Where can I find instructions on setting up Analytics Triggers for I/O?](#where-can-i-find-instructions-on-setting-up-analytics-triggers-for-io)
     - [Where do I configure Analytics Triggers for I/O?](#where-do-i-configure-analytics-triggers-for-io)
@@ -40,8 +41,7 @@
 
 #### Which events are currently supported by `Adobe I/O Events`?
 
-We are adding new events providers regularly,
-at the time of writing, the following Adobe solutions are supported via I/O Events:
+We are adding new events providers regularly, at the time of writing, the following Adobe solutions are supported via I/O Events:
 
 * [Creative Cloud Assets](https://www.adobe.com/go/devs_events_cc_docs) (deprecated) 
 * Creative Cloud Libraries (replacing the above)
@@ -64,14 +64,13 @@ You can also register [your own `Custom Events Provider`](../using/custom_events
 #### What is the guarantee of events delivery? 
 
 `Adobe I/O Events` provides durable delivery. **It delivers each event at least once for each registration**. 
-If the webhook endpoint doesn't acknowledge receipt of an event, `Adobe I/O Events` retries the delivery of the event.
-(see the [webhook FAQ](#webhook-faq) section below)
+If the webhook endpoint doesn't acknowledge receipt of an event, `Adobe I/O Events` retries the delivery of the event (see the [webhook FAQ](#webhook-faq) section below).
 
-Note that `Adobe I/O Events` 
-* currently doesn't guarantee the order of events delivery, so subscribers may receive them out of order (this applies to our Journal API as well).
-* may send the same events more than once 
-* is adding a unique event uuid in the event payload 
-* is passing the same uuid in the `x-adobe-event-id` header of the webhook request
+Note that `Adobe I/O Events`:
+* Currently doesn't guarantee the order of events delivery, so subscribers may receive them out of order (this applies to our Journaling API as well).
+* May send the same events more than once.
+* Is adding a unique event uuid in the event payload.
+* Is passing the same uuid in the `x-adobe-event-id` header of the webhook request.
 
 #### Do you guarantee the order of events delivery? 
 
@@ -79,15 +78,13 @@ No, see the paragraph above for details.
 
 #### What permissions are required to use I/O Events?  
 
-The various required permissions and entitlements vary according to the events provider,
-(see the list above) some are opened to all Adobe customers, others to enterprise developers or administrators only.
+The various required permissions and entitlements vary according to the events provider, (see the list above) some are opened to all Adobe customers, others to enterprise developers or administrators only.
 Some of these events providers will require licensing, while others will be available to all. 
 Please reach out to your Adobe account manager for licensing related questions.
 
 #### Which subscription types do I/O Events support?  
 
-I/O Events supports [webhooks](../intro/webhooks_intro.md) for near-real time notifications (push) 
-as well as [a Journaling API](../intro/journaling_intro.md) (pull) to grab groups of events at a time.
+I/O Events supports [webhooks](../intro/webhooks_intro.md) for near-real time notifications (push) as well as [a Journaling API](../intro/journaling_intro.md) (pull) to grab groups of events at a time.
 
 #### Are there other ways to access I/O Events?
 
@@ -97,57 +94,50 @@ Yes:
 
 ## Webhook FAQ
 
-#### What happens if a webhook is down? 
+#### What happens if my webhook is down? Why is my event registration marked as `Unstable`?
 
-If `Adobe I/O Events` fails to receive a successful response code from your webhook within 10 seconds, 
-it retries the request, including a special header: `x-adobe-retry-count`.
-Adobe I/O Events will retry up to five times using an exponential backoff strategy
-(it will retry up to (1 + 2 + 4 + 8 + 16 =) 31 minutes). 
-After that time, if your webhook is still failing (with either no response or a response other than HTTP 2XX.), 
-Adobe I/O Events will mark it as invalid and stops sending requests.
+If `Adobe I/O Events` fails to receive a successful response code from your webhook within 10 seconds, it retries the request, including a special header `x-adobe-retry-count`. This header indicates how many times the delivery of an event or a batch of events has been attempted.
 
-Note you can then use the Journaling API to retrieve events that were published while your webhook was down.
-and once the webhook is back up, you can re-enable it, see the question below,
+`Adobe I/O Events` will keep on retrying delivery to your webhook for **24 hours** using exponential and fixed backoff strategies. The first retry is attempted after 1 minute and the period between retries doubles after each attempt, but is at most 15 minutes (see below table outlining the retry pattern).
 
-#### How can I re-enable my webhook (disabled after a downtime)? How can I retrieve the events I missed?
+| Retry Attempt        | 1  | 2  | 3  | 4  | 5   | 6   | 7   | ... |
+|----------------------|----|----|----|----|-----|-----|-----|-----|
+| Retry After Interval | 1m | 2m | 4m | 8m | 15m | 15m | 15m | ... |
 
-To restart the flow of requests, once you have fixed the problem preventing your webhook from responding, 
-you must log into the `Adobe Developer Console`, edit your events registration, 
-it will re-trigger a webhook challenge request, and eventually a webhook re-activation.
+If an event isn't delivered after 2 hours of retries, `Adobe I/O Events` marks the event registration as **Unstable**, but still keeps on attempting delivery. This gives you sufficient time to restore your webhook, and avoid your event registration from getting marked as Disabled. Once restored, it will be marked as **Active** on the next successful event delivery.
 
-While your webhook is marked `Disabled`, Adobe will continue to log events in your Journal, 
-allowing you to retrieve all events for the past 7 days 
-(see our [Journaling](../intro/journaling_intro.md) documentation).
+If all retry attempts get exhausted and the event still isn't delivered (webhook not responding or responding with a non `2XX` response), `Adobe I/O Events` drops the events, marks the event registration as **Disabled**, and stops sending any further events.
 
-#### Does every Adobe I/O Events webhook HTTP requests come with a signature? 
+Note: You can then use the [Journaling API](../intro/journaling_intro.md) to **retrieve** events that were published while your webhook was down. Once your webhook gets restored, you can re-enable your event registration (see the question below).
+
+#### How can I re-enable my event registration (disabled after a downtime)? How can I retrieve the events I missed?
+
+To restart the flow of requests, fix the problem preventing your webhook from responding. Then, log into the `Adobe Developer Console` and edit your event registration. This re-triggers a webhook challenge request, and eventually a re-activation of your event registration.
+
+While your event registration is marked `Disabled`, Adobe will continue to log events in your Journal, allowing you to retrieve all events for the past 7 days (see our [Journaling documentation](../intro/journaling_intro.md)).
+
+#### What happens if my webhook is unable to handle a specific event but handles all other events gracefully?
+
+In this case, we will continue to retry the event delivery for 24 hours, but if all retry attempts get exhausted and the event still isn't delivered, then the event will be dropped.
+However, do note that the event registration will remain as **Active** and shall continue to process events.
+
+#### Does every Adobe I/O Events webhook HTTP request come with a signature? 
      
-Yes, to allow your webhook to reject forged requests, 
-Adobe I/O Events adds a  [`x-adobe-signature`](../intro/webhooks_intro.md#authenticating-events) 
-header to every single HTTP request it makes to your webhook URL (even the first `challenge` GET request)
+Yes, to allow your webhook to reject forged requests, Adobe I/O Events adds a [`x-adobe-signature`](../intro/webhooks_intro.md#security-considerations) header to every single HTTP request it makes to your webhook URL (even the first `challenge` GET request).
       
 #### Do Adobe I/O Events notifications come from a range of static IPs? 
 
-We had a few customers asking this in the context of securing their endpoint; 
-their requirement: accepting traffic only from a range of static IPs.
+We had a few customers asking this in the context of securing their endpoint;  their requirement: accepting traffic only from a range of static IPs.
 
-The answer is no. Adobe I/O Events notifications services are hosted on AWS and Azure,
-their IPs change over time.
+The answer is **no**. Adobe I/O Events notifications services are hosted on AWS and Azure, their IPs change over time.
 
-Reminder: each Adobe I/O Events HTTP request
-holds an signature header (see the previous question), however if this is not enough 
-and if the above is a non-negotiable requirement, 
-you may choose to use the pull model instead, 
-and leverage our [Journaling API](../intro/journaling_intro.md).          
-
+*Reminder*: Each Adobe I/O Events HTTP request holds a signature header (see the previous question), however if this is not enough and if the above is a non-negotiable requirement, you may choose to use the pull model instead, and leverage our [Journaling API](../intro/journaling_intro.md).
 
 #### What is the size of notifications when in batch delivery style?
      
 When registering a webhook to receive Adobe I/O Events notifications, you can select the delivery style:
-* either receiving one event at a time ("Single"): each event resulting in an HTTP request to the webhook URL
-* or multiple events together ("Batch"): in this case, HTTP requests will still remain near-real time,  
-the batch size will vary depending on the incoming traffic 
-and the batch size will be at max 2MB bytes and will contain a maximum of 100 events.
-
+* Either receiving one event at a time ("Single"): each event resulting in an HTTP request to the webhook URL.
+* Or multiple events together ("Batch"): in this case, HTTP requests will still remain near-real time, the batch size will vary depending on the incoming traffic and the batch size will be at max 2MB bytes and will contain a maximum of 100 events.
 
 ## Journaling FAQ
 
@@ -157,64 +147,44 @@ Adobe I/O stores 7 days of subscribed events that can be retrieved via the Journ
 
 #### Why do I only get one event, irrespective of the `limit` I use?
 
-Our Journaling API `limit` parameter is used to specify the “maximum” number of events 
-that may be returned by the API.
-It is used to specify an upper bound to the number of events to ensure that the consumer 
-can handle the response gracefully. The behavior you observe is expected. 
-It is perfectly ok to get 1 event when you specify a limit greater than 1 . 
-The number of events that gets returned in a response 
-can vary depending on the incoming traffic (upper bound being equal to the limit parameter).
+Our Journaling API `limit` parameter is used to specify the “maximum” number of events that may be returned by the API.
+It is used to specify an upper bound to the number of events to ensure that the consumer can handle the response gracefully. The behavior you observe is expected. 
+It is perfectly ok to get 1 event when you specify a limit greater than 1. 
+The number of events that gets returned in a response can vary depending on the incoming traffic (upper bound being equal to the limit parameter).
 See our [Journaling API documentation](../api/journaling_api.md#limiting-the-size-of-the-batch) for more details.
      
 #### Is there a way to get the list of events all together at once?
      
-No, this query is not supported in our journaling API,
-however, using the `since` parameter you can follow the journal
- [`rel=next` `Link`]((../api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal)) 
- response header till the end.     
+No, this query is not supported in our journaling API, however, using the `since` parameter you can follow the journal [rel=next Link](../api/journaling_api.md#fetching-the-next-batch-of-newer-events-from-the-journal) response header till the end.     
      
 ## Custom Events FAQ
 
 #### I created a `Custom Events Provider`, why is it not showing up in the `Adobe Developer Console`?
 
-If you successfully create a `Custom Events Provider` using our [Provider API](../api/provider_api.md),
-it will only appear in the `Adobe Developer Console` once you create at least one `Event Metadata` associated with it.
+If you successfully create a `Custom Events Provider` using our [Provider API](../api/provider_api.md), it will only appear in the `Adobe Developer Console` once you create at least one `Event Metadata` associated with it.
 
 Once associated with its `Event Metadata`, your `Custom Events Provider` will be ready to be used:
-it will appear in your (refreshed) `Adobe Developer Console` project,
-you will be able to register against it 
-and to start emitting events on its behalf using our [Events Publishing API](../api/eventsingress_api.md).
+1. It will appear in your (refreshed) `Adobe Developer Console` project.
+2. You will be able to register against it.
+3. And to start emitting events on its behalf use our [Events Publishing API](../api/eventsingress_api.md).
      
 ## JWT FAQ
 
 #### What is JWT and what is it used for? 
 
-JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way 
-for securely transmitting information between parties as a JSON object. 
+JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. 
 For more information on JSON Web Tokens, see [Introduction to JSON Web Tokens](https://jwt.io/introduction/) on JWT.io.
 
-To establish a secure service-to-service session with the `Adobe I/O Events` API, 
-you must create a JSON Web Token (JWT) that encapsulates the identity of your integration, and then exchange it for an access token.
+To establish a secure service-to-service session with the `Adobe I/O Events` API, you must create a JSON Web Token (JWT) that encapsulates the identity of your integration, and then exchange it for an access token.
 
-Every request to an `Adobe I/O Events` API must then include this (JWT exchange originated) access token in the Authorization header, 
-along with the API Key that was generated when you created the Service Account Integration in the Adobe Developer Console
-(see our [JWT Service Account Authentication](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md)
- documentation for more details).
+Every request to an `Adobe I/O Events` API must then include this (JWT exchange originated) access token in the Authorization header, along with the API Key that was generated when you created the Service Account Integration in the Adobe Developer Console (see our [JWT Service Account Authentication](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/JWT.md) documentation for more details).
 
-Note that you should pay special attention to your [JWT Metascopes](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/Scopes.md) 
-describing the set of authorization scopes you want to claim with this jwt token (see next question for details)
+Note that you should pay special attention to your [JWT Metascopes](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/JWT/Scopes.md) describing the set of authorization scopes you want to claim with this jwt token (see next question for details)
 
 #### What are the metascopes my JWT token should claim? What are the access token authorization scopes expected by `Adobe I/O Events` APIs?
 
-* our [AEM](../using/aem-event-setup.md) connector leverages an API 
-that requires your access token to hold a `event_receiver_api` scope; 
-for this you need to add the `I/O Events` API in your `Adobe Developer Console` workspace
-adding `/s/event_receiver_api` metascope to your JWT claim (see the [AEM console setup documentation](../aem/aem_console_setup.md))
-* for all the other [`Adobe I/O Events` APIs](../api/api.md) 
-they require your access token to hold a `adobeio_api` scope 
-coming with the `I/O Management API`,
-adding a `s/ent_adobeio_sdk` metascope to the JWT claim.
-
+* Our [AEM](../using/aem-event-setup.md) connector leverages an API that requires your access token to hold a `event_receiver_api` scope; for this you need to add the `I/O Events` API in your `Adobe Developer Console` workspace adding `/s/event_receiver_api` metascope to your JWT claim (see the [AEM console setup documentation](../aem/aem_console_setup.md))
+* For all the other [`Adobe I/O Events` APIs](../api/api.md), they require your access token to hold a `adobeio_api` scope coming with the `I/O Management API`, adding a `s/ent_adobeio_sdk` metascope to the JWT claim.
 
 #### Where can I find more documentation on JWT Service accounts and how to set them up? 
 
