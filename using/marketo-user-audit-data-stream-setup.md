@@ -114,7 +114,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                     "source": "https://www.marketo.com",
                     "time": "2020-05-28T19:14:44.807Z",
                     "datacontenttype": "application/json",
-                    "dataschema": "V1.0",
+                    "dataschema": "V2.0",
                     "data": {
                         "componentId": 232459,
                         "componentType": "Email",
@@ -136,7 +136,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                     "source": "https://www.marketo.com",
                     "time": "2020-05-28T19:14:46.221Z",
                     "datacontenttype": "application/json",
-                    "dataschema": "V1.0",
+                    "dataschema": "V2.0",
                     "data": {
                         "componentId": 123321,
                         "componentType": "Landing Page",
@@ -162,7 +162,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                 "source": "https://www.marketo.com",
                 "time": "2020-05-28T19:20:47.283Z",
                 "datacontenttype": "application/json",
-                "dataschema": "V1.0",
+                "dataschema": "V2.0",
                 "data": {
                     "componentId": 232459,
                     "componentType": "Email",
