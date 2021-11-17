@@ -1,6 +1,10 @@
    
   
-## Adobe I/O Events Sling Health Checks
+## Adobe I/O Events AEM 6.4 Sling Health Checks
+
+Note we strongly recommend you go through an upgrade and instead use either
+* our [AEM version 6.5 package](aem_on_premise_install_6.5.md),
+* our [`AEM as cloud service` support](aem_skyline_install.md).
 
 ### Bundle configuration health heck 
 

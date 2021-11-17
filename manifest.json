@@ -47,12 +47,6 @@
           "title": "AEM Events",
           "pages": [
             {
-              "importedFileName": "aem_on_premise_install_6.3",
-              "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_install_6.3.md",
-              "title": "'AEM 6.2.x & 6.3.x on Premise' Events",
-              "pages": []
-            },
-            {
               "importedFileName": "aem_on_premise_install_6.4",
               "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_install_6.4.md",
               "title": "'AEM 6.4.x on Premise' Events",
@@ -89,21 +83,21 @@
               "pages": []
             },
             {
-              "importedFileName": "aem_cloud_service_config",
-              "path": "adobedocs/adobeio-events/master/aem/aem_cloud_service_config.md",
-              "title": "AEM 6.3 and prior `Cloud Services` configuration",
-              "pages": []
-            },
-            {
               "importedFileName": "aem_advanced_configurations",
               "path": "adobedocs/adobeio-events/master/aem/aem_advanced_configurations.md",
               "title": "AEM - Adobe I/O Events - advanced configurations",
               "pages": []
             },
             {
-              "importedFileName": "aem_on_premise_healthcheck",
-              "path": "adobedocs/adobeio-events/master/aem/aem_on_premise_healthcheck.md",
-              "title": "Adobe I/O Events Sling Health Checks",
+              "importedFileName": "aem_healthcheck_6_4",
+              "path": "adobedocs/adobeio-events/master/aem/aem_healthcheck_6_4.md",
+              "title": "Adobe I/O Events AEM 6.4 Sling Health Checks",
+              "pages": []
+            },
+            {
+              "importedFileName": "aem_healthcheck_servlet",
+              "path": "adobedocs/adobeio-events/master/aem/aem_healthcheck_servlet.md",
+              "title": "Adobe I/O Events Servlet Health Checks",
               "pages": []
             },
             {
