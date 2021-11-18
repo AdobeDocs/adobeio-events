@@ -24,7 +24,7 @@ This verifies that your IMS related configurations are correct and working.
    ![Health check for eventproxy,ims](../img/events_aem_22.png "Health check for ims-events")
 
 
-### IO Events registration health check 
+### Adobe I/O Events registration health check 
 
 In order to check that the AEM instance registered itself as an Adobe I/O Events Provider,
  execute a sling health check using the `csm-events` tag.

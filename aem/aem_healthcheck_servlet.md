@@ -14,13 +14,13 @@ It exposes the following sections:
 
 This section shows your AEM identification configurations: 
 * the Link Externalizer name: by default set to `author`
-* the Externalizer author Root Url
+* the Link Externalizer Root Url
 * the Adobe I/O Event Provider instance_id: derived from the above
 * the Adobe I/O Event Provider metadata: by default set to `aem`
 
-### Adobe IO Workspace Configuration checks
+### Adobe I/O Workspace Configuration checks
 
-This section shows 
+This section shows:
 * your [`Adobe Developer Console` worskpace OSGI configuration](./aem_console_setup.md): your consumerOrgId, projectId, workspaceId
 * your Project url: the associated https://developer.adobe.com/console deeplink
 
@@ -29,17 +29,17 @@ This section shows
 This section shows your [Adobe IMS configuration](./aem_ims_config.md)
 and checks that this AEM instance is able to exchange JWT tokens with Adobe IMS.
 
-### Adobe IO Events Osgi Mapping Configurations checks
+### Adobe I/O Events Osgi Mapping Configurations checks
 
-This section lists the `Adobe IO Events Osgi Mapping Configurations` you deployed. 
+This section lists the `Adobe I/O Events Osgi Mapping Configurations` you deployed. 
 
-### AEM as an Adobe IO Events provider checks
+### AEM as an Adobe I/O Events provider checks
 
 This section lists:
 * the Adobe I/O Events API url: by default `https://api.adobe.io/events/`
 * the ping to the above Adobe I/O Events API...
 * the Adobe I/O Events' Provider metadata persisted in Adobe I/O control plane 
-* the various Adobe IO Events' Metadata associated with the `Adobe IO Events Osgi Mapping Configurations` listed in the previous section
+* the various Adobe I/O Events' Metadata associated with the `Adobe I/O Events Osgi Mapping Configurations` listed in the previous section
 
 **Note that if needed, the above will also create/update the Adobe I/O Events Provider Metadata
 (POST-ing or PUT-ting it to Adobe I/O Events API)**
