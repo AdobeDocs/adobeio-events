@@ -157,10 +157,23 @@
           "title": "Privacy Events"
         },
         {
-          "importedFileName": "marketo-user-audit-data-stream-setup",
-          "pages": [],
-          "path": "adobedocs/adobeio-events/master/using/marketo-user-audit-data-stream-setup.md",
-          "title": "Marketo User Audit Data Stream"
+          "importedFileName": "marketo-data-streams",
+          "path": "adobedocs/adobeio-events/master/using/marketo-data-streams.md",
+          "title": "Marketo Data Streams",
+          "pages": [
+            {
+              "importedFileName": "marketo-observability-data-stream-setup",
+              "path": "adobedocs/adobeio-events/master/marketo/marketo-observability-data-stream-setup.md",
+              "title": "Marketo Observability Data Stream",
+              "pages": []
+            },
+            {
+              "importedFileName": "marketo-user-audit-data-stream-setup",
+              "path": "adobedocs/adobeio-events/master/marketo/marketo-user-audit-data-stream-setup.md",
+              "title": "Marketo User Audit Data Stream",
+              "pages": []
+            }
+          ]
         },
         {
           "importedFileName": "custom_events",
