@@ -39,7 +39,7 @@ For basic instructions for this use case, starting from [console.adobe.io](https
 - Filter by `Experience Cloud`
 - Select `Marketo Observability Data Stream`
 
-  ![Provider selection](../img/UserAuditDataStreamIOSetup3.png "Select event provider")
+  ![Provider selection](../img/MarketoObservability1.png "Select event provider")
 
 - Subscribe to the user driven change events of your choosing
 
