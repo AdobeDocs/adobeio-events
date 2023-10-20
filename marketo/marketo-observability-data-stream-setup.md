@@ -16,6 +16,8 @@ The Observability Data Stream provides insight into the data flow into Marketo t
 - Results - Per API request results for tracking and verification
 - Status - Periodic notices providing insight into the remaining API quota and any request processing backlog
 
+Note: MODS (Marketo Observability Data Stream) is currently a Beta Product
+
 ## Pre-Requisite Setup
 
 In order to subscribe to the data stream you need to have an Adobe Org with the Experience Cloud Entitlement, a Marketo subscription, and for the Marketo subscription to be mapped to the Adobe Org.
@@ -43,15 +45,15 @@ For basic instructions for this use case, starting from [console.adobe.io](https
 
 - Subscribe to the user driven change events of your choosing
 
-  ![Event selection](../img/UserAuditDataStreamIOSetup4.png "Select event subscriptions")
+  ![Event selection](../img/MarketoObservability2.png "Select event subscriptions")
 
-- Set up JWT Credentials (either generate a new key pair or upload a public key)
+- Set up authentication (either JWT or OAuth) to be used for accessing the Journaling API
 
-  ![Set up credentials](../img/UserAuditDataStreamIOSetup5.png "Set up credentials")
+  ![Set up credentials](../img/MarketoObservability3.png "Set up credentials")
 
 - Set up Event Registration
 
-  ![Complete registration](../img/UserAuditDataStreamIOSetup6.png "Complete registration")
+  ![Complete registration](../img/MarketoObservability4.png "Complete registration")
 
   - Provide a name and description for this event subscription
   - Optionally choose whether to enable Webhook or Runtime action
@@ -66,7 +68,7 @@ For basic instructions for this use case, starting from [console.adobe.io](https
       - Select a pre-made runtime action/runtime namespace
 - After Saving
 
-  ![Verify setup](../img/UserAuditDataStreamIOSetup7.png "Verify setup")
+  ![Verify setup](../img/MarketoObservability5.png "Verify setup")
   
   - Verify that the Status is `Active`
   - If Webhook was selected, verify that it successfully passed the challenge without errors
