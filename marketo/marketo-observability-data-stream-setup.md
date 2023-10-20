@@ -110,7 +110,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
     {
         "id": "b90382d8-6b23-11ee-b962-0242ac120002",
         "specversion": "1.0",
-        "type": "com.adobe.platform.marketo.input.stream.output.metrics",
+        "type": "com.adobe.platform.marketo.observability.metrics",
         "source": "urn:data_ingestion_service",
         "time": "2023-08-14T18:00:00Z",
         "datacontenttype": "application/json",
@@ -170,7 +170,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
     {
         "id": "b90382d8-6b23-11ee-b962-0242ac120002",
         "specversion": "1.0",
-        "type": "com.adobe.platform.marketo.input.stream.output.results",
+        "type": "com.adobe.platform.marketo.observability.results",
         "source": "urn:data_ingestion_service",
         "time": "2023-08-14T17:30:00Z",
         "datacontenttype": "application/json",
@@ -182,7 +182,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                     "requestTime": "2023-08-14T17:20:00Z",
                     "clientId": "foo@marketo.com",
                     "correlationId": "6180bb48-8dc7-4fc5-85ca-a59dd1edb0f3",
-                    "origin": "Adobe Journey Optimizer",
+                    "requestSource": "Adobe Journey Optimizer",
                     "objectType": "person",
                     "priority": "high",
                     "records": {
@@ -197,7 +197,7 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
                     "requestTime": "2023-08-14T17:20:00Z",
                     "clientId": "foo@marketo.com",
                     "correlationId": "6180bb48-8dc7-4fc5-85ca-a59dd1edb0f3",
-                    "origin": "Public API",
+                    "requestSource": "Public API",
                     "objectType": "customObject",
                     "priority": "normal",
                     "records": {
@@ -219,13 +219,12 @@ Events are structured in JSON format using the [CloudEvents](https://cloudevents
     {
         "id": "b90382d8-6b23-11ee-b962-0242ac120002",
         "specversion": "1.0",
-        "type": "com.adobe.platform.marketo.input.stream.output.status",
+        "type": "com.adobe.platform.marketo.observability.status",
         "source": "urn:data_ingestion_service",
         "time": "2023-08-14T18:00:00Z",
         "datacontenttype": "application/json",
         "data": {
             "munchkinId": "123-ABC-456",
-            "clientId": "foo@marketo.com",
             "quota": 65432100,
             "queue": {
                 "high": {
