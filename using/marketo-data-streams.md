@@ -17,15 +17,17 @@ In order to allow for additional scalability and further programmatic automation
 - Observability Data Stream (Beta)
 - User Audit Data Stream (Beta)
 
-At this time, only the Notification, Observability, and User Audit streams are available within Adobe I/O Events, the Lead and Metrics streams are can be subscribed to via alternate paths.
+At this time, only the Notification, Observability, and User Audit streams are available within Adobe I/O Events, the Lead and Metrics streams can be subscribed to via alternate paths.
+
+Note: The Marketo Data Streams are currently in Beta
 
 ## Subscribing to Marketo Events
 
-See [Getting Started with Adobe I/O Events](../readme.md)
+See the [Adobe I/O Events Docs](../readme.md)
 
 Here are some basic getting started instructions that will be the same for each of the available Marketo data streams in I/O Events.
 
-- Start from [console.adobe.io](https://console.adobe.io/):
+- Start from the [developer console](https://developer.adobe.com/console/home):
 
 - Select `Create new project`
 
@@ -72,3 +74,5 @@ Webhook Endpoint Requirements:
 [Debug Tracing](../support/tracing.md)
 
 Once you have successfully completed your setup and event subscription registration, events should start being stored in the journal.  In addition, if you have webhooks or runtime set up, the events will go through those flows.  From the project's page in the event registration details, you should see a tab for Debug Tracing.  For webhooks, this will show a record of failed and successful challenge attempts as well as webhook attempts.  Each request includes the request/response details to help debug.
+
+There is also an Event Browser tab which lets you manually look at events in the Journal from the Developer Console UI
