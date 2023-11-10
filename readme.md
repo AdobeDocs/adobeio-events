@@ -1,3 +1,12 @@
+# Status: Archived
+This repository has been archived and is no longer maintained.
+
+![status: inactive](https://img.shields.io/badge/status-inactive-red.svg)
+
+# Please use the latest repository at: https://github.com/AdobeDocs/adobe-io-events
+
+---
+
 # Adobe I/O Events
 
 **Adobe I/O Events** offer you a powerful way to integrate your application with Adobe services and solutions. Starting with Creative Cloud Assets, Adobe Experience Manager, and Adobe Analytics Triggers, we are adding events across our entire range of technologies.
